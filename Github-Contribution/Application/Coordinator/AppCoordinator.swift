@@ -6,3 +6,18 @@
 //
 
 import Foundation
+import UIKit
+
+final class AppCoordinator: Coordinator {
+    var window: UIWindow?
+    var rootViewController: UINavigationController
+    
+    init(window: UIWindow, rootViewController: UINavigationController) {
+        self.window = window
+        self.rootViewController = rootViewController
+    }
+    
+    func start() {
+        
+    }
+}

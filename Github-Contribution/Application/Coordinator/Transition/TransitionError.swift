@@ -8,5 +8,6 @@
 import Foundation
 
 enum TransitionError: Error {
+    case windowNil
     case invalidRootViewController
 }
