@@ -14,6 +14,7 @@ protocol ViewModel {
     associatedtype Output
     
     var backgroundColor: Driver<String> { get }
+    var title: Driver<String> { get }
     
     func transform(_ input: Input)-> Output
 }

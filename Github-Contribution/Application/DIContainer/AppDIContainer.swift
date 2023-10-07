@@ -11,6 +11,6 @@ final class AppDIContainer {
     
     
     func makeSplashViewModel()-> SplashViewModel {
-        .init()
+        .init(title: "Splash")
     }
 }

@@ -6,6 +6,8 @@
 //
 
 import Foundation
+import RxSwift
+import RxCocoa
 
 class SplashViewModel: ViewModel {
     struct Input {
@@ -14,6 +16,12 @@ class SplashViewModel: ViewModel {
     
     struct Output {
         
+    }
+    
+    var title: Driver<String>
+    
+    init(title: String) {
+        self.title = Observable.just(title).asDriver(onErrorJustReturn: "")
     }
     
     func transform(_ input: Input) -> Output {

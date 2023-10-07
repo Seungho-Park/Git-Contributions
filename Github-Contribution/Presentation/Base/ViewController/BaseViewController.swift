@@ -50,5 +50,10 @@ class BaseViewController<T: ViewModel>: UIViewController, ViewModelBindable {
             .map { UIColor(named: $0) }
             .drive(self.view.rx.backgroundColor)
             .disposed(by: rx.disposeBag)
+        
+        viewModel.title
+            .drive(self.navigationItem.rx.title)
+            .disposed(by: rx.disposeBag)
+        
     }
 }
