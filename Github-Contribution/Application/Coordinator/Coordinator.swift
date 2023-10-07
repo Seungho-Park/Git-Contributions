@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-protocol Coordinator: NSObject {
+protocol Coordinator: AnyObject {
     var window: UIWindow? { get set }
     var rootViewController: UIViewController? { get set }
     

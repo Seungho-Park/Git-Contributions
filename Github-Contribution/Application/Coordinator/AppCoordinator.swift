@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-final class AppCoordinator: NSObject, Coordinator {
+final class AppCoordinator: Coordinator {
     var window: UIWindow?
     var rootViewController: UIViewController? = nil
     let diContainer: AppDIContainer
