@@ -14,6 +14,8 @@
 		D416C54E2AD17C6300645F98 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D416C54D2AD17C6300645F98 /* ViewModel.swift */; };
 		D416C5502AD17C9400645F98 /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D416C54F2AD17C9400645F98 /* SplashViewController.swift */; };
 		D416C5522AD17C9B00645F98 /* SplashViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D416C5512AD17C9B00645F98 /* SplashViewModel.swift */; };
+		D416C5542AD1B3ED00645F98 /* ColorAssets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D416C5532AD1B3ED00645F98 /* ColorAssets.xcassets */; };
+		D416C5562AD1B47900645F98 /* AppAppearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = D416C5552AD1B47900645F98 /* AppAppearance.swift */; };
 		D488A1A72ACFC23200DC37FC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D488A1A62ACFC23200DC37FC /* AppDelegate.swift */; };
 		D488A1A92ACFC23200DC37FC /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D488A1A82ACFC23200DC37FC /* SceneDelegate.swift */; };
 		D488A1B02ACFC23300DC37FC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D488A1AF2ACFC23300DC37FC /* Assets.xcassets */; };
@@ -54,6 +56,8 @@
 		D416C54D2AD17C6300645F98 /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
 		D416C54F2AD17C9400645F98 /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
 		D416C5512AD17C9B00645F98 /* SplashViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewModel.swift; sourceTree = "<group>"; };
+		D416C5532AD1B3ED00645F98 /* ColorAssets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = ColorAssets.xcassets; sourceTree = "<group>"; };
+		D416C5552AD1B47900645F98 /* AppAppearance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppAppearance.swift; sourceTree = "<group>"; };
 		D488A1A32ACFC23200DC37FC /* Github-Contribution.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Github-Contribution.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D488A1A62ACFC23200DC37FC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D488A1A82ACFC23200DC37FC /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -237,6 +241,7 @@
 				D488A1D82AD04F1300DC37FC /* Coordinator */,
 				D488A1A62ACFC23200DC37FC /* AppDelegate.swift */,
 				D488A1A82ACFC23200DC37FC /* SceneDelegate.swift */,
+				D416C5552AD1B47900645F98 /* AppAppearance.swift */,
 			);
 			path = Application;
 			sourceTree = "<group>";
@@ -247,6 +252,7 @@
 				D488A1B12ACFC23300DC37FC /* LaunchScreen.storyboard */,
 				D488A1AF2ACFC23300DC37FC /* Assets.xcassets */,
 				D488A1B42ACFC23300DC37FC /* Info.plist */,
+				D416C5532AD1B3ED00645F98 /* ColorAssets.xcassets */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -393,6 +399,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D488A1B32ACFC23300DC37FC /* LaunchScreen.storyboard in Resources */,
+				D416C5542AD1B3ED00645F98 /* ColorAssets.xcassets in Resources */,
 				D488A1B02ACFC23300DC37FC /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -433,6 +440,7 @@
 				D488A1A92ACFC23200DC37FC /* SceneDelegate.swift in Sources */,
 				D488A1E22AD0520600DC37FC /* TransitionStyle.swift in Sources */,
 				D488A1DB2AD04F2100DC37FC /* AppDIContainer.swift in Sources */,
+				D416C5562AD1B47900645F98 /* AppAppearance.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
