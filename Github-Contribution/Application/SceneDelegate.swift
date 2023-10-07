@@ -22,7 +22,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         let diContainer = AppDIContainer()
         
-        let coordinator = AppCoordinator(window: window!, rootViewController: UINavigationController(), diContainer: diContainer)
+        let coordinator = AppCoordinator(window: window!, diContainer: diContainer)
         
         coordinator.start()
     }

@@ -8,9 +8,9 @@
 import Foundation
 import UIKit
 
-protocol Coordinator {
+protocol Coordinator: NSObject {
     var window: UIWindow? { get set }
-    var rootViewController: UINavigationController { get set }
+    var rootViewController: UIViewController? { get set }
     
     func start()
     
@@ -18,7 +18,7 @@ protocol Coordinator {
     func close(animated: Bool)
 }
 
-extension Coordinator where Self: NSObject {
+extension Coordinator {
     func transition(scene: Scene, transitionStyle: TransitionStyle, animated: Bool = true) {
         
         let vc = scene.instantiate()
@@ -30,21 +30,21 @@ extension Coordinator where Self: NSObject {
                 return
             }
             
-            rootViewController.pushViewController(vc, animated: animated)
-            window.rootViewController = rootViewController
-            window.makeKeyAndVisible()
-            
-        case .push:
-            guard let window = window, window.rootViewController == rootViewController else {
-                Log.e("\(Self.self)", message: TransitionError.invalidRootViewController.localizedDescription)
-                return
-            }
-            
-            rootViewController.pushViewController(vc, animated: animated)
-            
-        case .modal:
-            guard let sceneViewController = rootViewController.topViewController else {
+            if let navController = rootViewController as? UINavigationController {
                 
+            } else {
+                rootViewController = vc
+                window.rootViewController = rootViewController
+                window.makeKeyAndVisible()
+            }
+        case .push:
+            if let rootViewController = rootViewController as? UINavigationController {
+                rootViewController.pushViewController(vc, animated: animated)
+            } else {
+                //TODO: Error -
+            }
+        case .modal:
+            guard let sceneViewController = rootViewController?.sceneViewController else {
                 return
             }
             
@@ -53,7 +53,7 @@ extension Coordinator where Self: NSObject {
     }
     
     func close(animated: Bool = true) {
-        guard let sceneViewController = rootViewController.topViewController else {
+        guard let sceneViewController = rootViewController?.sceneViewController else {
             return
         }
         
@@ -63,6 +63,16 @@ extension Coordinator where Self: NSObject {
             navController.popViewController(animated: animated)
         } else {
             //TODO: Error -
+        }
+    }
+}
+
+private extension UIViewController {
+    var sceneViewController: UIViewController {
+        if let nav = self as? UINavigationController {
+            return nav.topViewController!
+        } else {
+            return self
         }
     }
 }

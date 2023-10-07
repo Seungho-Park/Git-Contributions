@@ -10,12 +10,11 @@ import UIKit
 
 final class AppCoordinator: NSObject, Coordinator {
     var window: UIWindow?
-    var rootViewController: UINavigationController
+    var rootViewController: UIViewController? = nil
     let diContainer: AppDIContainer
     
-    init(window: UIWindow, rootViewController: UINavigationController, diContainer: AppDIContainer) {
+    init(window: UIWindow, diContainer: AppDIContainer) {
         self.window = window
-        self.rootViewController = rootViewController
         self.diContainer = diContainer
     }
     
