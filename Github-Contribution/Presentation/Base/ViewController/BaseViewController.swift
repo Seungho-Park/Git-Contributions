@@ -7,8 +7,11 @@
 
 import Foundation
 import UIKit
+import RxSwift
+import RxCocoa
+import NSObject_Rx
 
-class BaseViewController<T>: UIViewController, ViewModelBindable {
+class BaseViewController<T: ViewModel>: UIViewController, ViewModelBindable {
     lazy var tag = "\(Self.self)"
     var viewModel: T!
     
@@ -43,6 +46,9 @@ class BaseViewController<T>: UIViewController, ViewModelBindable {
     }
     
     func bind() {
-        
+        viewModel.backgroundColor
+            .map { UIColor(named: $0) }
+            .drive(self.view.rx.backgroundColor)
+            .disposed(by: rx.disposeBag)
     }
 }

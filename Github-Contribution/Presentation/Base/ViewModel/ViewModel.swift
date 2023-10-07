@@ -6,10 +6,20 @@
 //
 
 import Foundation
+import RxSwift
+import RxCocoa
 
 protocol ViewModel {
     associatedtype Input
     associatedtype Output
     
+    var backgroundColor: Driver<String> { get }
+    
     func transform(_ input: Input)-> Output
+}
+
+extension ViewModel {
+    var backgroundColor: Driver<String> {
+        return Observable<String>.just("BackgroundVC").asDriver(onErrorJustReturn: "")
+    }
 }

@@ -31,7 +31,7 @@ extension Coordinator {
             }
             
             if let navController = rootViewController as? UINavigationController {
-                
+                navController.pushViewController(vc, animated: animated)
             } else {
                 rootViewController = vc
                 window.rootViewController = rootViewController

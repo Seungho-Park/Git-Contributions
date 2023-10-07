@@ -16,6 +16,9 @@
 		D416C5522AD17C9B00645F98 /* SplashViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D416C5512AD17C9B00645F98 /* SplashViewModel.swift */; };
 		D416C5542AD1B3ED00645F98 /* ColorAssets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D416C5532AD1B3ED00645F98 /* ColorAssets.xcassets */; };
 		D416C5562AD1B47900645F98 /* AppAppearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = D416C5552AD1B47900645F98 /* AppAppearance.swift */; };
+		D416C55A2AD1C78700645F98 /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = D416C5592AD1C78700645F98 /* RxCocoa */; };
+		D416C55C2AD1C78700645F98 /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = D416C55B2AD1C78700645F98 /* RxSwift */; };
+		D416C55F2AD1CAEA00645F98 /* NSObject-Rx in Frameworks */ = {isa = PBXBuildFile; productRef = D416C55E2AD1CAEA00645F98 /* NSObject-Rx */; };
 		D488A1A72ACFC23200DC37FC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D488A1A62ACFC23200DC37FC /* AppDelegate.swift */; };
 		D488A1A92ACFC23200DC37FC /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D488A1A82ACFC23200DC37FC /* SceneDelegate.swift */; };
 		D488A1B02ACFC23300DC37FC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D488A1AF2ACFC23300DC37FC /* Assets.xcassets */; };
@@ -82,6 +85,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D416C55C2AD1C78700645F98 /* RxSwift in Frameworks */,
+				D416C55F2AD1CAEA00645F98 /* NSObject-Rx in Frameworks */,
+				D416C55A2AD1C78700645F98 /* RxCocoa in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -310,6 +316,11 @@
 			dependencies = (
 			);
 			name = "Github-Contribution";
+			packageProductDependencies = (
+				D416C5592AD1C78700645F98 /* RxCocoa */,
+				D416C55B2AD1C78700645F98 /* RxSwift */,
+				D416C55E2AD1CAEA00645F98 /* NSObject-Rx */,
+			);
 			productName = "Github-Contribution";
 			productReference = D488A1A32ACFC23200DC37FC /* Github-Contribution.app */;
 			productType = "com.apple.product-type.application";
@@ -382,6 +393,11 @@
 				Base,
 			);
 			mainGroup = D488A19A2ACFC23200DC37FC;
+			packageReferences = (
+				D416C5572AD1C76600645F98 /* XCRemoteSwiftPackageReference "SnapKit" */,
+				D416C5582AD1C78700645F98 /* XCRemoteSwiftPackageReference "RxSwift" */,
+				D416C55D2AD1CAEA00645F98 /* XCRemoteSwiftPackageReference "NSObject-Rx" */,
+			);
 			productRefGroup = D488A1A42ACFC23200DC37FC /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -779,6 +795,51 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		D416C5572AD1C76600645F98 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
+			requirement = {
+				kind = exactVersion;
+				version = 5.6.0;
+			};
+		};
+		D416C5582AD1C78700645F98 /* XCRemoteSwiftPackageReference "RxSwift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ReactiveX/RxSwift.git";
+			requirement = {
+				kind = exactVersion;
+				version = 6.6.0;
+			};
+		};
+		D416C55D2AD1CAEA00645F98 /* XCRemoteSwiftPackageReference "NSObject-Rx" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/RxSwiftCommunity/NSObject-Rx.git";
+			requirement = {
+				kind = exactVersion;
+				version = 5.2.2;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		D416C5592AD1C78700645F98 /* RxCocoa */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D416C5582AD1C78700645F98 /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxCocoa;
+		};
+		D416C55B2AD1C78700645F98 /* RxSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D416C5582AD1C78700645F98 /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxSwift;
+		};
+		D416C55E2AD1CAEA00645F98 /* NSObject-Rx */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D416C55D2AD1CAEA00645F98 /* XCRemoteSwiftPackageReference "NSObject-Rx" */;
+			productName = "NSObject-Rx";
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = D488A19B2ACFC23200DC37FC /* Project object */;
 }
