@@ -6,3 +6,15 @@
 //
 
 import Foundation
+import UIKit
+
+class SplashViewController: BaseViewController<SplashViewModel> {
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+    }
+    
+    override func bind() {
+        super.bind()
+    }
+}

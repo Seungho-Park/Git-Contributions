@@ -9,10 +9,13 @@ import Foundation
 import UIKit
 
 class BaseViewController<T>: UIViewController, ViewModelBindable {
+    lazy var tag = "\(Self.self)"
     var viewModel: T!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        Log.i(tag, message: "viewDidLoad()")
     }
     
     func bind() {

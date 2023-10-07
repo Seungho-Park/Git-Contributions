@@ -8,16 +8,18 @@
 import Foundation
 import UIKit
 
-final class AppCoordinator: Coordinator {
+final class AppCoordinator: NSObject, Coordinator {
     var window: UIWindow?
     var rootViewController: UINavigationController
+    let diContainer: AppDIContainer
     
-    init(window: UIWindow, rootViewController: UINavigationController) {
+    init(window: UIWindow, rootViewController: UINavigationController, diContainer: AppDIContainer) {
         self.window = window
         self.rootViewController = rootViewController
+        self.diContainer = diContainer
     }
     
     func start() {
-        
+        transition(scene: AppScene.splash(diContainer.makeSplashViewModel()), transitionStyle: .root)
     }
 }

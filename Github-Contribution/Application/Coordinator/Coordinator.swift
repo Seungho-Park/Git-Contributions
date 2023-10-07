@@ -14,37 +14,55 @@ protocol Coordinator {
     
     func start()
     
-    mutating func transition(scene: Scene, transitionStyle: TransitionStyle, animated: Bool)
-    mutating func close(animated: Bool)
+    func transition(scene: Scene, transitionStyle: TransitionStyle, animated: Bool)
+    func close(animated: Bool)
 }
 
-extension Coordinator {
-    mutating func transition(scene: Scene, transitionStyle: TransitionStyle, animated: Bool = true) {
+extension Coordinator where Self: NSObject {
+    func transition(scene: Scene, transitionStyle: TransitionStyle, animated: Bool = true) {
         
         let vc = scene.instantiate()
         
         switch transitionStyle {
         case .root:
             guard let window = window else {
-                print(TransitionError.windowNil)
+                Log.e("\(Self.self)", message: TransitionError.windowNil.localizedDescription)
                 return
             }
             
             rootViewController.pushViewController(vc, animated: animated)
             window.rootViewController = rootViewController
             window.makeKeyAndVisible()
-        case .push: break
-        case .modal: break
+            
+        case .push:
+            guard let window = window, window.rootViewController == rootViewController else {
+                Log.e("\(Self.self)", message: TransitionError.invalidRootViewController.localizedDescription)
+                return
+            }
+            
+            rootViewController.pushViewController(vc, animated: animated)
+            
+        case .modal:
+            guard let sceneViewController = rootViewController.topViewController else {
+                
+                return
+            }
+            
+            sceneViewController.present(vc, animated: animated)
         }
     }
     
-    mutating func close(animated: Bool = true) {
+    func close(animated: Bool = true) {
+        guard let sceneViewController = rootViewController.topViewController else {
+            return
+        }
         
-    }
-}
-
-private extension UIViewController {
-    var sceneViewController: UIViewController {
-        self.children.first ?? self
+        if let presentedVC = sceneViewController.presentedViewController {
+            presentedVC.dismiss(animated: animated)
+        } else if let navController = sceneViewController.navigationController{
+            navController.popViewController(animated: animated)
+        } else {
+            //TODO: Error -
+        }
     }
 }

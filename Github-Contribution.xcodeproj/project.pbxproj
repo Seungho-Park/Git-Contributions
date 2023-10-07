@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D416C53E2AD167B700645F98 /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = D416C53D2AD167B700645F98 /* Log.swift */; };
+		D416C5402AD1799800645F98 /* AppScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = D416C53F2AD1799800645F98 /* AppScene.swift */; };
+		D416C5452AD17B0100645F98 /* ViewModelBindable.swift in Sources */ = {isa = PBXBuildFile; fileRef = D416C5442AD17B0100645F98 /* ViewModelBindable.swift */; };
+		D416C5472AD17BEC00645F98 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D416C5462AD17BEC00645F98 /* BaseViewController.swift */; };
+		D416C54E2AD17C6300645F98 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D416C54D2AD17C6300645F98 /* ViewModel.swift */; };
+		D416C5502AD17C9400645F98 /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D416C54F2AD17C9400645F98 /* SplashViewController.swift */; };
+		D416C5522AD17C9B00645F98 /* SplashViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D416C5512AD17C9B00645F98 /* SplashViewModel.swift */; };
 		D488A1A72ACFC23200DC37FC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D488A1A62ACFC23200DC37FC /* AppDelegate.swift */; };
 		D488A1A92ACFC23200DC37FC /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D488A1A82ACFC23200DC37FC /* SceneDelegate.swift */; };
 		D488A1B02ACFC23300DC37FC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D488A1AF2ACFC23300DC37FC /* Assets.xcassets */; };
@@ -40,6 +47,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		D416C53D2AD167B700645F98 /* Log.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Log.swift; sourceTree = "<group>"; };
+		D416C53F2AD1799800645F98 /* AppScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppScene.swift; sourceTree = "<group>"; };
+		D416C5442AD17B0100645F98 /* ViewModelBindable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelBindable.swift; sourceTree = "<group>"; };
+		D416C5462AD17BEC00645F98 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
+		D416C54D2AD17C6300645F98 /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
+		D416C54F2AD17C9400645F98 /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
+		D416C5512AD17C9B00645F98 /* SplashViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewModel.swift; sourceTree = "<group>"; };
 		D488A1A32ACFC23200DC37FC /* Github-Contribution.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Github-Contribution.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D488A1A62ACFC23200DC37FC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D488A1A82ACFC23200DC37FC /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -84,6 +98,89 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D416C53B2AD167A400645F98 /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				D416C53C2AD167B000645F98 /* Log */,
+			);
+			path = Helper;
+			sourceTree = "<group>";
+		};
+		D416C53C2AD167B000645F98 /* Log */ = {
+			isa = PBXGroup;
+			children = (
+				D416C53D2AD167B700645F98 /* Log.swift */,
+			);
+			path = Log;
+			sourceTree = "<group>";
+		};
+		D416C5412AD17AD400645F98 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		D416C5422AD17AE500645F98 /* Presentation */ = {
+			isa = PBXGroup;
+			children = (
+				D416C5442AD17B0100645F98 /* ViewModelBindable.swift */,
+				D416C5432AD17AF300645F98 /* Base */,
+				D416C5482AD17C2E00645F98 /* Splash */,
+			);
+			path = Presentation;
+			sourceTree = "<group>";
+		};
+		D416C5432AD17AF300645F98 /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				D416C54C2AD17C4F00645F98 /* ViewModel */,
+				D416C54B2AD17C4A00645F98 /* ViewController */,
+			);
+			path = Base;
+			sourceTree = "<group>";
+		};
+		D416C5482AD17C2E00645F98 /* Splash */ = {
+			isa = PBXGroup;
+			children = (
+				D416C54A2AD17C4300645F98 /* ViewModel */,
+				D416C5492AD17C3D00645F98 /* ViewController */,
+			);
+			path = Splash;
+			sourceTree = "<group>";
+		};
+		D416C5492AD17C3D00645F98 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				D416C54F2AD17C9400645F98 /* SplashViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		D416C54A2AD17C4300645F98 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				D416C5512AD17C9B00645F98 /* SplashViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		D416C54B2AD17C4A00645F98 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				D416C5462AD17BEC00645F98 /* BaseViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		D416C54C2AD17C4F00645F98 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				D416C54D2AD17C6300645F98 /* ViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 		D488A19A2ACFC23200DC37FC = {
 			isa = PBXGroup;
 			children = (
@@ -108,6 +205,9 @@
 			isa = PBXGroup;
 			children = (
 				D488A1D62ACFC28400DC37FC /* Application */,
+				D416C5422AD17AE500645F98 /* Presentation */,
+				D416C53B2AD167A400645F98 /* Helper */,
+				D416C5412AD17AD400645F98 /* Utils */,
 				D488A1D72ACFC28F00DC37FC /* Resources */,
 			);
 			path = "Github-Contribution";
@@ -174,6 +274,7 @@
 			isa = PBXGroup;
 			children = (
 				D488A1DF2AD0518B00DC37FC /* Scene.swift */,
+				D416C53F2AD1799800645F98 /* AppScene.swift */,
 			);
 			path = Scene;
 			sourceTree = "<group>";
@@ -317,8 +418,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D416C5522AD17C9B00645F98 /* SplashViewModel.swift in Sources */,
 				D488A1DD2AD04F3000DC37FC /* Coordinator.swift in Sources */,
 				D488A1A72ACFC23200DC37FC /* AppDelegate.swift in Sources */,
+				D416C5402AD1799800645F98 /* AppScene.swift in Sources */,
+				D416C53E2AD167B700645F98 /* Log.swift in Sources */,
+				D416C5452AD17B0100645F98 /* ViewModelBindable.swift in Sources */,
+				D416C5502AD17C9400645F98 /* SplashViewController.swift in Sources */,
+				D416C5472AD17BEC00645F98 /* BaseViewController.swift in Sources */,
+				D416C54E2AD17C6300645F98 /* ViewModel.swift in Sources */,
 				D488A1E02AD0518B00DC37FC /* Scene.swift in Sources */,
 				D488A1E52AD052D900DC37FC /* TransitionError.swift in Sources */,
 				D488A1E72AD0560800DC37FC /* AppCoordinator.swift in Sources */,
@@ -424,7 +532,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
@@ -481,7 +589,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
@@ -503,7 +611,6 @@
 				INFOPLIST_FILE = "Github-Contribution/Resources/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
@@ -532,7 +639,6 @@
 				INFOPLIST_FILE = "Github-Contribution/Resources/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;

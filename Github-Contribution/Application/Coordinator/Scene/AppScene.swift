@@ -6,3 +6,15 @@
 //
 
 import Foundation
+import UIKit
+
+enum AppScene: Scene {
+    case splash(SplashViewModel)
+    
+    func instantiate() -> UIViewController {
+        switch self {
+        case .splash(let viewModel):
+            return SplashViewController.create(viewModel: viewModel)
+        }
+    }
+}

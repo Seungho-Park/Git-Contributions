@@ -9,4 +9,8 @@ import Foundation
 
 final class AppDIContainer {
     
+    
+    func makeSplashViewModel()-> SplashViewModel {
+        .init()
+    }
 }

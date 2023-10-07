@@ -6,3 +6,17 @@
 //
 
 import Foundation
+
+class SplashViewModel: ViewModel {
+    struct Input {
+        
+    }
+    
+    struct Output {
+        
+    }
+    
+    func transform(_ input: Input) -> Output {
+        .init()
+    }
+}
