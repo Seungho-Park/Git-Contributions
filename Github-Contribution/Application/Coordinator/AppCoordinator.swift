@@ -21,4 +21,14 @@ final class AppCoordinator: Coordinator {
     func start() {
         transition(scene: AppScene.splash(diContainer.makeSplashViewModel()), transitionStyle: .root)
     }
+    
+    private func showLoginScene() {
+        let loginDiContainer = diContainer.makeLoginSceneDIContainer()
+        let coordinator = loginDiContainer.makeLoginSceneCoordinator()
+        coordinator.start()
+    }
+    
+    private func showMainScene() {
+        
+    }
 }

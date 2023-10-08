@@ -22,5 +22,7 @@ class SplashViewController: BaseViewController<SplashViewModel> {
     
     override func bind() {
         super.bind()
+        
+        
     }
 }

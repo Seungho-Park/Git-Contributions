@@ -9,8 +9,11 @@ import Foundation
 
 final class AppDIContainer {
     
-    
     func makeSplashViewModel()-> SplashViewModel {
         .init(title: "Splash")
+    }
+    
+    func makeLoginSceneDIContainer()-> LoginSceneDIContainer {
+        return LoginSceneDIContainer()
     }
 }

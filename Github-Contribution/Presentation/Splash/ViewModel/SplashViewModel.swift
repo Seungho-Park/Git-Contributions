@@ -15,7 +15,7 @@ class SplashViewModel: ViewModel {
     }
     
     struct Output {
-        
+        let isLogin: Observable<Bool>
     }
     
     var title: Driver<String>
@@ -25,6 +25,8 @@ class SplashViewModel: ViewModel {
     }
     
     func transform(_ input: Input) -> Output {
-        .init()
+        return Output(
+            isLogin: Observable<Bool>.just(false)
+        )
     }
 }

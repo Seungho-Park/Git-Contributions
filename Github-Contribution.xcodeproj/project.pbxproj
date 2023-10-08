@@ -19,6 +19,9 @@
 		D416C55A2AD1C78700645F98 /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = D416C5592AD1C78700645F98 /* RxCocoa */; };
 		D416C55C2AD1C78700645F98 /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = D416C55B2AD1C78700645F98 /* RxSwift */; };
 		D416C55F2AD1CAEA00645F98 /* NSObject-Rx in Frameworks */ = {isa = PBXBuildFile; productRef = D416C55E2AD1CAEA00645F98 /* NSObject-Rx */; };
+		D42F79792AD28742007B0BCC /* LoginSceneCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D42F79782AD28742007B0BCC /* LoginSceneCoordinator.swift */; };
+		D42F797C2AD287A5007B0BCC /* LoginSceneDIContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = D42F797B2AD287A5007B0BCC /* LoginSceneDIContainer.swift */; };
+		D42F797F2AD2885C007B0BCC /* ImageAssets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D42F797E2AD2885C007B0BCC /* ImageAssets.xcassets */; };
 		D488A1A72ACFC23200DC37FC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D488A1A62ACFC23200DC37FC /* AppDelegate.swift */; };
 		D488A1A92ACFC23200DC37FC /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D488A1A82ACFC23200DC37FC /* SceneDelegate.swift */; };
 		D488A1B02ACFC23300DC37FC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D488A1AF2ACFC23300DC37FC /* Assets.xcassets */; };
@@ -61,6 +64,9 @@
 		D416C5512AD17C9B00645F98 /* SplashViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewModel.swift; sourceTree = "<group>"; };
 		D416C5532AD1B3ED00645F98 /* ColorAssets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = ColorAssets.xcassets; sourceTree = "<group>"; };
 		D416C5552AD1B47900645F98 /* AppAppearance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppAppearance.swift; sourceTree = "<group>"; };
+		D42F79782AD28742007B0BCC /* LoginSceneCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginSceneCoordinator.swift; sourceTree = "<group>"; };
+		D42F797B2AD287A5007B0BCC /* LoginSceneDIContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginSceneDIContainer.swift; sourceTree = "<group>"; };
+		D42F797E2AD2885C007B0BCC /* ImageAssets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = ImageAssets.xcassets; sourceTree = "<group>"; };
 		D488A1A32ACFC23200DC37FC /* Github-Contribution.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Github-Contribution.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D488A1A62ACFC23200DC37FC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D488A1A82ACFC23200DC37FC /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -127,6 +133,7 @@
 		D416C5412AD17AD400645F98 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				D42F79772AD2871F007B0BCC /* Protocols */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -134,9 +141,9 @@
 		D416C5422AD17AE500645F98 /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
-				D416C5442AD17B0100645F98 /* ViewModelBindable.swift */,
 				D416C5432AD17AF300645F98 /* Base */,
 				D416C5482AD17C2E00645F98 /* Splash */,
+				D42F79752AD28705007B0BCC /* LoginScene */,
 			);
 			path = Presentation;
 			sourceTree = "<group>";
@@ -189,6 +196,32 @@
 				D416C54D2AD17C6300645F98 /* ViewModel.swift */,
 			);
 			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		D42F79752AD28705007B0BCC /* LoginScene */ = {
+			isa = PBXGroup;
+			children = (
+				D42F79782AD28742007B0BCC /* LoginSceneCoordinator.swift */,
+			);
+			path = LoginScene;
+			sourceTree = "<group>";
+		};
+		D42F79772AD2871F007B0BCC /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				D416C5442AD17B0100645F98 /* ViewModelBindable.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		D42F797D2AD2883E007B0BCC /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				D488A1AF2ACFC23300DC37FC /* Assets.xcassets */,
+				D416C5532AD1B3ED00645F98 /* ColorAssets.xcassets */,
+				D42F797E2AD2885C007B0BCC /* ImageAssets.xcassets */,
+			);
+			path = Assets;
 			sourceTree = "<group>";
 		};
 		D488A19A2ACFC23200DC37FC = {
@@ -255,10 +288,9 @@
 		D488A1D72ACFC28F00DC37FC /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				D42F797D2AD2883E007B0BCC /* Assets */,
 				D488A1B12ACFC23300DC37FC /* LaunchScreen.storyboard */,
-				D488A1AF2ACFC23300DC37FC /* Assets.xcassets */,
 				D488A1B42ACFC23300DC37FC /* Info.plist */,
-				D416C5532AD1B3ED00645F98 /* ColorAssets.xcassets */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -278,6 +310,7 @@
 			isa = PBXGroup;
 			children = (
 				D488A1DA2AD04F2100DC37FC /* AppDIContainer.swift */,
+				D42F797B2AD287A5007B0BCC /* LoginSceneDIContainer.swift */,
 			);
 			path = DIContainer;
 			sourceTree = "<group>";
@@ -416,6 +449,7 @@
 			files = (
 				D488A1B32ACFC23300DC37FC /* LaunchScreen.storyboard in Resources */,
 				D416C5542AD1B3ED00645F98 /* ColorAssets.xcassets in Resources */,
+				D42F797F2AD2885C007B0BCC /* ImageAssets.xcassets in Resources */,
 				D488A1B02ACFC23300DC37FC /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -441,6 +475,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D42F79792AD28742007B0BCC /* LoginSceneCoordinator.swift in Sources */,
 				D416C5522AD17C9B00645F98 /* SplashViewModel.swift in Sources */,
 				D488A1DD2AD04F3000DC37FC /* Coordinator.swift in Sources */,
 				D488A1A72ACFC23200DC37FC /* AppDelegate.swift in Sources */,
@@ -457,6 +492,7 @@
 				D488A1E22AD0520600DC37FC /* TransitionStyle.swift in Sources */,
 				D488A1DB2AD04F2100DC37FC /* AppDIContainer.swift in Sources */,
 				D416C5562AD1B47900645F98 /* AppAppearance.swift in Sources */,
+				D42F797C2AD287A5007B0BCC /* LoginSceneDIContainer.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
