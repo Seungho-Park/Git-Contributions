@@ -6,10 +6,15 @@
 //
 
 import Foundation
+import UIKit
 
 class LoginSceneDIContainer {
     
-    func makeLoginSceneCoordinator()-> LoginSceneCoordinator {
-        return LoginSceneCoordinator(diContainer: self)
+    func makeLoginSceneCoordinator(window: UIWindow)-> LoginSceneCoordinator {
+        return LoginSceneCoordinator(window: window, diContainer: self)
+    }
+    
+    func makeStartViewModel()-> StartViewModel {
+        return StartViewModel()
     }
 }

@@ -9,8 +9,8 @@ import Foundation
 
 final class AppDIContainer {
     
-    func makeSplashViewModel()-> SplashViewModel {
-        .init(title: "Splash")
+    func makeSplashViewModel(actions: SplashViewModel.SplashViewModelAction)-> SplashViewModel {
+        .init(title: "Splash", actions: actions)
     }
     
     func makeLoginSceneDIContainer()-> LoginSceneDIContainer {

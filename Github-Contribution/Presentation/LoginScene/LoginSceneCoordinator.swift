@@ -13,13 +13,13 @@ final class LoginSceneCoordinator: Coordinator {
     var rootViewController: UIViewController?
     var diContainer: LoginSceneDIContainer
     
-    init(window: UIWindow? = nil, diContainer: LoginSceneDIContainer) {
+    init(window: UIWindow?, diContainer: LoginSceneDIContainer) {
         self.window = window
         self.rootViewController = UINavigationController.init()
         self.diContainer = diContainer
     }
     
     func start() {
-        
+        transition(scene: AppScene.login(diContainer.makeStartViewModel()), transitionStyle: .root)
     }
 }

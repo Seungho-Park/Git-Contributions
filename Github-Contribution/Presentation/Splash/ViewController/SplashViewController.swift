@@ -7,22 +7,36 @@
 
 import Foundation
 import UIKit
+import RxSwift
+import RxCocoa
 
 class SplashViewController: BaseViewController<SplashViewModel> {
+    private lazy var logoView: LogoView = LogoView(frame: .zero)
+    
+    private let isAppear: BehaviorRelay<Bool> = .init(value: false)
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        addSubview(logoView)
+        logoView.snp.makeConstraints { make in
+            make.centerY.equalToSuperview()
+            make.leading.trailing.equalToSuperview()
+            make.height.equalToSuperview().multipliedBy(0.15)
+        }
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
         
+        isAppear.accept(true)
     }
     
     override func bind() {
         super.bind()
         
-        
+        let output = viewModel.transform(SplashViewModel.Input(
+            viewDidAppear: isAppear.asObservable())
+        )
     }
 }

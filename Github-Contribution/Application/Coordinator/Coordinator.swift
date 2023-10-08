@@ -34,9 +34,10 @@ extension Coordinator {
                 navController.pushViewController(vc, animated: animated)
             } else {
                 rootViewController = vc
-                window.rootViewController = rootViewController
-                window.makeKeyAndVisible()
             }
+            
+            window.rootViewController = rootViewController
+            window.makeKeyAndVisible()
         case .push:
             if let rootViewController = rootViewController as? UINavigationController {
                 rootViewController.pushViewController(vc, animated: animated)

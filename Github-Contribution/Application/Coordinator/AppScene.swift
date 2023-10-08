@@ -10,11 +10,14 @@ import UIKit
 
 enum AppScene: Scene {
     case splash(SplashViewModel)
+    case login(StartViewModel)
     
     func instantiate() -> UIViewController {
         switch self {
         case .splash(let viewModel):
             return SplashViewController.create(viewModel: viewModel)
+        case .login(let viewModel):
+            return StartViewController.create(viewModel: viewModel)
         }
     }
 }

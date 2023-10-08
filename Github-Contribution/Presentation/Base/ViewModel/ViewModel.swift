@@ -9,7 +9,7 @@ import Foundation
 import RxSwift
 import RxCocoa
 
-protocol ViewModel {
+protocol ViewModel: NSObject {
     associatedtype Input
     associatedtype Output
     
