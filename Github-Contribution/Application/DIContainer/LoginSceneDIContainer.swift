@@ -14,7 +14,11 @@ class LoginSceneDIContainer {
         return LoginSceneCoordinator(window: window, diContainer: self)
     }
     
-    func makeStartViewModel()-> StartViewModel {
-        return StartViewModel()
+    func makeStartViewModel(actions: StartViewModel.Actions)-> StartViewModel {
+        return StartViewModel(actions: actions)
+    }
+    
+    func makePlatformViewModel()-> PlatformViewModel {
+        return PlatformViewModel()
     }
 }

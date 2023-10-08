@@ -8,23 +8,37 @@
 import Foundation
 import RxSwift
 import RxCocoa
+import NSObject_Rx
 
-class StartViewModel: NSObject, ViewModel {
+extension StartViewModel {
+    struct Actions {
+        let showSelectPlatform: ()-> Void
+        let showLoginScene: ()-> Void
+    }
+    
     struct Input {
-        
+        let touchedStartButton: Observable<Void>
     }
     
     struct Output {
         
     }
-    
+}
+
+class StartViewModel: NSObject, ViewModel {
     var title: Driver<String>
+    let actions: Actions
     
-    init(title: String = "시작하기") {
+    init(title: String = "시작하기", actions: Actions) {
         self.title = Observable.just(title).asDriver(onErrorJustReturn: "시작하기")
+        self.actions = actions
     }
     
     func transform(_ input: Input) -> Output {
+        input.touchedStartButton
+            .subscribe { [unowned self] _ in
+                self.actions.showSelectPlatform()
+            }.disposed(by: rx.disposeBag)
         return .init()
     }
 }

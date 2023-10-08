@@ -29,6 +29,9 @@
 		D42F79902AD2BC89007B0BCC /* StartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D42F798F2AD2BC89007B0BCC /* StartViewController.swift */; };
 		D42F79952AD2C4E9007B0BCC /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D42F79942AD2C4E9007B0BCC /* LoginViewController.swift */; };
 		D42F79972AD2C64C007B0BCC /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D42F79962AD2C64C007B0BCC /* LoginViewModel.swift */; };
+		D42F79992AD3260B007B0BCC /* PlatformViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D42F79982AD3260B007B0BCC /* PlatformViewController.swift */; };
+		D42F799B2AD32624007B0BCC /* PlatformViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D42F799A2AD32624007B0BCC /* PlatformViewModel.swift */; };
+		D42F799E2AD3277F007B0BCC /* LoginScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = D42F799D2AD3277F007B0BCC /* LoginScene.swift */; };
 		D488A1A72ACFC23200DC37FC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D488A1A62ACFC23200DC37FC /* AppDelegate.swift */; };
 		D488A1A92ACFC23200DC37FC /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D488A1A82ACFC23200DC37FC /* SceneDelegate.swift */; };
 		D488A1B02ACFC23300DC37FC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D488A1AF2ACFC23300DC37FC /* Assets.xcassets */; };
@@ -80,6 +83,9 @@
 		D42F798F2AD2BC89007B0BCC /* StartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartViewController.swift; sourceTree = "<group>"; };
 		D42F79942AD2C4E9007B0BCC /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		D42F79962AD2C64C007B0BCC /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
+		D42F79982AD3260B007B0BCC /* PlatformViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlatformViewController.swift; sourceTree = "<group>"; };
+		D42F799A2AD32624007B0BCC /* PlatformViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlatformViewModel.swift; sourceTree = "<group>"; };
+		D42F799D2AD3277F007B0BCC /* LoginScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginScene.swift; sourceTree = "<group>"; };
 		D488A1A32ACFC23200DC37FC /* Github-Contribution.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Github-Contribution.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D488A1A62ACFC23200DC37FC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D488A1A82ACFC23200DC37FC /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -217,7 +223,7 @@
 		D42F79752AD28705007B0BCC /* LoginScene */ = {
 			isa = PBXGroup;
 			children = (
-				D42F79782AD28742007B0BCC /* LoginSceneCoordinator.swift */,
+				D42F799C2AD32775007B0BCC /* Coordinator */,
 				D42F798A2AD2BC61007B0BCC /* Start */,
 				D42F79912AD2C4C6007B0BCC /* Login */,
 			);
@@ -278,6 +284,7 @@
 			isa = PBXGroup;
 			children = (
 				D42F798D2AD2BC81007B0BCC /* StartViewModel.swift */,
+				D42F799A2AD32624007B0BCC /* PlatformViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -286,6 +293,7 @@
 			isa = PBXGroup;
 			children = (
 				D42F798F2AD2BC89007B0BCC /* StartViewController.swift */,
+				D42F79982AD3260B007B0BCC /* PlatformViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -313,6 +321,15 @@
 				D42F79962AD2C64C007B0BCC /* LoginViewModel.swift */,
 			);
 			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		D42F799C2AD32775007B0BCC /* Coordinator */ = {
+			isa = PBXGroup;
+			children = (
+				D42F79782AD28742007B0BCC /* LoginSceneCoordinator.swift */,
+				D42F799D2AD3277F007B0BCC /* LoginScene.swift */,
+			);
+			path = Coordinator;
 			sourceTree = "<group>";
 		};
 		D488A19A2ACFC23200DC37FC = {
@@ -572,8 +589,10 @@
 				D416C5522AD17C9B00645F98 /* SplashViewModel.swift in Sources */,
 				D488A1DD2AD04F3000DC37FC /* Coordinator.swift in Sources */,
 				D42F79952AD2C4E9007B0BCC /* LoginViewController.swift in Sources */,
+				D42F799E2AD3277F007B0BCC /* LoginScene.swift in Sources */,
 				D488A1A72ACFC23200DC37FC /* AppDelegate.swift in Sources */,
 				D416C5402AD1799800645F98 /* AppScene.swift in Sources */,
+				D42F79992AD3260B007B0BCC /* PlatformViewController.swift in Sources */,
 				D42F79902AD2BC89007B0BCC /* StartViewController.swift in Sources */,
 				D42F79862AD2B00B007B0BCC /* LogoView.swift in Sources */,
 				D416C53E2AD167B700645F98 /* Log.swift in Sources */,
@@ -584,6 +603,7 @@
 				D416C54E2AD17C6300645F98 /* ViewModel.swift in Sources */,
 				D488A1E02AD0518B00DC37FC /* Scene.swift in Sources */,
 				D488A1E52AD052D900DC37FC /* TransitionError.swift in Sources */,
+				D42F799B2AD32624007B0BCC /* PlatformViewModel.swift in Sources */,
 				D488A1E72AD0560800DC37FC /* AppCoordinator.swift in Sources */,
 				D488A1A92ACFC23200DC37FC /* SceneDelegate.swift in Sources */,
 				D42F79822AD2AF0F007B0BCC /* UIViewControllerExt.swift in Sources */,

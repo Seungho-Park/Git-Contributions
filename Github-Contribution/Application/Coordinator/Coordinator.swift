@@ -15,7 +15,7 @@ protocol Coordinator: AnyObject {
     func start()
     
     func transition(scene: Scene, transitionStyle: TransitionStyle, animated: Bool)
-    func close(animated: Bool)
+    func close(animated: Bool, completion: @escaping ()-> Void)
 }
 
 extension Coordinator {
@@ -53,13 +53,13 @@ extension Coordinator {
         }
     }
     
-    func close(animated: Bool = true) {
+    func close(animated: Bool = true, completion: @escaping ()-> Void = {}) {
         guard let sceneViewController = rootViewController?.sceneViewController else {
             return
         }
         
         if let presentedVC = sceneViewController.presentedViewController {
-            presentedVC.dismiss(animated: animated)
+            presentedVC.dismiss(animated: animated, completion: completion)
         } else if let navController = sceneViewController.navigationController{
             navController.popViewController(animated: animated)
         } else {

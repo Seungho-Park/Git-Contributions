@@ -54,6 +54,5 @@ class BaseViewController<T: ViewModel>: UIViewController, ViewModelBindable {
         viewModel.title
             .drive(self.navigationItem.rx.title)
             .disposed(by: rx.disposeBag)
-        
     }
 }
