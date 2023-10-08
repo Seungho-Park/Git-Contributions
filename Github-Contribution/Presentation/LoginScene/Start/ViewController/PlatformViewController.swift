@@ -7,9 +7,12 @@
 
 import Foundation
 import UIKit
+import RxSwift
+import RxCocoa
+import NSObject_Rx
 
 class PlatformViewController: BaseViewController<PlatformViewModel> {
-    private var sampleView: UIView = {
+    private var contentsView: UIView = {
         let view = UIView(frame: .zero)
         view.translatesAutoresizingMaskIntoConstraints = false
         view.layer.cornerRadius = 15
@@ -22,21 +25,36 @@ class PlatformViewController: BaseViewController<PlatformViewModel> {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        addSubview(sampleView)
-        sampleView.snp.makeConstraints { make in
+        addSubview(contentsView)
+        contentsView.snp.makeConstraints { make in
             make.bottom.equalToSuperview()
             make.leading.trailing.equalToSuperview()
-            make.height.equalToSuperview().multipliedBy(0.3)
+            make.height.equalTo(0)
         }
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
+        contentsView.snp.remakeConstraints { make in
+            make.bottom.equalToSuperview()
+            make.leading.trailing.equalToSuperview()
+            make.height.equalToSuperview().multipliedBy(0.3)
+        }
+        
+        UIView.animate(withDuration: 0.15) {
+            self.viewModel.backgroundColor
+                .map { UIColor(named: $0) }
+                .drive(self.view.rx.backgroundColor)
+                .disposed(by: self.rx.disposeBag)
+        }
+        
+        UIView.animate(withDuration: 0.2) {
+            self.view.layoutIfNeeded()
+        }
     }
     
     override func bind() {
-        super.bind()
         
     }
 }

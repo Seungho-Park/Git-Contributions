@@ -15,7 +15,7 @@ enum LoginScene: Scene {
         switch self {
         case .platform(let viewModel): 
             let vc = PlatformViewController.create(viewModel: viewModel)
-            vc.modalTransitionStyle = .coverVertical
+            vc.modalTransitionStyle = .crossDissolve
             vc.modalPresentationStyle = .overCurrentContext
             return vc
         }
