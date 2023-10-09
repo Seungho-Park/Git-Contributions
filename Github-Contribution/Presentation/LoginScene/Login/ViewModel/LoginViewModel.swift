@@ -15,16 +15,20 @@ class LoginViewModel: NSObject, ViewModel {
     }
     
     struct Output {
-        
+        let vcsType: Driver<VCSType>
     }
     
     var title: Driver<String>
+    let vcsType: BehaviorRelay<VCSType>
     
     init(title: String = "Login".localized, type: VCSType) {
         self.title = Observable.just(title).asDriver(onErrorJustReturn: "")
+        self.vcsType = BehaviorRelay(value: type)
     }
     
     func transform(_ input: Input) -> Output {
-        return Output()
+        return Output(
+            vcsType: self.vcsType.asDriver()
+        )
     }
 }
