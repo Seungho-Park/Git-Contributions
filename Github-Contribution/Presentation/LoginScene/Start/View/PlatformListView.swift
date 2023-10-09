@@ -18,7 +18,7 @@ class PlatformListView: UIView {
     
     private lazy var gestureArea: UIView = {
         let view = UIView(frame: .zero)
-        view.backgroundColor = .red
+        view.backgroundColor = .clear
         view.translatesAutoresizingMaskIntoConstraints = true
         view.isUserInteractionEnabled = true
         view.addGestureRecognizer(ViewGestureRecognizer(target: self, action: #selector(self.gesture(_:))))
@@ -35,7 +35,20 @@ class PlatformListView: UIView {
         return view
     }()
     
+    private lazy var stackView: UIStackView = {
+        let stackView = UIStackView(frame: .zero)
+        stackView.axis = .vertical
+        stackView.distribution = .fillEqually
+        stackView.alignment = .fill
+        stackView.spacing = 20
+        self.platforms.map { makePlatformButton(type: $0) }.forEach {
+            stackView.addArrangedSubview($0)
+        }
+        return stackView
+    }()
+    
     let dismiss: BehaviorRelay<Bool> = .init(value: false)
+    let selectPlatform: BehaviorRelay<VCSType> = BehaviorRelay<VCSType>(value: .unknown)
     private var platforms: [VCSType] = []
     
     convenience init(frame: CGRect, platforms: [VCSType] = []) {
@@ -59,15 +72,56 @@ class PlatformListView: UIView {
         layer.cornerRadius = 15
         clipsToBounds = true
         layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
-        backgroundColor = .cyan
+        backgroundColor = UIColor(named: "NavigationBar")
     }
     
     private func setupUI() {
         addSubview(gestureArea)
+        addSubview(stackView)
+        
         gestureArea.snp.makeConstraints { make in
             make.top.leading.trailing.equalToSuperview()
             make.height.equalToSuperview().multipliedBy(0.1)
         }
+        
+        stackView.snp.makeConstraints { make in
+            make.top.equalTo(gestureArea.snp.bottom).offset(30)
+            make.height.equalToSuperview().multipliedBy(0.4)
+            make.leading.trailing.equalToSuperview().inset(30)
+        }
+    }
+    
+    private func makePlatformButton(type: VCSType)-> UIButton {
+        let buttonImage = type.string.image
+        
+        let button = UIButton(frame: .zero)
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.clipsToBounds = true
+        button.setTitle("Continue with \(type.string)".localized, for: .normal)
+        button.setTitleColor(.black, for: .normal)
+        button.setTitleColor(.darkGray, for: .highlighted)
+        button.setImage(buttonImage, for: .normal)
+        button.layer.cornerRadius = 5
+        button.layer.borderWidth = 0.5
+        button.layer.borderColor = UIColor.lightGray.cgColor
+        switch type {
+        case .github: button.backgroundColor = .white
+        case .gitlab: button.backgroundColor = .orange
+        default: break
+        }
+        
+        button.contentHorizontalAlignment = .center
+        button.imageView?.contentMode = .scaleAspectFit
+        
+        button.imageEdgeInsets = UIEdgeInsets(top: 5, left: -(buttonImage?.size.width ?? 1) * 0.05, bottom: 5, right: 0)
+        button.titleLabel?.font = .systemFont(ofSize: 18, weight: .medium)
+        button.titleEdgeInsets = UIEdgeInsets(top: 0, left: -(buttonImage?.size.width ?? 1) * 0.7, bottom: 0, right: 0)
+        
+        button.rx.tap
+            .bind { [unowned self] _ in
+                self.selectPlatform.accept(type)
+            }.disposed(by: rx.disposeBag)
+        return button
     }
 }
 

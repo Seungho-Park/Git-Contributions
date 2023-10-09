@@ -6,9 +6,18 @@
 //
 
 import Foundation
+import UIKit
 
 extension String {
     var localized: String {
         return NSLocalizedString(self, comment: "")
+    }
+    
+    var image: UIImage? {
+        return UIImage(named: self)
+    }
+    
+    func getWidth(font: UIFont)-> CGFloat {
+        return NSString(string: self).size(withAttributes: [NSAttributedString.Key.font : font]).width
     }
 }

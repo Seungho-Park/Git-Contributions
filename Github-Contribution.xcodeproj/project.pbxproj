@@ -49,6 +49,8 @@
 		D4C89B112AD4009700AF8020 /* VCSType.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C89B102AD4009700AF8020 /* VCSType.swift */; };
 		D4C89B232AD4052200AF8020 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = D4C89B252AD4052200AF8020 /* Localizable.strings */; };
 		D4C89B282AD4064400AF8020 /* StringExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C89B272AD4064400AF8020 /* StringExt.swift */; };
+		D4C89B2A2AD4370100AF8020 /* UIViewExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C89B292AD4370100AF8020 /* UIViewExt.swift */; };
+		D4C89B2C2AD43CEE00AF8020 /* UIButtonExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C89B2B2AD43CEE00AF8020 /* UIButtonExt.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -112,6 +114,8 @@
 		D4C89B242AD4052200AF8020 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		D4C89B262AD4053400AF8020 /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/Localizable.strings; sourceTree = "<group>"; };
 		D4C89B272AD4064400AF8020 /* StringExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExt.swift; sourceTree = "<group>"; };
+		D4C89B292AD4370100AF8020 /* UIViewExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExt.swift; sourceTree = "<group>"; };
+		D4C89B2B2AD43CEE00AF8020 /* UIButtonExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIButtonExt.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -262,6 +266,8 @@
 			children = (
 				D42F79812AD2AF0F007B0BCC /* UIViewControllerExt.swift */,
 				D4C89B272AD4064400AF8020 /* StringExt.swift */,
+				D4C89B292AD4370100AF8020 /* UIViewExt.swift */,
+				D4C89B2B2AD43CEE00AF8020 /* UIButtonExt.swift */,
 			);
 			path = Ext;
 			sourceTree = "<group>";
@@ -655,6 +661,7 @@
 				D488A1E52AD052D900DC37FC /* TransitionError.swift in Sources */,
 				D42F799B2AD32624007B0BCC /* PlatformViewModel.swift in Sources */,
 				D488A1E72AD0560800DC37FC /* AppCoordinator.swift in Sources */,
+				D4C89B2C2AD43CEE00AF8020 /* UIButtonExt.swift in Sources */,
 				D488A1A92ACFC23200DC37FC /* SceneDelegate.swift in Sources */,
 				D42F79822AD2AF0F007B0BCC /* UIViewControllerExt.swift in Sources */,
 				D488A1E22AD0520600DC37FC /* TransitionStyle.swift in Sources */,
@@ -662,6 +669,7 @@
 				D488A1DB2AD04F2100DC37FC /* AppDIContainer.swift in Sources */,
 				D416C5562AD1B47900645F98 /* AppAppearance.swift in Sources */,
 				D42F797C2AD287A5007B0BCC /* LoginSceneDIContainer.swift in Sources */,
+				D4C89B2A2AD4370100AF8020 /* UIViewExt.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -21,7 +21,7 @@ class StartViewController: BaseViewController<StartViewModel> {
     private lazy var startButton: UIButton = {
         let btn = UIButton(frame: .zero)
         btn.translatesAutoresizingMaskIntoConstraints = false
-        btn.setTitle("Get Start".localized, for: .normal)
+        btn.setTitle("Get Started".localized, for: .normal)
         btn.backgroundColor = UIColor(named: "bgStartButton")
         btn.setTitleColor(UIColor(named: "txtStartButton"), for: .normal)
         btn.layer.cornerRadius = 10
@@ -55,7 +55,7 @@ class StartViewController: BaseViewController<StartViewModel> {
         }
         
         startButton.snp.makeConstraints { make in
-            make.bottom.equalTo(self.view.safeAreaLayoutGuide.snp.bottom)
+            make.bottom.equalTo(self.view.safeAreaLayoutGuide.snp.bottom).inset(5)
             make.leading.trailing.equalToSuperview().inset(30)
             make.height.equalTo(50)
         }

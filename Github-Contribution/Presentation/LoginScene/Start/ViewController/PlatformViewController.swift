@@ -12,7 +12,7 @@ import RxCocoa
 import NSObject_Rx
 
 class PlatformViewController: BaseViewController<PlatformViewModel> {
-    private lazy var contentsView: PlatformListView = PlatformListView(frame: .zero)
+    private lazy var contentsView: PlatformListView = PlatformListView(frame: .zero, platforms: [.github, .gitlab])
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,18 +21,14 @@ class PlatformViewController: BaseViewController<PlatformViewModel> {
         contentsView.snp.makeConstraints { make in
             make.bottom.equalToSuperview()
             make.leading.trailing.equalToSuperview()
-            make.height.equalTo(0)
+            make.height.equalToSuperview().multipliedBy(0.35)
         }
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
-        contentsView.snp.remakeConstraints { make in
-            make.bottom.equalToSuperview()
-            make.leading.trailing.equalToSuperview()
-            make.height.equalToSuperview().multipliedBy(0.3)
-        }
+        contentsView.frame.origin.y = self.view.screenSize.height
         
         UIView.animate(withDuration: 0.15) {
             self.viewModel.backgroundColor
@@ -42,7 +38,7 @@ class PlatformViewController: BaseViewController<PlatformViewModel> {
         }
         
         UIView.animate(withDuration: 0.2) {
-            self.view.layoutIfNeeded()
+            self.contentsView.frame.origin.y = (self.contentsView.frame.origin.y - self.contentsView.frame.height)
         }
     }
     
