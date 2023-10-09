@@ -43,9 +43,10 @@ class PlatformViewController: BaseViewController<PlatformViewModel> {
     }
     
     override func bind() {
-        viewModel.transform(
+        let _ = viewModel.transform(
             .init(
-                dismiss: contentsView.dismiss.asDriver()
+                dismiss: contentsView.dismiss.asDriver(),
+                select: contentsView.selectPlatform.asObservable()
             )
         )
     }

@@ -13,7 +13,6 @@ import NSObject_Rx
 extension StartViewModel {
     struct Actions {
         let showSelectPlatform: ()-> Void
-        let showLoginScene: ()-> Void
     }
     
     struct Input {
@@ -29,8 +28,8 @@ class StartViewModel: NSObject, ViewModel {
     var title: Driver<String>
     let actions: Actions
     
-    init(title: String = "시작하기", actions: Actions) {
-        self.title = Observable.just(title).asDriver(onErrorJustReturn: "시작하기")
+    init(title: String = "Get Started".localized, actions: Actions) {
+        self.title = Observable.just(title).asDriver(onErrorJustReturn: "Get Started".localized)
         self.actions = actions
     }
     

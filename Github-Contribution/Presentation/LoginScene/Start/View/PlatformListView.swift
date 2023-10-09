@@ -47,6 +47,16 @@ class PlatformListView: UIView {
         return stackView
     }()
     
+    private lazy var infoLabel: UILabel = {
+        let label = UILabel(frame: .zero)
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.font = .systemFont(ofSize: 14, weight: .regular)
+        label.textColor = .lightGray
+        label.numberOfLines = 1
+        label.text = "Gitlab only supported for self-hosted".localized
+        return label
+    }()
+    
     let dismiss: BehaviorRelay<Bool> = .init(value: false)
     let selectPlatform: BehaviorRelay<VCSType> = BehaviorRelay<VCSType>(value: .unknown)
     private var platforms: [VCSType] = []
@@ -78,6 +88,7 @@ class PlatformListView: UIView {
     private func setupUI() {
         addSubview(gestureArea)
         addSubview(stackView)
+        addSubview(infoLabel)
         
         gestureArea.snp.makeConstraints { make in
             make.top.leading.trailing.equalToSuperview()
@@ -89,6 +100,11 @@ class PlatformListView: UIView {
             make.height.equalToSuperview().multipliedBy(0.4)
             make.leading.trailing.equalToSuperview().inset(30)
         }
+        
+        infoLabel.snp.makeConstraints { make in
+            make.leading.trailing.equalTo(stackView).inset(5)
+            make.top.equalTo(stackView.snp.bottom).offset(5)
+        }
     }
     
     private func makePlatformButton(type: VCSType)-> UIButton {
@@ -98,8 +114,8 @@ class PlatformListView: UIView {
         button.translatesAutoresizingMaskIntoConstraints = false
         button.clipsToBounds = true
         button.setTitle("Continue with \(type.string)".localized, for: .normal)
-        button.setTitleColor(.black, for: .normal)
-        button.setTitleColor(.darkGray, for: .highlighted)
+        button.setTitleColor(.normalPlatformButton, for: .normal)
+        button.setTitleColor(.highlightPlatformButton, for: .highlighted)
         button.setImage(buttonImage, for: .normal)
         button.layer.cornerRadius = 5
         button.layer.borderWidth = 0.5

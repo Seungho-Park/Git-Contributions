@@ -13,10 +13,12 @@ import NSObject_Rx
 extension PlatformViewModel {
     struct Actions {
         let dismiss: ()-> Void
+        let showLogin: (VCSType)-> Void
     }
     
     struct Input {
         let dismiss: Driver<Bool>
+        let select: Observable<VCSType>
     }
     
     struct Output {
@@ -40,6 +42,14 @@ class PlatformViewModel: NSObject, ViewModel {
                 if !isDismiss { return }
                 self.actions.dismiss()
             }).disposed(by: rx.disposeBag)
+        
+        input.select.subscribe { [unowned self] event in
+            guard let type = event.element, type != .unknown else {
+                return
+            }
+            
+            self.actions.showLogin(type)
+        }.disposed(by: rx.disposeBag)
         return Output()
     }
 }

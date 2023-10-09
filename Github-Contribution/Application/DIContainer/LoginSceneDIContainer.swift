@@ -21,4 +21,8 @@ class LoginSceneDIContainer {
     func makePlatformViewModel(actions: PlatformViewModel.Actions)-> PlatformViewModel {
         return PlatformViewModel(actions: actions)
     }
+    
+    func makeLoginViewModel(type: VCSType)-> LoginViewModel {
+        return LoginViewModel(type: type)
+    }
 }

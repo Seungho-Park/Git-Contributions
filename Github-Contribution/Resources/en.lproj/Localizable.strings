@@ -10,3 +10,6 @@
 
 "Continue with Github" = "Continue with Github";
 "Continue with Gitlab" = "Continue with Gitlab";
+"Gitlab only supported for self-hosted" = "Gitlab only supported for self-hosted";
+
+"Login" = "Login";

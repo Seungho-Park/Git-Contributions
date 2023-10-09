@@ -20,7 +20,7 @@ class LoginViewModel: NSObject, ViewModel {
     
     var title: Driver<String>
     
-    init(title: String) {
+    init(title: String = "Login".localized, type: VCSType) {
         self.title = Observable.just(title).asDriver(onErrorJustReturn: "")
     }
     

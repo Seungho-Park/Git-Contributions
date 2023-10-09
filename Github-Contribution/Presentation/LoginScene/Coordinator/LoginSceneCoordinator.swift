@@ -25,8 +25,7 @@ final class LoginSceneCoordinator: Coordinator {
             scene: AppScene.login(
                 diContainer.makeStartViewModel(
                     actions: StartViewModel.Actions(
-                        showSelectPlatform: showSelectPlatform,
-                        showLoginScene: showLoginScene
+                        showSelectPlatform: showSelectPlatform
                     )
                 )
             ),
@@ -39,7 +38,8 @@ final class LoginSceneCoordinator: Coordinator {
             scene: LoginScene.platform(
                 diContainer.makePlatformViewModel(
                     actions: PlatformViewModel.Actions(
-                        dismiss: closePlatformVC
+                        dismiss: closePlatformVC,
+                        showLogin: showLoginScene(type:)
                     )
                 )
             ),
@@ -48,7 +48,13 @@ final class LoginSceneCoordinator: Coordinator {
         )
     }
     
-    private func showLoginScene() {
+    private func showLoginScene(type: VCSType) {
+        close() { [unowned self] in
+            self.transition(
+                scene: LoginScene.login(self.diContainer.makeLoginViewModel(type: type)),
+                transitionStyle: .push
+            )
+        }
         
     }
     

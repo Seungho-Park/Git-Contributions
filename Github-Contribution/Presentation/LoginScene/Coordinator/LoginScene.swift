@@ -10,6 +10,7 @@ import UIKit
 
 enum LoginScene: Scene {
     case platform(PlatformViewModel)
+    case login(LoginViewModel)
     
     func instantiate() -> UIViewController {
         switch self {
@@ -18,6 +19,8 @@ enum LoginScene: Scene {
             vc.modalTransitionStyle = .crossDissolve
             vc.modalPresentationStyle = .overCurrentContext
             return vc
+        case .login(let viewModel):
+            return LoginViewController.create(viewModel: viewModel)
         }
     }
 }
