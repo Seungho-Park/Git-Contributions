@@ -36,16 +36,18 @@ class PlatformListView: UIView {
     }()
     
     let dismiss: BehaviorRelay<Bool> = .init(value: false)
+    private var platforms: [VCSType] = []
     
-    convenience init(frame: CGRect, viewType: Int = 0) {
+    convenience init(frame: CGRect, platforms: [VCSType] = []) {
         self.init(frame: frame)
+        self.platforms = platforms
+        
+        commit()
+        setupUI()
     }
     
     private override init(frame: CGRect) {
         super.init(frame: frame)
-        
-        commit()
-        setupUI()
     }
     
     required init?(coder: NSCoder) {
@@ -90,7 +92,7 @@ private extension PlatformListView {
             
             if offset.y > self.frame.height/2 {
                 UIView.animate(
-                    withDuration: 0.2,
+                    withDuration: 0.1,
                     animations: {
                         self.frame.origin.y = (self.window?.screen.bounds.height ?? 0)
                     },
@@ -99,7 +101,7 @@ private extension PlatformListView {
                     }
                 )
             } else {
-                UIView.animate(withDuration: 0.2) {
+                UIView.animate(withDuration: 0.1) {
                     self.frame.origin.y = (self.window?.screen.bounds.height ?? 0) - self.frame.height
                 }
             }

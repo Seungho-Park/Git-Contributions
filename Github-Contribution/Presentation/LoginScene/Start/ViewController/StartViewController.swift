@@ -14,7 +14,7 @@ class StartViewController: BaseViewController<StartViewModel> {
     private var startButton: UIButton = {
         let btn = UIButton(frame: .zero)
         btn.translatesAutoresizingMaskIntoConstraints = false
-        btn.setTitle("시작하기", for: .normal)
+        btn.setTitle("Get Start".localized, for: .normal)
         btn.backgroundColor = UIColor(named: "bgStartButton")
         btn.setTitleColor(UIColor(named: "txtStartButton"), for: .normal)
         btn.layer.cornerRadius = 10
