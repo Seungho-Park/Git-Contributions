@@ -11,7 +11,14 @@ import RxSwift
 import RxCocoa
 
 class StartViewController: BaseViewController<StartViewModel> {
-    private var startButton: UIButton = {
+    private lazy var appIcon: UIImageView = {
+        let icon = UIImageView(frame: .zero)
+        icon.image = UIImage(named: "Icon")
+        icon.contentMode = .scaleToFill
+        return icon
+    }()
+    
+    private lazy var startButton: UIButton = {
         let btn = UIButton(frame: .zero)
         btn.translatesAutoresizingMaskIntoConstraints = false
         btn.setTitle("Get Start".localized, for: .normal)
@@ -38,7 +45,15 @@ class StartViewController: BaseViewController<StartViewModel> {
     }
     
     private func setupUI() {
+        addSubview(appIcon)
         addSubview(startButton)
+        
+        appIcon.snp.makeConstraints { make in
+            make.centerX.centerY.equalToSuperview()
+            make.width.equalToSuperview().multipliedBy(0.5)
+            make.height.equalTo(appIcon.snp.width)
+        }
+        
         startButton.snp.makeConstraints { make in
             make.bottom.equalTo(self.view.safeAreaLayoutGuide.snp.bottom)
             make.leading.trailing.equalToSuperview().inset(30)
