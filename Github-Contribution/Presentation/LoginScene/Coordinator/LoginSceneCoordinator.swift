@@ -35,10 +35,24 @@ final class LoginSceneCoordinator: Coordinator {
     }
     
     private func showSelectPlatform() {
-        transition(scene: LoginScene.platform(diContainer.makePlatformViewModel()), transitionStyle: .modal, animated: false)
+        transition(
+            scene: LoginScene.platform(
+                diContainer.makePlatformViewModel(
+                    actions: PlatformViewModel.Actions(
+                        dismiss: closePlatformVC
+                    )
+                )
+            ),
+            transitionStyle: .modal,
+            animated: false
+        )
     }
     
     private func showLoginScene() {
         
+    }
+    
+    private func closePlatformVC() {
+        close(animated: true)
     }
 }

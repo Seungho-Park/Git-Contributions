@@ -45,6 +45,7 @@
 		D488A1E22AD0520600DC37FC /* TransitionStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = D488A1E12AD0520600DC37FC /* TransitionStyle.swift */; };
 		D488A1E52AD052D900DC37FC /* TransitionError.swift in Sources */ = {isa = PBXBuildFile; fileRef = D488A1E42AD052D900DC37FC /* TransitionError.swift */; };
 		D488A1E72AD0560800DC37FC /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D488A1E62AD0560800DC37FC /* AppCoordinator.swift */; };
+		D4C89B0A2AD3E60D00AF8020 /* PlatformListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C89B092AD3E60D00AF8020 /* PlatformListView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -103,6 +104,7 @@
 		D488A1E12AD0520600DC37FC /* TransitionStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransitionStyle.swift; sourceTree = "<group>"; };
 		D488A1E42AD052D900DC37FC /* TransitionError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransitionError.swift; sourceTree = "<group>"; };
 		D488A1E62AD0560800DC37FC /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
+		D4C89B092AD3E60D00AF8020 /* PlatformListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlatformListView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -274,6 +276,7 @@
 		D42F798A2AD2BC61007B0BCC /* Start */ = {
 			isa = PBXGroup;
 			children = (
+				D4C89B082AD3E60200AF8020 /* View */,
 				D42F798B2AD2BC6C007B0BCC /* ViewModel */,
 				D42F798C2AD2BC70007B0BCC /* ViewController */,
 			);
@@ -442,6 +445,14 @@
 			path = Transition;
 			sourceTree = "<group>";
 		};
+		D4C89B082AD3E60200AF8020 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				D4C89B092AD3E60D00AF8020 /* PlatformListView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -602,6 +613,7 @@
 				D416C5472AD17BEC00645F98 /* BaseViewController.swift in Sources */,
 				D416C54E2AD17C6300645F98 /* ViewModel.swift in Sources */,
 				D488A1E02AD0518B00DC37FC /* Scene.swift in Sources */,
+				D4C89B0A2AD3E60D00AF8020 /* PlatformListView.swift in Sources */,
 				D488A1E52AD052D900DC37FC /* TransitionError.swift in Sources */,
 				D42F799B2AD32624007B0BCC /* PlatformViewModel.swift in Sources */,
 				D488A1E72AD0560800DC37FC /* AppCoordinator.swift in Sources */,

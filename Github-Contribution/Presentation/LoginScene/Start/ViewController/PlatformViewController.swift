@@ -12,15 +12,7 @@ import RxCocoa
 import NSObject_Rx
 
 class PlatformViewController: BaseViewController<PlatformViewModel> {
-    private var contentsView: UIView = {
-        let view = UIView(frame: .zero)
-        view.translatesAutoresizingMaskIntoConstraints = false
-        view.layer.cornerRadius = 15
-        view.clipsToBounds = true
-        view.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
-        view.backgroundColor = .cyan
-        return view
-    }()
+    private lazy var contentsView: PlatformListView = PlatformListView(frame: .zero)
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -55,6 +47,10 @@ class PlatformViewController: BaseViewController<PlatformViewModel> {
     }
     
     override func bind() {
-        
+        viewModel.transform(
+            .init(
+                dismiss: contentsView.dismiss.asDriver()
+            )
+        )
     }
 }
