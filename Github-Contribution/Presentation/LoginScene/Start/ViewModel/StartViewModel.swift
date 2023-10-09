@@ -28,7 +28,7 @@ class StartViewModel: NSObject, ViewModel {
     var title: Driver<String>
     let actions: Actions
     
-    init(title: String = "Get Started".localized, actions: Actions) {
+    init(title: String = "", actions: Actions) {
         self.title = Observable.just(title).asDriver(onErrorJustReturn: "Get Started".localized)
         self.actions = actions
     }
