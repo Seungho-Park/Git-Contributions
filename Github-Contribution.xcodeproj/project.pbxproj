@@ -57,6 +57,7 @@
 		D4DAC05C2AD595520082BEC5 /* CoreDataStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4DAC05B2AD595520082BEC5 /* CoreDataStorage.swift */; };
 		D4DAC05F2AD5AADE0082BEC5 /* EndPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4DAC05E2AD5AADE0082BEC5 /* EndPoint.swift */; };
 		D4DAC0612AD5AB920082BEC5 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4DAC0602AD5AB920082BEC5 /* NetworkService.swift */; };
+		D4DAC0642AD5AE180082BEC5 /* APIEndPoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4DAC0632AD5AE180082BEC5 /* APIEndPoints.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -128,6 +129,7 @@
 		D4DAC05B2AD595520082BEC5 /* CoreDataStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStorage.swift; sourceTree = "<group>"; };
 		D4DAC05E2AD5AADE0082BEC5 /* EndPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndPoint.swift; sourceTree = "<group>"; };
 		D4DAC0602AD5AB920082BEC5 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
+		D4DAC0632AD5AE180082BEC5 /* APIEndPoints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIEndPoints.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -512,6 +514,7 @@
 		D4DAC0562AD5944B0082BEC5 /* Data */ = {
 			isa = PBXGroup;
 			children = (
+				D4DAC0622AD5AE0E0082BEC5 /* Network */,
 				D4DAC0572AD594530082BEC5 /* Storage */,
 			);
 			path = Data;
@@ -531,6 +534,14 @@
 			children = (
 				D4DAC05E2AD5AADE0082BEC5 /* EndPoint.swift */,
 				D4DAC0602AD5AB920082BEC5 /* NetworkService.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		D4DAC0622AD5AE0E0082BEC5 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				D4DAC0632AD5AE180082BEC5 /* APIEndPoints.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -697,6 +708,7 @@
 				D416C53E2AD167B700645F98 /* Log.swift in Sources */,
 				D42F798E2AD2BC81007B0BCC /* StartViewModel.swift in Sources */,
 				D416C5452AD17B0100645F98 /* ViewModelBindable.swift in Sources */,
+				D4DAC0642AD5AE180082BEC5 /* APIEndPoints.swift in Sources */,
 				D416C5502AD17C9400645F98 /* SplashViewController.swift in Sources */,
 				D416C5472AD17BEC00645F98 /* BaseViewController.swift in Sources */,
 				D416C54E2AD17C6300645F98 /* ViewModel.swift in Sources */,
