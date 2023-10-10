@@ -11,4 +11,8 @@ struct APIEndPoints {
     static func getProfile(type: VCSType, userName: String) {
         
     }
+    
+    static func getContributions(type: VCSType, userName: String) {
+        
+    }
 }
