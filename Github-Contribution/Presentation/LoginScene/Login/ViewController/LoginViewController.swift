@@ -18,10 +18,10 @@ class LoginViewController: BaseViewController<LoginViewModel> {
         return view
     }()
     
-    private lazy var completeButton: UIButton = {
+    private lazy var submitButton: UIButton = {
         let btn = UIButton(frame: .zero)
         btn.translatesAutoresizingMaskIntoConstraints = false
-        btn.setTitle("Complete".localized, for: .normal)
+        btn.setTitle("Submit".localized, for: .normal)
         btn.backgroundColor = .bgStartButton
         btn.setTitleColor(.txtStartButton, for: .normal)
         btn.layer.cornerRadius = 10
@@ -36,7 +36,7 @@ class LoginViewController: BaseViewController<LoginViewModel> {
     
     private func setupUI() {
         addSubview(vcsIconView)
-        addSubview(completeButton)
+        addSubview(submitButton)
         
         vcsIconView.snp.makeConstraints { make in
             make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(20)
@@ -45,7 +45,7 @@ class LoginViewController: BaseViewController<LoginViewModel> {
             make.height.equalTo(vcsIconView.snp.width)
         }
         
-        completeButton.snp.makeConstraints { make in
+        submitButton.snp.makeConstraints { make in
             make.leading.trailing.equalToSuperview().inset(30)
             make.bottom.equalTo(self.view.safeAreaLayoutGuide.snp.bottom).inset(5)
             make.height.equalTo(50)
