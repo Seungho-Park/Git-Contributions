@@ -55,6 +55,8 @@
 		D4DAC0552AD57DC70082BEC5 /* InputTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4DAC0542AD57DC70082BEC5 /* InputTextView.swift */; };
 		D4DAC05A2AD594640082BEC5 /* CoreDataStorage.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D4DAC0582AD594640082BEC5 /* CoreDataStorage.xcdatamodeld */; };
 		D4DAC05C2AD595520082BEC5 /* CoreDataStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4DAC05B2AD595520082BEC5 /* CoreDataStorage.swift */; };
+		D4DAC05F2AD5AADE0082BEC5 /* EndPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4DAC05E2AD5AADE0082BEC5 /* EndPoint.swift */; };
+		D4DAC0612AD5AB920082BEC5 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4DAC0602AD5AB920082BEC5 /* NetworkService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -124,6 +126,8 @@
 		D4DAC0542AD57DC70082BEC5 /* InputTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputTextView.swift; sourceTree = "<group>"; };
 		D4DAC0592AD594640082BEC5 /* CoreDataStorage.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CoreDataStorage.xcdatamodel; sourceTree = "<group>"; };
 		D4DAC05B2AD595520082BEC5 /* CoreDataStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStorage.swift; sourceTree = "<group>"; };
+		D4DAC05E2AD5AADE0082BEC5 /* EndPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndPoint.swift; sourceTree = "<group>"; };
+		D4DAC0602AD5AB920082BEC5 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -158,6 +162,7 @@
 		D416C53B2AD167A400645F98 /* Helper */ = {
 			isa = PBXGroup;
 			children = (
+				D4DAC05D2AD5AA780082BEC5 /* Network */,
 				D416C53C2AD167B000645F98 /* Log */,
 			);
 			path = Helper;
@@ -521,6 +526,15 @@
 			path = Storage;
 			sourceTree = "<group>";
 		};
+		D4DAC05D2AD5AA780082BEC5 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				D4DAC05E2AD5AADE0082BEC5 /* EndPoint.swift */,
+				D4DAC0602AD5AB920082BEC5 /* NetworkService.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -690,6 +704,7 @@
 				D4DAC0532AD579AF0082BEC5 /* Profile.swift in Sources */,
 				D4C89B0A2AD3E60D00AF8020 /* PlatformListView.swift in Sources */,
 				D488A1E52AD052D900DC37FC /* TransitionError.swift in Sources */,
+				D4DAC05F2AD5AADE0082BEC5 /* EndPoint.swift in Sources */,
 				D42F799B2AD32624007B0BCC /* PlatformViewModel.swift in Sources */,
 				D488A1E72AD0560800DC37FC /* AppCoordinator.swift in Sources */,
 				D4C89B2C2AD43CEE00AF8020 /* UIButtonExt.swift in Sources */,
@@ -699,6 +714,7 @@
 				D488A1E22AD0520600DC37FC /* TransitionStyle.swift in Sources */,
 				D42F79972AD2C64C007B0BCC /* LoginViewModel.swift in Sources */,
 				D488A1DB2AD04F2100DC37FC /* AppDIContainer.swift in Sources */,
+				D4DAC0612AD5AB920082BEC5 /* NetworkService.swift in Sources */,
 				D416C5562AD1B47900645F98 /* AppAppearance.swift in Sources */,
 				D42F797C2AD287A5007B0BCC /* LoginSceneDIContainer.swift in Sources */,
 				D4C89B2A2AD4370100AF8020 /* UIViewExt.swift in Sources */,
