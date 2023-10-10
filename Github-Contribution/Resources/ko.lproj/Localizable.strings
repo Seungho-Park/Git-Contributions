@@ -13,3 +13,8 @@
 "Gitlab only supported for self-hosted" = "Gitlab은 Self-hosted Gitlab만 지원합니다.";
 
 "Login" = "로그인";
+
+
+"Host" = "Host";
+"Username" = "Username";
+"Complete" = "완료";

@@ -18,6 +18,15 @@ class LoginViewController: BaseViewController<LoginViewModel> {
         return view
     }()
     
+    private lazy var completeButton: UIButton = {
+        let btn = UIButton(frame: .zero)
+        btn.translatesAutoresizingMaskIntoConstraints = false
+        btn.setTitle("Complete".localized, for: .normal)
+        btn.backgroundColor = .bgStartButton
+        btn.setTitleColor(.txtStartButton, for: .normal)
+        btn.layer.cornerRadius = 10
+        return btn
+    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,12 +36,19 @@ class LoginViewController: BaseViewController<LoginViewModel> {
     
     private func setupUI() {
         addSubview(vcsIconView)
+        addSubview(completeButton)
         
         vcsIconView.snp.makeConstraints { make in
             make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(20)
             make.centerX.equalToSuperview()
             make.width.equalToSuperview().multipliedBy(0.3)
             make.height.equalTo(vcsIconView.snp.width)
+        }
+        
+        completeButton.snp.makeConstraints { make in
+            make.leading.trailing.equalToSuperview().inset(30)
+            make.bottom.equalTo(self.view.safeAreaLayoutGuide.snp.bottom).inset(5)
+            make.height.equalTo(50)
         }
     }
     
@@ -54,6 +70,33 @@ extension Reactive where Base: LoginViewController {
             }
             
             vc.vcsIconView.image = type.string.image
+            let stackView = UIStackView(frame: .zero)
+            stackView.translatesAutoresizingMaskIntoConstraints = false
+            stackView.axis = .vertical
+            stackView.distribution = .fillEqually
+            stackView.spacing = 20
+            
+            vc.addSubview(stackView)
+            stackView.snp.makeConstraints { make in
+                make.top.equalTo(vc.vcsIconView.snp.bottom).offset(20)
+                make.leading.trailing.equalToSuperview().inset(30)
+                make.height.equalTo(120)
+            }
+            
+            let hostInputView = InputTextView(frame: .zero)
+            hostInputView.title = "Host".localized
+            hostInputView.placeholder = "https://example.com"
+            let userNameInputView = InputTextView(frame: .zero)
+            userNameInputView.title = "Username".localized
+            userNameInputView.placeholder = "Username".localized
+            
+            if type == .github {
+                hostInputView.isEnabled = false
+                hostInputView.text = "https://github.com"
+            }
+            
+            stackView.addArrangedSubview(hostInputView)
+            stackView.addArrangedSubview(userNameInputView)
         }
     }
 }

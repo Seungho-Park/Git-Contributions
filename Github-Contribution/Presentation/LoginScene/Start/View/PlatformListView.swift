@@ -19,7 +19,7 @@ class PlatformListView: UIView {
     private lazy var gestureArea: UIView = {
         let view = UIView(frame: .zero)
         view.backgroundColor = .clear
-        view.translatesAutoresizingMaskIntoConstraints = true
+        view.translatesAutoresizingMaskIntoConstraints = false
         view.isUserInteractionEnabled = true
         view.addGestureRecognizer(ViewGestureRecognizer(target: self, action: #selector(self.gesture(_:))))
         let line = UIView(frame: .zero)

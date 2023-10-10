@@ -51,6 +51,8 @@
 		D4C89B282AD4064400AF8020 /* StringExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C89B272AD4064400AF8020 /* StringExt.swift */; };
 		D4C89B2A2AD4370100AF8020 /* UIViewExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C89B292AD4370100AF8020 /* UIViewExt.swift */; };
 		D4C89B2C2AD43CEE00AF8020 /* UIButtonExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C89B2B2AD43CEE00AF8020 /* UIButtonExt.swift */; };
+		D4DAC0532AD579AF0082BEC5 /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4DAC0522AD579AF0082BEC5 /* Profile.swift */; };
+		D4DAC0552AD57DC70082BEC5 /* InputTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4DAC0542AD57DC70082BEC5 /* InputTextView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -116,6 +118,8 @@
 		D4C89B272AD4064400AF8020 /* StringExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExt.swift; sourceTree = "<group>"; };
 		D4C89B292AD4370100AF8020 /* UIViewExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExt.swift; sourceTree = "<group>"; };
 		D4C89B2B2AD43CEE00AF8020 /* UIButtonExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIButtonExt.swift; sourceTree = "<group>"; };
+		D4DAC0522AD579AF0082BEC5 /* Profile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
+		D4DAC0542AD57DC70082BEC5 /* InputTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputTextView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -276,6 +280,7 @@
 			isa = PBXGroup;
 			children = (
 				D42F79852AD2B00B007B0BCC /* LogoView.swift */,
+				D4DAC0542AD57DC70082BEC5 /* InputTextView.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -489,6 +494,7 @@
 			isa = PBXGroup;
 			children = (
 				D4C89B102AD4009700AF8020 /* VCSType.swift */,
+				D4DAC0522AD579AF0082BEC5 /* Profile.swift */,
 			);
 			path = VCS;
 			sourceTree = "<group>";
@@ -644,6 +650,7 @@
 				D488A1DD2AD04F3000DC37FC /* Coordinator.swift in Sources */,
 				D4C89B282AD4064400AF8020 /* StringExt.swift in Sources */,
 				D42F79952AD2C4E9007B0BCC /* LoginViewController.swift in Sources */,
+				D4DAC0552AD57DC70082BEC5 /* InputTextView.swift in Sources */,
 				D42F799E2AD3277F007B0BCC /* LoginScene.swift in Sources */,
 				D488A1A72ACFC23200DC37FC /* AppDelegate.swift in Sources */,
 				D416C5402AD1799800645F98 /* AppScene.swift in Sources */,
@@ -657,6 +664,7 @@
 				D416C5472AD17BEC00645F98 /* BaseViewController.swift in Sources */,
 				D416C54E2AD17C6300645F98 /* ViewModel.swift in Sources */,
 				D488A1E02AD0518B00DC37FC /* Scene.swift in Sources */,
+				D4DAC0532AD579AF0082BEC5 /* Profile.swift in Sources */,
 				D4C89B0A2AD3E60D00AF8020 /* PlatformListView.swift in Sources */,
 				D488A1E52AD052D900DC37FC /* TransitionError.swift in Sources */,
 				D42F799B2AD32624007B0BCC /* PlatformViewModel.swift in Sources */,

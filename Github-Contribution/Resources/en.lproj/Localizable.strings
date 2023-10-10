@@ -13,3 +13,7 @@
 "Gitlab only supported for self-hosted" = "Gitlab only supported for self-hosted";
 
 "Login" = "Login";
+
+"Host" = "Host";
+"Username" = "Username";
+"Complete" = "Complete";
