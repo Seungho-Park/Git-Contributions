@@ -53,6 +53,8 @@
 		D4C89B2C2AD43CEE00AF8020 /* UIButtonExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C89B2B2AD43CEE00AF8020 /* UIButtonExt.swift */; };
 		D4DAC0532AD579AF0082BEC5 /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4DAC0522AD579AF0082BEC5 /* Profile.swift */; };
 		D4DAC0552AD57DC70082BEC5 /* InputTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4DAC0542AD57DC70082BEC5 /* InputTextView.swift */; };
+		D4DAC05A2AD594640082BEC5 /* CoreDataStorage.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D4DAC0582AD594640082BEC5 /* CoreDataStorage.xcdatamodeld */; };
+		D4DAC05C2AD595520082BEC5 /* CoreDataStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4DAC05B2AD595520082BEC5 /* CoreDataStorage.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -120,6 +122,8 @@
 		D4C89B2B2AD43CEE00AF8020 /* UIButtonExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIButtonExt.swift; sourceTree = "<group>"; };
 		D4DAC0522AD579AF0082BEC5 /* Profile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
 		D4DAC0542AD57DC70082BEC5 /* InputTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputTextView.swift; sourceTree = "<group>"; };
+		D4DAC0592AD594640082BEC5 /* CoreDataStorage.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CoreDataStorage.xcdatamodel; sourceTree = "<group>"; };
+		D4DAC05B2AD595520082BEC5 /* CoreDataStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStorage.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -381,6 +385,7 @@
 				D488A1D62ACFC28400DC37FC /* Application */,
 				D416C5422AD17AE500645F98 /* Presentation */,
 				D4C89B0B2AD4001300AF8020 /* Domain */,
+				D4DAC0562AD5944B0082BEC5 /* Data */,
 				D416C53B2AD167A400645F98 /* Helper */,
 				D416C5412AD17AD400645F98 /* Utils */,
 				D488A1D72ACFC28F00DC37FC /* Resources */,
@@ -497,6 +502,23 @@
 				D4DAC0522AD579AF0082BEC5 /* Profile.swift */,
 			);
 			path = VCS;
+			sourceTree = "<group>";
+		};
+		D4DAC0562AD5944B0082BEC5 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				D4DAC0572AD594530082BEC5 /* Storage */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		D4DAC0572AD594530082BEC5 /* Storage */ = {
+			isa = PBXGroup;
+			children = (
+				D4DAC0582AD594640082BEC5 /* CoreDataStorage.xcdatamodeld */,
+				D4DAC05B2AD595520082BEC5 /* CoreDataStorage.swift */,
+			);
+			path = Storage;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -656,6 +678,7 @@
 				D416C5402AD1799800645F98 /* AppScene.swift in Sources */,
 				D42F79992AD3260B007B0BCC /* PlatformViewController.swift in Sources */,
 				D42F79902AD2BC89007B0BCC /* StartViewController.swift in Sources */,
+				D4DAC05C2AD595520082BEC5 /* CoreDataStorage.swift in Sources */,
 				D42F79862AD2B00B007B0BCC /* LogoView.swift in Sources */,
 				D416C53E2AD167B700645F98 /* Log.swift in Sources */,
 				D42F798E2AD2BC81007B0BCC /* StartViewModel.swift in Sources */,
@@ -671,6 +694,7 @@
 				D488A1E72AD0560800DC37FC /* AppCoordinator.swift in Sources */,
 				D4C89B2C2AD43CEE00AF8020 /* UIButtonExt.swift in Sources */,
 				D488A1A92ACFC23200DC37FC /* SceneDelegate.swift in Sources */,
+				D4DAC05A2AD594640082BEC5 /* CoreDataStorage.xcdatamodeld in Sources */,
 				D42F79822AD2AF0F007B0BCC /* UIViewControllerExt.swift in Sources */,
 				D488A1E22AD0520600DC37FC /* TransitionStyle.swift in Sources */,
 				D42F79972AD2C64C007B0BCC /* LoginViewModel.swift in Sources */,
@@ -1079,6 +1103,19 @@
 			productName = SnapKit;
 		};
 /* End XCSwiftPackageProductDependency section */
+
+/* Begin XCVersionGroup section */
+		D4DAC0582AD594640082BEC5 /* CoreDataStorage.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				D4DAC0592AD594640082BEC5 /* CoreDataStorage.xcdatamodel */,
+			);
+			currentVersion = D4DAC0592AD594640082BEC5 /* CoreDataStorage.xcdatamodel */;
+			path = CoreDataStorage.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = D488A19B2ACFC23200DC37FC /* Project object */;
 }
