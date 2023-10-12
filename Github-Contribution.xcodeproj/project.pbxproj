@@ -16,6 +16,7 @@
 		D403CCA42AD81A9A007EFD2C /* EndPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4DAC05E2AD5AADE0082BEC5 /* EndPoint.swift */; };
 		D403CCA52AD81A9A007EFD2C /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4DAC0602AD5AB920082BEC5 /* NetworkService.swift */; };
 		D403CCA72AD81B11007EFD2C /* NetworkServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D403CCA62AD81B11007EFD2C /* NetworkServiceTests.swift */; };
+		D403CCA92AD81D1A007EFD2C /* EndPointMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = D403CCA82AD81D1A007EFD2C /* EndPointMock.swift */; };
 		D416C53E2AD167B700645F98 /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = D416C53D2AD167B700645F98 /* Log.swift */; };
 		D416C5402AD1799800645F98 /* AppScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = D416C53F2AD1799800645F98 /* AppScene.swift */; };
 		D416C5452AD17B0100645F98 /* ViewModelBindable.swift in Sources */ = {isa = PBXBuildFile; fileRef = D416C5442AD17B0100645F98 /* ViewModelBindable.swift */; };
@@ -94,6 +95,7 @@
 /* Begin PBXFileReference section */
 		D403CC9D2AD81A7B007EFD2C /* NetworkManagerMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManagerMock.swift; sourceTree = "<group>"; };
 		D403CCA62AD81B11007EFD2C /* NetworkServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkServiceTests.swift; sourceTree = "<group>"; };
+		D403CCA82AD81D1A007EFD2C /* EndPointMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndPointMock.swift; sourceTree = "<group>"; };
 		D416C53D2AD167B700645F98 /* Log.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Log.swift; sourceTree = "<group>"; };
 		D416C53F2AD1799800645F98 /* AppScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppScene.swift; sourceTree = "<group>"; };
 		D416C5442AD17B0100645F98 /* ViewModelBindable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelBindable.swift; sourceTree = "<group>"; };
@@ -195,6 +197,7 @@
 			isa = PBXGroup;
 			children = (
 				D403CC9D2AD81A7B007EFD2C /* NetworkManagerMock.swift */,
+				D403CCA82AD81D1A007EFD2C /* EndPointMock.swift */,
 			);
 			path = Mock;
 			sourceTree = "<group>";
@@ -808,6 +811,7 @@
 				D403CCA12AD81A9A007EFD2C /* NetworkError.swift in Sources */,
 				D403CCA22AD81A9A007EFD2C /* ResponseDecoder.swift in Sources */,
 				D403CCA32AD81A9A007EFD2C /* JSONResponseDecoder.swift in Sources */,
+				D403CCA92AD81D1A007EFD2C /* EndPointMock.swift in Sources */,
 				D403CCA42AD81A9A007EFD2C /* EndPoint.swift in Sources */,
 				D403CCA52AD81A9A007EFD2C /* NetworkService.swift in Sources */,
 				D403CC9E2AD81A7B007EFD2C /* NetworkManagerMock.swift in Sources */,
