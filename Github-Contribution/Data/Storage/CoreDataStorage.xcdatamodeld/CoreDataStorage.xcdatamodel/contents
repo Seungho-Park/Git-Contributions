@@ -5,4 +5,9 @@
         <attribute name="userName" optional="YES" attributeType="String"/>
         <attribute name="vcsType" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
     </entity>
+    <entity name="Token" representedClassName="Token" syncable="YES" codeGenerationType="class">
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <attribute name="token" optional="YES" attributeType="String"/>
+        <attribute name="type" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+    </entity>
 </model>

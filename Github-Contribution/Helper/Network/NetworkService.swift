@@ -33,4 +33,26 @@ class NetworkService {
     init(networkManager: NetworkManager = DefaultNetworkManager()) {
         self.networkManager = networkManager
     }
+    
+    func request(with endpoint: Requestable, completion: @escaping (Result<Data?, NetworkError>)-> Void)-> URLSessionTask? {
+        do {
+            let request = try endpoint.urlRequest()
+            let task = networkManager.request(request) { data, response, error in
+                if let error = error {
+                    if let response = response as? HTTPURLResponse {
+                        completion(.failure(.status(code: response.statusCode)))
+                    } else {
+                        completion(.failure(NetworkError.connectionRefused))
+                    }
+                } else {
+                    completion(.success(data))
+                }
+            }
+            return task
+        } catch {
+            completion(.failure(.component))
+        }
+        
+        return nil
+    }
 }
