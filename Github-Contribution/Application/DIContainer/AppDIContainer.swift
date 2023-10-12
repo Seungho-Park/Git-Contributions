@@ -20,6 +20,6 @@ final class AppDIContainer {
     }
     
     func makeLoginSceneDIContainer()-> LoginSceneDIContainer {
-        return LoginSceneDIContainer()
+        return LoginSceneDIContainer(apiDataTransferService: apiDataTransferService)
     }
 }

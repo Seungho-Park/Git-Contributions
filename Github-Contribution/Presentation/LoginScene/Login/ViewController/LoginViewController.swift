@@ -4,7 +4,8 @@
 //
 //  Created by 박승호 on 10/8/23.
 //
-//TODO: - UserName 입력 후 확인 버튼 클릭. UserName으로 API Profile 조회. 있으면 넘어가고 없으면 알람창 -
+//TODO: - UserName 입력 후 확인 버튼 클릭. UserName으로 API Profile 조회. 있으면 넘어가고 없으면 알람창
+//TODO: Gitlab의 경우 Private Token 입력을 받을 수 있도록 해야할듯. -
 
 import Foundation
 import UIKit

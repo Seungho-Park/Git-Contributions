@@ -20,6 +20,8 @@
 		D403CCAB2AD83262007EFD2C /* DataTransferService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D403CCAA2AD83262007EFD2C /* DataTransferService.swift */; };
 		D403CCAD2AD83291007EFD2C /* DataTransferError.swift in Sources */ = {isa = PBXBuildFile; fileRef = D403CCAC2AD83291007EFD2C /* DataTransferError.swift */; };
 		D403CCAF2AD83521007EFD2C /* DataTransferServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D403CCAE2AD83521007EFD2C /* DataTransferServiceTests.swift */; };
+		D403CCB42AD8458F007EFD2C /* GitlabProfileResponseDTO+Mapping.swift in Sources */ = {isa = PBXBuildFile; fileRef = D403CCB32AD8458F007EFD2C /* GitlabProfileResponseDTO+Mapping.swift */; };
+		D403CCB62AD845E3007EFD2C /* GithubProfileResponseDTO+Mapping.swift in Sources */ = {isa = PBXBuildFile; fileRef = D403CCB52AD845E3007EFD2C /* GithubProfileResponseDTO+Mapping.swift */; };
 		D416C53E2AD167B700645F98 /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = D416C53D2AD167B700645F98 /* Log.swift */; };
 		D416C5402AD1799800645F98 /* AppScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = D416C53F2AD1799800645F98 /* AppScene.swift */; };
 		D416C5452AD17B0100645F98 /* ViewModelBindable.swift in Sources */ = {isa = PBXBuildFile; fileRef = D416C5442AD17B0100645F98 /* ViewModelBindable.swift */; };
@@ -102,6 +104,8 @@
 		D403CCAA2AD83262007EFD2C /* DataTransferService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataTransferService.swift; sourceTree = "<group>"; };
 		D403CCAC2AD83291007EFD2C /* DataTransferError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataTransferError.swift; sourceTree = "<group>"; };
 		D403CCAE2AD83521007EFD2C /* DataTransferServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataTransferServiceTests.swift; sourceTree = "<group>"; };
+		D403CCB32AD8458F007EFD2C /* GitlabProfileResponseDTO+Mapping.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GitlabProfileResponseDTO+Mapping.swift"; sourceTree = "<group>"; };
+		D403CCB52AD845E3007EFD2C /* GithubProfileResponseDTO+Mapping.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GithubProfileResponseDTO+Mapping.swift"; sourceTree = "<group>"; };
 		D416C53D2AD167B700645F98 /* Log.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Log.swift; sourceTree = "<group>"; };
 		D416C53F2AD1799800645F98 /* AppScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppScene.swift; sourceTree = "<group>"; };
 		D416C5442AD17B0100645F98 /* ViewModelBindable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelBindable.swift; sourceTree = "<group>"; };
@@ -212,6 +216,8 @@
 		D403CCB02AD835C7007EFD2C /* DataMapping */ = {
 			isa = PBXGroup;
 			children = (
+				D403CCB32AD8458F007EFD2C /* GitlabProfileResponseDTO+Mapping.swift */,
+				D403CCB52AD845E3007EFD2C /* GithubProfileResponseDTO+Mapping.swift */,
 			);
 			path = DataMapping;
 			sourceTree = "<group>";
@@ -774,6 +780,7 @@
 				D42F79792AD28742007B0BCC /* LoginSceneCoordinator.swift in Sources */,
 				D416C5522AD17C9B00645F98 /* SplashViewModel.swift in Sources */,
 				D459F5802AD8138200AFA35C /* HttpMethodType.swift in Sources */,
+				D403CCB62AD845E3007EFD2C /* GithubProfileResponseDTO+Mapping.swift in Sources */,
 				D4C89B112AD4009700AF8020 /* VCSType.swift in Sources */,
 				D488A1DD2AD04F3000DC37FC /* Coordinator.swift in Sources */,
 				D4C89B282AD4064400AF8020 /* StringExt.swift in Sources */,
@@ -803,6 +810,7 @@
 				D42F799B2AD32624007B0BCC /* PlatformViewModel.swift in Sources */,
 				D459F57D2AD8116F00AFA35C /* JSONResponseDecoder.swift in Sources */,
 				D488A1E72AD0560800DC37FC /* AppCoordinator.swift in Sources */,
+				D403CCB42AD8458F007EFD2C /* GitlabProfileResponseDTO+Mapping.swift in Sources */,
 				D4C89B2C2AD43CEE00AF8020 /* UIButtonExt.swift in Sources */,
 				D488A1A92ACFC23200DC37FC /* SceneDelegate.swift in Sources */,
 				D4DAC05A2AD594640082BEC5 /* CoreDataStorage.xcdatamodeld in Sources */,

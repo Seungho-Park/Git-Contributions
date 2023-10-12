@@ -10,6 +10,6 @@ import Foundation
 struct Profile {
     let userName: String
     let name: String
-    let avatar_url: String
+    let avatarURL: String
     let homePageURL: String
 }

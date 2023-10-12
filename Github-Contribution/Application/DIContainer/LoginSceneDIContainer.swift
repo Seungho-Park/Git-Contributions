@@ -10,6 +10,12 @@ import UIKit
 
 class LoginSceneDIContainer {
     
+    private let apiDataTransferService: DataTransferService
+    
+    init(apiDataTransferService: DataTransferService) {
+        self.apiDataTransferService = apiDataTransferService
+    }
+    
     func makeLoginSceneCoordinator(window: UIWindow)-> LoginSceneCoordinator {
         return LoginSceneCoordinator(window: window, diContainer: self)
     }
