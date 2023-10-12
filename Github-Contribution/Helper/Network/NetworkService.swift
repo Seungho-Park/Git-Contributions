@@ -44,6 +44,8 @@ class NetworkService {
                     } else {
                         completion(.failure(NetworkError.connectionRefused))
                     }
+                    
+                    Log.e("\(Self.self)", message: error.localizedDescription)
                 } else {
                     completion(.success(data))
                 }
