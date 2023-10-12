@@ -7,6 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D403CC9E2AD81A7B007EFD2C /* NetworkManagerMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = D403CC9D2AD81A7B007EFD2C /* NetworkManagerMock.swift */; };
+		D403CC9F2AD81A9A007EFD2C /* HttpMethodType.swift in Sources */ = {isa = PBXBuildFile; fileRef = D459F57F2AD8138200AFA35C /* HttpMethodType.swift */; };
+		D403CCA02AD81A9A007EFD2C /* Requestable.swift in Sources */ = {isa = PBXBuildFile; fileRef = D459F5812AD8159E00AFA35C /* Requestable.swift */; };
+		D403CCA12AD81A9A007EFD2C /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = D459F5832AD8182B00AFA35C /* NetworkError.swift */; };
+		D403CCA22AD81A9A007EFD2C /* ResponseDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = D459F5792AD8114C00AFA35C /* ResponseDecoder.swift */; };
+		D403CCA32AD81A9A007EFD2C /* JSONResponseDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = D459F57C2AD8116F00AFA35C /* JSONResponseDecoder.swift */; };
+		D403CCA42AD81A9A007EFD2C /* EndPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4DAC05E2AD5AADE0082BEC5 /* EndPoint.swift */; };
+		D403CCA52AD81A9A007EFD2C /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4DAC0602AD5AB920082BEC5 /* NetworkService.swift */; };
+		D403CCA72AD81B11007EFD2C /* NetworkServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D403CCA62AD81B11007EFD2C /* NetworkServiceTests.swift */; };
 		D416C53E2AD167B700645F98 /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = D416C53D2AD167B700645F98 /* Log.swift */; };
 		D416C5402AD1799800645F98 /* AppScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = D416C53F2AD1799800645F98 /* AppScene.swift */; };
 		D416C5452AD17B0100645F98 /* ViewModelBindable.swift in Sources */ = {isa = PBXBuildFile; fileRef = D416C5442AD17B0100645F98 /* ViewModelBindable.swift */; };
@@ -83,6 +92,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		D403CC9D2AD81A7B007EFD2C /* NetworkManagerMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManagerMock.swift; sourceTree = "<group>"; };
+		D403CCA62AD81B11007EFD2C /* NetworkServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkServiceTests.swift; sourceTree = "<group>"; };
 		D416C53D2AD167B700645F98 /* Log.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Log.swift; sourceTree = "<group>"; };
 		D416C53F2AD1799800645F98 /* AppScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppScene.swift; sourceTree = "<group>"; };
 		D416C5442AD17B0100645F98 /* ViewModelBindable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelBindable.swift; sourceTree = "<group>"; };
@@ -171,6 +182,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D403CC9B2AD81A5B007EFD2C /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				D403CC9C2AD81A67007EFD2C /* Mock */,
+				D403CCA62AD81B11007EFD2C /* NetworkServiceTests.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		D403CC9C2AD81A67007EFD2C /* Mock */ = {
+			isa = PBXGroup;
+			children = (
+				D403CC9D2AD81A7B007EFD2C /* NetworkManagerMock.swift */,
+			);
+			path = Mock;
+			sourceTree = "<group>";
+		};
 		D416C53B2AD167A400645F98 /* Helper */ = {
 			isa = PBXGroup;
 			children = (
@@ -432,6 +460,7 @@
 		D488A1BC2ACFC23300DC37FC /* Github-ContributionTests */ = {
 			isa = PBXGroup;
 			children = (
+				D403CC9B2AD81A5B007EFD2C /* Network */,
 				D488A1BD2ACFC23300DC37FC /* Github_ContributionTests.swift */,
 			);
 			path = "Github-ContributionTests";
@@ -773,6 +802,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D403CCA72AD81B11007EFD2C /* NetworkServiceTests.swift in Sources */,
+				D403CC9F2AD81A9A007EFD2C /* HttpMethodType.swift in Sources */,
+				D403CCA02AD81A9A007EFD2C /* Requestable.swift in Sources */,
+				D403CCA12AD81A9A007EFD2C /* NetworkError.swift in Sources */,
+				D403CCA22AD81A9A007EFD2C /* ResponseDecoder.swift in Sources */,
+				D403CCA32AD81A9A007EFD2C /* JSONResponseDecoder.swift in Sources */,
+				D403CCA42AD81A9A007EFD2C /* EndPoint.swift in Sources */,
+				D403CCA52AD81A9A007EFD2C /* NetworkService.swift in Sources */,
+				D403CC9E2AD81A7B007EFD2C /* NetworkManagerMock.swift in Sources */,
 				D488A1BE2ACFC23300DC37FC /* Github_ContributionTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
