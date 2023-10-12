@@ -8,7 +8,6 @@
 import Foundation
 
 struct VCSRequestDTO {
-    let type: VCSType
     let host: String
     let userName: String
     let token: String?

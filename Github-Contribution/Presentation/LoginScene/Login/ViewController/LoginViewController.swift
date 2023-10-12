@@ -81,7 +81,7 @@ extension Reactive where Base: LoginViewController {
             stackView.snp.makeConstraints { make in
                 make.top.equalTo(vc.vcsIconView.snp.bottom).offset(20)
                 make.leading.trailing.equalToSuperview().inset(30)
-                make.height.equalTo(120)
+                make.height.equalTo(190)
             }
             
             let hostInputView = InputTextView(frame: .zero)
@@ -91,13 +91,19 @@ extension Reactive where Base: LoginViewController {
             userNameInputView.title = "Username".localized
             userNameInputView.placeholder = "Username".localized
             
+            let tokenInputView = InputTextView(frame: .zero)
+            tokenInputView.title = "Access-Token".localized
+            tokenInputView.placeholder = "Access-Token".localized
+            
             if type == .github {
                 hostInputView.isEnabled = false
                 hostInputView.text = "https://github.com"
+                tokenInputView.placeholder = "Access-Token(Optional)".localized
             }
             
             stackView.addArrangedSubview(hostInputView)
             stackView.addArrangedSubview(userNameInputView)
+            stackView.addArrangedSubview(tokenInputView)
         }
     }
 }

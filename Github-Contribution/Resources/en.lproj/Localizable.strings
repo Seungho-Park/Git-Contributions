@@ -17,3 +17,5 @@
 "Host" = "Host";
 "Username" = "Username";
 "Submit" = "Submit";
+"Access-Token" = "Access-Token";
+"Access-Token(Optional)" = "Access-Token(Optional)";

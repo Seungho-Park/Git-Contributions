@@ -8,5 +8,5 @@
 import Foundation
 
 protocol ProfileRepository {
-    func fetchProfile()
+    func fetchProfile(type: VCSType, userName: String, host: String?, token: String?, completion: @escaping (Result<Profile, DataTransferError>)-> Void)
 }
