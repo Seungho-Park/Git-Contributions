@@ -22,6 +22,9 @@
 		D403CCAF2AD83521007EFD2C /* DataTransferServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D403CCAE2AD83521007EFD2C /* DataTransferServiceTests.swift */; };
 		D403CCB42AD8458F007EFD2C /* GitlabProfileResponseDTO+Mapping.swift in Sources */ = {isa = PBXBuildFile; fileRef = D403CCB32AD8458F007EFD2C /* GitlabProfileResponseDTO+Mapping.swift */; };
 		D403CCB62AD845E3007EFD2C /* GithubProfileResponseDTO+Mapping.swift in Sources */ = {isa = PBXBuildFile; fileRef = D403CCB52AD845E3007EFD2C /* GithubProfileResponseDTO+Mapping.swift */; };
+		D403CCBB2AD8575D007EFD2C /* ProfileRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = D403CCBA2AD8575D007EFD2C /* ProfileRepository.swift */; };
+		D403CCBD2AD8579D007EFD2C /* ProfileRepositoryImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = D403CCBC2AD8579D007EFD2C /* ProfileRepositoryImpl.swift */; };
+		D403CCBF2AD85BCA007EFD2C /* VCSRequestDTO+Mapping.swift in Sources */ = {isa = PBXBuildFile; fileRef = D403CCBE2AD85BCA007EFD2C /* VCSRequestDTO+Mapping.swift */; };
 		D416C53E2AD167B700645F98 /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = D416C53D2AD167B700645F98 /* Log.swift */; };
 		D416C5402AD1799800645F98 /* AppScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = D416C53F2AD1799800645F98 /* AppScene.swift */; };
 		D416C5452AD17B0100645F98 /* ViewModelBindable.swift in Sources */ = {isa = PBXBuildFile; fileRef = D416C5442AD17B0100645F98 /* ViewModelBindable.swift */; };
@@ -106,6 +109,9 @@
 		D403CCAE2AD83521007EFD2C /* DataTransferServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataTransferServiceTests.swift; sourceTree = "<group>"; };
 		D403CCB32AD8458F007EFD2C /* GitlabProfileResponseDTO+Mapping.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GitlabProfileResponseDTO+Mapping.swift"; sourceTree = "<group>"; };
 		D403CCB52AD845E3007EFD2C /* GithubProfileResponseDTO+Mapping.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GithubProfileResponseDTO+Mapping.swift"; sourceTree = "<group>"; };
+		D403CCBA2AD8575D007EFD2C /* ProfileRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileRepository.swift; sourceTree = "<group>"; };
+		D403CCBC2AD8579D007EFD2C /* ProfileRepositoryImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileRepositoryImpl.swift; sourceTree = "<group>"; };
+		D403CCBE2AD85BCA007EFD2C /* VCSRequestDTO+Mapping.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "VCSRequestDTO+Mapping.swift"; sourceTree = "<group>"; };
 		D416C53D2AD167B700645F98 /* Log.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Log.swift; sourceTree = "<group>"; };
 		D416C53F2AD1799800645F98 /* AppScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppScene.swift; sourceTree = "<group>"; };
 		D416C5442AD17B0100645F98 /* ViewModelBindable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelBindable.swift; sourceTree = "<group>"; };
@@ -218,8 +224,40 @@
 			children = (
 				D403CCB32AD8458F007EFD2C /* GitlabProfileResponseDTO+Mapping.swift */,
 				D403CCB52AD845E3007EFD2C /* GithubProfileResponseDTO+Mapping.swift */,
+				D403CCBE2AD85BCA007EFD2C /* VCSRequestDTO+Mapping.swift */,
 			);
 			path = DataMapping;
+			sourceTree = "<group>";
+		};
+		D403CCB72AD85721007EFD2C /* Repositories */ = {
+			isa = PBXGroup;
+			children = (
+				D403CCBA2AD8575D007EFD2C /* ProfileRepository.swift */,
+			);
+			path = Repositories;
+			sourceTree = "<group>";
+		};
+		D403CCB82AD85726007EFD2C /* Usecases */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Usecases;
+			sourceTree = "<group>";
+		};
+		D403CCB92AD8572A007EFD2C /* Repositories */ = {
+			isa = PBXGroup;
+			children = (
+				D403CCBC2AD8579D007EFD2C /* ProfileRepositoryImpl.swift */,
+			);
+			path = Repositories;
+			sourceTree = "<group>";
+		};
+		D403CCC02AD85C7C007EFD2C /* Type */ = {
+			isa = PBXGroup;
+			children = (
+				D4C89B102AD4009700AF8020 /* VCSType.swift */,
+			);
+			path = Type;
 			sourceTree = "<group>";
 		};
 		D416C53B2AD167A400645F98 /* Helper */ = {
@@ -571,6 +609,8 @@
 		D4C89B0B2AD4001300AF8020 /* Domain */ = {
 			isa = PBXGroup;
 			children = (
+				D403CCB82AD85726007EFD2C /* Usecases */,
+				D403CCB72AD85721007EFD2C /* Repositories */,
 				D4C89B0C2AD4001F00AF8020 /* Entities */,
 			);
 			path = Domain;
@@ -579,23 +619,16 @@
 		D4C89B0C2AD4001F00AF8020 /* Entities */ = {
 			isa = PBXGroup;
 			children = (
-				D4C89B0F2AD4008D00AF8020 /* VCS */,
-			);
-			path = Entities;
-			sourceTree = "<group>";
-		};
-		D4C89B0F2AD4008D00AF8020 /* VCS */ = {
-			isa = PBXGroup;
-			children = (
-				D4C89B102AD4009700AF8020 /* VCSType.swift */,
+				D403CCC02AD85C7C007EFD2C /* Type */,
 				D4DAC0522AD579AF0082BEC5 /* Profile.swift */,
 			);
-			path = VCS;
+			path = Entities;
 			sourceTree = "<group>";
 		};
 		D4DAC0562AD5944B0082BEC5 /* Data */ = {
 			isa = PBXGroup;
 			children = (
+				D403CCB92AD8572A007EFD2C /* Repositories */,
 				D4DAC0622AD5AE0E0082BEC5 /* Network */,
 				D4DAC0572AD594530082BEC5 /* Storage */,
 			);
@@ -807,6 +840,7 @@
 				D4C89B0A2AD3E60D00AF8020 /* PlatformListView.swift in Sources */,
 				D488A1E52AD052D900DC37FC /* TransitionError.swift in Sources */,
 				D4DAC05F2AD5AADE0082BEC5 /* EndPoint.swift in Sources */,
+				D403CCBF2AD85BCA007EFD2C /* VCSRequestDTO+Mapping.swift in Sources */,
 				D42F799B2AD32624007B0BCC /* PlatformViewModel.swift in Sources */,
 				D459F57D2AD8116F00AFA35C /* JSONResponseDecoder.swift in Sources */,
 				D488A1E72AD0560800DC37FC /* AppCoordinator.swift in Sources */,
@@ -820,7 +854,9 @@
 				D488A1DB2AD04F2100DC37FC /* AppDIContainer.swift in Sources */,
 				D459F5822AD8159E00AFA35C /* Requestable.swift in Sources */,
 				D4DAC0612AD5AB920082BEC5 /* NetworkService.swift in Sources */,
+				D403CCBD2AD8579D007EFD2C /* ProfileRepositoryImpl.swift in Sources */,
 				D416C5562AD1B47900645F98 /* AppAppearance.swift in Sources */,
+				D403CCBB2AD8575D007EFD2C /* ProfileRepository.swift in Sources */,
 				D459F57A2AD8114C00AFA35C /* ResponseDecoder.swift in Sources */,
 				D42F797C2AD287A5007B0BCC /* LoginSceneDIContainer.swift in Sources */,
 				D4C89B2A2AD4370100AF8020 /* UIViewExt.swift in Sources */,
