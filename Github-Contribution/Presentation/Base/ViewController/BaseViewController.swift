@@ -18,6 +18,7 @@ class BaseViewController<T: ViewModel>: UIViewController, ViewModelBindable {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        navigationItem.backButtonTitle = ""
         Log.i(tag, message: "viewDidLoad()")
     }
     

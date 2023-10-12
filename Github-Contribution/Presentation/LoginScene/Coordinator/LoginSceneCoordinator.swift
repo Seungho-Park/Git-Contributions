@@ -51,11 +51,27 @@ final class LoginSceneCoordinator: Coordinator {
     private func showLoginScene(type: VCSType) {
         close() { [unowned self] in
             self.transition(
-                scene: LoginScene.login(self.diContainer.makeLoginViewModel(type: type)),
+                scene: LoginScene.login(
+                    self.diContainer.makeLoginViewModel(
+                        type: type,
+                        actions: .init(
+                            showTokenScene: showTokenScene(type:host:)
+                        )
+                    )
+                ),
                 transitionStyle: .push
             )
         }
         
+    }
+    
+    private func showTokenScene(type: VCSType, host: String?) {
+        transition(
+            scene: LoginScene.tokenManagement(
+                diContainer.makeTokenManagementViewModel()
+            ),
+            transitionStyle: .push
+        )
     }
     
     private func closePlatformVC() {

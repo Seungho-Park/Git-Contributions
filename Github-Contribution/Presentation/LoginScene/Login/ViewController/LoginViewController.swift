@@ -29,6 +29,33 @@ class LoginViewController: BaseViewController<LoginViewModel> {
         return btn
     }()
     
+    fileprivate lazy var hostInputView: InputTextView = {
+        let hostInputView = InputTextView(frame: .zero)
+        hostInputView.title = "Host".localized
+        hostInputView.placeholder = "https://example.com"
+        return hostInputView
+    }()
+    
+    fileprivate lazy var userNameInputView: InputTextView = {
+        let userNameInputView = InputTextView(frame: .zero)
+        userNameInputView.title = "Username".localized
+        userNameInputView.placeholder = "Username".localized
+        return userNameInputView
+    }()
+    
+    fileprivate lazy var tokenInputView: InputTextView = {
+        let tokenInputView = InputTextView(frame: .zero)
+        tokenInputView.title = "Access-Token".localized
+        tokenInputView.placeholder = "Access-Token".localized
+        tokenInputView.isEnabled = false
+        tokenInputView.isUserInteractionEnabled = true
+        let tap = UITapGestureRecognizer(target: self, action: #selector(self.tapTokenInputView))
+        tokenInputView.addGestureRecognizer(tap)
+        return tokenInputView
+    }()
+    
+    private var tapToken: PublishRelay<Void> = .init()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -55,11 +82,21 @@ class LoginViewController: BaseViewController<LoginViewModel> {
     
     override func bind() {
         super.bind()
-        let output = viewModel.transform(.init())
+        let output = viewModel.transform(
+            .init(
+                tapToken: tapToken.asObservable(),
+                tapSubmit: submitButton.rx.tap.asObservable()
+            )
+        )
         
         output.vcsType
             .drive(self.rx.vcsType)
             .disposed(by: rx.disposeBag)
+    }
+    
+    @objc
+    private func tapTokenInputView() {
+        tapToken.accept(())
     }
 }
 
@@ -84,26 +121,15 @@ extension Reactive where Base: LoginViewController {
                 make.height.equalTo(190)
             }
             
-            let hostInputView = InputTextView(frame: .zero)
-            hostInputView.title = "Host".localized
-            hostInputView.placeholder = "https://example.com"
-            let userNameInputView = InputTextView(frame: .zero)
-            userNameInputView.title = "Username".localized
-            userNameInputView.placeholder = "Username".localized
-            
-            let tokenInputView = InputTextView(frame: .zero)
-            tokenInputView.title = "Access-Token".localized
-            tokenInputView.placeholder = "Access-Token".localized
-            
             if type == .github {
-                hostInputView.isEnabled = false
-                hostInputView.text = "https://github.com"
-                tokenInputView.placeholder = "Access-Token(Optional)".localized
+                vc.hostInputView.isEnabled = false
+                vc.hostInputView.text = "https://github.com"
+                vc.tokenInputView.placeholder = "Access-Token(Optional)".localized
             }
             
-            stackView.addArrangedSubview(hostInputView)
-            stackView.addArrangedSubview(userNameInputView)
-            stackView.addArrangedSubview(tokenInputView)
+            stackView.addArrangedSubview(vc.hostInputView)
+            stackView.addArrangedSubview(vc.userNameInputView)
+            stackView.addArrangedSubview(vc.tokenInputView)
         }
     }
 }

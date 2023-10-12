@@ -18,5 +18,7 @@
 "Host" = "Host";
 "Username" = "Username";
 "Submit" = "완료";
+
+"Manage Token" = "토큰 관리";
 "Access-Token" = "Access-Token";
 "Access-Token(Optional)" = "Access-Token(선택사항)";

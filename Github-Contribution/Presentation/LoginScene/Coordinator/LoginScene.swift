@@ -11,6 +11,7 @@ import UIKit
 enum LoginScene: Scene {
     case platform(PlatformViewModel)
     case login(LoginViewModel)
+    case tokenManagement(TokenManagementViewModel)
     
     func instantiate() -> UIViewController {
         switch self {
@@ -21,6 +22,8 @@ enum LoginScene: Scene {
             return vc
         case .login(let viewModel):
             return LoginViewController.create(viewModel: viewModel)
+        case .tokenManagement(let viewModel):
+            return TokenManagementViewController.create(viewModel: viewModel)
         }
     }
 }

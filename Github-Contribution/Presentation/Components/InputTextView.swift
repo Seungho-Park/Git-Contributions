@@ -46,6 +46,11 @@ class InputTextView: UIView {
         set { textField.placeholder = newValue }
     }
     
+    var isSecureTextEntry: Bool {
+        get { return textField.isSecureTextEntry }
+        set { textField.isSecureTextEntry = newValue }
+    }
+    
     var isEnabled: Bool {
         get { return textField.isEnabled }
         set { textField.isEnabled = newValue }

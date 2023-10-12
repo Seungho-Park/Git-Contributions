@@ -25,6 +25,8 @@
 		D403CCBB2AD8575D007EFD2C /* ProfileRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = D403CCBA2AD8575D007EFD2C /* ProfileRepository.swift */; };
 		D403CCBD2AD8579D007EFD2C /* ProfileRepositoryImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = D403CCBC2AD8579D007EFD2C /* ProfileRepositoryImpl.swift */; };
 		D403CCBF2AD85BCA007EFD2C /* VCSRequestDTO+Mapping.swift in Sources */ = {isa = PBXBuildFile; fileRef = D403CCBE2AD85BCA007EFD2C /* VCSRequestDTO+Mapping.swift */; };
+		D403CCC22AD871EC007EFD2C /* TokenManagementViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D403CCC12AD871EC007EFD2C /* TokenManagementViewController.swift */; };
+		D403CCC42AD8720F007EFD2C /* TokenManagementViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D403CCC32AD8720F007EFD2C /* TokenManagementViewModel.swift */; };
 		D416C53E2AD167B700645F98 /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = D416C53D2AD167B700645F98 /* Log.swift */; };
 		D416C5402AD1799800645F98 /* AppScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = D416C53F2AD1799800645F98 /* AppScene.swift */; };
 		D416C5452AD17B0100645F98 /* ViewModelBindable.swift in Sources */ = {isa = PBXBuildFile; fileRef = D416C5442AD17B0100645F98 /* ViewModelBindable.swift */; };
@@ -112,6 +114,8 @@
 		D403CCBA2AD8575D007EFD2C /* ProfileRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileRepository.swift; sourceTree = "<group>"; };
 		D403CCBC2AD8579D007EFD2C /* ProfileRepositoryImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileRepositoryImpl.swift; sourceTree = "<group>"; };
 		D403CCBE2AD85BCA007EFD2C /* VCSRequestDTO+Mapping.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "VCSRequestDTO+Mapping.swift"; sourceTree = "<group>"; };
+		D403CCC12AD871EC007EFD2C /* TokenManagementViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenManagementViewController.swift; sourceTree = "<group>"; };
+		D403CCC32AD8720F007EFD2C /* TokenManagementViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenManagementViewModel.swift; sourceTree = "<group>"; };
 		D416C53D2AD167B700645F98 /* Log.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Log.swift; sourceTree = "<group>"; };
 		D416C53F2AD1799800645F98 /* AppScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppScene.swift; sourceTree = "<group>"; };
 		D416C5442AD17B0100645F98 /* ViewModelBindable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelBindable.swift; sourceTree = "<group>"; };
@@ -443,6 +447,7 @@
 			isa = PBXGroup;
 			children = (
 				D42F79942AD2C4E9007B0BCC /* LoginViewController.swift */,
+				D403CCC12AD871EC007EFD2C /* TokenManagementViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -451,6 +456,7 @@
 			isa = PBXGroup;
 			children = (
 				D42F79962AD2C64C007B0BCC /* LoginViewModel.swift */,
+				D403CCC32AD8720F007EFD2C /* TokenManagementViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -831,6 +837,7 @@
 				D416C53E2AD167B700645F98 /* Log.swift in Sources */,
 				D42F798E2AD2BC81007B0BCC /* StartViewModel.swift in Sources */,
 				D416C5452AD17B0100645F98 /* ViewModelBindable.swift in Sources */,
+				D403CCC42AD8720F007EFD2C /* TokenManagementViewModel.swift in Sources */,
 				D4DAC0642AD5AE180082BEC5 /* APIEndPoints.swift in Sources */,
 				D416C5502AD17C9400645F98 /* SplashViewController.swift in Sources */,
 				D416C5472AD17BEC00645F98 /* BaseViewController.swift in Sources */,
@@ -857,6 +864,7 @@
 				D403CCBD2AD8579D007EFD2C /* ProfileRepositoryImpl.swift in Sources */,
 				D416C5562AD1B47900645F98 /* AppAppearance.swift in Sources */,
 				D403CCBB2AD8575D007EFD2C /* ProfileRepository.swift in Sources */,
+				D403CCC22AD871EC007EFD2C /* TokenManagementViewController.swift in Sources */,
 				D459F57A2AD8114C00AFA35C /* ResponseDecoder.swift in Sources */,
 				D42F797C2AD287A5007B0BCC /* LoginSceneDIContainer.swift in Sources */,
 				D4C89B2A2AD4370100AF8020 /* UIViewExt.swift in Sources */,
