@@ -15,3 +15,9 @@ struct GitlabProfileResponseDTO: Decodable {
     let avatar_url: String
     let web_url: String
 }
+
+extension GitlabProfileResponseDTO {
+    func toDomain(host: String? = nil)-> Profile {
+        return Profile(id: id, type: .gitlab, host: host ?? "https://gitlab.com", username: username, name: name, avatarImageURL: avatar_url, homepageURL: web_url)
+    }
+}

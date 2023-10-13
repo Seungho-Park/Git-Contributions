@@ -27,6 +27,9 @@
 		D403CCBF2AD85BCA007EFD2C /* VCSRequestDTO+Mapping.swift in Sources */ = {isa = PBXBuildFile; fileRef = D403CCBE2AD85BCA007EFD2C /* VCSRequestDTO+Mapping.swift */; };
 		D403CCC22AD871EC007EFD2C /* TokenManagementViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D403CCC12AD871EC007EFD2C /* TokenManagementViewController.swift */; };
 		D403CCC42AD8720F007EFD2C /* TokenManagementViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D403CCC32AD8720F007EFD2C /* TokenManagementViewModel.swift */; };
+		D40C39EE2AD93E9D007D2E8F /* AccountStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = D40C39ED2AD93E9D007D2E8F /* AccountStorage.swift */; };
+		D40C39F12AD93F75007D2E8F /* CoreDataAccountStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = D40C39F02AD93F75007D2E8F /* CoreDataAccountStorage.swift */; };
+		D40C39F42AD94045007D2E8F /* Account+Mapping.swift in Sources */ = {isa = PBXBuildFile; fileRef = D40C39F32AD94045007D2E8F /* Account+Mapping.swift */; };
 		D416C53E2AD167B700645F98 /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = D416C53D2AD167B700645F98 /* Log.swift */; };
 		D416C5402AD1799800645F98 /* AppScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = D416C53F2AD1799800645F98 /* AppScene.swift */; };
 		D416C5452AD17B0100645F98 /* ViewModelBindable.swift in Sources */ = {isa = PBXBuildFile; fileRef = D416C5442AD17B0100645F98 /* ViewModelBindable.swift */; };
@@ -116,6 +119,9 @@
 		D403CCBE2AD85BCA007EFD2C /* VCSRequestDTO+Mapping.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "VCSRequestDTO+Mapping.swift"; sourceTree = "<group>"; };
 		D403CCC12AD871EC007EFD2C /* TokenManagementViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenManagementViewController.swift; sourceTree = "<group>"; };
 		D403CCC32AD8720F007EFD2C /* TokenManagementViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenManagementViewModel.swift; sourceTree = "<group>"; };
+		D40C39ED2AD93E9D007D2E8F /* AccountStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountStorage.swift; sourceTree = "<group>"; };
+		D40C39F02AD93F75007D2E8F /* CoreDataAccountStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataAccountStorage.swift; sourceTree = "<group>"; };
+		D40C39F32AD94045007D2E8F /* Account+Mapping.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Account+Mapping.swift"; sourceTree = "<group>"; };
 		D416C53D2AD167B700645F98 /* Log.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Log.swift; sourceTree = "<group>"; };
 		D416C53F2AD1799800645F98 /* AppScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppScene.swift; sourceTree = "<group>"; };
 		D416C5442AD17B0100645F98 /* ViewModelBindable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelBindable.swift; sourceTree = "<group>"; };
@@ -262,6 +268,32 @@
 				D4C89B102AD4009700AF8020 /* VCSType.swift */,
 			);
 			path = Type;
+			sourceTree = "<group>";
+		};
+		D40C39EC2AD93E79007D2E8F /* Account */ = {
+			isa = PBXGroup;
+			children = (
+				D40C39ED2AD93E9D007D2E8F /* AccountStorage.swift */,
+				D40C39EF2AD93F69007D2E8F /* CoreDataStorage */,
+			);
+			path = Account;
+			sourceTree = "<group>";
+		};
+		D40C39EF2AD93F69007D2E8F /* CoreDataStorage */ = {
+			isa = PBXGroup;
+			children = (
+				D40C39F22AD94039007D2E8F /* Mapping */,
+				D40C39F02AD93F75007D2E8F /* CoreDataAccountStorage.swift */,
+			);
+			path = CoreDataStorage;
+			sourceTree = "<group>";
+		};
+		D40C39F22AD94039007D2E8F /* Mapping */ = {
+			isa = PBXGroup;
+			children = (
+				D40C39F32AD94045007D2E8F /* Account+Mapping.swift */,
+			);
+			path = Mapping;
 			sourceTree = "<group>";
 		};
 		D416C53B2AD167A400645F98 /* Helper */ = {
@@ -644,6 +676,7 @@
 		D4DAC0572AD594530082BEC5 /* Storage */ = {
 			isa = PBXGroup;
 			children = (
+				D40C39EC2AD93E79007D2E8F /* Account */,
 				D4DAC0582AD594640082BEC5 /* CoreDataStorage.xcdatamodeld */,
 				D4DAC05B2AD595520082BEC5 /* CoreDataStorage.swift */,
 			);
@@ -820,10 +853,12 @@
 				D416C5522AD17C9B00645F98 /* SplashViewModel.swift in Sources */,
 				D459F5802AD8138200AFA35C /* HttpMethodType.swift in Sources */,
 				D403CCB62AD845E3007EFD2C /* GithubProfileResponseDTO+Mapping.swift in Sources */,
+				D40C39F42AD94045007D2E8F /* Account+Mapping.swift in Sources */,
 				D4C89B112AD4009700AF8020 /* VCSType.swift in Sources */,
 				D488A1DD2AD04F3000DC37FC /* Coordinator.swift in Sources */,
 				D4C89B282AD4064400AF8020 /* StringExt.swift in Sources */,
 				D42F79952AD2C4E9007B0BCC /* LoginViewController.swift in Sources */,
+				D40C39EE2AD93E9D007D2E8F /* AccountStorage.swift in Sources */,
 				D4DAC0552AD57DC70082BEC5 /* InputTextView.swift in Sources */,
 				D42F799E2AD3277F007B0BCC /* LoginScene.swift in Sources */,
 				D403CCAB2AD83262007EFD2C /* DataTransferService.swift in Sources */,
@@ -833,6 +868,7 @@
 				D42F79992AD3260B007B0BCC /* PlatformViewController.swift in Sources */,
 				D42F79902AD2BC89007B0BCC /* StartViewController.swift in Sources */,
 				D4DAC05C2AD595520082BEC5 /* CoreDataStorage.swift in Sources */,
+				D40C39F12AD93F75007D2E8F /* CoreDataAccountStorage.swift in Sources */,
 				D42F79862AD2B00B007B0BCC /* LogoView.swift in Sources */,
 				D416C53E2AD167B700645F98 /* Log.swift in Sources */,
 				D42F798E2AD2BC81007B0BCC /* StartViewModel.swift in Sources */,
