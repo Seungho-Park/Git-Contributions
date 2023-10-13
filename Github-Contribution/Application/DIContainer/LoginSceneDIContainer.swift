@@ -21,7 +21,7 @@ class LoginSceneDIContainer {
     }
     
     func makeStartViewModel(actions: StartViewModel.Actions)-> StartViewModel {
-        return StartViewModel(actions: actions)
+        return StartViewModel(usecase: makeStartSceneUsecase(), actions: actions)
     }
     
     func makePlatformViewModel(actions: PlatformViewModel.Actions)-> PlatformViewModel {
@@ -34,5 +34,13 @@ class LoginSceneDIContainer {
     
     func makeTokenManagementViewModel()-> TokenManagementViewModel {
         return TokenManagementViewModel()
+    }
+    
+    private func makeStartSceneUsecase()-> StartSceneUsecase {
+        return StartSceneUsecaseImpl(repository: makeProfileRepository())
+    }
+    
+    private func makeProfileRepository()-> ProfileRepository {
+        return ProfileRepositoryImpl(dataTransferService: apiDataTransferService)
     }
 }

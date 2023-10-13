@@ -25,18 +25,31 @@ extension StartViewModel {
 }
 
 class StartViewModel: NSObject, ViewModel {
+    private let usecase: StartSceneUsecase
     var title: Driver<String>
     let actions: Actions
     
-    init(title: String = "", actions: Actions) {
+    init(title: String = "", usecase: StartSceneUsecase, actions: Actions) {
         self.title = Observable.just(title).asDriver(onErrorJustReturn: "Get Started".localized)
+        self.usecase = usecase
         self.actions = actions
     }
     
     func transform(_ input: Input) -> Output {
         input.touchedStartButton
             .subscribe { [unowned self] _ in
-                self.actions.showSelectPlatform()
+                self.usecase
+                    .fetchProfiles()
+                    .observe(on: MainScheduler.instance)
+                    .subscribe { [unowned self] event in
+                        guard let profiles = event.element else { return }
+                        
+                        if profiles.count > 0 {
+                            print("Go Main")
+                        } else {
+                            self.actions.showSelectPlatform()
+                        }
+                    }.disposed(by: rx.disposeBag)
             }.disposed(by: rx.disposeBag)
         return .init()
     }
