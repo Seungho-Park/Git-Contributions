@@ -13,9 +13,8 @@ struct Profile {
     let type: VCSType
     let host: String?
     let username: String
-    let homepageURL: String
     
-    //아바타와 토큰 정보는 바뀔 수 있음.
+    var homepageURL: String
     var name: String
     var avatarImageURL: String
     var tokenId: Int = -1

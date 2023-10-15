@@ -20,6 +20,6 @@ extension GithubProfileResponseDTO {
     func toDomain()-> Profile {
         let df = DateFormatter()
         df.dateFormat = "yyyy-MM-dd'T'HH:mm:ss'Z'"
-        return Profile(id: id, type: .gitlab, host: nil, username: login, name: name, avatarImageURL: avatar_url, homepageURL: html_url)
+        return Profile(id: id, type: .gitlab, host: nil, username: login, homepageURL: html_url, name: name, avatarImageURL: avatar_url)
     }
 }

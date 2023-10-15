@@ -17,4 +17,8 @@ extension User {
         self.username = profile.username
         self.token_id = Int32(profile.tokenId)
     }
+    
+    func toDomain()-> Profile {
+        .init(id: Int(id), type: .init(rawValue: Int(type))!, host: host, username: username ?? "Invalid User", homepageURL: "", name: "", avatarImageURL: "")
+    }
 }

@@ -10,6 +10,7 @@ import CoreData
 
 class ProfileRepositoryImpl: ProfileRepository {
     private let dataTransferService: DataTransferService
+    private let userStorage: UserStorage = CoreDataUserStorage()
     
     init(dataTransferService: DataTransferService) {
         self.dataTransferService = dataTransferService
@@ -33,6 +34,6 @@ class ProfileRepositoryImpl: ProfileRepository {
     }
     
     func fetchUserInfos(completion: @escaping (Result<[Profile], Error>)-> Void) {
-        
+        userStorage.fetchUsers(completion: completion)
     }
 }
