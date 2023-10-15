@@ -45,7 +45,7 @@ class StartViewModel: NSObject, ViewModel {
                         guard let profiles = event.element else { return }
                         
                         if profiles.count > 0 {
-                            print("Go Main")
+                            //TODO: 계정 정보를 토큰과 함께 메인화면으로 넘기기 -
                         } else {
                             self.actions.showSelectPlatform()
                         }

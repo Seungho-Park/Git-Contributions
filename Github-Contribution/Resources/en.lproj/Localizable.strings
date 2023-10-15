@@ -21,3 +21,6 @@
 "Manage Token" = "Manage Token";
 "Access-Token" = "Access-Token";
 "Access-Token(Optional)" = "Access-Token(Optional)";
+"Alarm" = "Alarm";
+"Done" = "Done";
+"Invalid information Alert" = "Invalid information.\nPlease confirm input data.";

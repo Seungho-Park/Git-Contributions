@@ -12,6 +12,7 @@ import RxCocoa
 extension LoginViewModel {
     struct Actions {
         let showTokenScene: (VCSType, String?)-> Void
+        let showAlert: (String)-> Void
     }
     
     struct Input {
@@ -41,8 +42,9 @@ class LoginViewModel: NSObject, ViewModel {
             self.actions.showTokenScene(self.vcsType.value, "")
         }.disposed(by: rx.disposeBag)
         
-        input.tapSubmit.subscribe { _ in
-            print("tap Submit!")
+        input.tapSubmit.subscribe { [unowned self] _ in
+            //TODO: Profile 조회 API를 통해 올바른 계정인지 확인, 올바른 계정일 경우 main화면으로 이동, 아니면 알람창 띄우기.
+            self.actions.showAlert("Invalid information Alert".localized)
         }.disposed(by: rx.disposeBag)
         
         return Output(

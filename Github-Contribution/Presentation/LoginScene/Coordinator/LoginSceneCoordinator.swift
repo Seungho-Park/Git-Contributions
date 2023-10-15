@@ -55,7 +55,8 @@ final class LoginSceneCoordinator: Coordinator {
                     self.diContainer.makeLoginViewModel(
                         type: type,
                         actions: .init(
-                            showTokenScene: showTokenScene(type:host:)
+                            showTokenScene: showTokenScene(type:host:),
+                            showAlert: showAlert(msg:)
                         )
                     )
                 ),
@@ -72,6 +73,10 @@ final class LoginSceneCoordinator: Coordinator {
             ),
             transitionStyle: .push
         )
+    }
+    
+    private func showAlert(msg: String) {
+        transition(scene: AppScene.alert(msg), transitionStyle: .modal)
     }
     
     private func closePlatformVC() {
