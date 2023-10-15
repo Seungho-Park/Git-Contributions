@@ -31,4 +31,8 @@ class ProfileRepositoryImpl: ProfileRepository {
         default: break
         }
     }
+    
+    func fetchUserInfos(completion: @escaping (Result<[Profile], Error>)-> Void) {
+        
+    }
 }

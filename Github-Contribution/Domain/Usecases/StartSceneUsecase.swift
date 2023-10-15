@@ -13,11 +13,5 @@ protocol StartSceneUsecase {
 }
 
 class StartSceneUsecaseImpl: StartSceneUsecase {
-    private let repository: ProfileRepository
-    
-    init(repository: ProfileRepository) {
-        self.repository = repository
-    }
-    
     
 }

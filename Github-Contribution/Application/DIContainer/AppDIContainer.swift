@@ -16,7 +16,15 @@ final class AppDIContainer {
     
     
     func makeSplashViewModel(actions: SplashViewModel.SplashViewModelAction)-> SplashViewModel {
-        .init(title: "Splash", actions: actions)
+        .init(title: "Splash", actions: actions, splashUsecase: makeSplashUsecase())
+    }
+    
+    private func makeSplashUsecase()-> SplashUsecase {
+        return SplashUsecaseImpl(profileRepository: makeProfileRepository())
+    }
+    
+    private func makeProfileRepository()-> ProfileRepository {
+        return ProfileRepositoryImpl(dataTransferService: apiDataTransferService)
     }
     
     func makeLoginSceneDIContainer()-> LoginSceneDIContainer {

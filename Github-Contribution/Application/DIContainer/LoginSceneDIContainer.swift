@@ -37,7 +37,7 @@ class LoginSceneDIContainer {
     }
     
     private func makeStartSceneUsecase()-> StartSceneUsecase {
-        return StartSceneUsecaseImpl(repository: makeProfileRepository())
+        return StartSceneUsecaseImpl()
     }
     
     private func makeProfileRepository()-> ProfileRepository {

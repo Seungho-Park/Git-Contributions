@@ -9,4 +9,6 @@ import Foundation
 
 protocol ProfileRepository {
     func fetchProfile(profile: Profile)
+    
+    func fetchUserInfos(completion: @escaping (Result<[Profile], Error>)-> Void)
 }
