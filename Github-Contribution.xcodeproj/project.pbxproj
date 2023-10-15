@@ -273,13 +273,13 @@
 			path = Type;
 			sourceTree = "<group>";
 		};
-		D40C39EC2AD93E79007D2E8F /* Account */ = {
+		D40C39EC2AD93E79007D2E8F /* Profile */ = {
 			isa = PBXGroup;
 			children = (
 				D40C39ED2AD93E9D007D2E8F /* ProfileStorage.swift */,
 				D40C39EF2AD93F69007D2E8F /* CoreDataStorage */,
 			);
-			path = Account;
+			path = Profile;
 			sourceTree = "<group>";
 		};
 		D40C39EF2AD93F69007D2E8F /* CoreDataStorage */ = {
@@ -681,7 +681,7 @@
 			children = (
 				D47D6AA02ADC218F00E8A5CA /* CoreDataStorage.xcdatamodeld */,
 				D4DAC05B2AD595520082BEC5 /* CoreDataStorage.swift */,
-				D40C39EC2AD93E79007D2E8F /* Account */,
+				D40C39EC2AD93E79007D2E8F /* Profile */,
 			);
 			path = Storage;
 			sourceTree = "<group>";
