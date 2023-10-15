@@ -38,18 +38,7 @@ class StartViewModel: NSObject, ViewModel {
     func transform(_ input: Input) -> Output {
         input.touchedStartButton
             .subscribe { [unowned self] _ in
-                self.usecase
-                    .fetchProfiles()
-                    .observe(on: MainScheduler.instance)
-                    .subscribe { [unowned self] event in
-                        guard let profiles = event.element else { return }
-                        
-                        if profiles.count > 0 {
-                            //TODO: 계정 정보를 토큰과 함께 메인화면으로 넘기기 -
-                        } else {
-                            self.actions.showSelectPlatform()
-                        }
-                    }.disposed(by: rx.disposeBag)
+                self.actions.showSelectPlatform()
             }.disposed(by: rx.disposeBag)
         return .init()
     }

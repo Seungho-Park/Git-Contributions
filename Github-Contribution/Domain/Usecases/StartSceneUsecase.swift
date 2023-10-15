@@ -9,7 +9,7 @@ import Foundation
 import RxSwift
 
 protocol StartSceneUsecase {
-    func fetchProfiles()-> Observable<[Profile]>
+    
 }
 
 class StartSceneUsecaseImpl: StartSceneUsecase {
@@ -19,20 +19,5 @@ class StartSceneUsecaseImpl: StartSceneUsecase {
         self.repository = repository
     }
     
-    func fetchProfiles() -> Observable<[Profile]> {
-        Observable.create { [unowned self] observer in
-            self.repository
-                .fetchAccounts { result in
-                    switch result {
-                    case .success(let profiles):
-                        observer.onNext(profiles)
-                        observer.onCompleted()
-                    case .failure(let error): 
-                        observer.onError(error)
-                    }
-                }
-            
-            return Disposables.create()
-        }
-    }
+    
 }
