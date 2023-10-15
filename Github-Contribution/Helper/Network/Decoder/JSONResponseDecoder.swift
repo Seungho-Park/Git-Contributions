@@ -10,6 +10,7 @@ import Foundation
 class JSONResponseDecoder: ResponseDecoder {
     func decode<T: Decodable>(data: Data) throws -> T {
         do {
+            print(String(data: data, encoding: .utf8))
             let decode = try JSONDecoder().decode(T.self, from: data)
             return decode
         } catch {

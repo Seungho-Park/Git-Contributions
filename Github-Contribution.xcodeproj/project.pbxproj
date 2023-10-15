@@ -61,6 +61,13 @@
 		D47D6AA22ADC218F00E8A5CA /* CoreDataStorage.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D47D6AA02ADC218F00E8A5CA /* CoreDataStorage.xcdatamodeld */; };
 		D47D6AA42ADC298300E8A5CA /* TokenRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = D47D6AA32ADC298300E8A5CA /* TokenRepository.swift */; };
 		D47D6AA62ADC299200E8A5CA /* TokenRepositoryImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = D47D6AA52ADC299200E8A5CA /* TokenRepositoryImpl.swift */; };
+		D47D6AAF2ADC4FA900E8A5CA /* UserStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = D47D6AAE2ADC4FA900E8A5CA /* UserStorage.swift */; };
+		D47D6AB32ADC4FCF00E8A5CA /* CoreDataUserStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = D47D6AB22ADC4FCF00E8A5CA /* CoreDataUserStorage.swift */; };
+		D47D6AB52ADC4FEC00E8A5CA /* User+Mapping.swift in Sources */ = {isa = PBXBuildFile; fileRef = D47D6AB42ADC4FEC00E8A5CA /* User+Mapping.swift */; };
+		D47D6AB82ADC514900E8A5CA /* TokenStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = D47D6AB72ADC514900E8A5CA /* TokenStorage.swift */; };
+		D47D6ABB2ADC515D00E8A5CA /* CoreDataTokenStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = D47D6ABA2ADC515D00E8A5CA /* CoreDataTokenStorage.swift */; };
+		D47D6ABE2ADC517400E8A5CA /* Token+Mapping.swift in Sources */ = {isa = PBXBuildFile; fileRef = D47D6ABD2ADC517400E8A5CA /* Token+Mapping.swift */; };
+		D47D6AC02ADC519500E8A5CA /* AccessToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = D47D6ABF2ADC519500E8A5CA /* AccessToken.swift */; };
 		D488A1A72ACFC23200DC37FC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D488A1A62ACFC23200DC37FC /* AppDelegate.swift */; };
 		D488A1A92ACFC23200DC37FC /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D488A1A82ACFC23200DC37FC /* SceneDelegate.swift */; };
 		D488A1B02ACFC23300DC37FC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D488A1AF2ACFC23300DC37FC /* Assets.xcassets */; };
@@ -149,6 +156,13 @@
 		D47D6AA12ADC218F00E8A5CA /* CoreDataStorage.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CoreDataStorage.xcdatamodel; sourceTree = "<group>"; };
 		D47D6AA32ADC298300E8A5CA /* TokenRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenRepository.swift; sourceTree = "<group>"; };
 		D47D6AA52ADC299200E8A5CA /* TokenRepositoryImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenRepositoryImpl.swift; sourceTree = "<group>"; };
+		D47D6AAE2ADC4FA900E8A5CA /* UserStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserStorage.swift; sourceTree = "<group>"; };
+		D47D6AB22ADC4FCF00E8A5CA /* CoreDataUserStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataUserStorage.swift; sourceTree = "<group>"; };
+		D47D6AB42ADC4FEC00E8A5CA /* User+Mapping.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "User+Mapping.swift"; sourceTree = "<group>"; };
+		D47D6AB72ADC514900E8A5CA /* TokenStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenStorage.swift; sourceTree = "<group>"; };
+		D47D6ABA2ADC515D00E8A5CA /* CoreDataTokenStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataTokenStorage.swift; sourceTree = "<group>"; };
+		D47D6ABD2ADC517400E8A5CA /* Token+Mapping.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Token+Mapping.swift"; sourceTree = "<group>"; };
+		D47D6ABF2ADC519500E8A5CA /* AccessToken.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccessToken.swift; sourceTree = "<group>"; };
 		D488A1A32ACFC23200DC37FC /* Github-Contribution.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Github-Contribution.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D488A1A62ACFC23200DC37FC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D488A1A82ACFC23200DC37FC /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -499,6 +513,58 @@
 			path = Type;
 			sourceTree = "<group>";
 		};
+		D47D6AAD2ADC4FA000E8A5CA /* UserStorage */ = {
+			isa = PBXGroup;
+			children = (
+				D47D6AAE2ADC4FA900E8A5CA /* UserStorage.swift */,
+				D47D6AB02ADC4FB500E8A5CA /* CoreDataStorage */,
+				D47D6AB12ADC4FBD00E8A5CA /* Mapping */,
+			);
+			path = UserStorage;
+			sourceTree = "<group>";
+		};
+		D47D6AB02ADC4FB500E8A5CA /* CoreDataStorage */ = {
+			isa = PBXGroup;
+			children = (
+				D47D6AB22ADC4FCF00E8A5CA /* CoreDataUserStorage.swift */,
+			);
+			path = CoreDataStorage;
+			sourceTree = "<group>";
+		};
+		D47D6AB12ADC4FBD00E8A5CA /* Mapping */ = {
+			isa = PBXGroup;
+			children = (
+				D47D6AB42ADC4FEC00E8A5CA /* User+Mapping.swift */,
+			);
+			path = Mapping;
+			sourceTree = "<group>";
+		};
+		D47D6AB62ADC513F00E8A5CA /* TokenStorage */ = {
+			isa = PBXGroup;
+			children = (
+				D47D6AB72ADC514900E8A5CA /* TokenStorage.swift */,
+				D47D6AB92ADC515000E8A5CA /* CoreDataStorage */,
+				D47D6ABC2ADC516800E8A5CA /* Mapping */,
+			);
+			path = TokenStorage;
+			sourceTree = "<group>";
+		};
+		D47D6AB92ADC515000E8A5CA /* CoreDataStorage */ = {
+			isa = PBXGroup;
+			children = (
+				D47D6ABA2ADC515D00E8A5CA /* CoreDataTokenStorage.swift */,
+			);
+			path = CoreDataStorage;
+			sourceTree = "<group>";
+		};
+		D47D6ABC2ADC516800E8A5CA /* Mapping */ = {
+			isa = PBXGroup;
+			children = (
+				D47D6ABD2ADC517400E8A5CA /* Token+Mapping.swift */,
+			);
+			path = Mapping;
+			sourceTree = "<group>";
+		};
 		D488A19A2ACFC23200DC37FC = {
 			isa = PBXGroup;
 			children = (
@@ -636,6 +702,7 @@
 			children = (
 				D403CCC02AD85C7C007EFD2C /* Type */,
 				D4DAC0522AD579AF0082BEC5 /* Profile.swift */,
+				D47D6ABF2ADC519500E8A5CA /* AccessToken.swift */,
 			);
 			path = Entities;
 			sourceTree = "<group>";
@@ -653,6 +720,8 @@
 		D4DAC0572AD594530082BEC5 /* Storage */ = {
 			isa = PBXGroup;
 			children = (
+				D47D6AB62ADC513F00E8A5CA /* TokenStorage */,
+				D47D6AAD2ADC4FA000E8A5CA /* UserStorage */,
 				D47D6AA02ADC218F00E8A5CA /* CoreDataStorage.xcdatamodeld */,
 				D4DAC05B2AD595520082BEC5 /* CoreDataStorage.swift */,
 			);
@@ -825,6 +894,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D47D6ABB2ADC515D00E8A5CA /* CoreDataTokenStorage.swift in Sources */,
 				D42F79792AD28742007B0BCC /* LoginSceneCoordinator.swift in Sources */,
 				D40C39F62AD94449007D2E8F /* StartSceneUsecase.swift in Sources */,
 				D416C5522AD17C9B00645F98 /* SplashViewModel.swift in Sources */,
@@ -832,10 +902,13 @@
 				D403CCB62AD845E3007EFD2C /* GithubProfileResponseDTO+Mapping.swift in Sources */,
 				D4C89B112AD4009700AF8020 /* VCSType.swift in Sources */,
 				D488A1DD2AD04F3000DC37FC /* Coordinator.swift in Sources */,
+				D47D6AB82ADC514900E8A5CA /* TokenStorage.swift in Sources */,
+				D47D6AB32ADC4FCF00E8A5CA /* CoreDataUserStorage.swift in Sources */,
 				D4C89B282AD4064400AF8020 /* StringExt.swift in Sources */,
 				D42F79952AD2C4E9007B0BCC /* LoginViewController.swift in Sources */,
 				D4DAC0552AD57DC70082BEC5 /* InputTextView.swift in Sources */,
 				D42F799E2AD3277F007B0BCC /* LoginScene.swift in Sources */,
+				D47D6ABE2ADC517400E8A5CA /* Token+Mapping.swift in Sources */,
 				D403CCAB2AD83262007EFD2C /* DataTransferService.swift in Sources */,
 				D459F5842AD8182B00AFA35C /* NetworkError.swift in Sources */,
 				D488A1A72ACFC23200DC37FC /* AppDelegate.swift in Sources */,
@@ -848,6 +921,7 @@
 				D416C53E2AD167B700645F98 /* Log.swift in Sources */,
 				D42F798E2AD2BC81007B0BCC /* StartViewModel.swift in Sources */,
 				D416C5452AD17B0100645F98 /* ViewModelBindable.swift in Sources */,
+				D47D6AAF2ADC4FA900E8A5CA /* UserStorage.swift in Sources */,
 				D403CCC42AD8720F007EFD2C /* TokenManagementViewModel.swift in Sources */,
 				D4DAC0642AD5AE180082BEC5 /* APIEndPoints.swift in Sources */,
 				D416C5502AD17C9400645F98 /* SplashViewController.swift in Sources */,
@@ -870,11 +944,13 @@
 				D42F79972AD2C64C007B0BCC /* LoginViewModel.swift in Sources */,
 				D488A1DB2AD04F2100DC37FC /* AppDIContainer.swift in Sources */,
 				D47D6AA62ADC299200E8A5CA /* TokenRepositoryImpl.swift in Sources */,
+				D47D6AB52ADC4FEC00E8A5CA /* User+Mapping.swift in Sources */,
 				D47D6AA42ADC298300E8A5CA /* TokenRepository.swift in Sources */,
 				D459F5822AD8159E00AFA35C /* Requestable.swift in Sources */,
 				D4DAC0612AD5AB920082BEC5 /* NetworkService.swift in Sources */,
 				D403CCBD2AD8579D007EFD2C /* ProfileRepositoryImpl.swift in Sources */,
 				D416C5562AD1B47900645F98 /* AppAppearance.swift in Sources */,
+				D47D6AC02ADC519500E8A5CA /* AccessToken.swift in Sources */,
 				D403CCBB2AD8575D007EFD2C /* ProfileRepository.swift in Sources */,
 				D403CCC22AD871EC007EFD2C /* TokenManagementViewController.swift in Sources */,
 				D459F57A2AD8114C00AFA35C /* ResponseDecoder.swift in Sources */,

@@ -8,7 +8,6 @@
 import Foundation
 
 struct GitlabProfileResponseDTO: Decodable {
-    let message: String?
     let id: Int
     let username: String
     let name: String

@@ -28,7 +28,9 @@ class TokenManagementViewModel: NSObject, ViewModel {
     
     func transform(_ input: Input) -> Output {
         input.tapAddButton
-            .subscribe { _ in
+            .subscribe { event in
+                guard let ev = event.element else { return }
+                
                 print("Tap Add Button !")
             }.disposed(by: rx.disposeBag)
         

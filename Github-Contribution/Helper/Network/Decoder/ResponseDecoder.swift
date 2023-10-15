@@ -8,5 +8,5 @@
 import Foundation
 
 protocol ResponseDecoder {
-    func decode<T: Decodable>(data: Data) throws ->T
+    func decode<T: Decodable>(data: Data) throws -> T
 }

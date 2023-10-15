@@ -8,5 +8,5 @@
 import Foundation
 
 protocol ProfileRepository {
-    
+    func fetchProfile(profile: Profile)
 }

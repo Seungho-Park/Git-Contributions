@@ -14,7 +14,6 @@ struct GithubProfileResponseDTO: Decodable {
     let avatar_url: String
     let html_url: String
     let created_at: String
-    let message: String?
 }
 
 extension GithubProfileResponseDTO {

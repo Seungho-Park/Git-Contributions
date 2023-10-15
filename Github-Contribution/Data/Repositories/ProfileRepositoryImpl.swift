@@ -14,4 +14,21 @@ class ProfileRepositoryImpl: ProfileRepository {
     init(dataTransferService: DataTransferService) {
         self.dataTransferService = dataTransferService
     }
+    
+    func fetchProfile(profile: Profile) {
+        switch profile.type {
+        case .github: 
+            let endpoint = APIEndPoints.fetchGithubProfile(with: .init(host: "", userName: profile.username, token: nil))
+            dataTransferService.request(with: endpoint) { result in
+                switch result {
+                case .success(let response):
+                    print(response)
+                case .failure(let error):
+                    print(error)
+                }
+            }
+        case .gitlab: break
+        default: break
+        }
+    }
 }

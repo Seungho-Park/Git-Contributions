@@ -15,4 +15,6 @@ struct Profile {
     let name: String
     let avatarImageURL: String
     let homepageURL: String
+    
+    var tokenId: Int = -1
 }
