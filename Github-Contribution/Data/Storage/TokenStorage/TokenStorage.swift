@@ -8,5 +8,5 @@
 import Foundation
 
 protocol TokenStorage {
-    
+    func fetchTokens(type: VCSType, host: String?, completion: @escaping (Result<[AccessToken], Error>)-> Void)
 }

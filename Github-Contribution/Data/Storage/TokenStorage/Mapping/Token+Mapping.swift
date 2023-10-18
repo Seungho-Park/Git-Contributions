@@ -16,4 +16,8 @@ extension Token {
         self.token = token.token
         self.type = Int32(token.type.rawValue)
     }
+    
+    func toDomain()-> AccessToken {
+        .init(id: Int(id), type: VCSType(rawValue: Int(type))!, token: token!, host: host)
+    }
 }
