@@ -124,7 +124,11 @@ extension Reactive where Base: LoginViewController {
             if type == .github {
                 vc.hostInputView.isEnabled = false
                 vc.hostInputView.text = "https://github.com"
+                vc.tokenInputView.title = "Access-Token".localized
                 vc.tokenInputView.placeholder = "Access-Token(Optional)".localized
+            } else {
+                vc.tokenInputView.title = "PRIVATE-TOKEN"
+                vc.tokenInputView.placeholder = "PRIVATE-TOKEN".localized
             }
             
             stackView.addArrangedSubview(vc.hostInputView)

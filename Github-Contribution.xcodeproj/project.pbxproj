@@ -69,6 +69,7 @@
 		D47D6ABE2ADC517400E8A5CA /* Token+Mapping.swift in Sources */ = {isa = PBXBuildFile; fileRef = D47D6ABD2ADC517400E8A5CA /* Token+Mapping.swift */; };
 		D47D6AC02ADC519500E8A5CA /* AccessToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = D47D6ABF2ADC519500E8A5CA /* AccessToken.swift */; };
 		D47D6AC22ADC535A00E8A5CA /* SplashUsecase.swift in Sources */ = {isa = PBXBuildFile; fileRef = D47D6AC12ADC535A00E8A5CA /* SplashUsecase.swift */; };
+		D484E6CD2AE0265600B117B8 /* LoginUsecase.swift in Sources */ = {isa = PBXBuildFile; fileRef = D484E6CC2AE0265600B117B8 /* LoginUsecase.swift */; };
 		D488A1A72ACFC23200DC37FC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D488A1A62ACFC23200DC37FC /* AppDelegate.swift */; };
 		D488A1A92ACFC23200DC37FC /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D488A1A82ACFC23200DC37FC /* SceneDelegate.swift */; };
 		D488A1B02ACFC23300DC37FC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D488A1AF2ACFC23300DC37FC /* Assets.xcassets */; };
@@ -165,6 +166,7 @@
 		D47D6ABD2ADC517400E8A5CA /* Token+Mapping.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Token+Mapping.swift"; sourceTree = "<group>"; };
 		D47D6ABF2ADC519500E8A5CA /* AccessToken.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccessToken.swift; sourceTree = "<group>"; };
 		D47D6AC12ADC535A00E8A5CA /* SplashUsecase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashUsecase.swift; sourceTree = "<group>"; };
+		D484E6CC2AE0265600B117B8 /* LoginUsecase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginUsecase.swift; sourceTree = "<group>"; };
 		D488A1A32ACFC23200DC37FC /* Github-Contribution.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Github-Contribution.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D488A1A62ACFC23200DC37FC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D488A1A82ACFC23200DC37FC /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -269,6 +271,7 @@
 			children = (
 				D40C39F52AD94449007D2E8F /* StartSceneUsecase.swift */,
 				D47D6AC12ADC535A00E8A5CA /* SplashUsecase.swift */,
+				D484E6CC2AE0265600B117B8 /* LoginUsecase.swift */,
 			);
 			path = Usecases;
 			sourceTree = "<group>";
@@ -952,6 +955,7 @@
 				D47D6AA42ADC298300E8A5CA /* TokenRepository.swift in Sources */,
 				D459F5822AD8159E00AFA35C /* Requestable.swift in Sources */,
 				D4DAC0612AD5AB920082BEC5 /* NetworkService.swift in Sources */,
+				D484E6CD2AE0265600B117B8 /* LoginUsecase.swift in Sources */,
 				D403CCBD2AD8579D007EFD2C /* ProfileRepositoryImpl.swift in Sources */,
 				D416C5562AD1B47900645F98 /* AppAppearance.swift in Sources */,
 				D47D6AC02ADC519500E8A5CA /* AccessToken.swift in Sources */,
