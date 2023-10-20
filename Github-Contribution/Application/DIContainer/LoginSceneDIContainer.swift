@@ -32,8 +32,16 @@ class LoginSceneDIContainer {
         return LoginViewModel(type: type, actions: actions)
     }
     
-    func makeTokenManagementViewModel()-> TokenManagementViewModel {
-        return TokenManagementViewModel()
+    func makeTokenManagementViewModel(type: VCSType, host: String?)-> TokenManagementViewModel {
+        return TokenManagementViewModel(type: type, host: host, usecase: makeTokenManageUsecase())
+    }
+    
+    private func makeTokenManageUsecase()-> TokenManageUsecase {
+        return TokenManageUsecaseImpl(repository: makeTokenRepository())
+    }
+    
+    private func makeTokenRepository()-> TokenRepository {
+        return TokenRepositoryImpl()
     }
     
     private func makeStartSceneUsecase()-> StartSceneUsecase {

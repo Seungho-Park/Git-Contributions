@@ -69,7 +69,7 @@ final class LoginSceneCoordinator: Coordinator {
     private func showTokenScene(type: VCSType, host: String?) {
         transition(
             scene: LoginScene.tokenManagement(
-                diContainer.makeTokenManagementViewModel()
+                diContainer.makeTokenManagementViewModel(type: type, host: host)
             ),
             transitionStyle: .push
         )

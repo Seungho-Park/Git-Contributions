@@ -12,13 +12,12 @@ extension UserEntity {
     convenience init(profile: User, insertInto context: NSManagedObjectContext) {
         self.init(context: context)
         self.host = profile.host
-        self.id = Int32(profile.id)
         self.type = Int32(profile.type.rawValue)
         self.username = profile.username
         self.token_id = Int16(profile.token_id)
     }
     
     func toDomain()-> User {
-        .init(id: Int(id), type: .init(rawValue: Int(type))!, host: host, username: username ?? "Invalid User", token_id: Int(token_id))
+        .init(type: .init(rawValue: Int(type))!, host: host, username: username ?? "Invalid User", token_id: Int(token_id))
     }
 }

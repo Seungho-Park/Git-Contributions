@@ -21,9 +21,15 @@ extension TokenManagementViewModel {
 
 class TokenManagementViewModel: NSObject, ViewModel {
     let title: Driver<String>
+    let type: VCSType
+    let host: String?
+    let usecase: TokenManageUsecase
     
-    init(title: String = "Manage Token".localized) {
+    init(title: String = "Manage Token".localized, type: VCSType, host: String? = nil, usecase: TokenManageUsecase) {
         self.title = Observable.just(title).asDriver(onErrorJustReturn: "")
+        self.type = type
+        self.host = host
+        self.usecase = usecase
     }
     
     func transform(_ input: Input) -> Output {
