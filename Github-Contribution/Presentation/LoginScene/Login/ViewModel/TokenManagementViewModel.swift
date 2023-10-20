@@ -10,6 +10,10 @@ import RxSwift
 import RxCocoa
 
 extension TokenManagementViewModel {
+    struct Actions {
+        let showAddToken: (VCSType, String?)-> Void
+    }
+    
     struct Input {
         let tapAddButton: Observable<Void>
     }
@@ -24,20 +28,22 @@ class TokenManagementViewModel: NSObject, ViewModel {
     let type: VCSType
     let host: String?
     let usecase: TokenManageUsecase
+    let actions: Actions
     
-    init(title: String = "Manage Token".localized, type: VCSType, host: String? = nil, usecase: TokenManageUsecase) {
+    init(title: String = "Manage Token".localized, type: VCSType, host: String? = nil, usecase: TokenManageUsecase, actions: Actions) {
         self.title = Observable.just(title).asDriver(onErrorJustReturn: "")
         self.type = type
         self.host = host
         self.usecase = usecase
+        self.actions = actions
     }
     
     func transform(_ input: Input) -> Output {
         input.tapAddButton
             .subscribe { event in
-                guard let ev = event.element else { return }
+                guard let _ = event.element else { return }
                 
-                print("Tap Add Button !")
+                self.actions.showAddToken(self.type, self.host)
             }.disposed(by: rx.disposeBag)
         
         return Output()

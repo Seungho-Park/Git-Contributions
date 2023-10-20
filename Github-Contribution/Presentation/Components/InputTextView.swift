@@ -7,6 +7,8 @@
 
 import Foundation
 import UIKit
+import RxSwift
+import RxCocoa
 
 class InputTextView: UIView {
     private lazy var titleLabel: UILabel = {
@@ -19,7 +21,7 @@ class InputTextView: UIView {
         return label
     }()
     
-    private lazy var textField: UITextField = {
+    fileprivate lazy var textField: UITextField = {
         let textField = UITextField(frame: .zero)
         textField.translatesAutoresizingMaskIntoConstraints = false
         textField.textAlignment = .right
@@ -85,6 +87,7 @@ class InputTextView: UIView {
             make.centerY.equalToSuperview()
         }
         
+        textField.rx.text
         textField.snp.makeConstraints { make in
             make.leading.equalTo(titleLabel.snp.trailing).offset(5)
             make.trailing.equalToSuperview().inset(10)
@@ -98,5 +101,11 @@ extension InputTextView: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         return true
+    }
+}
+
+extension Reactive where Base: InputTextView {
+    var text: ControlProperty<String?> {
+        return self.base.textField.rx.text
     }
 }

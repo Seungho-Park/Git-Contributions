@@ -18,6 +18,8 @@ extension LoginViewModel {
     struct Input {
         let tapToken: Observable<Void>
         let tapSubmit: Observable<Void>
+        let host: Observable<String?>
+        
     }
     
     struct Output {
@@ -26,6 +28,9 @@ extension LoginViewModel {
 }
 
 class LoginViewModel: NSObject, ViewModel {
+    var host: String? = nil
+    
+    
     var title: Driver<String>
     let vcsType: BehaviorRelay<VCSType>
     
@@ -39,12 +44,17 @@ class LoginViewModel: NSObject, ViewModel {
     
     func transform(_ input: Input) -> Output {
         input.tapToken.subscribe { [unowned self] _ in
-            self.actions.showTokenScene(self.vcsType.value, "")
+            self.actions.showTokenScene(self.vcsType.value, host)
         }.disposed(by: rx.disposeBag)
         
         input.tapSubmit.subscribe { [unowned self] _ in
             //TODO: Profile 조회 API를 통해 올바른 계정인지 확인, 올바른 계정일 경우 main화면으로 이동, 아니면 알람창 띄우기.
             self.actions.showAlert("Invalid information Alert".localized)
+        }.disposed(by: rx.disposeBag)
+        
+        input.host.subscribe { [unowned self] event in
+            guard let host = event.element else { return }
+            self.host = host
         }.disposed(by: rx.disposeBag)
         
         return Output(

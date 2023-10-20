@@ -82,10 +82,12 @@ class LoginViewController: BaseViewController<LoginViewModel> {
     
     override func bind() {
         super.bind()
+        
         let output = viewModel.transform(
             .init(
                 tapToken: tapToken.asObservable(),
-                tapSubmit: submitButton.rx.tap.asObservable()
+                tapSubmit: submitButton.rx.tap.asObservable(),
+                host: hostInputView.rx.text.asObservable()
             )
         )
         

@@ -25,3 +25,5 @@
 "Alarm" = "알림";
 "Done" = "확인";
 "Invalid information Alert" = "잘못된 정보입니다.\n확인 후 다시 시도하여주십시오.";
+
+"Add Token" = "토큰 추가";

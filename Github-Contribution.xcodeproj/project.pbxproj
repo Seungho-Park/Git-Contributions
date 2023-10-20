@@ -43,6 +43,8 @@
 		D41FC5D32AE2F65200BEA0FB /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = D41FC5D22AE2F65200BEA0FB /* Profile.swift */; };
 		D41FC5D52AE2F8DB00BEA0FB /* TokenManageUsecase.swift in Sources */ = {isa = PBXBuildFile; fileRef = D41FC5D42AE2F8DB00BEA0FB /* TokenManageUsecase.swift */; };
 		D41FC5DA2AE311DC00BEA0FB /* TableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D41FC5D92AE311DC00BEA0FB /* TableView.swift */; };
+		D41FC5DC2AE31E8800BEA0FB /* AddTokenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D41FC5DB2AE31E8700BEA0FB /* AddTokenViewController.swift */; };
+		D41FC5DE2AE31E8E00BEA0FB /* AddTokenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D41FC5DD2AE31E8E00BEA0FB /* AddTokenViewModel.swift */; };
 		D42F79792AD28742007B0BCC /* LoginSceneCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D42F79782AD28742007B0BCC /* LoginSceneCoordinator.swift */; };
 		D42F797C2AD287A5007B0BCC /* LoginSceneDIContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = D42F797B2AD287A5007B0BCC /* LoginSceneDIContainer.swift */; };
 		D42F797F2AD2885C007B0BCC /* ImageAssets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D42F797E2AD2885C007B0BCC /* ImageAssets.xcassets */; };
@@ -144,6 +146,8 @@
 		D41FC5D22AE2F65200BEA0FB /* Profile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
 		D41FC5D42AE2F8DB00BEA0FB /* TokenManageUsecase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenManageUsecase.swift; sourceTree = "<group>"; };
 		D41FC5D92AE311DC00BEA0FB /* TableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableView.swift; sourceTree = "<group>"; };
+		D41FC5DB2AE31E8700BEA0FB /* AddTokenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTokenViewController.swift; sourceTree = "<group>"; };
+		D41FC5DD2AE31E8E00BEA0FB /* AddTokenViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTokenViewModel.swift; sourceTree = "<group>"; };
 		D42F79782AD28742007B0BCC /* LoginSceneCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginSceneCoordinator.swift; sourceTree = "<group>"; };
 		D42F797B2AD287A5007B0BCC /* LoginSceneDIContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginSceneDIContainer.swift; sourceTree = "<group>"; };
 		D42F797E2AD2885C007B0BCC /* ImageAssets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = ImageAssets.xcassets; sourceTree = "<group>"; };
@@ -485,6 +489,7 @@
 			children = (
 				D42F79942AD2C4E9007B0BCC /* LoginViewController.swift */,
 				D403CCC12AD871EC007EFD2C /* TokenManagementViewController.swift */,
+				D41FC5DB2AE31E8700BEA0FB /* AddTokenViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -494,6 +499,7 @@
 			children = (
 				D42F79962AD2C64C007B0BCC /* LoginViewModel.swift */,
 				D403CCC32AD8720F007EFD2C /* TokenManagementViewModel.swift */,
+				D41FC5DD2AE31E8E00BEA0FB /* AddTokenViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -942,6 +948,7 @@
 				D47D6AAF2ADC4FA900E8A5CA /* UserStorage.swift in Sources */,
 				D47D6AC22ADC535A00E8A5CA /* SplashUsecase.swift in Sources */,
 				D403CCC42AD8720F007EFD2C /* TokenManagementViewModel.swift in Sources */,
+				D41FC5DC2AE31E8800BEA0FB /* AddTokenViewController.swift in Sources */,
 				D4DAC0642AD5AE180082BEC5 /* APIEndPoints.swift in Sources */,
 				D416C5502AD17C9400645F98 /* SplashViewController.swift in Sources */,
 				D416C5472AD17BEC00645F98 /* BaseViewController.swift in Sources */,
@@ -958,6 +965,7 @@
 				D403CCB42AD8458F007EFD2C /* GitlabProfileResponseDTO+Mapping.swift in Sources */,
 				D4C89B2C2AD43CEE00AF8020 /* UIButtonExt.swift in Sources */,
 				D488A1A92ACFC23200DC37FC /* SceneDelegate.swift in Sources */,
+				D41FC5DE2AE31E8E00BEA0FB /* AddTokenViewModel.swift in Sources */,
 				D42F79822AD2AF0F007B0BCC /* UIViewControllerExt.swift in Sources */,
 				D488A1E22AD0520600DC37FC /* TransitionStyle.swift in Sources */,
 				D42F79972AD2C64C007B0BCC /* LoginViewModel.swift in Sources */,
