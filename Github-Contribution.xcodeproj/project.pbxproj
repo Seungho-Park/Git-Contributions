@@ -40,6 +40,7 @@
 		D416C55A2AD1C78700645F98 /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = D416C5592AD1C78700645F98 /* RxCocoa */; };
 		D416C55C2AD1C78700645F98 /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = D416C55B2AD1C78700645F98 /* RxSwift */; };
 		D416C55F2AD1CAEA00645F98 /* NSObject-Rx in Frameworks */ = {isa = PBXBuildFile; productRef = D416C55E2AD1CAEA00645F98 /* NSObject-Rx */; };
+		D41FC5D32AE2F65200BEA0FB /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = D41FC5D22AE2F65200BEA0FB /* Profile.swift */; };
 		D42F79792AD28742007B0BCC /* LoginSceneCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D42F79782AD28742007B0BCC /* LoginSceneCoordinator.swift */; };
 		D42F797C2AD287A5007B0BCC /* LoginSceneDIContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = D42F797B2AD287A5007B0BCC /* LoginSceneDIContainer.swift */; };
 		D42F797F2AD2885C007B0BCC /* ImageAssets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D42F797E2AD2885C007B0BCC /* ImageAssets.xcassets */; };
@@ -89,7 +90,7 @@
 		D4C89B282AD4064400AF8020 /* StringExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C89B272AD4064400AF8020 /* StringExt.swift */; };
 		D4C89B2A2AD4370100AF8020 /* UIViewExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C89B292AD4370100AF8020 /* UIViewExt.swift */; };
 		D4C89B2C2AD43CEE00AF8020 /* UIButtonExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C89B2B2AD43CEE00AF8020 /* UIButtonExt.swift */; };
-		D4DAC0532AD579AF0082BEC5 /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4DAC0522AD579AF0082BEC5 /* Profile.swift */; };
+		D4DAC0532AD579AF0082BEC5 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4DAC0522AD579AF0082BEC5 /* User.swift */; };
 		D4DAC0552AD57DC70082BEC5 /* InputTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4DAC0542AD57DC70082BEC5 /* InputTextView.swift */; };
 		D4DAC05C2AD595520082BEC5 /* CoreDataStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4DAC05B2AD595520082BEC5 /* CoreDataStorage.swift */; };
 		D4DAC05F2AD5AADE0082BEC5 /* EndPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4DAC05E2AD5AADE0082BEC5 /* EndPoint.swift */; };
@@ -138,6 +139,7 @@
 		D416C5512AD17C9B00645F98 /* SplashViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewModel.swift; sourceTree = "<group>"; };
 		D416C5532AD1B3ED00645F98 /* ColorAssets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = ColorAssets.xcassets; sourceTree = "<group>"; };
 		D416C5552AD1B47900645F98 /* AppAppearance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppAppearance.swift; sourceTree = "<group>"; };
+		D41FC5D22AE2F65200BEA0FB /* Profile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
 		D42F79782AD28742007B0BCC /* LoginSceneCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginSceneCoordinator.swift; sourceTree = "<group>"; };
 		D42F797B2AD287A5007B0BCC /* LoginSceneDIContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginSceneDIContainer.swift; sourceTree = "<group>"; };
 		D42F797E2AD2885C007B0BCC /* ImageAssets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = ImageAssets.xcassets; sourceTree = "<group>"; };
@@ -191,7 +193,7 @@
 		D4C89B272AD4064400AF8020 /* StringExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExt.swift; sourceTree = "<group>"; };
 		D4C89B292AD4370100AF8020 /* UIViewExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExt.swift; sourceTree = "<group>"; };
 		D4C89B2B2AD43CEE00AF8020 /* UIButtonExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIButtonExt.swift; sourceTree = "<group>"; };
-		D4DAC0522AD579AF0082BEC5 /* Profile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
+		D4DAC0522AD579AF0082BEC5 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		D4DAC0542AD57DC70082BEC5 /* InputTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputTextView.swift; sourceTree = "<group>"; };
 		D4DAC05B2AD595520082BEC5 /* CoreDataStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStorage.swift; sourceTree = "<group>"; };
 		D4DAC05E2AD5AADE0082BEC5 /* EndPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndPoint.swift; sourceTree = "<group>"; };
@@ -707,8 +709,9 @@
 			isa = PBXGroup;
 			children = (
 				D403CCC02AD85C7C007EFD2C /* Type */,
-				D4DAC0522AD579AF0082BEC5 /* Profile.swift */,
+				D4DAC0522AD579AF0082BEC5 /* User.swift */,
 				D47D6ABF2ADC519500E8A5CA /* AccessToken.swift */,
+				D41FC5D22AE2F65200BEA0FB /* Profile.swift */,
 			);
 			path = Entities;
 			sourceTree = "<group>";
@@ -919,6 +922,7 @@
 				D459F5842AD8182B00AFA35C /* NetworkError.swift in Sources */,
 				D488A1A72ACFC23200DC37FC /* AppDelegate.swift in Sources */,
 				D416C5402AD1799800645F98 /* AppScene.swift in Sources */,
+				D41FC5D32AE2F65200BEA0FB /* Profile.swift in Sources */,
 				D42F79992AD3260B007B0BCC /* PlatformViewController.swift in Sources */,
 				D42F79902AD2BC89007B0BCC /* StartViewController.swift in Sources */,
 				D4DAC05C2AD595520082BEC5 /* CoreDataStorage.swift in Sources */,
@@ -935,7 +939,7 @@
 				D416C5472AD17BEC00645F98 /* BaseViewController.swift in Sources */,
 				D416C54E2AD17C6300645F98 /* ViewModel.swift in Sources */,
 				D488A1E02AD0518B00DC37FC /* Scene.swift in Sources */,
-				D4DAC0532AD579AF0082BEC5 /* Profile.swift in Sources */,
+				D4DAC0532AD579AF0082BEC5 /* User.swift in Sources */,
 				D4C89B0A2AD3E60D00AF8020 /* PlatformListView.swift in Sources */,
 				D488A1E52AD052D900DC37FC /* TransitionError.swift in Sources */,
 				D4DAC05F2AD5AADE0082BEC5 /* EndPoint.swift in Sources */,

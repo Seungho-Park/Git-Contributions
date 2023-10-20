@@ -16,7 +16,7 @@ class ProfileRepositoryImpl: ProfileRepository {
         self.dataTransferService = dataTransferService
     }
     
-    func fetchProfile(profile: Profile)-> URLSessionTask? {
+    func fetchProfile(profile: User)-> URLSessionTask? {
         switch profile.type {
         case .github: 
             let endpoint = APIEndPoints.fetchGithubProfile(with: .init(host: "", userName: profile.username, token: nil))
@@ -35,7 +35,7 @@ class ProfileRepositoryImpl: ProfileRepository {
         return nil
     }
     
-    func fetchUserInfos(completion: @escaping (Result<[Profile], Error>)-> Void) {
+    func fetchUserInfos(completion: @escaping (Result<[User], Error>)-> Void) {
         userStorage.fetchUsers(completion: completion)
     }
 }

@@ -8,13 +8,13 @@
 import Foundation
 import CoreData
 
-extension Token {
+extension TokenEntity {
     convenience init(token: AccessToken, insertInto context: NSManagedObjectContext) {
         self.init(context: context)
-        self.id = Int32(token.id)
+        self.id = Int16(token.id)
         self.host = token.host
         self.token = token.token
-        self.type = Int32(token.type.rawValue)
+        self.type = Int16(token.type.rawValue)
     }
     
     func toDomain()-> AccessToken {

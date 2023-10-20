@@ -11,10 +11,11 @@ import RxCocoa
 
 enum LoginError: Error {
     case invalidHost
+    case tokenNil
 }
 
 protocol LoginUsecase {
-    func login(type: VCSType, host: String?, username: String, token: String?)-> Single<Profile>
+    func login(type: VCSType, host: String?, username: String, token: String?)
 }
 
 class LoginUsecaseImpl: LoginUsecase {
@@ -26,15 +27,7 @@ class LoginUsecaseImpl: LoginUsecase {
         self.tokenRepository = tokenRepository
     }
     
-    func login(type: VCSType, host: String?, username: String, token: String? = nil)-> Single<Profile> {
-        Single.create { [unowned self] single in
-            if type == .gitlab {
-                if host == nil {
-                    single(.failure(LoginError.invalidHost))
-                }
-            }
-            let task = self.profileRepository.fetchProfile(profile: .init(id: -1, type: type, host: host, username: username, homepageURL: "", name: "", avatarImageURL: ""))
-            return Disposables.create { task?.cancel() }
-        }
+    func login(type: VCSType, host: String?, username: String, token: String? = nil) {
+        
     }
 }

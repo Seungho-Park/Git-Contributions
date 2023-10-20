@@ -17,7 +17,7 @@ final class CoreDataTokenStorage: TokenStorage {
     
     func fetchTokens(type: VCSType, host: String?, completion: @escaping (Result<[AccessToken], Error>)-> Void) {
         storage.performBackgroundTask { context in
-            let request = Token.fetchRequest()
+            let request = TokenEntity.fetchRequest()
             let predicate: NSPredicate
             
             if let host = host {

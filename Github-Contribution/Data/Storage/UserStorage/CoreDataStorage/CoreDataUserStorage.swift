@@ -15,10 +15,10 @@ final class CoreDataUserStorage: UserStorage {
         self.storage = storage
     }
     
-    func fetchUsers(completion: @escaping (Result<[Profile], Error>) -> Void) {
+    func fetchUsers(completion: @escaping (Result<[User], Error>) -> Void) {
         storage.performBackgroundTask { context in
             do {
-                let request: NSFetchRequest = User.fetchRequest()
+                let request: NSFetchRequest = UserEntity.fetchRequest()
                 
                 let result = try context.fetch(request).map { $0.toDomain() }
                 completion(.success(result))
