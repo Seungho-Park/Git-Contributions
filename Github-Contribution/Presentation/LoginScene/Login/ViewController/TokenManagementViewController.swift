@@ -25,26 +25,26 @@ class TokenManagementViewController: BaseViewController<TokenManagementViewModel
         return search
     }()
     
-    private lazy var tableView: UITableView = {
-        let tableView = UITableView(frame: .zero)
-        tableView.backgroundColor = .clear
-        tableView.register(EmptyDataTableViewCell.self, forCellReuseIdentifier: EmptyDataTableViewCell.identifier)
-        tableView.delegate = self
-        tableView.dataSource = self
-        return tableView
-    }()
+    private lazy var tableView: TableView = TableView(frame: .zero)
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         navigationItem.rightBarButtonItem = UIBarButtonItem(customView: addTokenButton)
         setupUI()
+        setupConstraints()
+        
+        Observable<Bool>.just(true).asDriver(onErrorJustReturn: true)
+            .drive(tableView.rx.isEmpty)
+            .disposed(by: rx.disposeBag)
     }
     
     private func setupUI() {
         addSubview(searchView)
         addSubview(tableView)
-        
+    }
+    
+    private func setupConstraints() {
         searchView.snp.makeConstraints { make in
             make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(20)
             make.leading.trailing.equalToSuperview().inset(20)
@@ -53,7 +53,7 @@ class TokenManagementViewController: BaseViewController<TokenManagementViewModel
         
         tableView.snp.makeConstraints { make in
             make.top.equalTo(searchView.snp.bottom).offset(10)
-            make.leading.trailing.equalToSuperview().inset(10)
+            make.leading.trailing.equalToSuperview().inset(20)
             make.bottom.equalToSuperview()
         }
     }
@@ -69,17 +69,6 @@ class TokenManagementViewController: BaseViewController<TokenManagementViewModel
     }
 }
 
-
-extension TokenManagementViewController: UITableViewDataSource, UITableViewDelegate {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: EmptyDataTableViewCell.identifier, for: indexPath)
-        return cell
-    }
-}
 
 extension TokenManagementViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
