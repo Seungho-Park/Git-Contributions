@@ -7,9 +7,12 @@
 
 import Foundation
 import CoreData
+import RxSwift
+import RxCocoa
 
 final class CoreDataUserStorage: UserStorage {
     private let storage: CoreDataStorage
+    private lazy var users: BehaviorRelay<[User]> = .init(value: [])
     
     init(storage: CoreDataStorage = CoreDataStorage.shared) {
         self.storage = storage

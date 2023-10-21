@@ -9,11 +9,16 @@ import Foundation
 import UIKit
 
 class LoginSceneDIContainer {
+    struct Dependencies {
+        let apiDataTransferService: DataTransferService
+        let userStorage: UserStorage
+        let tokenStorage: TokenStorage
+    }
     
-    private let apiDataTransferService: DataTransferService
+    private let dependencies: Dependencies
     
-    init(apiDataTransferService: DataTransferService) {
-        self.apiDataTransferService = apiDataTransferService
+    init(dependencies: Dependencies) {
+        self.dependencies = dependencies
     }
     
     func makeLoginSceneCoordinator(window: UIWindow)-> LoginSceneCoordinator {
@@ -49,7 +54,7 @@ class LoginSceneDIContainer {
     }
     
     private func makeTokenRepository()-> TokenRepository {
-        return TokenRepositoryImpl()
+        return TokenRepositoryImpl(tokenStorage: dependencies.tokenStorage)
     }
     
     private func makeStartSceneUsecase()-> StartSceneUsecase {
@@ -57,6 +62,6 @@ class LoginSceneDIContainer {
     }
     
     private func makeProfileRepository()-> ProfileRepository {
-        return ProfileRepositoryImpl(dataTransferService: apiDataTransferService)
+        return ProfileRepositoryImpl(dataTransferService: dependencies.apiDataTransferService, userStorage: dependencies.userStorage)
     }
 }

@@ -33,10 +33,6 @@ class TokenManagementViewController: BaseViewController<TokenManagementViewModel
         navigationItem.rightBarButtonItem = UIBarButtonItem(customView: addTokenButton)
         setupUI()
         setupConstraints()
-        
-        Observable<Bool>.just(true).asDriver(onErrorJustReturn: true)
-            .drive(tableView.rx.isEmpty)
-            .disposed(by: rx.disposeBag)
     }
     
     private func setupUI() {

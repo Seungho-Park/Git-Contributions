@@ -7,9 +7,12 @@
 
 import Foundation
 import CoreData
+import RxSwift
+import RxCocoa
 
 final class CoreDataTokenStorage: TokenStorage {
-    let storage: CoreDataStorage
+    private let storage: CoreDataStorage
+    private lazy var tokens: BehaviorRelay<[AccessToken]> = .init(value: [])
     
     init(storage: CoreDataStorage = CoreDataStorage.shared) {
         self.storage = storage

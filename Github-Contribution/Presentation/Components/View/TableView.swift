@@ -10,6 +10,7 @@ import UIKit
 import RxSwift
 import RxCocoa
 
+
 class TableView: UIView {
     private lazy var titleLabel: UILabel = {
         let label = UILabel(frame: .zero)
@@ -53,10 +54,6 @@ class TableView: UIView {
         return tableView
     }()
     
-    func register(_ type: AnyClass, forCellReuseIdentifier: String) {
-        table.register(type, forCellReuseIdentifier: forCellReuseIdentifier)
-    }
-    
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented.")
     }
@@ -66,6 +63,10 @@ class TableView: UIView {
         setupUI()
         setupConstraints()
     }
+    
+//    convenience init(frame: CGRect) {
+//        self.init(frame: frame)
+//    }
     
     private func setupUI() {
         self.addSubview(stackView)
@@ -81,6 +82,10 @@ class TableView: UIView {
         table.snp.makeConstraints { make in
             make.top.leading.trailing.bottom.equalToSuperview()
         }
+    }
+    
+    func register(_ type: AnyClass, forCellReuseIdentifier: String) {
+        table.register(type, forCellReuseIdentifier: forCellReuseIdentifier)
     }
 }
 

@@ -10,10 +10,11 @@ import CoreData
 
 class ProfileRepositoryImpl: ProfileRepository {
     private let dataTransferService: DataTransferService
-    private let userStorage: UserStorage = CoreDataUserStorage()
+    private let userStorage: UserStorage
     
-    init(dataTransferService: DataTransferService) {
+    init(dataTransferService: DataTransferService, userStorage: UserStorage) {
         self.dataTransferService = dataTransferService
+        self.userStorage = userStorage
     }
     
     func fetchProfile(profile: User, completion: @escaping (Result<Profile, Error>)-> Void)-> URLSessionTask? {

@@ -14,6 +14,14 @@ final class AppDIContainer {
         return DataTransferServiceImpl(networkService: networkService)
     }()
     
+    private lazy var tokenDataStorage: TokenStorage = {
+        return CoreDataTokenStorage()
+    }()
+    
+    private lazy var userDataStorage: UserStorage = {
+        return CoreDataUserStorage()
+    }()
+    
     
     func makeSplashViewModel(actions: SplashViewModel.SplashViewModelAction)-> SplashViewModel {
         .init(title: "Splash", actions: actions, splashUsecase: makeSplashUsecase())
@@ -24,10 +32,16 @@ final class AppDIContainer {
     }
     
     private func makeProfileRepository()-> ProfileRepository {
-        return ProfileRepositoryImpl(dataTransferService: apiDataTransferService)
+        return ProfileRepositoryImpl(dataTransferService: apiDataTransferService, userStorage: userDataStorage)
     }
     
     func makeLoginSceneDIContainer()-> LoginSceneDIContainer {
-        return LoginSceneDIContainer(apiDataTransferService: apiDataTransferService)
+        return LoginSceneDIContainer(
+            dependencies: .init(
+                apiDataTransferService: apiDataTransferService,
+                userStorage: userDataStorage,
+                tokenStorage: tokenDataStorage
+            )
+        )
     }
 }
