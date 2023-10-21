@@ -19,15 +19,8 @@ class LoginViewController: BaseViewController<LoginViewModel> {
         return view
     }()
     
-    private lazy var submitButton: UIButton = {
-        let btn = UIButton(frame: .zero)
-        btn.translatesAutoresizingMaskIntoConstraints = false
-        btn.setTitle("Submit".localized, for: .normal)
-        btn.backgroundColor = .bgStartButton
-        btn.setTitleColor(.txtStartButton, for: .normal)
-        btn.layer.cornerRadius = 10
-        return btn
-    }()
+    private lazy var submitButton: UIButton = .makeButton(title: "Submit".localized, bgColor: .bgStartButton, titleColor: .txtStartButton)
+    
     
     fileprivate lazy var hostInputView: InputTextView = {
         let hostInputView = InputTextView(frame: .zero)

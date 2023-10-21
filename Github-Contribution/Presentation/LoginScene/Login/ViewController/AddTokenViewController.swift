@@ -44,15 +44,7 @@ class AddTokenViewController: BaseViewController<AddTokenViewModel> {
         return label
     }()
     
-    private lazy var submitButton: UIButton = {
-        let btn = UIButton(frame: .zero)
-        btn.translatesAutoresizingMaskIntoConstraints = false
-        btn.setTitle("Submit".localized, for: .normal)
-        btn.backgroundColor = .bgStartButton
-        btn.setTitleColor(.txtStartButton, for: .normal)
-        btn.layer.cornerRadius = 10
-        return btn
-    }()
+    private lazy var submitButton: UIButton = .makeButton(title: "Submit".localized, bgColor: .bgStartButton, titleColor: .txtStartButton)
     
     override func viewDidLoad() {
         super.viewDidLoad()

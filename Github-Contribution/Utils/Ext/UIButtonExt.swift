@@ -29,4 +29,14 @@ extension UIButton {
         titleEdgeInsets = UIEdgeInsets(top: spacing, left: -image.size.width, bottom: -image.size.height, right: 0)
         imageEdgeInsets = UIEdgeInsets(top: -(titleSize.height + spacing), left: 0, bottom: 0, right: -titleSize.width)
     }
+    
+    static func makeButton(title: String, bgColor: UIColor?, titleColor: UIColor?) -> UIButton {
+        let btn = UIButton(frame: .zero)
+        btn.translatesAutoresizingMaskIntoConstraints = false
+        btn.setTitle(title, for: .normal)
+        btn.backgroundColor = bgColor
+        btn.setTitleColor(titleColor, for: .normal)
+        btn.layer.cornerRadius = 10
+        return btn
+    }
 }

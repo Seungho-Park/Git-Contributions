@@ -18,15 +18,7 @@ class StartViewController: BaseViewController<StartViewModel> {
         return icon
     }()
     
-    private lazy var startButton: UIButton = {
-        let btn = UIButton(frame: .zero)
-        btn.translatesAutoresizingMaskIntoConstraints = false
-        btn.setTitle("Get Started".localized, for: .normal)
-        btn.backgroundColor = UIColor(named: "bgStartButton")
-        btn.setTitleColor(UIColor(named: "txtStartButton"), for: .normal)
-        btn.layer.cornerRadius = 10
-        return btn
-    }()
+    private lazy var startButton: UIButton = .makeButton(title: "Get Started".localized, bgColor: .bgStartButton, titleColor: .txtStartButton)
     
     override func viewDidLoad() {
         super.viewDidLoad()
