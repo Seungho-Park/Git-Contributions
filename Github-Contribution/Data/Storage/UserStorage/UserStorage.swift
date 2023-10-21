@@ -9,4 +9,5 @@ import Foundation
 
 protocol UserStorage {
     func fetchUsers(completion: @escaping (Result<[User], Error>)-> Void)
+    func saveUser(user: User)
 }

@@ -15,3 +15,9 @@ struct GithubProfileResponseDTO: Decodable {
     let html_url: String
     let created_at: String
 }
+
+extension GithubProfileResponseDTO {
+    func toDomain()-> Profile {
+        .init(id: id, name: name, homepageURL: html_url, avatarURL: avatar_url)
+    }
+}

@@ -16,16 +16,16 @@ class ProfileRepositoryImpl: ProfileRepository {
         self.dataTransferService = dataTransferService
     }
     
-    func fetchProfile(profile: User)-> URLSessionTask? {
+    func fetchProfile(profile: User, completion: @escaping (Result<Profile, Error>)-> Void)-> URLSessionTask? {
         switch profile.type {
         case .github: 
             let endpoint = APIEndPoints.fetchGithubProfile(with: .init(host: "", userName: profile.username, token: nil))
             return dataTransferService.request(with: endpoint) { result in
                 switch result {
                 case .success(let response):
-                    print(response)
+                    completion(.success(response.toDomain()))
                 case .failure(let error):
-                    print(error)
+                    completion(.failure(error))
                 }
             }
         case .gitlab: break
@@ -37,5 +37,9 @@ class ProfileRepositoryImpl: ProfileRepository {
     
     func fetchUserInfos(completion: @escaping (Result<[User], Error>)-> Void) {
         userStorage.fetchUsers(completion: completion)
+    }
+    
+    func saveUser(user: User) {
+        userStorage.saveUser(user: user)
     }
 }

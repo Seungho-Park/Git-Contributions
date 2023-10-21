@@ -29,7 +29,7 @@ class LoginSceneDIContainer {
     }
     
     func makeLoginViewModel(type: VCSType, actions: LoginViewModel.Actions)-> LoginViewModel {
-        return LoginViewModel(type: type, actions: actions)
+        return LoginViewModel(type: type, usecase: makeLoginUsecase(), actions: actions)
     }
     
     func makeTokenManagementViewModel(type: VCSType, host: String?, actions: TokenManagementViewModel.Actions)-> TokenManagementViewModel {
@@ -38,6 +38,10 @@ class LoginSceneDIContainer {
     
     func makeAddTokenViewModel(type: VCSType, host: String?)-> AddTokenViewModel {
         return AddTokenViewModel(type: type, host: host)
+    }
+    
+    private func makeLoginUsecase()-> LoginUsecase {
+        return LoginUsecaseImpl(profileRepository: makeProfileRepository(), tokenRepository: makeTokenRepository())
     }
     
     private func makeTokenManageUsecase()-> TokenManageUsecase {

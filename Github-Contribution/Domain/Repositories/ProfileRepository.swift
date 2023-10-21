@@ -8,7 +8,9 @@
 import Foundation
 
 protocol ProfileRepository {
-    func fetchProfile(profile: User)-> URLSessionTask?
+    func fetchProfile(profile: User, completion: @escaping (Result<Profile, Error>)-> Void)-> URLSessionTask?
     
     func fetchUserInfos(completion: @escaping (Result<[User], Error>)-> Void)
+    
+    func saveUser(user: User)
 }

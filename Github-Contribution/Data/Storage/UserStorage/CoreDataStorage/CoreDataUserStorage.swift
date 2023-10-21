@@ -27,4 +27,16 @@ final class CoreDataUserStorage: UserStorage {
             }
         }
     }
+    
+    func saveUser(user: User) {
+        storage.performBackgroundTask { context in
+            do {
+                let entity = UserEntity.init(profile: user, insertInto: context)
+                
+                try context.save()
+            } catch {
+                debugPrint("CoreDataMoviesResponseStorage Unresolved error \(error), \((error as NSError).userInfo)")
+            }
+        }
+    }
 }

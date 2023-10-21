@@ -13,4 +13,6 @@ struct User {
     let host: String?
     let username: String
     var token_id: Int
+    
+    var profile: Profile? = nil
 }

@@ -28,17 +28,20 @@ extension LoginViewModel {
 }
 
 class LoginViewModel: NSObject, ViewModel {
-    var host: String? = nil
+    private let loginUsecase: LoginUsecase
     
+    private var host: String? = nil
+    private var userName: String? = nil
+    private var tokenId: Int = -1
     
     var title: Driver<String>
     let vcsType: BehaviorRelay<VCSType>
-    
     let actions: Actions
     
-    init(title: String = "Login".localized, type: VCSType, actions: Actions) {
+    init(title: String = "Login".localized, type: VCSType, usecase: LoginUsecase, actions: Actions) {
         self.title = Observable.just(title).asDriver(onErrorJustReturn: "")
         self.vcsType = BehaviorRelay(value: type)
+        self.loginUsecase = usecase
         self.actions = actions
     }
     
@@ -49,7 +52,15 @@ class LoginViewModel: NSObject, ViewModel {
         
         input.tapSubmit.subscribe { [unowned self] _ in
             //TODO: Profile 조회 API를 통해 올바른 계정인지 확인, 올바른 계정일 경우 main화면으로 이동, 아니면 알람창 띄우기.
-            self.actions.showAlert("Invalid information Alert".localized)
+            self.loginUsecase.login(type: self.vcsType.value, host: self.host, username: self.userName ?? "Seungho-Park", tokenId: self.tokenId)
+                .observe(on: MainScheduler.instance)
+                .subscribe { result in
+                    do {
+                        let profile = try result.get()
+                    } catch {
+                        self.actions.showAlert("Invalid information Alert".localized)
+                    }
+                }.disposed(by: rx.disposeBag)
         }.disposed(by: rx.disposeBag)
         
         input.host.subscribe { [unowned self] event in
