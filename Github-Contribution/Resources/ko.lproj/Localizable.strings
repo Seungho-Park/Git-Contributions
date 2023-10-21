@@ -27,3 +27,4 @@
 "Invalid information Alert" = "잘못된 정보입니다.\n확인 후 다시 시도하여주십시오.";
 
 "Add Token" = "토큰 추가";
+"Please insert Note And Token" = "설명과 토큰을 모두 입력해주세요.";

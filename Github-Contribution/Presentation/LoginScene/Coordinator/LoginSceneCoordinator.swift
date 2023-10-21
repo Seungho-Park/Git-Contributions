@@ -69,14 +69,31 @@ final class LoginSceneCoordinator: Coordinator {
     private func showTokenScene(type: VCSType, host: String?) {
         transition(
             scene: LoginScene.tokenManagement(
-                diContainer.makeTokenManagementViewModel(type: type, host: host, actions: .init(showAddToken: showAddToken(type:host:)))
+                diContainer.makeTokenManagementViewModel(
+                    type: type,
+                    host: host,
+                    actions: .init(
+                        showAddToken: showAddToken(type:host:)
+                    )
+                )
             ),
             transitionStyle: .push
         )
     }
     
     private func showAddToken(type: VCSType, host: String?) {
-        transition(scene: LoginScene.addToken(diContainer.makeAddTokenViewModel(type: type, host: host)), transitionStyle: .push)
+        transition(
+            scene: LoginScene.addToken(
+                diContainer.makeAddTokenViewModel(
+                    type: type,
+                    host: host,
+                    actions: .init(
+                        showAlert: showAlert(msg:)
+                    )
+                )
+            ),
+            transitionStyle: .push
+        )
     }
     
     private func showAlert(msg: String) {
