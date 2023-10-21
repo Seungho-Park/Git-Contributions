@@ -10,7 +10,11 @@ import CoreData
 import RxSwift
 import RxCocoa
 
-final class CoreDataTokenStorage: TokenStorage {    
+final class CoreDataTokenStorage: TokenStorage {
+    private var nextSeq: Int16 {
+        return Int16(tokens.value.count + 1)
+    }
+    
     private let storage: CoreDataStorage
     private lazy var tokens: BehaviorRelay<[AccessToken]> = .init(value: [])
     
@@ -34,8 +38,13 @@ final class CoreDataTokenStorage: TokenStorage {
     }
     
     func saveToken(token: AccessToken) {
-        storage.performBackgroundTask { context in
+        storage.performBackgroundTask { [weak self] context in
+            guard let self = self else { return }
             let tokenEntity = TokenEntity(token: token, insertInto: context)
+            
+            if tokenEntity.id == -1 {
+                tokenEntity.id = nextSeq
+            }
             
             do {
                 try context.save()

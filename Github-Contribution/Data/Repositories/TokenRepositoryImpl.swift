@@ -17,4 +17,8 @@ class TokenRepositoryImpl: TokenRepository {
     func fetchTokens(type: VCSType, host: String?, completion: @escaping (Result<[AccessToken], Error>)-> Void) {
         tokenStorage.fetchTokens(completion: completion)
     }
+    
+    func saveToken(token: AccessToken) {
+        tokenStorage.saveToken(token: token)
+    }
 }

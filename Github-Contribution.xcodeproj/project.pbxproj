@@ -63,6 +63,7 @@
 		D459F5802AD8138200AFA35C /* HttpMethodType.swift in Sources */ = {isa = PBXBuildFile; fileRef = D459F57F2AD8138200AFA35C /* HttpMethodType.swift */; };
 		D459F5822AD8159E00AFA35C /* Requestable.swift in Sources */ = {isa = PBXBuildFile; fileRef = D459F5812AD8159E00AFA35C /* Requestable.swift */; };
 		D459F5842AD8182B00AFA35C /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = D459F5832AD8182B00AFA35C /* NetworkError.swift */; };
+		D45ABDD92AE458040005718D /* AddTokenUsecase.swift in Sources */ = {isa = PBXBuildFile; fileRef = D45ABDD82AE458040005718D /* AddTokenUsecase.swift */; };
 		D47D6AA22ADC218F00E8A5CA /* CoreDataStorage.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D47D6AA02ADC218F00E8A5CA /* CoreDataStorage.xcdatamodeld */; };
 		D47D6AA42ADC298300E8A5CA /* TokenRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = D47D6AA32ADC298300E8A5CA /* TokenRepository.swift */; };
 		D47D6AA62ADC299200E8A5CA /* TokenRepositoryImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = D47D6AA52ADC299200E8A5CA /* TokenRepositoryImpl.swift */; };
@@ -165,6 +166,7 @@
 		D459F57F2AD8138200AFA35C /* HttpMethodType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HttpMethodType.swift; sourceTree = "<group>"; };
 		D459F5812AD8159E00AFA35C /* Requestable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Requestable.swift; sourceTree = "<group>"; };
 		D459F5832AD8182B00AFA35C /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
+		D45ABDD82AE458040005718D /* AddTokenUsecase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTokenUsecase.swift; sourceTree = "<group>"; };
 		D47D6AA12ADC218F00E8A5CA /* CoreDataStorage.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CoreDataStorage.xcdatamodel; sourceTree = "<group>"; };
 		D47D6AA32ADC298300E8A5CA /* TokenRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenRepository.swift; sourceTree = "<group>"; };
 		D47D6AA52ADC299200E8A5CA /* TokenRepositoryImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenRepositoryImpl.swift; sourceTree = "<group>"; };
@@ -283,6 +285,7 @@
 				D47D6AC12ADC535A00E8A5CA /* SplashUsecase.swift */,
 				D484E6CC2AE0265600B117B8 /* LoginUsecase.swift */,
 				D41FC5D42AE2F8DB00BEA0FB /* TokenManageUsecase.swift */,
+				D45ABDD82AE458040005718D /* AddTokenUsecase.swift */,
 			);
 			path = Usecases;
 			sourceTree = "<group>";
@@ -937,6 +940,7 @@
 				D416C5522AD17C9B00645F98 /* SplashViewModel.swift in Sources */,
 				D459F5802AD8138200AFA35C /* HttpMethodType.swift in Sources */,
 				D403CCB62AD845E3007EFD2C /* GithubProfileResponseDTO+Mapping.swift in Sources */,
+				D45ABDD92AE458040005718D /* AddTokenUsecase.swift in Sources */,
 				D4C89B112AD4009700AF8020 /* VCSType.swift in Sources */,
 				D488A1DD2AD04F3000DC37FC /* Coordinator.swift in Sources */,
 				D47D6AB82ADC514900E8A5CA /* TokenStorage.swift in Sources */,

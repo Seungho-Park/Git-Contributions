@@ -34,11 +34,13 @@ class AddTokenViewModel: NSObject, ViewModel {
     let host: Driver<String>
     
     private let actions: Actions
+    private let usecase: AddTokenUsecase
     
-    init(title: String = "Add Token".localized, type: VCSType, host: String? = nil, actions: Actions) {
+    init(title: String = "Add Token".localized, type: VCSType, host: String? = nil, usecase: AddTokenUsecase, actions: Actions) {
         self.title = Observable<String>.just(title).asDriver(onErrorJustReturn: "")
         self.type = type
         self.host = Observable.just(host ?? (type == .gitlab ? "https://gitlab.com" : "https://github.com")).asDriver(onErrorJustReturn: (type == .gitlab ? "https://gitlab.com" : "https://github.com"))
+        self.usecase = usecase
         self.actions = actions
     }
     
