@@ -33,6 +33,17 @@ class AddTokenViewController: BaseViewController<AddTokenViewModel> {
         return view
     }()
     
+    private lazy var guideLabel: UILabel = {
+        let label = UILabel(frame: .zero)
+        label.font = .systemFont(ofSize: 14, weight: .regular)
+        label.textColor = .lightGray
+        label.numberOfLines = 2
+        label.textAlignment = .right
+        label.lineBreakMode = .byWordWrapping
+        label.text = "Using Gitlab Self-hosted?\nPlease check the Host Address.".localized
+        return label
+    }()
+    
     private lazy var submitButton: UIButton = {
         let btn = UIButton(frame: .zero)
         btn.translatesAutoresizingMaskIntoConstraints = false
@@ -52,15 +63,21 @@ class AddTokenViewController: BaseViewController<AddTokenViewModel> {
     
     private func setupUI() {
         addSubview(hostView)
+        addSubview(guideLabel)
         addSubview(tokenNameView)
         addSubview(tokenInputView)
         addSubview(submitButton)
     }
     
     private func setupConstraints() {
+        guideLabel.snp.makeConstraints { make in
+            make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).offset(20)
+            make.leading.trailing.equalTo(hostView).inset(5)
+        }
+        
         hostView.snp.makeConstraints { make in
             make.leading.trailing.equalToSuperview().inset(20)
-            make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).offset(20)
+            make.top.equalTo(guideLabel.snp.bottom).offset(5)
             make.height.equalTo(50)
         }
         

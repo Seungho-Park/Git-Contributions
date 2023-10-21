@@ -28,3 +28,4 @@
 
 "Add Token" = "토큰 추가";
 "Please insert Note And Token" = "설명과 토큰을 모두 입력해주세요.";
+"Using Gitlab Self-hosted?\nPlease check the Host Address." = "Self-hosted Gitlab을 사용중이신가요?\nHost 주소를 확인해주세요.";

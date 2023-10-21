@@ -38,7 +38,7 @@ final class LoginSceneCoordinator: Coordinator {
             scene: LoginScene.platform(
                 diContainer.makePlatformViewModel(
                     actions: PlatformViewModel.Actions(
-                        dismiss: closePlatformVC,
+                        dismiss: close,
                         showLogin: showLoginScene(type:)
                     )
                 )
@@ -100,7 +100,7 @@ final class LoginSceneCoordinator: Coordinator {
         transition(scene: AppScene.alert(msg), transitionStyle: .modal)
     }
     
-    private func closePlatformVC() {
+    private func close() {
         close(animated: true)
     }
 }

@@ -37,6 +37,7 @@ class PlatformListView: UIView {
     
     private lazy var stackView: UIStackView = {
         let stackView = UIStackView(frame: .zero)
+        stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.axis = .vertical
         stackView.distribution = .fillEqually
         stackView.alignment = .fill
@@ -54,6 +55,7 @@ class PlatformListView: UIView {
         label.textColor = .lightGray
         label.numberOfLines = 1
         label.text = "Gitlab only supported for self-hosted".localized
+        label.isHidden = true
         return label
     }()
     
@@ -96,8 +98,8 @@ class PlatformListView: UIView {
         }
         
         stackView.snp.makeConstraints { make in
-            make.top.equalTo(gestureArea.snp.bottom).offset(30)
-            make.height.equalToSuperview().multipliedBy(0.4)
+            make.centerY.equalToSuperview()
+            make.height.equalToSuperview().multipliedBy(0.5)
             make.leading.trailing.equalToSuperview().inset(30)
         }
         

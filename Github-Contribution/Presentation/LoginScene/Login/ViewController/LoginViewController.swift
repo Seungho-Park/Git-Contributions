@@ -87,7 +87,7 @@ class LoginViewController: BaseViewController<LoginViewModel> {
             .init(
                 tapToken: tapToken.asObservable(),
                 tapSubmit: submitButton.rx.tap.asObservable(),
-                host: hostInputView.rx.text.asObservable()
+                host: hostInputView.rx.text.changed.asObservable()
             )
         )
         
@@ -129,6 +129,7 @@ extension Reactive where Base: LoginViewController {
                 vc.tokenInputView.title = "Access-Token".localized
                 vc.tokenInputView.placeholder = "Access-Token(Optional)".localized
             } else {
+                vc.hostInputView.text = "https://gitlab.com"
                 vc.tokenInputView.title = "PRIVATE-TOKEN"
                 vc.tokenInputView.placeholder = "PRIVATE-TOKEN".localized
             }
