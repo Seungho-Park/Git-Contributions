@@ -9,11 +9,6 @@ import Foundation
 import RxSwift
 import RxCocoa
 
-enum LoginError: Error {
-    case invalidHost
-    case tokenNil
-}
-
 protocol LoginUsecase {
     func login(type: VCSType, host: String?, username: String, tokenId: Int)-> Single<Profile>
 }

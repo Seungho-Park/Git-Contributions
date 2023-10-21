@@ -18,20 +18,14 @@ final class CoreDataTokenStorage: TokenStorage {
         self.storage = storage
     }
     
-    func fetchTokens(type: VCSType, host: String?, completion: @escaping (Result<[AccessToken], Error>)-> Void) {
-        storage.performBackgroundTask { context in
+    func fetchTokens(completion: @escaping (Result<[AccessToken], Error>)-> Void) {
+        storage.performBackgroundTask { [weak self] context in
+            guard let self = self else { return }
             let request = TokenEntity.fetchRequest()
-            let predicate: NSPredicate
-            
-            if let host = host {
-                predicate = NSPredicate(format: "type == %@ AND host == %@", Int32(type.rawValue), host)
-            } else {
-                predicate = NSPredicate(format: "type == %@", Int32(type.rawValue))
-            }
-            request.predicate = predicate
             
             do {
                 let response = try context.fetch(request).map { $0.toDomain() }
+                tokens.accept(response)
                 completion(.success(response))
             } catch {
                 completion(.failure(error))

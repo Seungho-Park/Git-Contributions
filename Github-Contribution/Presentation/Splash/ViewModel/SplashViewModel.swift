@@ -44,7 +44,7 @@ class SplashViewModel: NSObject, ViewModel {
                     .checkLogin()
                     .emit { isLogin in
                         if isLogin {
-                            
+                            self.actions.showMainScene()
                         } else {
                             self.actions.showLoginScene()
                         }
