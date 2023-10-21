@@ -10,7 +10,7 @@ import CoreData
 import RxSwift
 import RxCocoa
 
-final class CoreDataTokenStorage: TokenStorage {
+final class CoreDataTokenStorage: TokenStorage {    
     private let storage: CoreDataStorage
     private lazy var tokens: BehaviorRelay<[AccessToken]> = .init(value: [])
     
@@ -29,6 +29,18 @@ final class CoreDataTokenStorage: TokenStorage {
                 completion(.success(response))
             } catch {
                 completion(.failure(error))
+            }
+        }
+    }
+    
+    func saveToken(token: AccessToken) {
+        storage.performBackgroundTask { context in
+            let tokenEntity = TokenEntity(token: token, insertInto: context)
+            
+            do {
+                try context.save()
+            } catch {
+                debugPrint("CoreDataMoviesResponseStorage Unresolved error \(error), \((error as NSError).userInfo)")
             }
         }
     }

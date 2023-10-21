@@ -87,7 +87,6 @@ class InputTextView: UIView {
             make.centerY.equalToSuperview()
         }
         
-        textField.rx.text
         textField.snp.makeConstraints { make in
             make.leading.equalTo(titleLabel.snp.trailing).offset(5)
             make.trailing.equalToSuperview().inset(10)

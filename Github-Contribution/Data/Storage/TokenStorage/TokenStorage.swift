@@ -9,4 +9,5 @@ import Foundation
 
 protocol TokenStorage {
     func fetchTokens(completion: @escaping (Result<[AccessToken], Error>)-> Void)
+    func saveToken(token: AccessToken)
 }

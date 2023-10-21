@@ -11,8 +11,89 @@ import RxSwift
 import RxCocoa
 
 class AddTokenViewController: BaseViewController<AddTokenViewModel> {
+    private lazy var tokenNameView: InputTextView = {
+        let view = InputTextView(frame: .zero)
+        view.title = "Note".localized
+        view.placeholder = "What’s this token for?"
+        return view
+    }()
+    
+    private lazy var tokenInputView: InputTextView = {
+        let view = InputTextView(frame: .zero)
+        view.title = "Token".localized
+        view.placeholder = "Input Token Here"
+        return view
+    }()
+    
+    private lazy var hostView: InputTextView = {
+        let view = InputTextView(frame: .zero)
+        view.title = "Host"
+        view.placeholder = "Host Address"
+        
+        return view
+    }()
+    
+    private lazy var submitButton: UIButton = {
+        let btn = UIButton(frame: .zero)
+        btn.translatesAutoresizingMaskIntoConstraints = false
+        btn.setTitle("Submit".localized, for: .normal)
+        btn.backgroundColor = .bgStartButton
+        btn.setTitleColor(.txtStartButton, for: .normal)
+        btn.layer.cornerRadius = 10
+        return btn
+    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        setupUI()
+        setupConstraints()
+    }
+    
+    private func setupUI() {
+        addSubview(hostView)
+        addSubview(tokenNameView)
+        addSubview(tokenInputView)
+        addSubview(submitButton)
+    }
+    
+    private func setupConstraints() {
+        hostView.snp.makeConstraints { make in
+            make.leading.trailing.equalToSuperview().inset(20)
+            make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).offset(20)
+            make.height.equalTo(50)
+        }
+        
+        tokenNameView.snp.makeConstraints { make in
+            make.top.equalTo(hostView.snp.bottom).offset(10)
+            make.leading.trailing.height.equalTo(hostView)
+        }
+        
+        tokenInputView.snp.makeConstraints { make in
+            make.top.equalTo(tokenNameView.snp.bottom).offset(10)
+            make.leading.trailing.height.equalTo(hostView)
+        }
+        
+        submitButton.snp.makeConstraints { make in
+            make.leading.trailing.equalToSuperview().inset(30)
+            make.bottom.equalTo(self.view.safeAreaLayoutGuide.snp.bottom).inset(5)
+            make.height.equalTo(50)
+        }
+    }
+    
+    override func bind() {
+        super.bind()
+        
+        let output = viewModel.transform(
+            .init(
+                tapSubmit: submitButton.rx.tap.asObservable(),
+                note: tokenNameView.rx.text.changed.asObservable(),
+                token: tokenInputView.rx.text.changed.asObservable()
+            )
+        )
+        
+        output.host
+            .drive(hostView.rx.text)
+            .disposed(by: rx.disposeBag)
     }
 }
