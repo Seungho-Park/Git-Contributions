@@ -10,7 +10,7 @@ import RxSwift
 import RxCocoa
 
 protocol SplashUsecase {
-    func checkLogin()-> Observable<Bool>
+    func checkLogin()-> Signal<Bool>
 }
 
 class SplashUsecaseImpl: SplashUsecase {
@@ -20,14 +20,7 @@ class SplashUsecaseImpl: SplashUsecase {
         self.profileRepository = profileRepository
     }
     
-    func checkLogin() -> Observable<Bool> {
-        Observable<Bool>.create { [unowned self] observer in
-            self.profileRepository.fetchUserInfos { result in
-                observer.onNext(((try? result.get())?.count ?? 0) > 0)
-                observer.onCompleted()
-            }
-            
-            return Disposables.create()
-        }
+    func checkLogin()-> Signal<Bool> {
+        profileRepository.fetchUsers().map { $0.count > 0 }.asSignal(onErrorJustReturn: false)
     }
 }

@@ -40,15 +40,11 @@ class SplashViewModel: NSObject, ViewModel {
         input.viewDidAppear
             .subscribe { [unowned self] event in
                 guard let isLoad = event.element, isLoad else { return }
-                //처음 사용인지 로그인 정보가 있는 사용자인지 체크
-                //처음 사용자면 로그인 화면으로, 아니라면 로그인 정보 불러온 뒤 메인 화면으로
-                self.splashUsecase.checkLogin()
-                    .observe(on: MainScheduler.instance)
-                    .subscribe { event in
-                        guard let isRegister = event.element else { return }
-                        
-                        if isRegister {
-                            //메인화면으로 이동
+                self.splashUsecase
+                    .checkLogin()
+                    .emit { isLogin in
+                        if isLogin {
+                            
                         } else {
                             self.actions.showLoginScene()
                         }

@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import RxSwift
 
 protocol UserStorage {
     func fetchUsers(completion: @escaping (Result<[User], Error>)-> Void)

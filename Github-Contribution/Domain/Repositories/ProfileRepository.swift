@@ -6,11 +6,13 @@
 //
 
 import Foundation
+import RxSwift
 
 protocol ProfileRepository {
     func fetchProfile(profile: User, completion: @escaping (Result<Profile, Error>)-> Void)-> URLSessionTask?
     
-    func fetchUserInfos(completion: @escaping (Result<[User], Error>)-> Void)
+    @discardableResult
+    func fetchUsers()-> Single<[User]>
     
     func saveUser(user: User)
 }

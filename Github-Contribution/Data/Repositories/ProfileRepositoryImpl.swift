@@ -6,7 +6,7 @@
 //
 
 import Foundation
-import CoreData
+import RxSwift
 
 class ProfileRepositoryImpl: ProfileRepository {
     private let dataTransferService: DataTransferService
@@ -36,8 +36,18 @@ class ProfileRepositoryImpl: ProfileRepository {
         return nil
     }
     
-    func fetchUserInfos(completion: @escaping (Result<[User], Error>)-> Void) {
-        userStorage.fetchUsers(completion: completion)
+    func fetchUsers()-> Single<[User]> {
+        return Single<[User]>.create { [unowned self] single in
+            userStorage.fetchUsers { result in
+                do {
+                    single(.success(try result.get()))
+                } catch {
+                    single(.failure(error))
+                }
+            }
+            
+            return Disposables.create()
+        }
     }
     
     func saveUser(user: User) {

@@ -19,11 +19,12 @@ final class CoreDataUserStorage: UserStorage {
     }
     
     func fetchUsers(completion: @escaping (Result<[User], Error>) -> Void) {
-        storage.performBackgroundTask { context in
+        storage.performBackgroundTask { [unowned self] context in
             do {
                 let request: NSFetchRequest = UserEntity.fetchRequest()
                 
                 let result = try context.fetch(request).map { $0.toDomain() }
+                users.accept(result)
                 completion(.success(result))
             } catch {
                 completion(.failure(error))
