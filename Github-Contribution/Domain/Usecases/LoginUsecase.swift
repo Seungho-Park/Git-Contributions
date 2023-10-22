@@ -24,7 +24,7 @@ class LoginUsecaseImpl: LoginUsecase {
     
     func login(type: VCSType, host: String?, username: String, tokenId: Int = -1)-> Single<Profile> {
         return Single<Profile>.create { [unowned self] observer in
-            var user: User = .init(type: type, host: host, username: username, token_id: tokenId)
+            var user: User = .init(id: -1, type: type, host: host, username: username, token_id: tokenId)
             let task = self.profileRepository.fetchProfile(profile: user) { result in
                 switch result {
                 case .success(let profile): 

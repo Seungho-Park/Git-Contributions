@@ -18,8 +18,9 @@ extension LoginViewModel {
     struct Input {
         let tapToken: Observable<Void>
         let tapSubmit: Observable<Void>
-        let host: Observable<String?>
-        
+        let host: Observable<String>
+        let username: Observable<String>
+        let token: Observable<String>
     }
     
     struct Output {
@@ -30,8 +31,8 @@ extension LoginViewModel {
 class LoginViewModel: NSObject, ViewModel {
     private let loginUsecase: LoginUsecase
     
-    private var host: String? = nil
-    private var userName: String? = nil
+    private var host: String = ""
+    private var userName: String = ""
     private var tokenId: Int = -1
     
     var title: Driver<String>
@@ -52,7 +53,7 @@ class LoginViewModel: NSObject, ViewModel {
         
         input.tapSubmit.subscribe { [unowned self] _ in
             //TODO: Profile 조회 API를 통해 올바른 계정인지 확인, 올바른 계정일 경우 main화면으로 이동, 아니면 알람창 띄우기.
-            self.loginUsecase.login(type: self.vcsType.value, host: self.host, username: self.userName ?? "Seungho-Park", tokenId: self.tokenId)
+            self.loginUsecase.login(type: self.vcsType.value, host: self.host, username: self.userName ?? "Invalid User ID", tokenId: self.tokenId)
                 .observe(on: MainScheduler.instance)
                 .subscribe { result in
                     do {

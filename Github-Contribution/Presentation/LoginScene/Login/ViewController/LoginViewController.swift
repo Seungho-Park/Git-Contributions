@@ -53,12 +53,15 @@ class LoginViewController: BaseViewController<LoginViewModel> {
         super.viewDidLoad()
         
         setupUI()
+        setupConstraints()
     }
     
     private func setupUI() {
         addSubview(vcsIconView)
         addSubview(submitButton)
-        
+    }
+    
+    private func setupConstraints() {
         vcsIconView.snp.makeConstraints { make in
             make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(20)
             make.centerX.equalToSuperview()
@@ -80,7 +83,9 @@ class LoginViewController: BaseViewController<LoginViewModel> {
             .init(
                 tapToken: tapToken.asObservable(),
                 tapSubmit: submitButton.rx.tap.asObservable(),
-                host: hostInputView.rx.text.changed.asObservable()
+                host: hostInputView.rx.text.orEmpty.changed.asObservable(),
+                username: userNameInputView.rx.text.orEmpty.changed.asObservable(),
+                token: tokenInputView.rx.text.orEmpty.changed.asObservable()
             )
         )
         

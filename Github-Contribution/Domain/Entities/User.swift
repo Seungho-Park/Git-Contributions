@@ -9,6 +9,7 @@ import Foundation
 
 struct User {
     //얘넨 바껴버리면 조회가 안됨.
+    var id: Int
     let type: VCSType
     let host: String?
     let username: String

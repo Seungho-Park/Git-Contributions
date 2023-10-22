@@ -10,5 +10,6 @@ import RxSwift
 
 protocol UserStorage {
     func fetchUsers(completion: @escaping (Result<[User], Error>)-> Void)
+    func deleteUser(id: Int)
     func saveUser(user: User)
 }
