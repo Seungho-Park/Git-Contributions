@@ -4,8 +4,6 @@
 //
 //  Created by 박승호 on 10/8/23.
 //
-//TODO: - UserName 입력 후 확인 버튼 클릭. UserName으로 API Profile 조회. 있으면 넘어가고 없으면 알람창
-//TODO: Gitlab의 경우 Private Token 입력을 받을 수 있도록 해야할듯. -
 
 import Foundation
 import UIKit
@@ -125,10 +123,10 @@ extension Reactive where Base: LoginViewController {
                 vc.hostInputView.isEnabled = false
                 vc.hostInputView.text = "https://github.com"
                 vc.tokenInputView.title = "Access-Token".localized
-                vc.tokenInputView.placeholder = "Access-Token(Optional)".localized
+                vc.tokenInputView.placeholder = "(Optional)".localized
             } else {
                 vc.hostInputView.text = "https://gitlab.com"
-                vc.tokenInputView.title = "PRIVATE-TOKEN"
+                vc.tokenInputView.title = "PRIVATE-TOKEN".localized
                 vc.tokenInputView.placeholder = "PRIVATE-TOKEN".localized
             }
             

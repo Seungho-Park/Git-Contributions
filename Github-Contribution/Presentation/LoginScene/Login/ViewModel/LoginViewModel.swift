@@ -10,6 +10,11 @@ import RxSwift
 import RxCocoa
 
 extension LoginViewModel {
+    struct Dependencies {
+        let type: VCSType
+        let actions: Actions
+    }
+    
     struct Actions {
         let showTokenScene: (VCSType, String?)-> Void
         let showAlert: (String)-> Void
@@ -30,36 +35,34 @@ extension LoginViewModel {
 
 class LoginViewModel: NSObject, ViewModel {
     private let loginUsecase: LoginUsecase
+    private let dependencies: Dependencies
     
     private var host: String = ""
     private var userName: String = ""
     private var tokenId: Int = -1
     
     var title: Driver<String>
-    let vcsType: BehaviorRelay<VCSType>
-    let actions: Actions
     
-    init(title: String = "Login".localized, type: VCSType, usecase: LoginUsecase, actions: Actions) {
+    init(title: String = "Login".localized, usecase: LoginUsecase, dependencies: Dependencies) {
         self.title = Observable.just(title).asDriver(onErrorJustReturn: "")
-        self.vcsType = BehaviorRelay(value: type)
         self.loginUsecase = usecase
-        self.actions = actions
+        self.dependencies = dependencies
     }
     
     func transform(_ input: Input) -> Output {
         input.tapToken.subscribe { [unowned self] _ in
-            self.actions.showTokenScene(self.vcsType.value, host)
+            self.dependencies.actions.showTokenScene(self.dependencies.type, host)
         }.disposed(by: rx.disposeBag)
         
         input.tapSubmit.subscribe { [unowned self] _ in
             //TODO: Profile 조회 API를 통해 올바른 계정인지 확인, 올바른 계정일 경우 main화면으로 이동, 아니면 알람창 띄우기.
-            self.loginUsecase.login(type: self.vcsType.value, host: self.host, username: self.userName ?? "Invalid User ID", tokenId: self.tokenId)
+            self.loginUsecase.login(type: dependencies.type, host: self.host, username: self.userName , tokenId: self.tokenId)
                 .observe(on: MainScheduler.instance)
                 .subscribe { result in
                     do {
                         let profile = try result.get()
                     } catch {
-                        self.actions.showAlert("Invalid information Alert".localized)
+                        self.dependencies.actions.showAlert("Invalid information Alert".localized)
                     }
                 }.disposed(by: rx.disposeBag)
         }.disposed(by: rx.disposeBag)
@@ -70,7 +73,7 @@ class LoginViewModel: NSObject, ViewModel {
         }.disposed(by: rx.disposeBag)
         
         return Output(
-            vcsType: self.vcsType.asDriver()
+            vcsType: Observable.just(dependencies.type).asDriver(onErrorJustReturn: .github)
         )
     }
 }

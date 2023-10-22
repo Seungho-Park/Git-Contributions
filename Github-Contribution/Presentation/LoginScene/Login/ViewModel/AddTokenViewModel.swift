@@ -53,8 +53,6 @@ class AddTokenViewModel: NSObject, ViewModel {
                     self.actions.showAlert("Please insert Note And Token".localized)
                     return
                 }
-                
-                
             }.disposed(by: rx.disposeBag)
         
         input.token

@@ -33,8 +33,8 @@ class LoginSceneDIContainer {
         return PlatformViewModel(actions: actions)
     }
     
-    func makeLoginViewModel(type: VCSType, actions: LoginViewModel.Actions)-> LoginViewModel {
-        return LoginViewModel(type: type, usecase: makeLoginUsecase(), actions: actions)
+    func makeLoginViewModel(dependencies: LoginViewModel.Dependencies)-> LoginViewModel {
+        return LoginViewModel(usecase: makeLoginUsecase(), dependencies: dependencies)
     }
     
     func makeTokenManagementViewModel(type: VCSType, host: String?, actions: TokenManagementViewModel.Actions)-> TokenManagementViewModel {
@@ -66,6 +66,6 @@ class LoginSceneDIContainer {
     }
     
     private func makeProfileRepository()-> ProfileRepository {
-        return ProfileRepositoryImpl(dataTransferService: dependencies.apiDataTransferService, userStorage: dependencies.userStorage)
+        return ProfileRepositoryImpl(dataTransferService: dependencies.apiDataTransferService, userStorage: dependencies.userStorage, tokenStorage: self.dependencies.tokenStorage)
     }
 }

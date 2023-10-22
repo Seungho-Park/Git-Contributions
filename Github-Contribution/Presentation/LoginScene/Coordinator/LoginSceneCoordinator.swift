@@ -53,10 +53,12 @@ final class LoginSceneCoordinator: Coordinator {
             self.transition(
                 scene: LoginScene.login(
                     self.diContainer.makeLoginViewModel(
-                        type: type,
-                        actions: .init(
-                            showTokenScene: showTokenScene(type:host:),
-                            showAlert: showAlert(msg:)
+                        dependencies: .init(
+                            type: type,
+                            actions: .init(
+                                showTokenScene: showTokenScene(type:host:),
+                                showAlert: showAlert(msg:)
+                            )
                         )
                     )
                 ),

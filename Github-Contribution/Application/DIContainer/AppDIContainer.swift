@@ -32,7 +32,7 @@ final class AppDIContainer {
     }
     
     private func makeProfileRepository()-> ProfileRepository {
-        return ProfileRepositoryImpl(dataTransferService: apiDataTransferService, userStorage: userDataStorage)
+        return ProfileRepositoryImpl(dataTransferService: apiDataTransferService, userStorage: userDataStorage, tokenStorage: tokenDataStorage)
     }
     
     func makeLoginSceneDIContainer()-> LoginSceneDIContainer {

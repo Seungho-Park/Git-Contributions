@@ -11,10 +11,12 @@ import RxSwift
 class ProfileRepositoryImpl: ProfileRepository {
     private let dataTransferService: DataTransferService
     private let userStorage: UserStorage
+    private let tokenStorage: TokenStorage
     
-    init(dataTransferService: DataTransferService, userStorage: UserStorage) {
+    init(dataTransferService: DataTransferService, userStorage: UserStorage, tokenStorage: TokenStorage) {
         self.dataTransferService = dataTransferService
         self.userStorage = userStorage
+        self.tokenStorage = tokenStorage
     }
     
     func fetchProfile(profile: User, completion: @escaping (Result<Profile, Error>)-> Void)-> URLSessionTask? {
@@ -29,11 +31,24 @@ class ProfileRepositoryImpl: ProfileRepository {
                     completion(.failure(error))
                 }
             }
-        case .gitlab: break
-        default: break
+            
+        case .gitlab:
+            let endpoint = APIEndPoints.fetchGitlabProfile(with: .init(host: profile.host ?? "https://gitlab.com", userName: profile.username, token: nil))
+            return dataTransferService.request(with: endpoint) { result in
+                switch result {
+                case .success(let response):
+                    if let data = response.first {
+                        completion(.success(data.toDomain()))
+                    } else {
+                        completion(.failure(DataTransferError.noResponse))
+                    }
+                case .failure(let error): completion(.failure(error))
+                }
+            }
+            
+        default: return nil
+            
         }
-        
-        return nil
     }
     
     func fetchUsers()-> Single<[User]> {

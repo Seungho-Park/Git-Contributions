@@ -21,7 +21,8 @@
 
 "Manage Token" = "토큰 관리";
 "Access-Token" = "Access-Token";
-"Access-Token(Optional)" = "Access-Token(선택사항)";
+"PRIVATE-TOKEN" = "PRIVATE-TOKEN";
+"(Optional)" = "(선택)";
 "Alarm" = "알림";
 "Done" = "확인";
 "Invalid information Alert" = "잘못된 정보입니다.\n확인 후 다시 시도하여주십시오.";
