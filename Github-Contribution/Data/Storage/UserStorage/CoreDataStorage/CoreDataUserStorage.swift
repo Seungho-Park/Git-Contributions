@@ -72,7 +72,7 @@ final class CoreDataUserStorage: UserStorage {
                 users.accept(values)
             } catch {
                 completion(.failure(error))
-                debugPrint("CoreDataMoviesResponseStorage Unresolved error \(error), \((error as NSError).userInfo)")
+                debugPrint("CoreDataUserStorage Unresolved error \(error), \((error as NSError).userInfo)")
             }
         }
     }

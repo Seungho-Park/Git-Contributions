@@ -49,7 +49,7 @@ final class CoreDataTokenStorage: TokenStorage {
                 completion(.success(tokenEntity.toDomain()))
             } catch {
                 completion(.failure(error))
-                debugPrint("CoreDataMoviesResponseStorage Unresolved error \(error), \((error as NSError).userInfo)")
+                debugPrint("CoreDataTokenStorage Unresolved error \(error), \((error as NSError).userInfo)")
             }
         }
     }

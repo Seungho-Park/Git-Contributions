@@ -23,7 +23,7 @@ class SplashUsecaseImpl: SplashUsecase {
     }
     
     func checkLogin()-> Signal<Bool> {
-        tokenRepository.fetchAll()
+        tokenRepository.fetchTokens()
         return profileRepository.fetchUsers().map { $0.count > 0 }.asSignal(onErrorJustReturn: false)
     }
 }
