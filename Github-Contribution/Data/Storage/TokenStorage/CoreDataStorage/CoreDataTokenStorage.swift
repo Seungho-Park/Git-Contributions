@@ -12,7 +12,9 @@ import RxCocoa
 
 final class CoreDataTokenStorage: TokenStorage {
     private var nextSeq: Int16 {
-        return Int16(tokens.value.count + 1)
+        let id = UserDefaults.standard.integer(forKey: "net.devswift.git-contributions.CoreDataTokenStorage.seq") + 1
+        UserDefaults.standard.setValue(id, forKey: "net.devswift.git-contributions.CoreDataTokenStorage.seq")
+        return Int16(id)
     }
     
     private let storage: CoreDataStorage

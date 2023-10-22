@@ -12,7 +12,9 @@ import RxCocoa
 
 final class CoreDataUserStorage: UserStorage {
     private var nextId: Int16 {
-        return Int16(users.value.count + 1)
+        let id = UserDefaults.standard.integer(forKey: "net.devswift.git-contributions.CoreDataUserStorage.seq") + 1
+        UserDefaults.standard.setValue(id, forKey: "net.devswift.git-contributions.CoreDataUserStorage.seq")
+        return Int16(id)
     }
     
     private let storage: CoreDataStorage
