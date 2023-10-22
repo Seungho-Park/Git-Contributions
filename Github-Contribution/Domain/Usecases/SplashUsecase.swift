@@ -15,12 +15,15 @@ protocol SplashUsecase {
 
 class SplashUsecaseImpl: SplashUsecase {
     private let profileRepository: ProfileRepository
+    private let tokenRepository: TokenRepository
     
-    init(profileRepository: ProfileRepository) {
+    init(profileRepository: ProfileRepository, tokenRepository: TokenRepository) {
         self.profileRepository = profileRepository
+        self.tokenRepository = tokenRepository
     }
     
     func checkLogin()-> Signal<Bool> {
-        profileRepository.fetchUsers().map { $0.count > 0 }.asSignal(onErrorJustReturn: false)
+        tokenRepository.fetchAll()
+        return profileRepository.fetchUsers().map { $0.count > 0 }.asSignal(onErrorJustReturn: false)
     }
 }

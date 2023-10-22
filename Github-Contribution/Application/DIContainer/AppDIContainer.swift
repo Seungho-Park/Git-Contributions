@@ -28,11 +28,15 @@ final class AppDIContainer {
     }
     
     private func makeSplashUsecase()-> SplashUsecase {
-        return SplashUsecaseImpl(profileRepository: makeProfileRepository())
+        return SplashUsecaseImpl(profileRepository: makeProfileRepository(), tokenRepository: makeTokenRepository())
     }
     
     private func makeProfileRepository()-> ProfileRepository {
         return ProfileRepositoryImpl(dataTransferService: apiDataTransferService, userStorage: userDataStorage, tokenStorage: tokenDataStorage)
+    }
+    
+    private func makeTokenRepository()-> TokenRepository {
+        return TokenRepositoryImpl(tokenStorage: tokenDataStorage)
     }
     
     func makeLoginSceneDIContainer()-> LoginSceneDIContainer {

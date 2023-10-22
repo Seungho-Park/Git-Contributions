@@ -11,7 +11,7 @@ import CoreData
 extension UserEntity {
     convenience init(profile: User, insertInto context: NSManagedObjectContext) {
         self.init(context: context)
-        self.id = Int16(profile.id)
+        self.userId = Int16(profile.id)
         self.host = profile.host
         self.type = Int32(profile.type.rawValue)
         self.username = profile.username
@@ -19,6 +19,6 @@ extension UserEntity {
     }
     
     func toDomain()-> User {
-        .init(id: Int(id), type: .init(rawValue: Int(type))!, host: host, username: username ?? "Invalid User", token_id: Int(token_id))
+        .init(id: Int(userId), type: .init(rawValue: Int(type))!, host: host, username: username ?? "Invalid User", token_id: Int(token_id))
     }
 }

@@ -26,8 +26,9 @@ extension StartViewModel {
 
 class StartViewModel: NSObject, ViewModel {
     private let usecase: StartSceneUsecase
+    private let actions: Actions
+    
     var title: Driver<String>
-    let actions: Actions
     
     init(title: String = "", usecase: StartSceneUsecase, actions: Actions) {
         self.title = Observable.just(title).asDriver(onErrorJustReturn: "Get Started".localized)

@@ -41,10 +41,7 @@ final class CoreDataTokenStorage: TokenStorage {
         storage.performBackgroundTask { [weak self] context in
             guard let self = self else { return }
             let tokenEntity = TokenEntity(token: token, insertInto: context)
-            
-            if tokenEntity.id == -1 {
-                tokenEntity.id = nextSeq
-            }
+            tokenEntity.tokenId = nextSeq
             
             do {
                 try context.save()

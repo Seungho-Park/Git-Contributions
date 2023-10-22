@@ -26,6 +26,7 @@ final class CoreDataUserStorage: UserStorage {
         storage.performBackgroundTask { [unowned self] context in
             do {
                 let request: NSFetchRequest = UserEntity.fetchRequest()
+                request.sortDescriptors = [NSSortDescriptor(key: #keyPath(UserEntity.userId), ascending: false)]
                 
                 let result = try context.fetch(request).map { $0.toDomain() }
                 users.accept(result)
@@ -37,13 +38,15 @@ final class CoreDataUserStorage: UserStorage {
     }
     
     func deleteUser(id: Int) {
-        storage.performBackgroundTask { context in
+        storage.performBackgroundTask { [weak self] context in
+            guard let self = self else { return }
             let request: NSFetchRequest = UserEntity.fetchRequest()
             request.predicate = NSPredicate(format: "id = %@", Int16(id))
             
             do {
                 if let result = try context.fetch(request).first {
                     context.delete(result)
+                    self.users.accept(self.users.value.filter { $0.id != result.userId })
                 }
             } catch {
                 print(error)
@@ -56,8 +59,12 @@ final class CoreDataUserStorage: UserStorage {
             guard let self = self else { return }
             do {
                 let entity = UserEntity.init(profile: user, insertInto: context)
-                entity.id = nextId
+                entity.userId = nextId
                 try context.save()
+                
+                var values = users.value
+                values.append(entity.toDomain())
+                users.accept(values)
             } catch {
                 debugPrint("CoreDataMoviesResponseStorage Unresolved error \(error), \((error as NSError).userInfo)")
             }

@@ -11,13 +11,13 @@ import CoreData
 extension TokenEntity {
     convenience init(token: AccessToken, insertInto context: NSManagedObjectContext) {
         self.init(context: context)
-        self.id = Int16(token.id)
+        self.tokenId = Int16(token.id)
         self.host = token.host
         self.token = token.token
         self.type = Int16(token.type.rawValue)
     }
     
     func toDomain()-> AccessToken {
-        .init(id: Int(id), type: VCSType(rawValue: Int(type))!, token: token!, host: host)
+        .init(id: Int(tokenId), type: VCSType(rawValue: Int(type))!, token: token!, host: host)
     }
 }

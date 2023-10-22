@@ -6,12 +6,28 @@
 //
 
 import Foundation
+import RxSwift
 
 class TokenRepositoryImpl: TokenRepository {
     let tokenStorage: TokenStorage
     
     init(tokenStorage: TokenStorage) {
         self.tokenStorage = tokenStorage
+    }
+    
+    func fetchAll()-> Single<[AccessToken]> {
+        return Single<[AccessToken]>.create { [weak self] single in
+            guard let self = self else { return Disposables.create() }
+            tokenStorage.fetchTokens { result in
+                do {
+                    single(.success(try result.get()))
+                } catch {
+                    single(.failure(error))
+                }
+            }
+            
+            return Disposables.create()
+        }
     }
     
     func fetchTokens(type: VCSType, host: String?, completion: @escaping (Result<[AccessToken], Error>)-> Void) {
