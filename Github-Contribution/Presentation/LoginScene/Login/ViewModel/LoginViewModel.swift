@@ -16,7 +16,7 @@ extension LoginViewModel {
     }
     
     struct Actions {
-        let showTokenScene: (VCSType, String?)-> Void
+        let showTokenScene: (VCSType, String)-> Void
         let showAlert: (String)-> Void
     }
     

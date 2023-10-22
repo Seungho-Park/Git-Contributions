@@ -37,12 +37,12 @@ class LoginSceneDIContainer {
         return LoginViewModel(usecase: makeLoginUsecase(), dependencies: dependencies)
     }
     
-    func makeTokenManagementViewModel(type: VCSType, host: String?, actions: TokenManagementViewModel.Actions)-> TokenManagementViewModel {
-        return TokenManagementViewModel(type: type, host: host, usecase: makeTokenManageUsecase(), actions: actions)
+    func makeTokenManagementViewModel(dependencies: TokenManagementViewModel.Dependencies)-> TokenManagementViewModel {
+        return TokenManagementViewModel(usecase: makeTokenManageUsecase(), dependencies: dependencies)
     }
     
-    func makeAddTokenViewModel(type: VCSType, host: String?, actions: AddTokenViewModel.Actions)-> AddTokenViewModel {
-        return AddTokenViewModel(type: type, host: host, usecase: makeAddTokenUsecase(), actions: actions)
+    func makeAddTokenViewModel(dependencies: AddTokenViewModel.Dependencies)-> AddTokenViewModel {
+        return AddTokenViewModel(usecase: makeAddTokenUsecase(), dependencies: dependencies)
     }
     
     private func makeAddTokenUsecase()-> AddTokenUsecase {

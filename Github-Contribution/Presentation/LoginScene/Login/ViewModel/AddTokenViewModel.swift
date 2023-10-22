@@ -10,6 +10,12 @@ import RxSwift
 import RxCocoa
 
 extension AddTokenViewModel {
+    struct Dependencies {
+        let type: VCSType
+        let host: String
+        let actions: Actions
+    }
+    
     struct Actions {
         let showAlert: (String)-> Void
     }
@@ -30,18 +36,14 @@ class AddTokenViewModel: NSObject, ViewModel {
     private var note: String? = nil
     
     var title: Driver<String>
-    let type: VCSType
-    let host: Driver<String>
     
-    private let actions: Actions
+    private let dependencies: Dependencies
     private let usecase: AddTokenUsecase
     
-    init(title: String = "Add Token".localized, type: VCSType, host: String? = nil, usecase: AddTokenUsecase, actions: Actions) {
+    init(title: String = "Add Token".localized, usecase: AddTokenUsecase, dependencies: Dependencies) {
         self.title = Observable<String>.just(title).asDriver(onErrorJustReturn: "")
-        self.type = type
-        self.host = Observable.just(host ?? (type == .gitlab ? "https://gitlab.com" : "https://github.com")).asDriver(onErrorJustReturn: (type == .gitlab ? "https://gitlab.com" : "https://github.com"))
         self.usecase = usecase
-        self.actions = actions
+        self.dependencies = dependencies
     }
     
     func transform(_ input: Input) -> Output {
@@ -50,7 +52,7 @@ class AddTokenViewModel: NSObject, ViewModel {
                 guard let self = self, let _ = event.element else { return }
                 
                 guard let token = self.token, let note = self.note, !token.isEmpty, !note.isEmpty else {
-                    self.actions.showAlert("Please insert Note And Token".localized)
+                    self.dependencies.actions.showAlert("Please insert Note And Token".localized)
                     return
                 }
             }.disposed(by: rx.disposeBag)
@@ -68,8 +70,9 @@ class AddTokenViewModel: NSObject, ViewModel {
                 
                 self.note = note
             }.disposed(by: rx.disposeBag)
+        
         return .init(
-            host: self.host
+            host: Observable.just(self.dependencies.host).asDriver(onErrorJustReturn: "Invalid Host")
         )
     }
 }
