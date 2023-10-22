@@ -13,5 +13,7 @@ protocol TokenRepository {
     func fetchAll()-> Single<[AccessToken]>
     
     func fetchTokens(type: VCSType, host: String?, completion: @escaping (Result<[AccessToken], Error>)-> Void)
-    func saveToken(token: AccessToken)
+    
+    @discardableResult
+    func saveToken(token: AccessToken)-> Single<AccessToken>
 }

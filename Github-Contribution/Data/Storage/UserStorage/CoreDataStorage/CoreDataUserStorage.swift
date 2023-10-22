@@ -37,7 +37,7 @@ final class CoreDataUserStorage: UserStorage {
         }
     }
     
-    func deleteUser(id: Int) {
+    func deleteUser(id: Int, completion: @escaping (Result<User, Error>)-> Void) {
         storage.performBackgroundTask { [weak self] context in
             guard let self = self else { return }
             let request: NSFetchRequest = UserEntity.fetchRequest()
@@ -46,15 +46,17 @@ final class CoreDataUserStorage: UserStorage {
             do {
                 if let result = try context.fetch(request).first {
                     context.delete(result)
+                    completion(.success(result.toDomain()))
                     self.users.accept(self.users.value.filter { $0.id != result.userId })
                 }
             } catch {
+                completion(.failure(error))
                 print(error)
             }
         }
     }
     
-    func saveUser(user: User) {
+    func saveUser(user: User, completion: @escaping (Result<User, Error>)-> Void) {
         storage.performBackgroundTask { [weak self] context in
             guard let self = self else { return }
             do {
@@ -62,10 +64,14 @@ final class CoreDataUserStorage: UserStorage {
                 entity.userId = nextId
                 try context.save()
                 
+                let domain = entity.toDomain()
+                completion(.success(domain))
+                
                 var values = users.value
-                values.append(entity.toDomain())
+                values.append(domain)
                 users.accept(values)
             } catch {
+                completion(.failure(error))
                 debugPrint("CoreDataMoviesResponseStorage Unresolved error \(error), \((error as NSError).userInfo)")
             }
         }

@@ -26,6 +26,7 @@ final class CoreDataTokenStorage: TokenStorage {
         storage.performBackgroundTask { [weak self] context in
             guard let self = self else { return }
             let request = TokenEntity.fetchRequest()
+            request.sortDescriptors = [NSSortDescriptor(key: #keyPath(TokenEntity.tokenId), ascending: false)]
             
             do {
                 let response = try context.fetch(request).map { $0.toDomain() }
@@ -37,7 +38,7 @@ final class CoreDataTokenStorage: TokenStorage {
         }
     }
     
-    func saveToken(token: AccessToken) {
+    func saveToken(token: AccessToken, completion: @escaping (Result<AccessToken, Error>)-> Void) {
         storage.performBackgroundTask { [weak self] context in
             guard let self = self else { return }
             let tokenEntity = TokenEntity(token: token, insertInto: context)
@@ -45,7 +46,9 @@ final class CoreDataTokenStorage: TokenStorage {
             
             do {
                 try context.save()
+                completion(.success(tokenEntity.toDomain()))
             } catch {
+                completion(.failure(error))
                 debugPrint("CoreDataMoviesResponseStorage Unresolved error \(error), \((error as NSError).userInfo)")
             }
         }

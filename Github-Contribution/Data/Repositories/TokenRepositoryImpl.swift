@@ -34,7 +34,18 @@ class TokenRepositoryImpl: TokenRepository {
         tokenStorage.fetchTokens(completion: completion)
     }
     
-    func saveToken(token: AccessToken) {
-        tokenStorage.saveToken(token: token)
+    func saveToken(token: AccessToken)-> Single<AccessToken> {
+        return Single<AccessToken>.create { [unowned self] single in
+            tokenStorage.saveToken(token: token) { result in
+                do {
+                    single(.success(try result.get()))
+                } catch {
+                    single(.failure(error))
+                }
+            }
+            
+            return Disposables.create()
+        }
+        
     }
 }
