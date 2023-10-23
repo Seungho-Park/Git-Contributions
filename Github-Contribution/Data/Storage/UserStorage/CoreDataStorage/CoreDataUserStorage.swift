@@ -8,7 +8,6 @@
 import Foundation
 import CoreData
 import RxSwift
-import RxCocoa
 
 final class CoreDataUserStorage: UserStorage {
     private var nextId: Int16 {
@@ -18,7 +17,8 @@ final class CoreDataUserStorage: UserStorage {
     }
     
     private let storage: CoreDataStorage
-    private lazy var users: BehaviorRelay<[User]> = .init(value: [])
+    private var userList: [User] = []
+    private lazy var users: BehaviorSubject<[User]> = .init(value: userList)
     
     init(storage: CoreDataStorage = CoreDataStorage.shared) {
         self.storage = storage
@@ -31,7 +31,8 @@ final class CoreDataUserStorage: UserStorage {
                 request.sortDescriptors = [NSSortDescriptor(key: #keyPath(UserEntity.userId), ascending: false)]
                 
                 let result = try context.fetch(request).map { $0.toDomain() }
-                users.accept(result)
+                userList = result
+                users.onNext(userList)
                 completion(.success(result))
             } catch {
                 completion(.failure(error))
@@ -49,7 +50,15 @@ final class CoreDataUserStorage: UserStorage {
                 if let result = try context.fetch(request).first {
                     context.delete(result)
                     completion(.success(result.toDomain()))
-                    self.users.accept(self.users.value.filter { $0.id != result.userId })
+                    
+                    if let index = userList.firstIndex(where: { user in
+                        user.id == result.userId
+                    }) {
+                        userList.remove(at: index)
+                        self.users.onNext(userList)
+                    }
+                    
+                    
                 }
             } catch {
                 completion(.failure(error))
@@ -69,9 +78,8 @@ final class CoreDataUserStorage: UserStorage {
                 let domain = entity.toDomain()
                 completion(.success(domain))
                 
-                var values = users.value
-                values.append(domain)
-                users.accept(values)
+                userList.append(domain)
+                users.onNext(userList)
             } catch {
                 completion(.failure(error))
                 debugPrint("CoreDataUserStorage Unresolved error \(error), \((error as NSError).userInfo)")
