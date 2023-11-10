@@ -66,6 +66,8 @@ class ProfileRepositoryImpl: ProfileRepository {
     }
     
     func saveUser(user: User) {
-        userStorage.saveUser(user: user)
+        userStorage.saveUser(user: user) { result in
+            
+        }
     }
 }

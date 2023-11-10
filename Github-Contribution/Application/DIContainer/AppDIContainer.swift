@@ -23,8 +23,8 @@ final class AppDIContainer {
     }()
     
     
-    func makeSplashViewModel(actions: SplashViewModel.SplashViewModelAction)-> SplashViewModel {
-        .init(title: "Splash", actions: actions, splashUsecase: makeSplashUsecase())
+    func makeSplashViewModel()-> SplashViewModel {
+        .init(title: "Splash")
     }
     
     private func makeSplashUsecase()-> SplashUsecase {

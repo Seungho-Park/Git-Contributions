@@ -9,8 +9,7 @@ import Foundation
 import UIKit
 
 protocol Coordinator: AnyObject {
-    var window: UIWindow? { get set }
-    var rootViewController: UIViewController? { get set }
+    var navigationController: UINavigationController { get set }
     
     func start()
     
@@ -24,43 +23,21 @@ extension Coordinator {
         let vc = scene.instantiate()
         
         switch transitionStyle {
-        case .root:
-            guard let window = window else {
-                Log.e("\(Self.self)", message: TransitionError.windowNil.localizedDescription)
-                return
-            }
-            
-            if let navController = rootViewController as? UINavigationController {
-                navController.pushViewController(vc, animated: animated)
-            } else {
-                rootViewController = vc
-            }
-            
-            window.rootViewController = rootViewController
-            window.makeKeyAndVisible()
         case .push:
-            if let rootViewController = rootViewController as? UINavigationController {
-                rootViewController.pushViewController(vc, animated: animated)
-            } else {
-                //TODO: Error -
-            }
+            navigationController.pushViewController(vc, animated: animated)
         case .modal:
-            guard let sceneViewController = rootViewController?.sceneViewController else {
-                return
-            }
+            let sceneVC = navigationController.sceneViewController
             
-            sceneViewController.present(vc, animated: animated)
+            sceneVC.present(vc, animated: animated)
         }
     }
     
     func close(animated: Bool = true, completion: @escaping ()-> Void = {}) {
-        guard let sceneViewController = rootViewController?.sceneViewController else {
-            return
-        }
+        let sceneVC = navigationController.sceneViewController
         
-        if let presentedVC = sceneViewController.presentedViewController {
+        if let presentedVC = sceneVC.presentedViewController {
             presentedVC.dismiss(animated: animated, completion: completion)
-        } else if let navController = sceneViewController.navigationController{
+        } else if let navController = sceneVC.navigationController{
             navController.popViewController(animated: animated)
         } else {
             //TODO: Error -

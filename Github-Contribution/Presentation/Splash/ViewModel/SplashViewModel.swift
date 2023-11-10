@@ -27,29 +27,13 @@ extension SplashViewModel {
 
 class SplashViewModel: NSObject, ViewModel {
     var title: Driver<String>
-    private let actions: SplashViewModelAction
-    private let splashUsecase: SplashUsecase
     
-    init(title: String, actions: SplashViewModelAction, splashUsecase: SplashUsecase) {
+    init(title: String) {
         self.title = Observable.just(title).asDriver(onErrorJustReturn: "")
-        self.actions = actions
-        self.splashUsecase = splashUsecase
     }
     
     func transform(_ input: Input) -> Output {
-        input.viewDidAppear
-            .subscribe { [unowned self] event in
-                guard let isLoad = event.element, isLoad else { return }
-                self.splashUsecase
-                    .checkLogin()
-                    .emit { isLogin in
-                        if isLogin {
-                            self.actions.showMainScene()
-                        } else {
-                            self.actions.showLoginScene()
-                        }
-                    }.disposed(by: rx.disposeBag)
-            }.disposed(by: rx.disposeBag)
+        
         
         return Output(
             

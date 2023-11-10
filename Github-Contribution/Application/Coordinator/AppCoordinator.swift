@@ -9,31 +9,28 @@ import Foundation
 import UIKit
 
 final class AppCoordinator: Coordinator {
-    var window: UIWindow?
-    var rootViewController: UIViewController? = nil
+    var window: UIWindow
+    var navigationController: UINavigationController
     let diContainer: AppDIContainer
     
     init(window: UIWindow, diContainer: AppDIContainer) {
         self.window = window
+        self.navigationController = UINavigationController()
         self.diContainer = diContainer
     }
     
     func start() {
-        transition(
-            scene: AppScene.splash(
-                diContainer.makeSplashViewModel(
-                    actions: .init(
-                        showLoginScene: showLoginScene,
-                        showMainScene: showMainScene
-                    )
-                )
-            ),
-            transitionStyle: .root)
+        let scene = AppScene.splash(diContainer.makeSplashViewModel())
+        
+        window.rootViewController = navigationController
+        window.makeKeyAndVisible()
+        
+        navigationController.pushViewController(scene.instantiate(), animated: false)
     }
     
     private func showLoginScene() {
         let loginDiContainer = diContainer.makeLoginSceneDIContainer()
-        let coordinator = loginDiContainer.makeLoginSceneCoordinator(window: window!)
+        let coordinator = loginDiContainer.makeLoginSceneCoordinator(window: window)
         coordinator.start()
     }
     

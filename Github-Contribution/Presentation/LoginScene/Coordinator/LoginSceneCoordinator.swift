@@ -9,28 +9,29 @@ import Foundation
 import UIKit
 
 final class LoginSceneCoordinator: Coordinator {
-    
-    var window: UIWindow?
-    var rootViewController: UIViewController?
+    var window: UIWindow
+    var navigationController: UINavigationController
     var diContainer: LoginSceneDIContainer
     
-    init(window: UIWindow?, diContainer: LoginSceneDIContainer) {
+    init(window: UIWindow, diContainer: LoginSceneDIContainer) {
         self.window = window
-        self.rootViewController = UINavigationController.init()
+        self.navigationController = UINavigationController()
         self.diContainer = diContainer
     }
     
     func start() {
-        transition(
-            scene: AppScene.login(
-                diContainer.makeStartViewModel(
-                    actions: StartViewModel.Actions(
-                        showSelectPlatform: showSelectPlatform
-                    )
+        let vc = AppScene.login(
+            diContainer.makeStartViewModel(
+                actions: StartViewModel.Actions(
+                    showSelectPlatform: showSelectPlatform
                 )
-            ),
-            transitionStyle: .root
+            )
         )
+        
+        window.rootViewController = navigationController
+        window.makeKeyAndVisible()
+        
+        navigationController.pushViewController(vc.instantiate(), animated: false)
     }
     
     private func showSelectPlatform() {
