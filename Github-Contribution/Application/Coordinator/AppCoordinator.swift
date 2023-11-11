@@ -27,14 +27,4 @@ final class AppCoordinator: Coordinator {
         
         navigationController.pushViewController(scene.instantiate(), animated: false)
     }
-    
-    private func showLoginScene() {
-        let loginDiContainer = diContainer.makeLoginSceneDIContainer()
-        let coordinator = loginDiContainer.makeLoginSceneCoordinator(window: window)
-        coordinator.start()
-    }
-    
-    private func showMainScene() {
-        
-    }
 }

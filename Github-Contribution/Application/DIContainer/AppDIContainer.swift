@@ -38,14 +38,4 @@ final class AppDIContainer {
     private func makeTokenRepository()-> TokenRepository {
         return TokenRepositoryImpl(tokenStorage: tokenDataStorage)
     }
-    
-    func makeLoginSceneDIContainer()-> LoginSceneDIContainer {
-        return LoginSceneDIContainer(
-            dependencies: .init(
-                apiDataTransferService: apiDataTransferService,
-                userStorage: userDataStorage,
-                tokenStorage: tokenDataStorage
-            )
-        )
-    }
 }

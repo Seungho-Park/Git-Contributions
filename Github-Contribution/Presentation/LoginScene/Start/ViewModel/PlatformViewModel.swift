@@ -12,13 +12,11 @@ import NSObject_Rx
 
 extension PlatformViewModel {
     struct Actions {
-        let dismiss: ()-> Void
-        let showLogin: (VCSType)-> Void
+        
     }
     
     struct Input {
-        let dismiss: Driver<Bool>
-        let select: Observable<VCSType>
+        
     }
     
     struct Output {
@@ -27,29 +25,19 @@ extension PlatformViewModel {
 }
 
 class PlatformViewModel: NSObject, ViewModel {
+    var title: Driver<String>
+    var backgroundColor: Driver<String>
     
-    var title: Driver<String> = Observable.just("").asDriver(onErrorJustReturn: "")
-    var backgroundColor: Driver<String> = Observable.just("bgPlatformVC").asDriver(onErrorJustReturn: "")
-    let actions: Actions
-    
-    init(actions: Actions) {
-        self.actions = actions
+    init(
+        title: Driver<String> = Observable.just("").asDriver(onErrorJustReturn: ""),
+        backgroundColor: Driver<String> = Observable.just("bgPlatformVC").asDriver(onErrorJustReturn: "")
+    ) {
+        self.title = title
+        self.backgroundColor = backgroundColor
     }
     
     func transform(_ input: Input) -> Output {
-        input.dismiss
-            .drive(onNext: { [unowned self] isDismiss in
-                if !isDismiss { return }
-                self.actions.dismiss()
-            }).disposed(by: rx.disposeBag)
         
-        input.select.subscribe { [unowned self] event in
-            guard let type = event.element, type != .unknown else {
-                return
-            }
-            
-            self.actions.showLogin(type)
-        }.disposed(by: rx.disposeBag)
         return Output()
     }
 }

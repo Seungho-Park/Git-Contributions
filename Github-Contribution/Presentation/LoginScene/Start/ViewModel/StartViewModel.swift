@@ -12,11 +12,11 @@ import NSObject_Rx
 
 extension StartViewModel {
     struct Actions {
-        let showSelectPlatform: ()-> Void
+        
     }
     
     struct Input {
-        let touchedStartButton: Observable<Void>
+        
     }
     
     struct Output {
@@ -25,22 +25,13 @@ extension StartViewModel {
 }
 
 class StartViewModel: NSObject, ViewModel {
-    private let usecase: StartSceneUsecase
-    private let actions: Actions
-    
     var title: Driver<String>
     
-    init(title: String = "", usecase: StartSceneUsecase, actions: Actions) {
+    init(title: String = "") {
         self.title = Observable.just(title).asDriver(onErrorJustReturn: "Get Started".localized)
-        self.usecase = usecase
-        self.actions = actions
     }
     
     func transform(_ input: Input) -> Output {
-        input.touchedStartButton
-            .subscribe { [unowned self] _ in
-                self.actions.showSelectPlatform()
-            }.disposed(by: rx.disposeBag)
         return .init()
     }
 }

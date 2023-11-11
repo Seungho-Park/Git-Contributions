@@ -31,7 +31,7 @@ class StartViewController: BaseViewController<StartViewModel> {
         
         let output = viewModel.transform(
             StartViewModel.Input(
-                touchedStartButton: startButton.rx.tap.asObservable()
+                
             )
         )
     }

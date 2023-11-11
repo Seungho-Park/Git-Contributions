@@ -19,7 +19,6 @@ class LoginViewController: BaseViewController<LoginViewModel> {
     
     private lazy var submitButton: UIButton = .makeButton(title: "Submit".localized, bgColor: .bgStartButton, titleColor: .txtStartButton)
     
-    
     fileprivate lazy var hostInputView: InputTextView = {
         let hostInputView = InputTextView(frame: .zero)
         hostInputView.title = "Host".localized
@@ -79,17 +78,9 @@ class LoginViewController: BaseViewController<LoginViewModel> {
         
         let output = viewModel.transform(
             .init(
-                tapToken: tapToken.asObservable(),
-                tapSubmit: submitButton.rx.tap.asObservable(),
-                host: hostInputView.rx.text.orEmpty.changed.asObservable(),
-                username: userNameInputView.rx.text.orEmpty.changed.asObservable(),
-                token: tokenInputView.rx.text.orEmpty.changed.asObservable()
+                
             )
         )
-        
-        output.vcsType
-            .drive(self.rx.vcsType)
-            .disposed(by: rx.disposeBag)
     }
     
     @objc
