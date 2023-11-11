@@ -59,7 +59,7 @@ class TokenManagementViewController: BaseViewController<TokenManagementViewModel
         
         let output = viewModel.transform(
             TokenManagementViewModel.Input(
-                tapAddButton: addTokenButton.rx.tap.asObservable()
+                
             )
         )
     }

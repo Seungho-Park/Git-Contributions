@@ -95,14 +95,8 @@ class AddTokenViewController: BaseViewController<AddTokenViewModel> {
         
         let output = viewModel.transform(
             .init(
-                tapSubmit: submitButton.rx.tap.asObservable(),
-                note: tokenNameView.rx.text.changed.asObservable(),
-                token: tokenInputView.rx.text.changed.asObservable()
+                
             )
         )
-        
-        output.host
-            .drive(hostView.rx.text)
-            .disposed(by: rx.disposeBag)
     }
 }
