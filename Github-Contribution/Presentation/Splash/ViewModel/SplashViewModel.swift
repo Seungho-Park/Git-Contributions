@@ -11,11 +11,6 @@ import RxCocoa
 import NSObject_Rx
 
 extension SplashViewModel {
-    struct SplashViewModelAction {
-        let showLoginScene: ()-> Void
-        let showMainScene: ()-> Void
-    }
-    
     struct Input {
         let viewDidAppear: Observable<Bool>
     }

@@ -9,6 +9,7 @@ import Foundation
 import RxSwift
 
 protocol UserStorage {
+    func getUserCount(completion: @escaping (Result<Int, Error>)-> Void)
     func fetchUsers(completion: @escaping (Result<[User], Error>)-> Void)
     func deleteUser(id: Int, completion: @escaping (Result<User, Error>)-> Void)
     func saveUser(user: User, completion: @escaping (Result<User, Error>)-> Void)

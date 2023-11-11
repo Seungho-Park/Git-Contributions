@@ -10,9 +10,4 @@ import RxSwift
 
 protocol ProfileRepository {
     func fetchProfile(profile: User, completion: @escaping (Result<Profile, Error>)-> Void)-> URLSessionTask?
-    
-    @discardableResult
-    func fetchUsers()-> Single<[User]>
-    
-    func saveUser(user: User)
 }

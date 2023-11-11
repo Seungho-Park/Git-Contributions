@@ -17,22 +17,29 @@ final class CoreDataUserStorage: UserStorage {
     }
     
     private let storage: CoreDataStorage
-    private var userList: [User] = []
-    private lazy var users: BehaviorSubject<[User]> = .init(value: userList)
     
     init(storage: CoreDataStorage = CoreDataStorage.shared) {
         self.storage = storage
     }
     
+    func getUserCount(completion: @escaping (Result<Int, Error>) -> Void) {
+        storage.performBackgroundTask { context in
+            do {
+                let request = UserEntity.fetchRequest()
+                completion(.success(try context.count(for: request)))
+            } catch {
+                completion(.failure(error))
+            }
+        }
+    }
+    
     func fetchUsers(completion: @escaping (Result<[User], Error>) -> Void) {
-        storage.performBackgroundTask { [unowned self] context in
+        storage.performBackgroundTask { context in
             do {
                 let request: NSFetchRequest = UserEntity.fetchRequest()
                 request.sortDescriptors = [NSSortDescriptor(key: #keyPath(UserEntity.userId), ascending: false)]
                 
                 let result = try context.fetch(request).map { $0.toDomain() }
-                userList = result
-                users.onNext(userList)
                 completion(.success(result))
             } catch {
                 completion(.failure(error))
@@ -41,8 +48,7 @@ final class CoreDataUserStorage: UserStorage {
     }
     
     func deleteUser(id: Int, completion: @escaping (Result<User, Error>)-> Void) {
-        storage.performBackgroundTask { [weak self] context in
-            guard let self = self else { return }
+        storage.performBackgroundTask { context in
             let request: NSFetchRequest = UserEntity.fetchRequest()
             request.predicate = NSPredicate(format: "id = %@", Int16(id))
             
@@ -50,19 +56,9 @@ final class CoreDataUserStorage: UserStorage {
                 if let result = try context.fetch(request).first {
                     context.delete(result)
                     completion(.success(result.toDomain()))
-                    
-                    if let index = userList.firstIndex(where: { user in
-                        user.id == result.userId
-                    }) {
-                        userList.remove(at: index)
-                        self.users.onNext(userList)
-                    }
-                    
-                    
                 }
             } catch {
                 completion(.failure(error))
-                print(error)
             }
         }
     }
@@ -77,9 +73,6 @@ final class CoreDataUserStorage: UserStorage {
                 
                 let domain = entity.toDomain()
                 completion(.success(domain))
-                
-                userList.append(domain)
-                users.onNext(userList)
             } catch {
                 completion(.failure(error))
                 debugPrint("CoreDataUserStorage Unresolved error \(error), \((error as NSError).userInfo)")

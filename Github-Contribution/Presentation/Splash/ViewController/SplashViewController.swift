@@ -13,8 +13,6 @@ import RxCocoa
 class SplashViewController: BaseViewController<SplashViewModel> {
     private lazy var logoView: LogoView = LogoView(frame: .zero)
     
-    private let isAppear: BehaviorRelay<Bool> = .init(value: false)
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -31,12 +29,6 @@ class SplashViewController: BaseViewController<SplashViewModel> {
         self.navigationController?.navigationBar.isHidden = true
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        
-        isAppear.accept(true)
-    }
-    
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         self.navigationController?.navigationBar.isHidden = false
@@ -45,8 +37,8 @@ class SplashViewController: BaseViewController<SplashViewModel> {
     override func bind() {
         super.bind()
         
-        let output = viewModel.transform(SplashViewModel.Input(
-            viewDidAppear: isAppear.asObservable())
-        )
+        _ = viewModel.transform(SplashViewModel.Input(
+            viewDidAppear: self.rx.viewDidAppear.asObservable()
+        ))
     }
 }

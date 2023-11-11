@@ -18,21 +18,18 @@ final class CoreDataTokenStorage: TokenStorage {
     }
     
     private let storage: CoreDataStorage
-    private lazy var tokens: BehaviorRelay<[AccessToken]> = .init(value: [])
     
     init(storage: CoreDataStorage = CoreDataStorage.shared) {
         self.storage = storage
     }
     
     func fetchTokens(completion: @escaping (Result<[AccessToken], Error>)-> Void) {
-        storage.performBackgroundTask { [weak self] context in
-            guard let self = self else { return }
+        storage.performBackgroundTask { context in
             let request = TokenEntity.fetchRequest()
             request.sortDescriptors = [NSSortDescriptor(key: #keyPath(TokenEntity.tokenId), ascending: false)]
             
             do {
                 let response = try context.fetch(request).map { $0.toDomain() }
-                tokens.accept(response)
                 completion(.success(response))
             } catch {
                 completion(.failure(error))
