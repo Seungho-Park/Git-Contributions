@@ -6,7 +6,8 @@
 //
 
 import Foundation
+import RxSwift
 
 protocol UserRepository {
-    
+    func fetchUsers()-> Single<[User]>
 }

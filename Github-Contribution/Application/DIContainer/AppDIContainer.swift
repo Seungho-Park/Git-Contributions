@@ -8,7 +8,6 @@
 import Foundation
 
 final class AppDIContainer {
-    
     private lazy var apiDataTransferService: DataTransferService = {
         let networkService = NetworkService()
         return DataTransferServiceImpl(networkService: networkService)

@@ -39,12 +39,8 @@ class LoginViewController: BaseViewController<LoginViewModel> {
         tokenInputView.placeholder = "Access-Token".localized
         tokenInputView.isEnabled = false
         tokenInputView.isUserInteractionEnabled = true
-        let tap = UITapGestureRecognizer(target: self, action: #selector(self.tapTokenInputView))
-        tokenInputView.addGestureRecognizer(tap)
         return tokenInputView
     }()
-    
-    private var tapToken: PublishRelay<Void> = .init()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -81,11 +77,6 @@ class LoginViewController: BaseViewController<LoginViewModel> {
                 
             )
         )
-    }
-    
-    @objc
-    private func tapTokenInputView() {
-        tapToken.accept(())
     }
 }
 

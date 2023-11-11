@@ -61,6 +61,8 @@ class InputTextView: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(tap(_:)))
+        self.addGestureRecognizer(tapGesture)
         configure()
     }
     
@@ -93,6 +95,10 @@ class InputTextView: UIView {
             make.top.bottom.equalToSuperview()
         }
     }
+    
+    @objc func tap(_ sender: UITapGestureRecognizer) {
+        
+    }
 }
 
 
@@ -106,5 +112,10 @@ extension InputTextView: UITextFieldDelegate {
 extension Reactive where Base: InputTextView {
     var text: ControlProperty<String?> {
         return self.base.textField.rx.text
+    }
+    
+    var tap: ControlEvent<Void> {
+        let source = methodInvoked(#selector(Base.tap)).map { _ in }
+        return ControlEvent(events: source)
     }
 }

@@ -20,14 +20,12 @@ extension ViewModelBindable where Self: UIViewController {
     static func create(viewModel: ViewModelType)-> Self {
         var vc = Self.init()
         vc.bindViewModel(viewModel: viewModel)
-        
         return vc
     }
     
     private mutating func bindViewModel(viewModel: ViewModelType) {
         self.viewModel = viewModel
         self.loadViewIfNeeded()
-        
         self.bind()
     }
 }

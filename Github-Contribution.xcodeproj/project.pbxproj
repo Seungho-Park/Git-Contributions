@@ -28,7 +28,6 @@
 		D403CCC22AD871EC007EFD2C /* TokenManagementViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D403CCC12AD871EC007EFD2C /* TokenManagementViewController.swift */; };
 		D403CCC42AD8720F007EFD2C /* TokenManagementViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D403CCC32AD8720F007EFD2C /* TokenManagementViewModel.swift */; };
 		D416C53E2AD167B700645F98 /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = D416C53D2AD167B700645F98 /* Log.swift */; };
-		D416C5402AD1799800645F98 /* AppScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = D416C53F2AD1799800645F98 /* AppScene.swift */; };
 		D416C5452AD17B0100645F98 /* ViewModelBindable.swift in Sources */ = {isa = PBXBuildFile; fileRef = D416C5442AD17B0100645F98 /* ViewModelBindable.swift */; };
 		D416C5472AD17BEC00645F98 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D416C5462AD17BEC00645F98 /* BaseViewController.swift */; };
 		D416C54E2AD17C6300645F98 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D416C54D2AD17C6300645F98 /* ViewModel.swift */; };
@@ -58,6 +57,8 @@
 		D435B9932AFF5C1500CC7450 /* UIViewController+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = D435B9922AFF5C1500CC7450 /* UIViewController+Rx.swift */; };
 		D435B9962AFF62B300CC7450 /* UserRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = D435B9952AFF62B300CC7450 /* UserRepository.swift */; };
 		D435B9982AFF62C600CC7450 /* UserRepositoryImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = D435B9972AFF62C600CC7450 /* UserRepositoryImpl.swift */; };
+		D435B9A12AFF6D5700CC7450 /* AppScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = D435B9A02AFF6D5700CC7450 /* AppScene.swift */; };
+		D435B9A32AFFA63900CC7450 /* UITextField+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = D435B9A22AFFA63900CC7450 /* UITextField+Rx.swift */; };
 		D459F57A2AD8114C00AFA35C /* ResponseDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = D459F5792AD8114C00AFA35C /* ResponseDecoder.swift */; };
 		D459F57D2AD8116F00AFA35C /* JSONResponseDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = D459F57C2AD8116F00AFA35C /* JSONResponseDecoder.swift */; };
 		D459F5802AD8138200AFA35C /* HttpMethodType.swift in Sources */ = {isa = PBXBuildFile; fileRef = D459F57F2AD8138200AFA35C /* HttpMethodType.swift */; };
@@ -132,7 +133,6 @@
 		D403CCC12AD871EC007EFD2C /* TokenManagementViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenManagementViewController.swift; sourceTree = "<group>"; };
 		D403CCC32AD8720F007EFD2C /* TokenManagementViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenManagementViewModel.swift; sourceTree = "<group>"; };
 		D416C53D2AD167B700645F98 /* Log.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Log.swift; sourceTree = "<group>"; };
-		D416C53F2AD1799800645F98 /* AppScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppScene.swift; sourceTree = "<group>"; };
 		D416C5442AD17B0100645F98 /* ViewModelBindable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelBindable.swift; sourceTree = "<group>"; };
 		D416C5462AD17BEC00645F98 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		D416C54D2AD17C6300645F98 /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
@@ -158,6 +158,8 @@
 		D435B9922AFF5C1500CC7450 /* UIViewController+Rx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Rx.swift"; sourceTree = "<group>"; };
 		D435B9952AFF62B300CC7450 /* UserRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRepository.swift; sourceTree = "<group>"; };
 		D435B9972AFF62C600CC7450 /* UserRepositoryImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRepositoryImpl.swift; sourceTree = "<group>"; };
+		D435B9A02AFF6D5700CC7450 /* AppScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppScene.swift; sourceTree = "<group>"; };
+		D435B9A22AFFA63900CC7450 /* UITextField+Rx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+Rx.swift"; sourceTree = "<group>"; };
 		D459F5792AD8114C00AFA35C /* ResponseDecoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseDecoder.swift; sourceTree = "<group>"; };
 		D459F57C2AD8116F00AFA35C /* JSONResponseDecoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONResponseDecoder.swift; sourceTree = "<group>"; };
 		D459F57F2AD8138200AFA35C /* HttpMethodType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HttpMethodType.swift; sourceTree = "<group>"; };
@@ -329,7 +331,7 @@
 			children = (
 				D42F79842AD2AFFD007B0BCC /* Components */,
 				D416C5432AD17AF300645F98 /* Base */,
-				D416C5482AD17C2E00645F98 /* Splash */,
+				D416C5482AD17C2E00645F98 /* SplashScene */,
 				D42F79752AD28705007B0BCC /* LoginScene */,
 			);
 			path = Presentation;
@@ -344,13 +346,13 @@
 			path = Base;
 			sourceTree = "<group>";
 		};
-		D416C5482AD17C2E00645F98 /* Splash */ = {
+		D416C5482AD17C2E00645F98 /* SplashScene */ = {
 			isa = PBXGroup;
 			children = (
 				D416C54A2AD17C4300645F98 /* ViewModel */,
 				D416C5492AD17C3D00645F98 /* ViewController */,
 			);
-			path = Splash;
+			path = SplashScene;
 			sourceTree = "<group>";
 		};
 		D416C5492AD17C3D00645F98 /* ViewController */ = {
@@ -416,11 +418,11 @@
 		D42F79802AD2AF04007B0BCC /* Ext */ = {
 			isa = PBXGroup;
 			children = (
+				D435B9A42AFFA64700CC7450 /* Rx */,
 				D42F79812AD2AF0F007B0BCC /* UIViewControllerExt.swift */,
 				D4C89B272AD4064400AF8020 /* StringExt.swift */,
 				D4C89B292AD4370100AF8020 /* UIViewExt.swift */,
 				D4C89B2B2AD43CEE00AF8020 /* UIButtonExt.swift */,
-				D435B9922AFF5C1500CC7450 /* UIViewController+Rx.swift */,
 			);
 			path = Ext;
 			sourceTree = "<group>";
@@ -514,6 +516,15 @@
 				D4DAC05B2AD595520082BEC5 /* CoreDataStorage.swift */,
 			);
 			path = CoreDataStorage;
+			sourceTree = "<group>";
+		};
+		D435B9A42AFFA64700CC7450 /* Rx */ = {
+			isa = PBXGroup;
+			children = (
+				D435B9922AFF5C1500CC7450 /* UIViewController+Rx.swift */,
+				D435B9A22AFFA63900CC7450 /* UITextField+Rx.swift */,
+			);
+			path = Rx;
 			sourceTree = "<group>";
 		};
 		D459F57B2AD8115500AFA35C /* Decoder */ = {
@@ -688,7 +699,7 @@
 				D488A1DE2AD0518400DC37FC /* Scene */,
 				D488A1DC2AD04F3000DC37FC /* Coordinator.swift */,
 				D488A1E62AD0560800DC37FC /* AppCoordinator.swift */,
-				D416C53F2AD1799800645F98 /* AppScene.swift */,
+				D435B9A02AFF6D5700CC7450 /* AppScene.swift */,
 			);
 			path = Coordinator;
 			sourceTree = "<group>";
@@ -950,7 +961,6 @@
 				D403CCAB2AD83262007EFD2C /* DataTransferService.swift in Sources */,
 				D459F5842AD8182B00AFA35C /* NetworkError.swift in Sources */,
 				D488A1A72ACFC23200DC37FC /* AppDelegate.swift in Sources */,
-				D416C5402AD1799800645F98 /* AppScene.swift in Sources */,
 				D41FC5D32AE2F65200BEA0FB /* Profile.swift in Sources */,
 				D42F79992AD3260B007B0BCC /* PlatformViewController.swift in Sources */,
 				D42F79902AD2BC89007B0BCC /* StartViewController.swift in Sources */,
@@ -962,6 +972,7 @@
 				D416C5452AD17B0100645F98 /* ViewModelBindable.swift in Sources */,
 				D41FC5DA2AE311DC00BEA0FB /* TableView.swift in Sources */,
 				D47D6AAF2ADC4FA900E8A5CA /* UserStorage.swift in Sources */,
+				D435B9A12AFF6D5700CC7450 /* AppScene.swift in Sources */,
 				D403CCC42AD8720F007EFD2C /* TokenManagementViewModel.swift in Sources */,
 				D41FC5DC2AE31E8800BEA0FB /* AddTokenViewController.swift in Sources */,
 				D4DAC0642AD5AE180082BEC5 /* APIEndPoints.swift in Sources */,
@@ -973,6 +984,7 @@
 				D4DAC0532AD579AF0082BEC5 /* User.swift in Sources */,
 				D4C89B0A2AD3E60D00AF8020 /* PlatformListView.swift in Sources */,
 				D488A1E52AD052D900DC37FC /* TransitionError.swift in Sources */,
+				D435B9A32AFFA63900CC7450 /* UITextField+Rx.swift in Sources */,
 				D4DAC05F2AD5AADE0082BEC5 /* EndPoint.swift in Sources */,
 				D403CCBF2AD85BCA007EFD2C /* VCSRequestDTO+Mapping.swift in Sources */,
 				D42F799B2AD32624007B0BCC /* PlatformViewModel.swift in Sources */,
