@@ -11,29 +11,29 @@ import ModulePlugin
 //MARK: Factory
 public extension ProjectDescription.Target {
     struct TargetFactory {
-        let name: String
-        let destinations: ProjectDescription.Destinations
-        let product: ProjectDescription.Product
-        let productName: String?
-        let bundleId: String
-        let deploymentTargets: ProjectDescription.DeploymentTargets?
-        let infoPlist: ProjectDescription.InfoPlist?
-        let sources: ProjectDescription.SourceFilesList?
-        let resources: ProjectDescription.ResourceFileElements?
-        let copyFiles: [ProjectDescription.CopyFilesAction]?
-        let headers: ProjectDescription.Headers?
-        let entitlements: ProjectDescription.Entitlements?
-        let scripts: [ProjectDescription.TargetScript]
-        let dependencies: [ProjectDescription.TargetDependency]
-        let settings: ProjectDescription.Settings?
-        let coreDataModels: [ProjectDescription.CoreDataModel]
-        let environmentVariables: [String : ProjectDescription.EnvironmentVariable]
-        let launchArguments: [ProjectDescription.LaunchArgument]
-        let additionalFiles: [ProjectDescription.FileElement]
-        let buildRules: [ProjectDescription.BuildRule]
-        let mergedBinaryType: ProjectDescription.MergedBinaryType
-        let mergeable: Bool
-        let onDemandResourcesTags: ProjectDescription.OnDemandResourcesTags?
+        var name: String
+        var destinations: ProjectDescription.Destinations
+        var product: ProjectDescription.Product
+        var productName: String?
+        var bundleId: String
+        var deploymentTargets: ProjectDescription.DeploymentTargets?
+        var infoPlist: ProjectDescription.InfoPlist?
+        var sources: ProjectDescription.SourceFilesList?
+        var resources: ProjectDescription.ResourceFileElements?
+        var copyFiles: [ProjectDescription.CopyFilesAction]?
+        var headers: ProjectDescription.Headers?
+        var entitlements: ProjectDescription.Entitlements?
+        var scripts: [ProjectDescription.TargetScript]
+        var dependencies: [ProjectDescription.TargetDependency]
+        var settings: ProjectDescription.Settings?
+        var coreDataModels: [ProjectDescription.CoreDataModel]
+        var environmentVariables: [String : ProjectDescription.EnvironmentVariable]
+        var launchArguments: [ProjectDescription.LaunchArgument]
+        var additionalFiles: [ProjectDescription.FileElement]
+        var buildRules: [ProjectDescription.BuildRule]
+        var mergedBinaryType: ProjectDescription.MergedBinaryType
+        var mergeable: Bool
+        var onDemandResourcesTags: ProjectDescription.OnDemandResourcesTags?
         
         public init(
             name: String,
@@ -117,6 +117,9 @@ public extension ProjectDescription.Target {
 
 public extension ProjectDescription.Target {
     static func application(_ target: TargetFactory)-> Self {
+        var target = target
+        target.product = .app
+        target.productName = "Git-Contributions"
         return .makeTarget(target)
     }
 }

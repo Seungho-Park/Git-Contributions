@@ -17,6 +17,8 @@ let project: Project = .makeModule(
             .init(
                 name: "Application",
                 bundleId: "",
+                infoPlist: .file(path: .relativeToCurrentFile("SupportingFiles/Info.plist")),
+                resources: ["Resources/**"],
                 dependencies: [
                     .feature
                 ]
