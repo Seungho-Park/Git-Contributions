@@ -6,4 +6,19 @@
 //
 
 import ProjectDescription
+import ProjectDescriptionHelpers
 
+let project = Project(
+    name: "Feature",
+    targets: [
+        .feature(
+            .init(
+                name: "Feature",
+                bundleId: "",
+                dependencies: [
+                    .domain
+                ]
+            )
+        )
+    ]
+)

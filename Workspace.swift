@@ -6,10 +6,11 @@
 //
 
 import ProjectDescription
+import ModulePlugin
 
 let workspace = Workspace(
     name: "Git-Contributions",
     projects: [
-        "Projects/Application"
+        .application
     ]
 )
