@@ -60,7 +60,7 @@ let project: Project = .makeModule(
                 name: "Feature\(Module.Feature.splash.rawValue)Interface",
                 bundleId: "",
                 dependencies: [
-//                    .core
+                    .core
                 ]
             )
         )
