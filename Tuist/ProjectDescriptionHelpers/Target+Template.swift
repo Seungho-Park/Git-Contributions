@@ -128,10 +128,58 @@ public extension ProjectDescription.Target {
     static func feature(_ target: TargetFactory)-> Self {
         return .makeTarget(target)
     }
+    
+    static func feature(implements module: Module.Feature, _ target: TargetFactory)-> Self {
+        return .makeTarget(target)
+    }
+    
+    static func feature(interface module: Module.Feature, _ target: TargetFactory)-> Self {
+        var target = target
+        target.sources = .interface
+        return .makeTarget(target)
+    }
+    
+    static func feature(testing module: Module.Feature, _ target: TargetFactory)-> Self {
+        var target = target
+        target.sources = .testing
+        return .makeTarget(target)
+    }
+    
+    static func feature(tests module: Module.Feature, _ target: TargetFactory)-> Self {
+        var target = target
+        target.sources = .tests
+        return .makeTarget(target)
+    }
+    
+    static func feature(example module: Module.Feature, _ target: TargetFactory)-> Self {
+        var target = target
+        target.sources = .example
+        return .makeTarget(target)
+    }
 }
 
 public extension ProjectDescription.Target {
     static func domain(_ target: TargetFactory)-> Self {
+        return .makeTarget(target)
+    }
+    
+    static func domain(implements module: Module.Domain, _ target: TargetFactory)-> Self {
+        return .makeTarget(target)
+    }
+    
+    static func domain(interface module: Module.Domain, _ target: TargetFactory)-> Self {
+        return .makeTarget(target)
+    }
+    
+    static func domain(testing module: Module.Domain, _ target: TargetFactory)-> Self {
+        return .makeTarget(target)
+    }
+    
+    static func domain(tests module: Module.Domain, _ target: TargetFactory)-> Self {
+        return .makeTarget(target)
+    }
+    
+    static func domain(example module: Module.Domain, _ target: TargetFactory)-> Self {
         return .makeTarget(target)
     }
 }
@@ -140,10 +188,50 @@ public extension ProjectDescription.Target {
     static func core(_ target: TargetFactory)-> Self {
         return .makeTarget(target)
     }
+    
+    static func core(implements module: Module.Core, _ target: TargetFactory)-> Self {
+        return .makeTarget(target)
+    }
+    
+    static func core(interface module: Module.Core, _ target: TargetFactory)-> Self {
+        return .makeTarget(target)
+    }
+    
+    static func core(testing module: Module.Core, _ target: TargetFactory)-> Self {
+        return .makeTarget(target)
+    }
+    
+    static func core(tests module: Module.Core, _ target: TargetFactory)-> Self {
+        return .makeTarget(target)
+    }
+    
+    static func core(example module: Module.Core, _ target: TargetFactory)-> Self {
+        return .makeTarget(target)
+    }
 }
 
 public extension ProjectDescription.Target {
     static func shared(_ target: TargetFactory)-> Self {
+        return .makeTarget(target)
+    }
+    
+    static func shared(implements module: Module.Shared, _ target: TargetFactory)-> Self {
+        return .makeTarget(target)
+    }
+    
+    static func shared(interface module: Module.Shared, _ target: TargetFactory)-> Self {
+        return .makeTarget(target)
+    }
+    
+    static func shared(testing module: Module.Shared, _ target: TargetFactory)-> Self {
+        return .makeTarget(target)
+    }
+    
+    static func shared(tests module: Module.Shared, _ target: TargetFactory)-> Self {
+        return .makeTarget(target)
+    }
+    
+    static func shared(example module: Module.Shared, _ target: TargetFactory)-> Self {
         return .makeTarget(target)
     }
 }

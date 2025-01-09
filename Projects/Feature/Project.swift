@@ -7,6 +7,7 @@
 
 import ProjectDescription
 import ProjectDescriptionHelpers
+import ModulePlugin
 
 let project = Project(
     name: "Feature",
@@ -16,7 +17,8 @@ let project = Project(
                 name: "Feature",
                 bundleId: "",
                 dependencies: [
-                    .domain
+                    .domain,
+                    .feature(implements: .splash)
                 ]
             )
         )

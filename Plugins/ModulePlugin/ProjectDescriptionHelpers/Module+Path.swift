@@ -21,7 +21,7 @@ public extension ProjectDescription.Path {
     }
     
     static func feature(_ module: Module.Feature)-> Self {
-        return .relativeToRoot("Projects/Feature/\(module)")
+        return .relativeToRoot("Projects/Feature/\(module.rawValue)")
     }
 }
 
@@ -43,7 +43,7 @@ public extension ProjectDescription.Path {
     }
     
     static func core(_ module: Module.Core)-> Self {
-        return .relativeToRoot("Projects/Core/\(module)")
+        return .relativeToRoot("Projects/Core/\(module.rawValue)")
     }
 }
 
@@ -53,7 +53,7 @@ public extension ProjectDescription.Path {
         return .relativeToRoot("Projects/Shared")
     }
     
-    static func shared(_ module: Module.Feature)-> Self {
-        return .relativeToRoot("Projects/Shared/\(shared)")
+    static func shared(_ module: Module.Shared)-> Self {
+        return .relativeToRoot("Projects/Shared/\(module.rawValue)")
     }
 }

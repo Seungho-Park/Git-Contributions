@@ -10,7 +10,7 @@ import ProjectDescription
 public extension ProjectDescription.SourceFilesList {
     static let example: SourceFilesList = "Example/Sources/**"
     static let sources: SourceFilesList = "Sources/**"
-    static let interface: SourceFilesList = "Interfaces/Sources/**"
+    static let interface: SourceFilesList = "Interface/Sources/**"
     static let tests: SourceFilesList = "Tests/Sources/**"
     static let testing: SourceFilesList = "Testing/Sources/**"
 }

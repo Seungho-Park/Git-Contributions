@@ -14,8 +14,8 @@ public enum Module {
 }
 
 public extension Module {
-    @frozen enum Feature {
-        
+    @frozen enum Feature: String {
+        case splash = "Splash"
     }
 }
 
@@ -26,13 +26,13 @@ public extension Module {
 }
 
 public extension Module {
-    @frozen enum Core {
-        
+    @frozen enum Core: String {
+        case network = "Network"
     }
 }
 
 public extension Module {
-    @frozen enum Shared {
-        
+    @frozen enum Shared: String {
+        case ui = "UI"
     }
 }
