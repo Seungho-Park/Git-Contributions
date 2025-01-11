@@ -6,11 +6,12 @@
 //
 
 import ProjectDescription
+import ModulePlugin
 
 public extension ProjectDescription.Project {
     static func makeModule(
         name: String,
-        organizationName: String,
+        organizationName: String = Project.Environment.organizationName,
         classPrefix: String? = nil,
         options: ProjectDescription.Project.Options = .options(),
         packages: [ProjectDescription.Package] = [],

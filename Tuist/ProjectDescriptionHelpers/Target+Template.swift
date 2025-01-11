@@ -15,7 +15,7 @@ public extension ProjectDescription.Target {
         var destinations: ProjectDescription.Destinations
         var product: ProjectDescription.Product
         var productName: String?
-        var bundleId: String
+        var bundleId: String?
         var deploymentTargets: ProjectDescription.DeploymentTargets?
         var infoPlist: ProjectDescription.InfoPlist?
         var sources: ProjectDescription.SourceFilesList?
@@ -36,12 +36,12 @@ public extension ProjectDescription.Target {
         var onDemandResourcesTags: ProjectDescription.OnDemandResourcesTags?
         
         public init(
-            name: String,
+            name: String = "",
             destinations: ProjectDescription.Destinations = .iOS,
             product: ProjectDescription.Product = .staticFramework,
             productName: String? = nil,
-            bundleId: String,
-            deploymentTargets: ProjectDescription.DeploymentTargets? = nil,
+            bundleId: String? = nil,
+            deploymentTargets: ProjectDescription.DeploymentTargets? = Project.Environment.deploymentTarget,
             infoPlist: ProjectDescription.InfoPlist? = .default,
             sources: ProjectDescription.SourceFilesList? = .sources,
             resources: ProjectDescription.ResourceFileElements? = nil,
@@ -92,7 +92,7 @@ public extension ProjectDescription.Target {
             destinations: factory.destinations,
             product: factory.product,
             productName: factory.productName,
-            bundleId: factory.bundleId,
+            bundleId: factory.bundleId ?? Project.Environment.bundlePrefix + ".\(factory.name.lowercased())",
             deploymentTargets: factory.deploymentTargets,
             infoPlist: factory.infoPlist,
             sources: factory.sources,
@@ -118,35 +118,44 @@ public extension ProjectDescription.Target {
 public extension ProjectDescription.Target {
     static func application(_ target: TargetFactory)-> Self {
         var target = target
+        target.name = Project.Environment.appName
         target.product = .app
-        target.productName = "Git-Contributions"
+        target.bundleId = Project.Environment.bundlePrefix
+        target.productName = Project.Environment.appName
         return .makeTarget(target)
     }
 }
 
 public extension ProjectDescription.Target {
     static func feature(_ target: TargetFactory)-> Self {
+        var target = target
+        target.name = "Feature"
         return .makeTarget(target)
     }
     
     static func feature(implements module: Module.Feature, _ target: TargetFactory)-> Self {
+        var target = target
+        target.name = "Feature\(module.rawValue)"
         return .makeTarget(target)
     }
     
     static func feature(interface module: Module.Feature, _ target: TargetFactory)-> Self {
         var target = target
+        target.name = "Feature\(module.rawValue)Interface"
         target.sources = .interface
         return .makeTarget(target)
     }
     
     static func feature(testing module: Module.Feature, _ target: TargetFactory)-> Self {
         var target = target
+        target.name = "Feature\(module.rawValue)Testing"
         target.sources = .testing
         return .makeTarget(target)
     }
     
     static func feature(tests module: Module.Feature, _ target: TargetFactory)-> Self {
         var target = target
+        target.name = "Feature\(module.rawValue)Tests"
         target.sources = .tests
         target.product = .unitTests
         return .makeTarget(target)
@@ -154,6 +163,7 @@ public extension ProjectDescription.Target {
     
     static func feature(example module: Module.Feature, _ target: TargetFactory)-> Self {
         var target = target
+        target.name = "Feature\(module.rawValue)Example"
         target.sources = .example
         target.product = .app
         return .makeTarget(target)
@@ -162,85 +172,122 @@ public extension ProjectDescription.Target {
 
 public extension ProjectDescription.Target {
     static func domain(_ target: TargetFactory)-> Self {
+        var target = target
+        target.name = "Domain"
         return .makeTarget(target)
     }
     
     static func domain(implements module: Module.Domain, _ target: TargetFactory)-> Self {
+        var target = target
+        target.name = "Domain\(module.rawValue)"
         return .makeTarget(target)
     }
     
     static func domain(interface module: Module.Domain, _ target: TargetFactory)-> Self {
+        var target = target
+        target.name = "Domain\(module.rawValue)Interface"
+        target.sources = .interface
         return .makeTarget(target)
     }
     
     static func domain(testing module: Module.Domain, _ target: TargetFactory)-> Self {
+        var target = target
+        target.name = "Domain\(module.rawValue)Testing"
+        target.sources = .testing
         return .makeTarget(target)
     }
     
     static func domain(tests module: Module.Domain, _ target: TargetFactory)-> Self {
         var target = target
+        target.name = "Domain\(module.rawValue)Tests"
         target.sources = .tests
         target.product = .unitTests
         return .makeTarget(target)
     }
     
     static func domain(example module: Module.Domain, _ target: TargetFactory)-> Self {
+        var target = target
+        target.name = "Domain\(module.rawValue)Example"
+        target.sources = .example
+        target.product = .app
         return .makeTarget(target)
     }
 }
 
 public extension ProjectDescription.Target {
     static func core(_ target: TargetFactory)-> Self {
+        var target = target
+        target.name = "Core"
         return .makeTarget(target)
     }
     
     static func core(implements module: Module.Core, _ target: TargetFactory)-> Self {
+        var target = target
+        target.name = "Core\(module.rawValue)"
         return .makeTarget(target)
     }
     
     static func core(interface module: Module.Core, _ target: TargetFactory)-> Self {
+        var target = target
+        target.name = "Core\(module.rawValue)Interface"
+        target.sources = .interface
         return .makeTarget(target)
     }
     
     static func core(testing module: Module.Core, _ target: TargetFactory)-> Self {
+        var target = target
+        target.name = "Core\(module.rawValue)Testing"
+        target.sources = .testing
         return .makeTarget(target)
     }
     
     static func core(tests module: Module.Core, _ target: TargetFactory)-> Self {
         var target = target
+        target.name = "Core\(module.rawValue)Tests"
         target.sources = .tests
         target.product = .unitTests
         return .makeTarget(target)
     }
     
     static func core(example module: Module.Core, _ target: TargetFactory)-> Self {
+        var target = target
+        target.name = "Core\(module.rawValue)Example"
+        target.sources = .example
+        target.product = .app
         return .makeTarget(target)
     }
 }
 
 public extension ProjectDescription.Target {
     static func shared(_ target: TargetFactory)-> Self {
+        var target = target
+        target.name = "Shared"
         return .makeTarget(target)
     }
     
     static func shared(implements module: Module.Shared, _ target: TargetFactory)-> Self {
+        var target = target
+        target.name = "Shared\(module.rawValue)"
         return .makeTarget(target)
     }
     
     static func shared(interface module: Module.Shared, _ target: TargetFactory)-> Self {
         var target = target
+        target.name = "Shared\(module.rawValue)Interface"
         target.sources = .interface
         return .makeTarget(target)
     }
     
     static func shared(testing module: Module.Shared, _ target: TargetFactory)-> Self {
         var target = target
+        target.name = "Shared\(module.rawValue)Testing"
         target.sources = .testing
         return .makeTarget(target)
     }
     
     static func shared(tests module: Module.Shared, _ target: TargetFactory)-> Self {
         var target = target
+        target.name = "Shared\(module.rawValue)Tests"
         target.sources = .tests
         target.product = .unitTests
         return .makeTarget(target)
@@ -248,7 +295,9 @@ public extension ProjectDescription.Target {
     
     static func shared(example module: Module.Shared, _ target: TargetFactory)-> Self {
         var target = target
+        target.name = "Shared\(module.rawValue)Example"
         target.sources = .example
+        target.product = .app
         return .makeTarget(target)
     }
 }

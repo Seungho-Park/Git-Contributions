@@ -9,13 +9,11 @@ import ProjectDescription
 import ProjectDescriptionHelpers
 import ModulePlugin
 
-let project = Project(
+let project: Project = .makeModule(
     name: "Feature",
     targets: [
         .feature(
             .init(
-                name: "Feature",
-                bundleId: "",
                 dependencies: [
                     .domain,
                     .feature(implements: .splash)

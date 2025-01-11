@@ -10,12 +10,9 @@ import ProjectDescriptionHelpers
 
 let project: Project = .makeModule(
     name: "Shared",
-    organizationName: "",
     targets: [
         .shared(
             .init(
-                name: "Shared",
-                bundleId: "",
                 dependencies: [
                     .shared(implements: .ui)
                 ]

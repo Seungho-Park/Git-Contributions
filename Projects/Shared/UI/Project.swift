@@ -11,13 +11,10 @@ import ModulePlugin
 
 let project: Project = .makeModule(
     name: "Shared\(Module.Shared.ui.rawValue)",
-    organizationName: "",
     targets: [
         .shared(
             implements: .ui,
             .init(
-                name: "Shared\(Module.Shared.ui.rawValue)",
-                bundleId: "",
                 dependencies: [
                     .shared(interface: .ui)
                 ]
@@ -26,22 +23,20 @@ let project: Project = .makeModule(
         .shared(
             interface: .ui,
             .init(
-                name: "Shared\(Module.Shared.ui.rawValue)Interface",
-                bundleId: ""
+                
             )
         ),
         .shared(
             testing: .ui,
             .init(
-                name: "Shared\(Module.Shared.ui.rawValue)Testing",
-                bundleId: ""
+                dependencies: [
+                    .shared(interface: .ui)
+                ]
             )
         ),
         .shared(
             tests: .ui,
             .init(
-                name: "Shared\(Module.Shared.ui.rawValue)Tests",
-                bundleId: "",
                 dependencies: [
                     .shared(testing: .ui),
                     .shared(implements: .ui)

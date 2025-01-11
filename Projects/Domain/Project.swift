@@ -10,12 +10,9 @@ import ProjectDescriptionHelpers
 
 let project: Project = .makeModule(
     name: "Domain",
-    organizationName: "",
     targets: [
         .domain(
             .init(
-                name: "Domain",
-                bundleId: "",
                 dependencies: [
                     .core
                 ]

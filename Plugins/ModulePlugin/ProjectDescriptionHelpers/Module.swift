@@ -20,8 +20,8 @@ public extension Module {
 }
 
 public extension Module {
-    @frozen enum Domain {
-        
+    @frozen enum Domain: String {
+        case user = "User"
     }
 }
 

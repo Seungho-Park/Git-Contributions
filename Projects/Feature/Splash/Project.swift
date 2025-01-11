@@ -11,13 +11,10 @@ import ModulePlugin
 
 let project: Project = .makeModule(
     name: "Feature\(Module.Feature.splash.rawValue)",
-    organizationName: "",
     targets: [
         .feature(
             example: .splash,
             .init(
-                name: "Feature\(Module.Feature.splash.rawValue)Example",
-                bundleId: "",
                 dependencies: [
                     .feature(implements: .splash),
                     .feature(testing: .splash)
@@ -27,8 +24,6 @@ let project: Project = .makeModule(
         .feature(
             tests: .splash,
             .init(
-                name: "Feature\(Module.Feature.splash.rawValue)Tests",
-                bundleId: "",
                 dependencies: [
                     .feature(implements: .splash),
                     .feature(testing: .splash)
@@ -38,8 +33,6 @@ let project: Project = .makeModule(
         .feature(
             implements: .splash,
             .init(
-                name: "Feature\(Module.Feature.splash.rawValue)",
-                bundleId: "",
                 dependencies: [
                     .feature(interface: .splash)
                 ]
@@ -48,8 +41,6 @@ let project: Project = .makeModule(
         .feature(
             testing: .splash,
             .init(
-                name: "Feature\(Module.Feature.splash.rawValue)Testing",
-                bundleId: "",
                 dependencies: [
                     .feature(interface: .splash)
                 ]
@@ -58,8 +49,6 @@ let project: Project = .makeModule(
         .feature(
             interface: .splash,
             .init(
-                name: "Feature\(Module.Feature.splash.rawValue)Interface",
-                bundleId: "",
                 dependencies: [
                     .core
                 ]

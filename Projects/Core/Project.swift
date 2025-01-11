@@ -9,12 +9,10 @@ import ProjectDescription
 import ProjectDescriptionHelpers
 
 let project: Project = .makeModule(
-    name: "Core", organizationName: "",
+    name: "Core",
     targets: [
         .core(
             .init(
-                name: "Core",
-                bundleId: "",
                 dependencies: [
                     .shared
                 ]
