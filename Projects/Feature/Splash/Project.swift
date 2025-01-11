@@ -19,7 +19,8 @@ let project: Project = .makeModule(
                 name: "Feature\(Module.Feature.splash.rawValue)Example",
                 bundleId: "",
                 dependencies: [
-                    .feature(implements: .splash)
+                    .feature(implements: .splash),
+                    .feature(testing: .splash)
                 ]
             )
         ),
