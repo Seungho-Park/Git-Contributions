@@ -10,7 +10,8 @@ let tuist = Tuist(
         compatibleXcodeVersions: "16.2",
         swiftVersion: "6.0",
         plugins: [
-            .local(path: .relativeToRoot("Plugins/ModulePlugin"))
+            .local(path: .relativeToRoot("Plugins/ModulePlugin")),
+            .local(path: .relativeToRoot("Plugins/ThirdPartyDependency"))
         ],
         generationOptions: .options(),
         installOptions: .options()

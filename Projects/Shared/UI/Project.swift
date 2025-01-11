@@ -8,6 +8,7 @@
 import ProjectDescription
 import ProjectDescriptionHelpers
 import ModulePlugin
+import ThirdPartyDependency
 
 let project: Project = .makeModule(
     name: "Shared\(Module.Shared.ui.rawValue)",
@@ -17,10 +18,10 @@ let project: Project = .makeModule(
             .init(
                 dependencies: [
                     .shared(interface: .ui),
-                    .external(name: "PinLayout", condition: nil),
-                    .external(name: "FlexLayout", condition: nil),
-                    .external(name: "RxSwift", condition: nil),
-                    .external(name: "RxCocoa", condition: nil)
+                    .spm(.rxSwift),
+                    .spm(.rxCocoa),
+                    .spm(.pinLayout),
+                    .spm(.flexLayout)
                 ]
             )
         ),
