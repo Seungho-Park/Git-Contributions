@@ -9,7 +9,7 @@ import UIKit
 import SharedUIInterface
 
 open class BaseViewController<T: ViewModel>: UIViewController, ViewModelBinable {
-    static var isDebug: Bool { return true }
+    public static var isDebug: Bool { return true }
     
     public var viewModel: T!
     
