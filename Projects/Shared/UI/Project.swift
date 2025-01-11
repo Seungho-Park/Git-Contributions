@@ -16,7 +16,11 @@ let project: Project = .makeModule(
             implements: .ui,
             .init(
                 dependencies: [
-                    .shared(interface: .ui)
+                    .shared(interface: .ui),
+                    .external(name: "PinLayout", condition: nil),
+                    .external(name: "FlexLayout", condition: nil),
+                    .external(name: "RxSwift", condition: nil),
+                    .external(name: "RxCocoa", condition: nil)
                 ]
             )
         ),

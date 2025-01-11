@@ -12,5 +12,6 @@ let workspace = Workspace(
     name: "Git-Contributions",
     projects: [
         .application
-    ]
+    ],
+    additionalFiles: [.glob(pattern: .relativeToRoot("README.md"))]
 )
