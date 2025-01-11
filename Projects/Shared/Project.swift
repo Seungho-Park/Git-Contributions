@@ -15,7 +15,10 @@ let project: Project = .makeModule(
         .shared(
             .init(
                 name: "Shared",
-                bundleId: ""
+                bundleId: "",
+                dependencies: [
+                    .shared(implements: .ui)
+                ]
             )
         )
     ]

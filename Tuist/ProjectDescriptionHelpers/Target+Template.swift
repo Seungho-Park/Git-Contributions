@@ -148,12 +148,14 @@ public extension ProjectDescription.Target {
     static func feature(tests module: Module.Feature, _ target: TargetFactory)-> Self {
         var target = target
         target.sources = .tests
+        target.product = .unitTests
         return .makeTarget(target)
     }
     
     static func feature(example module: Module.Feature, _ target: TargetFactory)-> Self {
         var target = target
         target.sources = .example
+        target.product = .app
         return .makeTarget(target)
     }
 }
@@ -176,6 +178,9 @@ public extension ProjectDescription.Target {
     }
     
     static func domain(tests module: Module.Domain, _ target: TargetFactory)-> Self {
+        var target = target
+        target.sources = .tests
+        target.product = .unitTests
         return .makeTarget(target)
     }
     
@@ -202,6 +207,9 @@ public extension ProjectDescription.Target {
     }
     
     static func core(tests module: Module.Core, _ target: TargetFactory)-> Self {
+        var target = target
+        target.sources = .tests
+        target.product = .unitTests
         return .makeTarget(target)
     }
     
@@ -220,18 +228,27 @@ public extension ProjectDescription.Target {
     }
     
     static func shared(interface module: Module.Shared, _ target: TargetFactory)-> Self {
+        var target = target
+        target.sources = .interface
         return .makeTarget(target)
     }
     
     static func shared(testing module: Module.Shared, _ target: TargetFactory)-> Self {
+        var target = target
+        target.sources = .testing
         return .makeTarget(target)
     }
     
     static func shared(tests module: Module.Shared, _ target: TargetFactory)-> Self {
+        var target = target
+        target.sources = .tests
+        target.product = .unitTests
         return .makeTarget(target)
     }
     
     static func shared(example module: Module.Shared, _ target: TargetFactory)-> Self {
+        var target = target
+        target.sources = .example
         return .makeTarget(target)
     }
 }
