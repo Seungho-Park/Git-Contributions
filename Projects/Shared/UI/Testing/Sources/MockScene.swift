@@ -10,6 +10,7 @@ import SharedUIInterface
 public enum MockScene: Scene {
     case rootScene
     case pushScene
+    case modalScene
     
     public func instaintiate() -> UIViewController {
         switch self {
@@ -17,6 +18,8 @@ public enum MockScene: Scene {
             return MockViewController(controllerId: 2)
         case .pushScene:
             return MockViewController(controllerId: 3)
+        case .modalScene:
+            return MockViewController(controllerId: 4)
         }
     }
 }

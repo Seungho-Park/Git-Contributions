@@ -54,6 +54,61 @@ final class CoordinatorTests: XCTestCase {
         XCTAssertTrue(checkControllerId(viewController: coordinator.navigationController.topViewController, targetId: 3))
     }
     
+    func testCoordinator_WhenTransitionModalViewController_ShouldNavigationStackCountOneAndControllerIdFour() {
+        //given
+        let coordinator = MockCoordinator(navigationController: UINavigationController())
+        coordinator.start()
+        
+        //when
+        XCTAssertTrue(checkControllerId(viewController: coordinator.navigationController.topViewController, targetId: 1))
+        coordinator.transition(scene: MockScene.modalScene, style: .modal, animated: false)
+        
+        //then
+        XCTAssertTrue(checkControllerId(viewController: coordinator.navigationController.topViewController, targetId: 1))
+        if let modalController = coordinator.navigationController.topViewController?.presentedViewController as? MockViewController {
+            XCTAssertEqual(modalController.controllerId, 4)
+        } else {
+            XCTFail("not happened.")
+        }
+    }
+    
+    func testCallClose_WhenViewControllerIsPushed_ShouldPopViewController() {
+        //given
+        let coordinator = MockCoordinator(navigationController: UINavigationController())
+        coordinator.start()
+        coordinator.transition(scene: MockScene.pushScene, style: .push, animated: false)
+        
+        //when
+        XCTAssertEqual(coordinator.navigationController.viewControllers.count, 2)
+        XCTAssertTrue(checkControllerId(viewController: coordinator.navigationController.topViewController, targetId: 3))
+        
+        coordinator.close(animated: false)
+        
+        //then
+        XCTAssertEqual(coordinator.navigationController.viewControllers.count, 1)
+        XCTAssertTrue(checkControllerId(viewController: coordinator.navigationController.topViewController, targetId: 1))
+    }
+    
+    func testCallClose_WhenModalViewControllerIsPresented_ShouldCloseModalViewController() {
+        //given
+        let coordinator = MockCoordinator(navigationController: UINavigationController())
+        coordinator.start()
+        coordinator.transition(scene: MockScene.pushScene, style: .push, animated: false)
+        coordinator.transition(scene: MockScene.modalScene, style: .modal, animated: false)
+        
+        //when
+        XCTAssertEqual(coordinator.navigationController.viewControllers.count, 2)
+        XCTAssertTrue(checkControllerId(viewController: coordinator.navigationController.topViewController, targetId: 3))
+        XCTAssertNotNil(coordinator.navigationController.topViewController?.presentedViewController)
+        
+        coordinator.close(animated: false)
+        
+        //then
+        XCTAssertEqual(coordinator.navigationController.viewControllers.count, 2)
+        XCTAssertTrue(checkControllerId(viewController: coordinator.navigationController.topViewController, targetId: 3))
+        XCTAssertNil(coordinator.navigationController.topViewController?.presentedViewController)
+    }
+    
     private func checkControllerId(viewController: UIViewController?, targetId: Int)-> Bool {
         if let vc = viewController as? MockViewController {
             return vc.controllerId == targetId
