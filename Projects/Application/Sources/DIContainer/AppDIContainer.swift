@@ -7,6 +7,6 @@
 
 final class AppDIContainer {
     func makeSplashSceneDIContainer()-> SplashSceneDIContainer {
-        return SplashSceneDIContainer()
+        return SplashSceneDIContainer(dependencies: .init())
     }
 }

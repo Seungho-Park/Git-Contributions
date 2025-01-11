@@ -9,6 +9,16 @@ import FeatureSplashInterface
 import FeatureSplash
 
 final class SplashSceneDIContainer {
+    struct Dependencies {
+        
+    }
+    
+    let dependencies: Dependencies
+    
+    init(dependencies: Dependencies) {
+        self.dependencies = dependencies
+    }
+    
     func makeSplashSceneFlowCoordinator(navController: UINavigationController)-> SplashSceneFlowCoordinator {
         return SplashSceneFlowCoordinator(navigationController: navController, dependencies: self)
     }
