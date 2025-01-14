@@ -5,10 +5,9 @@
 //  Created by 박승호 on 1/14/25.
 //  Copyright © 2025 Seungho-Park. All rights reserved.
 //
-
 import CoreData
 
-final
-public class CoreDataStorage {
-    public static let shared = CoreDataStorage()
+public protocol CoreDataStorage {
+    func saveContext()
+    func performBackgroundTask(_ block: @escaping (NSManagedObjectContext)-> Void)
 }
