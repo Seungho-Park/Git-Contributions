@@ -28,6 +28,7 @@ public extension Module {
 public extension Module {
     @frozen enum Core: String {
         case network = "Network"
+        case storage = "Storage"
     }
 }
 
