@@ -26,6 +26,23 @@ let project: Project = .makeModule(
                     .coreDataModel(.relativeToManifest("Sources/CoreDataStorage.xcdatamodeld"))
                 ]
             )
+        ),
+        .core(
+            testing: .storage,
+                .init(
+                    dependencies: [
+                        .core(interface: .storage)
+                    ]
+                )
+        ),
+        .core(
+            tests: .storage,
+            .init(
+                dependencies: [
+                    .core(testing: .storage),
+                    .core(implements: .storage)
+                ]
+            )
         )
     ]
 )
