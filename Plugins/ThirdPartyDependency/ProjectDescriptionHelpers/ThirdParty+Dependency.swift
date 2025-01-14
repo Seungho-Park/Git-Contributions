@@ -9,18 +9,9 @@ import ProjectDescription
 
 public extension ProjectDescription.TargetDependency {
     enum SPM {
-        case rxSwift
-        case rxCocoa
-        case flexLayout
-        case pinLayout
-    }
-    
-    static func spm(_ type: SPM)-> TargetDependency {
-        switch type {
-        case .rxSwift: return .external(name: "RxSwift")
-        case .rxCocoa: return .external(name: "RxCocoa")
-        case .flexLayout: return .external(name: "FlexLayout")
-        case .pinLayout: return .external(name: "PinLayout")
-        }
+        public static let RxSwift: ProjectDescription.TargetDependency = .external(name: "RxSwift")
+        public static let RxCocoa: ProjectDescription.TargetDependency = .external(name: "RxCocoa")
+        public static let FlexLayout: ProjectDescription.TargetDependency = .external(name: "FlexLayout")
+        public static let PinLayout: ProjectDescription.TargetDependency = .external(name: "PinLayout")
     }
 }
