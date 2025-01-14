@@ -23,7 +23,7 @@ let project: Project = .makeModule(
                     .core(interface: .storage)
                 ],
                 coreDataModels: [
-                    .coreDataModel(.relativeToCurrentFile("Sources/CoreDataStorage.xcdatamodeld"))
+                    .coreDataModel(.relativeToManifest("Sources/CoreDataStorage.xcdatamodeld"))
                 ]
             )
         )

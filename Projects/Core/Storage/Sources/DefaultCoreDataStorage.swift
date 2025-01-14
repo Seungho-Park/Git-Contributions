@@ -10,11 +10,11 @@ import CoreData
 import CoreStorageInterface
 
 final
-public class DefaultCoreDataStorage: CoreDataStorage {
+public class DefaultCoreDataStorage: CoreStorageInterface.CoreDataStorage {
     public static let shared = DefaultCoreDataStorage()
     
     private lazy var persistentContainer: NSPersistentContainer = {
-        let container = NSPersistentContainer(name: "CoreDataStorage")
+        let container = NSPersistentContainer(name: "CoreDataStorage", managedObjectModel: .init(contentsOf: Bundle.module.url(forResource: "CoreDataStorage", withExtension: "momd")!)!)
         container.loadPersistentStores { _, error in
             if let error = error as NSError? {
                 assertionFailure("CoreDataStorage Unresolved error \(error), \(error.userInfo)")
