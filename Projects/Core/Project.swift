@@ -15,7 +15,8 @@ let project: Project = .makeModule(
             .init(
                 dependencies: [
                     .shared,
-                    .core(implements: .storage)
+                    .core(implements: .storage),
+                    .core(implements: .network)
                 ]
             )
         )

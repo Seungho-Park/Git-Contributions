@@ -35,5 +35,6 @@ public extension Module {
 public extension Module {
     @frozen enum Shared: String {
         case ui = "UI"
+        case utils = "Utils"
     }
 }
