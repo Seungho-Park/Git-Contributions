@@ -9,9 +9,9 @@ import Foundation
 import CoreNetworkInterface
 
 public class NetworkService: CoreNetworkInterface.NetworkService {
-    private let sessionManager: NetworkSessionManager
+    private let sessionManager: CoreNetworkInterface.NetworkSessionManager
     
-    public init(sessionManager: NetworkSessionManager) {
+    public init(sessionManager: CoreNetworkInterface.NetworkSessionManager = NetworkSessionManager()) {
         self.sessionManager = sessionManager
     }
     
@@ -20,7 +20,7 @@ public class NetworkService: CoreNetworkInterface.NetworkService {
         switch code {
         case .notConnectedToInternet: return .connectionRefused
         case .cancelled: return .cancelled
-        default: return .error(error)
+        default: return .generic(error)
         }
     }
     
@@ -56,34 +56,26 @@ public class NetworkService: CoreNetworkInterface.NetworkService {
         }
     }
     
-    public func request(
-        with endpoint: CoreNetworkInterface.Requestable
-    )-> Task<Data?, Error> {
-        return Task<Data?, Error> {
-            guard let urlRequest = try? endpoint.urlRequest() else {
-                throw NetworkError.urlGeneration
-            }
+    public func request(with endpoint: Requestable) async -> Result<Data?, NetworkError> {
+        guard let urlRequest = try? endpoint.urlRequest() else {
+            return .failure(.urlGeneration)
+        }
+        
+        do {
+            let (data, response) = try await sessionManager.request(urlRequest)
             
-            do {
-                let (data, response) = try await sessionManager.request(urlRequest)
-                
-                if let response = response as? HTTPURLResponse {
-                    switch response.statusCode {
-                    case 200...299: return data
-                    case 401: throw NetworkError.unauthorized
-                    case 404: throw NetworkError.notFound
-                    default: throw NetworkError.error(statusCode: response.statusCode)
-                    }
-                } else {
-                    throw NetworkError.noResponse
+            if let response = response as? HTTPURLResponse {
+                switch response.statusCode {
+                case 200..<300: return .success(data)
+                case 401: return .failure(NetworkError.unauthorized)
+                case 404: return .failure(NetworkError.notFound)
+                default: return .failure(.error(statusCode: response.statusCode))
                 }
-            } catch {
-                if let error = error as? NetworkError {
-                    throw error
-                }
-                
-                throw resolve(error)
+            } else {
+                return .failure(.noResponse)
             }
+        } catch {
+            return .failure(resolve(error))
         }
     }
 }

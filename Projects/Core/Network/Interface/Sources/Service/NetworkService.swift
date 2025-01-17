@@ -12,5 +12,5 @@ public protocol NetworkService {
     typealias CompletionHandler = (Result<Data?, NetworkError>)-> Void
     
     func request(with endpoint: Requestable, completion: @escaping CompletionHandler)-> URLSessionTask?
-    func request(with endpoint: Requestable)-> Task<Data?, Error>
+    func request(with endpoint: Requestable) async -> Result<Data?, NetworkError>
 }

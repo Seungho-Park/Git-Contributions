@@ -13,6 +13,6 @@ public enum NetworkError: Error {
     case unauthorized
     case notFound
     case error(statusCode: Int)
-    case error(Error)
+    case generic(Error)
     case urlGeneration
 }
