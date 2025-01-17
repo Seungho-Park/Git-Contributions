@@ -13,7 +13,7 @@ public struct MockSessionManager: NetworkSessionManager {
     private var session: URLSession
     
     public init() {
-        var config = URLSessionConfiguration.default
+        let config = URLSessionConfiguration.default
         config.protocolClasses = [MockURLProtocol.self]
         session = URLSession(configuration: config)
     }

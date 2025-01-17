@@ -7,5 +7,12 @@
 //
 
 public enum NetworkError: Error {
-    case generate
+    case connectionRefused
+    case cancelled
+    case noResponse
+    case unauthorized
+    case notFound
+    case error(statusCode: Int)
+    case error(Error)
+    case urlGeneration
 }
