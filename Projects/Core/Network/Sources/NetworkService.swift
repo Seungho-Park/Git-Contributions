@@ -33,27 +33,32 @@ public class NetworkService: CoreNetworkInterface.NetworkService {
             let task = sessionManager.request(urlRequest) { data, response, error in
                 // TODO: Status Code 체크하는 부분 안넣었다. 테스트 코드 작성 후 하는걸로
                 if let error = error {
-                    if let response = response as? HTTPURLResponse {
-                        completion(.failure(.error(statusCode: response.statusCode)))
-                    } else {
-                        completion(.failure(self.resolve(error)))
-                    }
+                    completion(.failure(self.resolve(error)))
+                    
                 } else {
-                    completion(.success(data))
+                    if let response = response as? HTTPURLResponse {
+                        switch response.statusCode {
+                        case 200...299: completion(.success(data))
+                        case 401: completion(.failure(.unauthorized))
+                        case 404: completion(.failure(.notFound))
+                        default: completion(.failure(.error(statusCode: response.statusCode)))
+                        }
+                    } else {
+                        completion(.failure(.noResponse))
+                    }
                 }
             }
             
             return task
         } catch {
             completion(.failure(.urlGeneration))
+            return nil
         }
-        
-        return nil
     }
     
     public func request(
         with endpoint: CoreNetworkInterface.Requestable
-    ) async -> Task<Data?, Error> {
+    )-> Task<Data?, Error> {
         return Task<Data?, Error> {
             guard let urlRequest = try? endpoint.urlRequest() else {
                 throw NetworkError.urlGeneration
@@ -69,13 +74,16 @@ public class NetworkService: CoreNetworkInterface.NetworkService {
                     case 404: throw NetworkError.notFound
                     default: throw NetworkError.error(statusCode: response.statusCode)
                     }
+                } else {
+                    throw NetworkError.noResponse
+                }
+            } catch {
+                if let error = error as? NetworkError {
+                    throw error
                 }
                 
-            } catch {
                 throw resolve(error)
             }
-            
-            return nil
         }
     }
 }

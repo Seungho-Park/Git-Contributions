@@ -60,9 +60,9 @@ final class NetworkServiceTests: XCTestCase {
         }
         
         //when
+        let response = networkService.request(with: endpoint)
+        
         Task {
-            let response = await networkService.request(with: endpoint)
-            
             guard let data = try? await response.value else {
                 XCTFail("Error Occurred...")
                 return
@@ -71,6 +71,77 @@ final class NetworkServiceTests: XCTestCase {
             callCount += 1
             XCTAssertEqual(data, expectedResponse)
             expectation.fulfill()
+        }
+        
+        
+        //then
+        self.wait(for: [expectation], timeout: 2)
+        XCTAssertEqual(callCount, 1)
+    }
+    
+    func test_WhenRequestFetchData_ShouldReturnUnauthorizedError() {
+        //given
+        let expectation = XCTestExpectation(description: "test_WhenRequestFetchData_ShouldReturnUnauthorizedError")
+        var callCount = 0
+        let endpoint = EndPoint<Void>(path: "https://api.mock.com/v1/test", httpMethod: .get)
+        
+        MockURLProtocol.completionHandler = { request in
+            guard let url = request.url else {
+                return (nil, nil, NetworkError.urlGeneration)
+            }
+            return (nil, HTTPURLResponse(url: url, statusCode: 401, httpVersion: "1.1", headerFields: [:]), nil)
+        }
+        
+        //when
+        _ = networkService.request(with: endpoint, completion: { result in
+            do {
+                _ = try result.get()
+                XCTFail("Should return success")
+            } catch {
+                guard case NetworkError.unauthorized = error else {
+                    XCTFail("NetworkError should be unauthorized")
+                    return
+                }
+                
+                callCount += 1
+                expectation.fulfill()
+            }
+        })
+        
+        //then
+        self.wait(for: [expectation], timeout: 2)
+        XCTAssertEqual(callCount, 1)
+    }
+    
+    func test_WhenConcurrencyRequestFetchData_ShouldReturnUnauthorizedError() {
+        //given
+        let expectation = XCTestExpectation(description: "test_WhenConcurrencyRequestFetchData_ShouldReturnUnauthorizedError")
+        var callCount = 0
+        let endpoint = EndPoint<Void>(path: "https://api.mock.com/v1/test", httpMethod: .get)
+        
+        MockURLProtocol.completionHandler = { request in
+            guard let url = request.url else {
+                return (nil, nil, NetworkError.urlGeneration)
+            }
+            return ("dd".data(using: .utf8), HTTPURLResponse(url: url, statusCode: 401, httpVersion: "1.1", headerFields: [:]), nil)
+        }
+        
+        //when
+        let response = networkService.request(with: endpoint)
+        
+        Task {
+            do {
+                _ = try await response.value
+                XCTFail("Should return success")
+            } catch {
+                guard case NetworkError.unauthorized = error else {
+                    XCTFail("Should return unauthorized error")
+                    return
+                }
+                
+                callCount += 1
+                expectation.fulfill()
+            }
         }
         
         //then
