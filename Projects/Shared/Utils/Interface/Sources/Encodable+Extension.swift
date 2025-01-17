@@ -10,7 +10,9 @@ import Foundation
 
 public extension Encodable {
     var queryParameters: [String:Any] {
-        if let data = try? JSONEncoder().encode(self), let jsonData = try? JSONSerialization.jsonObject(with: data) {
+        if let data = try? JSONEncoder().encode(self),
+           let jsonData = try? JSONSerialization.jsonObject(with: data)
+        {
             return jsonData as? [String : Any] ?? [:]
         }
         

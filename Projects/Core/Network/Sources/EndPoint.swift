@@ -16,6 +16,7 @@ public struct EndPoint<R>: ResponseRequestable {
     public var httpHeaders: [String : String]
     public var urlParameters: [String : Any]
     public var httpBody: (any Encodable)?
+    public var bodyEncoder: any RequestBodyEncoder
     public var responseDecoder: any ResponseDecoder
     
     public init(
@@ -24,6 +25,7 @@ public struct EndPoint<R>: ResponseRequestable {
         httpHeaders: [String : String] = [:],
         urlParameters: [String : Any] = [:],
         httpBody: Encodable? = nil,
+        bodyEncoder: any RequestBodyEncoder = JSONBodyEncoder(),
         responseDecoder: ResponseDecoder = JSONResponseDecoder()
     ) {
         self.path = path
@@ -31,6 +33,7 @@ public struct EndPoint<R>: ResponseRequestable {
         self.httpHeaders = httpHeaders
         self.urlParameters = urlParameters
         self.httpBody = httpBody
+        self.bodyEncoder = bodyEncoder
         self.responseDecoder = responseDecoder
     }
 }
