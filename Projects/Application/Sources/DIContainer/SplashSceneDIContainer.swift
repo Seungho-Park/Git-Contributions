@@ -7,10 +7,13 @@
 import UIKit
 import FeatureSplashInterface
 import FeatureSplash
+import CoreStorageInterface
+import CoreNetworkInterface
 
 final class SplashSceneDIContainer {
     struct Dependencies {
-        
+        let coreDataStorage: CoreDataStorage
+        let apiDataTransferService: DataTransferService
     }
     
     let dependencies: Dependencies
