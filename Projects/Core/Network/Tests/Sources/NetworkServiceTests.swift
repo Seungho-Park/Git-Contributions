@@ -63,10 +63,11 @@ final class NetworkServiceTests: XCTestCase {
         Task {
             let response = await networkService.request(with: endpoint)
             
-            guard let data = try? response.get() else {
+            guard let data = try? await response.value else {
                 XCTFail("Error Occurred...")
                 return
             }
+            
             callCount += 1
             XCTAssertEqual(data, expectedResponse)
             expectation.fulfill()

@@ -39,11 +39,7 @@ public class NetworkService: CoreNetworkInterface.NetworkService {
                         completion(.failure(self.resolve(error)))
                     }
                 } else {
-                    if let data = data {
-                        completion(.success(data))
-                    } else {
-                        completion(.failure(.noResponse))
-                    }
+                    completion(.success(data))
                 }
             }
             
@@ -57,26 +53,29 @@ public class NetworkService: CoreNetworkInterface.NetworkService {
     
     public func request(
         with endpoint: CoreNetworkInterface.Requestable
-    ) async -> Result<Data, CoreNetworkInterface.NetworkError> {
-        guard let urlRequest = try? endpoint.urlRequest() else {
-            return .failure(.urlGeneration)
-        }
-        
-        do {
-            let (data, response) = try await sessionManager.request(urlRequest)
-            
-            if let response = response as? HTTPURLResponse {
-                switch response.statusCode {
-                case 200...299: return .success(data)
-                case 401: return .failure(.unauthorized)
-                case 404: return .failure(.notFound)
-                default: return .failure(.error(statusCode: response.statusCode))
-                }
+    ) async -> Task<Data?, Error> {
+        return Task<Data?, Error> {
+            guard let urlRequest = try? endpoint.urlRequest() else {
+                throw NetworkError.urlGeneration
             }
             
-            return .failure(.noResponse)
-        } catch {
-            return .failure(resolve(error))
+            do {
+                let (data, response) = try await sessionManager.request(urlRequest)
+                
+                if let response = response as? HTTPURLResponse {
+                    switch response.statusCode {
+                    case 200...299: return data
+                    case 401: throw NetworkError.unauthorized
+                    case 404: throw NetworkError.notFound
+                    default: throw NetworkError.error(statusCode: response.statusCode)
+                    }
+                }
+                
+            } catch {
+                throw resolve(error)
+            }
+            
+            return nil
         }
     }
 }
