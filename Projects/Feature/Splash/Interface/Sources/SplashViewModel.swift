@@ -11,6 +11,16 @@ public protocol SplashViewModelActions {
     
 }
 
-public protocol SplashViewModel: ViewModel {
-    var actions: SplashViewModelActions { get }
+public struct SplashViewModelInput {
+    
+    public init() {  }
+}
+
+public struct SplashViewModelOutput {
+    
+    public init() {  }
+}
+
+public protocol SplashViewModel: ViewModel where Input == SplashViewModelInput, Output == SplashViewModelOutput {
+    
 }

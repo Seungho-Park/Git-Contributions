@@ -164,6 +164,7 @@ public extension ProjectDescription.Target {
     static func feature(example module: Module.Feature, _ target: TargetFactory)-> Self {
         var target = target
         target.name = "Feature\(module.rawValue)Example"
+        target.infoPlist = .example
         target.sources = .example
         target.product = .app
         return .makeTarget(target)
@@ -208,6 +209,7 @@ public extension ProjectDescription.Target {
     static func domain(example module: Module.Domain, _ target: TargetFactory)-> Self {
         var target = target
         target.name = "Domain\(module.rawValue)Example"
+        target.infoPlist = .example
         target.sources = .example
         target.product = .app
         return .makeTarget(target)
@@ -252,6 +254,7 @@ public extension ProjectDescription.Target {
     static func core(example module: Module.Core, _ target: TargetFactory)-> Self {
         var target = target
         target.name = "Core\(module.rawValue)Example"
+        target.infoPlist = .example
         target.sources = .example
         target.product = .app
         return .makeTarget(target)
@@ -296,6 +299,7 @@ public extension ProjectDescription.Target {
     static func shared(example module: Module.Shared, _ target: TargetFactory)-> Self {
         var target = target
         target.name = "Shared\(module.rawValue)Example"
+        target.infoPlist = .example
         target.sources = .example
         target.product = .app
         return .makeTarget(target)

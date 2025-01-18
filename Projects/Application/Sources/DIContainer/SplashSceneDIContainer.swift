@@ -28,7 +28,7 @@ final class SplashSceneDIContainer {
 }
 
 extension SplashSceneDIContainer: SplashSceneFlowCoordinatorDependencies {
-    func makeSplashViewModel(actions: SplashViewModelActions) -> FeatureSplash.SplashViewModel {
-        return .init(actions: actions)
+    func makeSplashViewModel(actions: SplashViewModelActions) -> any SplashViewModel {
+        return SplashViewModelImpl(actions: actions)
     }
 }

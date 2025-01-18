@@ -12,10 +12,10 @@ import CoreNetworkInterface
 @preconcurrency import CoreNetworkTesting
 
 final class NetworkServiceTests: XCTestCase {
-    var networkService: CoreNetworkInterface.NetworkService!
+    var networkService: NetworkService!
     
     override func setUpWithError() throws {
-        networkService = NetworkService(sessionManager: MockSessionManager())
+        networkService = DefaultNetworkService(sessionManager: MockSessionManager())
     }
     
     override func tearDownWithError() throws {

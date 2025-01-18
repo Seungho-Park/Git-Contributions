@@ -50,7 +50,7 @@ let project: Project = .makeModule(
             interface: .splash,
             .init(
                 dependencies: [
-                    .core
+                    .domain
                 ]
             )
         )

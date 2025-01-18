@@ -9,7 +9,7 @@
 import Foundation
 import CoreNetworkInterface
 
-public struct NetworkSessionManager: CoreNetworkInterface.NetworkSessionManager {
+public struct DefaultNetworkSessionManager: NetworkSessionManager {
     private let session: URLSession
     
     public init(session: URLSession = .shared) {

@@ -12,11 +12,11 @@ import CoreNetwork
 import CoreNetworkInterface
 
 final class DataTransferServiceTests: XCTestCase {
-    var dataTransferService: CoreNetworkInterface.DataTransferService!
+    var dataTransferService: DataTransferService!
     
     override func setUpWithError() throws {
-        let service = NetworkService(sessionManager: MockSessionManager())
-        dataTransferService = DataTransferService(service: service)
+        let service = DefaultNetworkService(sessionManager: MockSessionManager())
+        dataTransferService = DefaultDataTransferService(service: service)
     }
     
     override func tearDownWithError() throws {

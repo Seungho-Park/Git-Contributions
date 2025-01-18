@@ -8,10 +8,10 @@
 import Foundation
 import CoreNetworkInterface
 
-public class NetworkService: CoreNetworkInterface.NetworkService {
+public class DefaultNetworkService: NetworkService {
     private let sessionManager: CoreNetworkInterface.NetworkSessionManager
     
-    public init(sessionManager: CoreNetworkInterface.NetworkSessionManager = NetworkSessionManager()) {
+    public init(sessionManager: CoreNetworkInterface.NetworkSessionManager = DefaultNetworkSessionManager()) {
         self.sessionManager = sessionManager
     }
     

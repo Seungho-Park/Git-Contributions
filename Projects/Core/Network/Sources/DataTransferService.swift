@@ -9,7 +9,7 @@
 import Foundation
 import CoreNetworkInterface
 
-public class DataTransferService: CoreNetworkInterface.DataTransferService {
+public class DefaultDataTransferService: DataTransferService {
     private let service: CoreNetworkInterface.NetworkService
     
     public init(service: CoreNetworkInterface.NetworkService) {
