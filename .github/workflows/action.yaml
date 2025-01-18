@@ -19,6 +19,9 @@ jobs:
         run: |
           curl https://mise.run | sh
           mise install
+
+      - name: Install Tuist.
+        run: mise install tuist
       
       - name: Generate Tuist Project
         run: make generate
