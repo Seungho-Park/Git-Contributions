@@ -13,10 +13,10 @@ jobs:
     steps:
       - name: Echo OS Version
         run: sw_vers
-        
-      # Select Xcode 16.2
-      - name: Select Xcode 16.2
-        run: sudo xcode-select -s /Applications/Xcode_16.2.app/Contents/Developer
+
+      # Select Xcode 16
+      - name: Select Xcode 15.2
+        run: sudo xcode-select -s /Applications/Xcode_15.2.app/Contents/Developer
 
       # Repository Checkout.
       - name: Checkout Repository
@@ -40,4 +40,4 @@ jobs:
           mise x -- make generate
       
       - name: Test CoreNetwork
-        run : mise x -- tuist test CoreNetwork --clean --platform 'iOS' --device 'iPhone 15 Pro' --os '17.5' --no-selective-testing
+        run : mise x -- tuist test CoreNetwork --platform 'iOS' --device 'iPhone 15 Pro' --os '17.5' --no-selective-testing
