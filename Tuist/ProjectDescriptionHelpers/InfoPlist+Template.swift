@@ -11,6 +11,7 @@ public extension ProjectDescription.InfoPlist {
     static let example: Self = {
         return .dictionary(
             [
+                "CFBundleDevelopmentRegion": "$(DEVELOPMENT_LANGUAGE)",
                 "CFBundleName": "$(PRODUCT_NAME)",
                 "CFBundleDisplayName": "$(PRODUCT_NAME)",
                 "CFBundleIdentifier": "$(PRODUCT_BUNDLE_IDENTIFIER)",
@@ -22,7 +23,7 @@ public extension ProjectDescription.InfoPlist {
                     "UIApplicationSupportsMultipleScenes": false,
                     "UISceneConfigurations": [
                         "UIWindowSceneSessionRoleApplication": [
-                            [
+                            [ 
                                 "UISceneConfigurationName": "Default Configuration",
                                 "UISceneDelegateClassName": "$(PRODUCT_MODULE_NAME).SceneDelegate"
                              ]

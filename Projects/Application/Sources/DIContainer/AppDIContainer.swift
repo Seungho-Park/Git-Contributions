@@ -8,13 +8,15 @@ import CoreStorage
 import CoreStorageInterface
 import CoreNetwork
 import CoreNetworkInterface
+import FeatureSplash
+import FeatureSplashInterface
 
 final class AppDIContainer {
     lazy var coreDataStorage: CoreDataStorage = DefaultCoreDataStorage.shared
-    lazy var apiDataTransferSerivce: CoreNetworkInterface.DataTransferService = DataTransferService(service: NetworkService())
+    lazy var apiDataTransferSerivce: CoreNetworkInterface.DataTransferService = DefaultDataTransferService(service: DefaultNetworkService())
     
-    func makeSplashSceneDIContainer()-> SplashSceneDIContainer {
-        return SplashSceneDIContainer(
+    func makeSplashSceneDIContainer()-> any SplashSceneDIContainer {
+        return DefaultSplashSceneDIContainer(
             dependencies: .init(coreDataStorage: coreDataStorage, apiDataTransferService: apiDataTransferSerivce)
         )
     }

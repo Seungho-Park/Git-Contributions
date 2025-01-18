@@ -8,10 +8,10 @@
 import UIKit
 import SharedUIInterface
 
-open class BaseViewController<T: ViewModel>: UIViewController, ViewModelBinable {
+open class BaseViewController<VM: ViewModel>: UIViewController, ViewModelBinable {
     public static var isDebug: Bool { return true }
     
-    public var viewModel: T!
+    public var viewModel: VM!
     
     open override func viewDidLoad() {
         super.viewDidLoad()
@@ -64,7 +64,7 @@ open class BaseViewController<T: ViewModel>: UIViewController, ViewModelBinable 
         #endif
     }
     
-    public func bind() {
+    open func bind() {
         #if DEBUG
         if Self.isDebug {
             print("\(Self.self): \(#function)")

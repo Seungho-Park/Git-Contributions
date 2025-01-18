@@ -6,11 +6,12 @@
 //
 import UIKit
 import SharedUIInterface
+import FeatureSplashInterface
 
-enum SplashScene: Scene {
+public enum SplashScene: Scene {
     case splash(SplashViewModelImpl)
     
-    func instaintiate() -> UIViewController {
+    public func instaintiate() -> UIViewController {
         switch self {
         case .splash(let viewModel):
             return SplashViewController.create(viewModel: viewModel)

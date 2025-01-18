@@ -15,7 +15,7 @@ public protocol SplashSceneFlowCoordinatorDependencies {
 
 final public class SplashSceneFlowCoordinator: Coordinator {
     public let navigationController: UINavigationController
-    public let dependencies: SplashSceneFlowCoordinatorDependencies
+    private let dependencies: SplashSceneFlowCoordinatorDependencies
     
     public init(navigationController: UINavigationController, dependencies: SplashSceneFlowCoordinatorDependencies) {
         self.navigationController = navigationController

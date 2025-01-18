@@ -21,6 +21,6 @@ public struct SplashViewModelOutput {
     public init() {  }
 }
 
-public protocol SplashViewModel: ViewModel where Input == SplashViewModelInput, Output == SplashViewModelOutput {
+public protocol SplashViewModel: AnyObject, ViewModel where Input == SplashViewModelInput, Output == SplashViewModelOutput {
     
 }

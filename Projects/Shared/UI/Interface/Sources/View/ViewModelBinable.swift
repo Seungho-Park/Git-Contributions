@@ -8,15 +8,15 @@
 import UIKit
 
 public protocol ViewModelBinable: NSObjectProtocol {
-    associatedtype ViewModel
+    associatedtype ViewModelType
     
-    var viewModel: ViewModel! { get set }
+    var viewModel: ViewModelType! { get set }
     
     func bind()
 }
 
 extension ViewModelBinable where Self: UIViewController {
-    public static func create(viewModel: ViewModel)-> Self {
+    public static func create(viewModel: ViewModelType)-> Self {
         let viewController = Self()
         viewController.viewModel = viewModel
         return viewController
