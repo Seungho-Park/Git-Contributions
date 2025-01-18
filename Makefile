@@ -8,3 +8,6 @@ clear:
 	rm -rf **/**/*.xcodeproj
 	rm -rf **/*.xcodeproj
 	rm -rf *.xcworkspace
+	rm -rf **/**/**/Derived
+	rm -rf **/**/Derived
+	rm -rf **/Derived
