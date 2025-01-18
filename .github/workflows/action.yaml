@@ -13,12 +13,12 @@ jobs:
     steps:
       # Repository Checkout.
       - name: Checkout Repository
-      - uses: actions/checkout@v4
+        uses: actions/checkout@v4
 
       - name: Install Mise.
-      - run: |
+        run: |
           curl https://mise.run | sh
           mise install
       
       - name: Generate Tuist Project
-      - run: make generate
+        run: make generate
