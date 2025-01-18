@@ -43,4 +43,4 @@ jobs:
           mise x -- make generate
       
       - name: Test CoreNetwork
-        run : mise x -- tuist test CoreNetwork --platform 'iOS' --device 'iPhone 11 Pro' --no-selective-testing
+        run : mise x -- tuist test CoreNetwork --platform 'iOS' --device 'iPhone 15 Pro' --no-selective-testing
