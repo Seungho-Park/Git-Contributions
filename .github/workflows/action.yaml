@@ -11,13 +11,15 @@ jobs:
     runs-on: macos-latest
 
     steps:
+      # Select Xcode 16.2
+      - name: Select Xcode 16.2
+        run: sudo xcode-select -s /Applications/Xcode_16.2.app/Contents/Developer
+
       # Repository Checkout.
       - name: Checkout Repository
         uses: actions/checkout@v4
 
-      - name: List Xcode installations
-        run: sudo ls -1 /Applications | grep "Xcode"
-
+      # Install Mise
       - name: Install Mise.
         run: |
           curl https://mise.run | sh
@@ -26,9 +28,10 @@ jobs:
       - name: Install Tuist.
         run: |
           mise install tuist
-          mise x -- tuist version
+
+      - name: Check Tuist Version
+        run: mise x -- tuist version
       
       - name: Generate Tuist Project
         run: |
-          mise x -- tuist install
-          mise x -- tuist generate
+          mise x -- make generate
