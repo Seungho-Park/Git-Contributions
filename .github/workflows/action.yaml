@@ -1,9 +1,8 @@
-name: test-workflow
+name: github-actions
 
 on:
   push:
-    branches:
-      - feature/feature-github-actions
+    branches: [develop]
 
 jobs:
   build:
