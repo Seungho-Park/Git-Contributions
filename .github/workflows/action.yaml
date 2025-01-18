@@ -2,7 +2,8 @@ name: test-workflow
 
 on:
   push:
-    - feature/feature-github-actions
+    branches:
+      - feature/feature-github-actions
 
 jobs:
   build:
