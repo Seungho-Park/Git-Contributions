@@ -21,7 +21,11 @@ jobs:
           mise install
 
       - name: Install Tuist.
-        run: mise install tuist
+        run: |
+          mise install tuist
+          tuist version
       
       - name: Generate Tuist Project
-        run: make generate
+        run: |
+          tuist install
+          tuist generate
