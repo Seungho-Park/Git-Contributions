@@ -35,3 +35,6 @@ jobs:
       - name: Generate Tuist Project
         run: |
           mise x -- make generate
+      
+      - name: Test CoreNetwork
+        run : mise x -- tuist test CoreNetwork
