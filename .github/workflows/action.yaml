@@ -1,0 +1,23 @@
+name: test-workflow
+
+on:
+  push:
+    - feature/feature-github-actions
+
+jobs:
+  build:
+    name: Generate Tuist Project
+    runs-on: macos-latest
+
+    steps:
+      # Repository Checkout.
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Install Mise.
+        script: |
+          curl https://mise.run | sh
+          mise install
+      
+      - name: Generate Tuist Project
+        script: make generate
