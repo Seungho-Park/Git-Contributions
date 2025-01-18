@@ -1,0 +1,49 @@
+name: test-workflow
+
+on:
+  push:
+    branches:
+      - feature/feature-github-actions
+
+jobs:
+  build:
+    name: Generate Tuist Project
+    runs-on: macos-latest
+
+    steps:
+      #- name: Echo OS Version
+      #  run: sw_vers
+
+      #- name: List iOS Device
+      #  run: xcrun simctl list devices
+
+      #- name: List Xcode Installations
+      #  run: sudo ls -1 /Applications | grep "Xcode"
+
+      # Select Xcode 15.4
+      - name: Select Xcode 15.4
+        run: sudo xcode-select -s /Applications/Xcode_15.4.app/Contents/Developer
+
+      # Repository Checkout.
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      # Install Mise
+      - name: Install Mise.
+        run: |
+          curl https://mise.run | sh
+          mise install
+
+      - name: Install Tuist.
+        run: |
+          mise install tuist
+
+      - name: Check Tuist Version
+        run: mise x -- tuist version
+      
+      - name: Generate Tuist Project
+        run: |
+          mise x -- make generate
+      
+      - name: Test CoreNetwork
+        run : mise x -- tuist test CoreNetwork --platform 'iOS' --device 'iPhone 15 Pro' --no-selective-testing

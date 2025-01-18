@@ -8,7 +8,7 @@
 
 import XCTest
 import CoreNetwork
-import CoreNetworkTesting
+@preconcurrency import CoreNetworkTesting
 import CoreNetworkInterface
 
 final class DataTransferServiceTests: XCTestCase {
@@ -55,10 +55,8 @@ final class DataTransferServiceTests: XCTestCase {
         XCTAssertEqual(callCount, 1)
     }
     
-    func test_WhenConcurrencyRequestIsSuccess_ShouldReturnValidDecodableObject() {
+    func test_WhenConcurrencyRequestIsSuccess_ShouldReturnValidDecodableObject() async {
         //given
-        var callCount = 0
-        let expectation = XCTestExpectation(description: "test_WhenConcurrencyRequestIsSuccess_ShouldReturnValidDecodableObject")
         let expectedResponse = "{\"name\":\"Swift\"}".data(using: .utf8)
         let endpoint = EndPoint<MockResponseDTO>(path: "https://api.mock.com/v1/test")
         MockURLProtocol.completionHandler = { request in
@@ -71,20 +69,14 @@ final class DataTransferServiceTests: XCTestCase {
         
         //when
         let task = dataTransferService.request(with: endpoint)
-        Task {
-            guard let dto = try? await task.value else {
-                XCTFail("Failed DataTransfer Request...")
-                return
-            }
-            
-            XCTAssertEqual(dto.name, "Swift")
-            callCount += 1
-            expectation.fulfill()
-        }
         
         //then
-        wait(for: [expectation], timeout: 2)
-        XCTAssertEqual(callCount, 1)
+        guard let dto = try? await task.value else {
+            XCTFail("Failed DataTransfer Request...")
+            return
+        }
+        
+        XCTAssertEqual(dto.name, "Swift")
     }
     
     func test_WhenRequestDataTransferSerivce_ShouldReturnParsingError() {
@@ -122,10 +114,8 @@ final class DataTransferServiceTests: XCTestCase {
         XCTAssertEqual(callCount, 1)
     }
     
-    func test_WhenConcurrencyRequestDataTransferSerivce_ShouldReturnParsingError() {
+    func test_WhenConcurrencyRequestDataTransferSerivce_ShouldReturnParsingError() async {
         //given
-        var callCount = 0
-        let expectation = XCTestExpectation(description: "test_WhenConcurrencyRequestDataTransferSerivce_ShouldReturnParsingError")
         let endpoint = EndPoint<MockResponseDTO>(path: "https://api.mock.com/v1/test")
         let expectedResponse = "{\"name2\":\"Swift\"}".data(using: .utf8)
         MockURLProtocol.completionHandler = { request in
@@ -138,24 +128,17 @@ final class DataTransferServiceTests: XCTestCase {
         
         //when
         let task = dataTransferService.request(with: endpoint)
-        Task {
-            do {
-                _ = try await task.value
-                XCTFail("Should not happen...")
-            } catch {
-                guard case DataTransferError.parsing = error else {
-                    XCTFail("Should return parsing error")
-                    return
-                }
-            }
-            
-            callCount += 1
-            expectation.fulfill()
-        }
         
         //then
-        wait(for: [expectation], timeout: 2)
-        XCTAssertEqual(callCount, 1)
+        do {
+            _ = try await task.value
+            XCTFail("Should not happen...")
+        } catch {
+            guard case DataTransferError.parsing = error else {
+                XCTFail("Should return parsing error")
+                return
+            }
+        }
     }
     
     func test_WhenRequestDataTransferSerivce_ShouldReturnNetworkError() {
@@ -192,10 +175,8 @@ final class DataTransferServiceTests: XCTestCase {
         XCTAssertEqual(callCount, 1)
     }
     
-    func test_WhenConcurrencyRequestDataTransferSerivce_ShouldReturnNetworkError() {
+    func test_WhenConcurrencyRequestDataTransferSerivce_ShouldReturnNetworkError() async {
         //given
-        var callCount = 0
-        let expectation = XCTestExpectation(description: "test_WhenConcurrencyRequestDataTransferSerivce_ShouldReturnNetworkError")
         let endpoint = EndPoint<MockResponseDTO>(path: "https://api.mock.com/v1/test")
         MockURLProtocol.completionHandler = { request in
             guard let url = request.url else {
@@ -207,23 +188,16 @@ final class DataTransferServiceTests: XCTestCase {
         
         //when
         let task = dataTransferService.request(with: endpoint)
-        Task {
-            do {
-                _ = try await task.value
-                XCTFail("Should not happen...")
-            } catch {
-                guard case DataTransferError.networkError = error else {
-                    XCTFail("Should return networkError error")
-                    return
-                }
-            }
-            
-            callCount += 1
-            expectation.fulfill()
-        }
         
         //then
-        wait(for: [expectation], timeout: 2)
-        XCTAssertEqual(callCount, 1)
+        do {
+            _ = try await task.value
+            XCTFail("Should not happen...")
+        } catch {
+            guard case DataTransferError.networkError = error else {
+                XCTFail("Should return networkError error")
+                return
+            }
+        }
     }
 }

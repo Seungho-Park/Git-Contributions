@@ -12,7 +12,14 @@ import ModulePlugin
 let project: Project = .makeModule(
     name: "Core\(Module.Core.network.rawValue)",
     targets: [
-        .core(interface: .network, .init()),
+        .core(
+            interface: .network,
+                .init(
+                    dependencies: [
+                        .shared
+                    ]
+                )
+        ),
         .core(
             implements: .network,
             .init(
