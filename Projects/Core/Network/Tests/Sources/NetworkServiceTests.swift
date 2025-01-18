@@ -12,7 +12,16 @@ import CoreNetworkInterface
 import CoreNetworkTesting
 
 final class NetworkServiceTests: XCTestCase {
-    let networkService = NetworkService(sessionManager: MockSessionManager())
+    var networkService: CoreNetworkInterface.NetworkService!
+    
+    override func setUpWithError() throws {
+        networkService = NetworkService(sessionManager: MockSessionManager())
+    }
+    
+    override func tearDownWithError() throws {
+        MockURLProtocol.completionHandler = nil
+        networkService = nil
+    }
     
     func test_WhenRequestFetchJSONMockObject_ShouldReturnMockObject() {
         //given
