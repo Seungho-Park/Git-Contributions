@@ -11,11 +11,14 @@ jobs:
     runs-on: macos-latest
 
     steps:
-      - name: Echo OS Version
-        run: sw_vers
+      #- name: Echo OS Version
+      #  run: sw_vers
 
-      - name: List Xcode Installations
-        run: sudo ls -1 /Applications | grep "Xcode"
+      #- name: List iOS Device
+      #  run: xcrun simctl list devices
+
+      #- name: List Xcode Installations
+      #  run: sudo ls -1 /Applications | grep "Xcode"
 
       # Select Xcode 15.4
       - name: Select Xcode 15.4
@@ -41,9 +44,6 @@ jobs:
       - name: Generate Tuist Project
         run: |
           mise x -- make generate
-
-      - name: List iOS Device
-        run: xcrun simctl list devices
       
       - name: Test CoreNetwork
         run : mise x -- tuist test CoreNetwork --platform 'iOS' --device 'iPhone 15 Pro' --no-selective-testing
