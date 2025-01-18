@@ -44,12 +44,6 @@ jobs:
       - name: Generate Tuist Project
         run: |
           mise x -- make generate
-  
-  unit-test:
-    name: Generate Tuist Project
-    runs-on: macos-latest
-    needs: build
-    
-    steps:
+      
       - name: Test CoreNetwork
         run : mise x -- tuist test CoreNetwork --platform 'iOS' --device 'iPhone 15 Pro' --no-selective-testing
