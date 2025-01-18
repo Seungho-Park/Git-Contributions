@@ -7,8 +7,8 @@ let tuist = Tuist(
 //
 //    fullHandle: "{account_handle}/{project_handle}",
     project: .tuist(
-        compatibleXcodeVersions: "16.2",
-        swiftVersion: "6.0",
+        compatibleXcodeVersions: "15.4",
+        swiftVersion: "5.9",
         plugins: [
             .local(path: .relativeToRoot("Plugins/ModulePlugin")),
             .local(path: .relativeToRoot("Plugins/ThirdPartyDependency"))
