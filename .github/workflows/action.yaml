@@ -37,4 +37,4 @@ jobs:
           mise x -- make generate
       
       - name: Test CoreNetwork
-        run : mise x -- tuist test CoreNetwork --device 'iPhone 16 Pro' --os '18.1'
+        run : mise x -- tuist test CoreNetwork --device 'iPhone 16 Pro' --os 'iOS 18.1'
