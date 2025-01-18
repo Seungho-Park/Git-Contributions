@@ -46,4 +46,4 @@ jobs:
         run: xcrun simctl list devices
       
       - name: Test CoreNetwork
-        run : mise x -- tuist test CoreNetwork --platform 'iOS' --device 'iPhone 15 Pro' --no-selective-testing
+        run : mise x -- tuist test CoreNetwork --platform 'iOS' --device 'iPhone 15 Pro' --os '17.0' --no-selective-testing
