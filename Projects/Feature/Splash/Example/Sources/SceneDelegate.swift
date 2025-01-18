@@ -8,13 +8,13 @@
 
 import UIKit
 import FeatureSplash
-import FeatureSplashInterface
+
 import CoreStorage
 import CoreNetwork
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     var window: UIWindow?
-    private var diContainer = DefaultSplashSceneDIContainer(dependencies: .init(coreDataStorage: DefaultCoreDataStorage.shared, apiDataTransferService: DefaultDataTransferService(service: DefaultNetworkService())))
+    private var diContainer = SplashSceneDIContainer(dependencies: .init(coreDataStorage: DefaultCoreDataStorage.shared, apiDataTransferService: DefaultDataTransferService(service: DefaultNetworkService())))
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         // Use this method to optionally configure and attach the UIWindow `window` to the provided UIWindowScene `scene`.

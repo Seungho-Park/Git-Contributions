@@ -6,11 +6,10 @@
 //
 
 import SharedUIInterface
-import FeatureSplashInterface
 import UIKit
 
 public protocol SplashSceneFlowCoordinatorDependencies {
-    func makeSplashViewModel(actions: SplashViewModelActions)-> any SplashViewModel
+    func makeSplashViewModel(actions: SplashViewModel.Actions)-> SplashViewModel
 }
 
 final public class SplashSceneFlowCoordinator: Coordinator {
@@ -23,10 +22,6 @@ final public class SplashSceneFlowCoordinator: Coordinator {
     }
     
     public func start() {
-        transition(scene: SplashScene.splash(dependencies.makeSplashViewModel(actions: self) as! SplashViewModelImpl), style: .root)
+        transition(scene: SplashScene.splash(dependencies.makeSplashViewModel(actions: .init())), style: .root)
     }
-}
-
-extension SplashSceneFlowCoordinator: SplashViewModelActions {
-    
 }

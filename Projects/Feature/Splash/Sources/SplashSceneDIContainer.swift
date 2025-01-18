@@ -5,12 +5,11 @@
 //  Created by 박승호 on 1/11/25.
 //
 import UIKit
-import FeatureSplashInterface
 import CoreStorageInterface
 import CoreNetworkInterface
 
 final
-public class DefaultSplashSceneDIContainer: SplashSceneDIContainer {
+public class SplashSceneDIContainer {
     public struct Dependencies {
         let coreDataStorage: CoreDataStorage
         let apiDataTransferService: DataTransferService
@@ -32,8 +31,8 @@ public class DefaultSplashSceneDIContainer: SplashSceneDIContainer {
     }
 }
 
-extension DefaultSplashSceneDIContainer: SplashSceneFlowCoordinatorDependencies {
-    public func makeSplashViewModel(actions: SplashViewModelActions) -> any SplashViewModel {
-        return SplashViewModelImpl(actions: actions)
+extension SplashSceneDIContainer: SplashSceneFlowCoordinatorDependencies {
+    public func makeSplashViewModel(actions: SplashViewModel.Actions) -> SplashViewModel {
+        return SplashViewModel(actions: actions)
     }
 }
