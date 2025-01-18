@@ -2,7 +2,7 @@ name: github-actions
 
 on:
   push:
-    branches: [feature//*]
+    branches: [feature/*]
 
 jobs:
   build:
