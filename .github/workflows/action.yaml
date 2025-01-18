@@ -22,8 +22,7 @@ jobs:
 
       - name: Install Tuist.
         run: |
-          mise install tuist
-          mise use -g tuist@system
+          mise x -- install tuist
           tuist version
       
       - name: Generate Tuist Project
