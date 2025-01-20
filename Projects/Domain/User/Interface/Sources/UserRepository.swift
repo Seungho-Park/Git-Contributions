@@ -8,4 +8,9 @@
 
 public protocol UserRepository {
     func fetchUserList(completion: @escaping (Result<[User], Error>)-> Void)
+    func fetchUserList() async throws -> [User]
+    
+    @discardableResult
+    func save(_ user: User) async -> Bool
+    func save(_ user: User, completion: @escaping (Bool)-> Void)
 }

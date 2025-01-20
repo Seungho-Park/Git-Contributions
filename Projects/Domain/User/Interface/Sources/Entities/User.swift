@@ -18,4 +18,12 @@ public struct User: Equatable, Identifiable {
     public var userName: String
     public var name: String
     public var url: String
+    
+    public init(id: Int, type: UserType, userName: String, name: String, url: String) {
+        self.id = id
+        self.type = type
+        self.userName = userName
+        self.name = name
+        self.url = url
+    }
 }
