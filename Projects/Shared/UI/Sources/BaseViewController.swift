@@ -22,6 +22,7 @@ open class BaseViewController<VM: ViewModel>: UIViewController, ViewModelBinable
         }
         #endif
         
+        bind()
     }
     
     open override func viewWillAppear(_ animated: Bool) {
