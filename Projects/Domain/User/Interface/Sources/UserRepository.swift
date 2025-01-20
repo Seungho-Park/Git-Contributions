@@ -7,5 +7,5 @@
 //
 
 public protocol UserRepository {
-    func fetchUserList()
+    func fetchUserList(completion: @escaping (Result<[User], Error>)-> Void)
 }

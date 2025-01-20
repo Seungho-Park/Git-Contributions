@@ -15,6 +15,8 @@ public final class FetchUserListUsecaseImpl: FetchUserListUsecase {
     }
     
     public func execute() {
-        
+        userRepository.fetchUserList { result in
+            
+        }
     }
 }

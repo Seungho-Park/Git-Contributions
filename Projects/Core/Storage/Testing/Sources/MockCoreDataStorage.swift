@@ -1,21 +1,22 @@
 //
-//  DefaultCoreDataStorage.swift
-//  CoreStorage
+//  MockCoreDataStorage.swift
+//  SharedStorage
 //
-//  Created by 박승호 on 1/14/25.
+//  Created by 박승호 on 1/20/25.
 //  Copyright © 2025 Seungho-Park. All rights reserved.
 //
-
+import Foundation
 import CoreData
 import CoreStorageInterface
 import SharedStorage
 
-final
-public class DefaultCoreDataStorage: CoreDataStorage {
-    public static let shared = DefaultCoreDataStorage()
+final public class MockCoreDataStorage: CoreDataStorage {
     
     private lazy var persistentContainer: NSPersistentContainer = {
         let container = NSPersistentContainer(name: "CoreDataStorage", managedObjectModel: .init(contentsOf: Bundle.storage.url(forResource: "CoreDataStorage", withExtension: "momd")!)!)
+        let description = NSPersistentStoreDescription()
+        description.type = NSInMemoryStoreType
+        container.persistentStoreDescriptions = [description]
         container.loadPersistentStores { _, error in
             if let error = error as NSError? {
                 assertionFailure("CoreDataStorage Unresolved error \(error), \(error.userInfo)")

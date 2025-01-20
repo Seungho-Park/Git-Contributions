@@ -15,7 +15,8 @@ let project: Project = .makeModule(
             .init(
                 dependencies: [
                     .shared(implements: .ui),
-                    .shared(implements: .utils)
+                    .shared(implements: .utils),
+                    .shared(implements: .storage)
                 ]
             )
         )

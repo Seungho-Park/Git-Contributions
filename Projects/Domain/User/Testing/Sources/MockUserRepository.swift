@@ -9,7 +9,7 @@
 import DomainUserInterface
 
 public final class MockUserRepository: UserRepository {
-    public func fetchUserList() {
+    public func fetchUserList(completion: @escaping (Result<[User], any Error>) -> Void) {
         
     }
 }

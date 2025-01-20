@@ -15,7 +15,9 @@ let project: Project = .makeModule(
         .domain(
             interface: .user,
                 .init(
-                    
+                    dependencies: [
+                        .core
+                    ]
                 )
         ),
         .domain(

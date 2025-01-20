@@ -6,7 +6,7 @@
 //
 import UIKit
 import FeatureSplashInterface
-import CoreStorageInterface
+import SharedStorageInterface
 import CoreNetworkInterface
 
 public struct DefaultSplashSceneDIContainer: SplashSceneDIContainer {

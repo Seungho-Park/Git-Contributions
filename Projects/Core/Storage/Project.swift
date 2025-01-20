@@ -14,16 +14,17 @@ let project: Project = .makeModule(
     targets: [
         .core(
             interface: .storage,
-            .init()
+            .init(
+                dependencies: [
+                    .shared
+                ]
+            )
         ),
         .core(
             implements: .storage,
             .init(
                 dependencies: [
                     .core(interface: .storage)
-                ],
-                coreDataModels: [
-                    .coreDataModel(.relativeToManifest("Sources/CoreDataStorage.xcdatamodeld"))
                 ]
             )
         ),
