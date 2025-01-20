@@ -10,6 +10,6 @@ import DomainUserInterface
 
 public final class MockUserRepository: UserRepository {
     public func fetchUserList() {
-        <#code#>
+        
     }
 }
