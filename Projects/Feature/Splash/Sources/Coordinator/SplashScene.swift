@@ -8,7 +8,7 @@ import UIKit
 import SharedUIInterface
 import FeatureSplashInterface
 
-extension SplashScene: @retroactive Scene {
+extension SplashScene: Scene {
     public func instaintiate() -> UIViewController {
         switch self {
         case .splash(let viewModel):
