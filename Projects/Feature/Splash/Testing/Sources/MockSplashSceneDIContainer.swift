@@ -6,17 +6,16 @@
 //  Copyright © 2025 Seungho-Park. All rights reserved.
 //
 import UIKit
-import FeatureSplash
 import FeatureSplashInterface
 
 public struct MockSplashSceneDIContainer: SplashSceneDIContainer {
     public var dependencies: FeatureSplashInterface.SplashSceneDIContainerDependencies
     
     public func makeSplashSceneFlowCoordinator(navigationController: UINavigationController) -> any FeatureSplashInterface.SplashSceneFlowCoordinator {
-        return DefaultSplashSceneFlowCoordinator(navigationController: navigationController, dependencies: self)
+        return MockSplashSceneFlowCoordinator(navigationController: navigationController, dependencies: self)
     }
     
     public func makeSplashViewModel(actions: FeatureSplashInterface.SplashViewModelActions) -> any SplashViewModel {
-        return DefaultSplashViewModel(actions: actions)
+        return MockSplashViewModel()
     }
 }
