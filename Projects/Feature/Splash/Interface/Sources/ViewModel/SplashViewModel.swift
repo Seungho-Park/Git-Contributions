@@ -6,6 +6,8 @@
 //  Copyright © 2025 Seungho-Park. All rights reserved.
 //
 import SharedUIInterface
+import DomainUserInterface
+import SharedThirdPartyLibs
 
 public struct SplashViewModelActions {
     
@@ -29,5 +31,5 @@ public struct SplashViewModelOutput {
 }
 
 public protocol SplashViewModel: ViewModel where Input == SplashViewModelInput, Output == SplashViewModelOutput {
-    
+    func fetchUserList()-> Observable<[User]>
 }

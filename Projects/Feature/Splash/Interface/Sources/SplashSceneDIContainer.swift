@@ -10,8 +10,8 @@ import CoreStorageInterface
 import CoreNetworkInterface
 
 public struct SplashSceneDIContainerDependencies {
-    let storage: CoreDataStorage
-    let apiDataTransferService: DataTransferService
+    public let storage: CoreDataStorage
+    public let apiDataTransferService: DataTransferService
     
     public init(storage: CoreDataStorage, apiDataTransferService: DataTransferService) {
         self.storage = storage

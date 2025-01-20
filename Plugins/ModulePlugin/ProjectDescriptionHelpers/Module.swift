@@ -37,5 +37,6 @@ public extension Module {
         case ui = "UI"
         case utils = "Utils"
         case storage = "Storage"
+        case thirdPartyLibs = "ThirdPartyLibs"
     }
 }

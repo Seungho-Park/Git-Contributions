@@ -18,8 +18,6 @@ let project: Project = .makeModule(
             .init(
                 dependencies: [
                     .shared(interface: .ui),
-                    .SPM.RxSwift,
-                    .SPM.RxCocoa,
                     .SPM.FlexLayout,
                     .SPM.PinLayout
                 ]
