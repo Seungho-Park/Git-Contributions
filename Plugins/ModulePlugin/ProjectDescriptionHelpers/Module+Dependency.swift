@@ -70,7 +70,7 @@ public extension ProjectDescription.TargetDependency {
     
     static func domain(implements module: Module.Domain)-> Self {
         return .project(
-            target: "Domain\(module)",
+            target: "Domain\(module.rawValue)",
             path: .domain(module),
             status: .required
         )
@@ -78,7 +78,7 @@ public extension ProjectDescription.TargetDependency {
     
     static func domain(interface module: Module.Domain)-> Self {
         return .project(
-            target: "Domain\(module)Interface",
+            target: "Domain\(module.rawValue)Interface",
             path: .domain(module),
             status: .required
         )
@@ -86,7 +86,7 @@ public extension ProjectDescription.TargetDependency {
     
     static func domain(tests module: Module.Domain)-> Self {
         return .project(
-            target: "Domain\(module)Tests",
+            target: "Domain\(module.rawValue)Tests",
             path: .domain(module),
             status: .required
         )
@@ -94,7 +94,7 @@ public extension ProjectDescription.TargetDependency {
     
     static func domain(testing module: Module.Domain)-> Self {
         return .project(
-            target: "Domain\(module)Testing",
+            target: "Domain\(module.rawValue)Testing",
             path: .domain(module),
             status: .required
         )
@@ -102,7 +102,7 @@ public extension ProjectDescription.TargetDependency {
     
     static func feature(example module: Module.Domain)-> Self {
         return .project(
-            target: "Domain\(module)Example",
+            target: "Domain\(module.rawValue)Example",
             path: .domain(module),
             status: .required
         )
