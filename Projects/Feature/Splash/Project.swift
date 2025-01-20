@@ -16,8 +16,7 @@ let project: Project = .makeModule(
             example: .splash,
             .init(
                 dependencies: [
-                    .feature(implements: .splash),
-                    .feature(testing: .splash)
+                    .feature(implements: .splash)
                 ]
             )
         ),

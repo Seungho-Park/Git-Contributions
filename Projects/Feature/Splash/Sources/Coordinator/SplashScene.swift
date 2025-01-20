@@ -8,7 +8,9 @@ import UIKit
 import SharedUIInterface
 import FeatureSplashInterface
 
-extension SplashScene: Scene {
+public enum SplashScene: Scene {
+    case splash(any SplashViewModel)
+    
     public func instaintiate() -> UIViewController {
         switch self {
         case .splash(let viewModel):
