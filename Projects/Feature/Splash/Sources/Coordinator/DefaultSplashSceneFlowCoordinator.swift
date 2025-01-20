@@ -1,18 +1,14 @@
 //
-//  SplashSceneFlowCoordinator.swift
+//  DefaultSplashSceneFlowCoordinator.swift
 //  FeatureSplash
 //
 //  Created by 박승호 on 1/11/25.
 //
-
+import FeatureSplashInterface
 import SharedUIInterface
 import UIKit
 
-public protocol SplashSceneFlowCoordinatorDependencies {
-    func makeSplashViewModel(actions: SplashViewModel.Actions)-> SplashViewModel
-}
-
-final public class SplashSceneFlowCoordinator: Coordinator {
+public struct DefaultSplashSceneFlowCoordinator: SplashSceneFlowCoordinator {
     public let navigationController: UINavigationController
     private let dependencies: SplashSceneFlowCoordinatorDependencies
     

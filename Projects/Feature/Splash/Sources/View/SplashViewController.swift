@@ -7,8 +7,9 @@
 
 import UIKit
 import SharedUI
+import FeatureSplashInterface
 
-final public class SplashViewController: BaseViewController<SplashViewModel> {
+final public class SplashViewController<VM: SplashViewModel>: BaseViewController<VM> {
     public override func viewDidLoad() {
         super.viewDidLoad()
         

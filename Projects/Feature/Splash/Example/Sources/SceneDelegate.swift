@@ -14,7 +14,7 @@ import CoreNetwork
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     var window: UIWindow?
-    private var diContainer = SplashSceneDIContainer(dependencies: .init(coreDataStorage: DefaultCoreDataStorage.shared, apiDataTransferService: DefaultDataTransferService(service: DefaultNetworkService())))
+    private var diContainer = DefaultSplashSceneDIContainer(dependencies: .init(storage: DefaultCoreDataStorage.shared, apiDataTransferService: DefaultDataTransferService(service: DefaultNetworkService())))
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         // Use this method to optionally configure and attach the UIWindow `window` to the provided UIWindowScene `scene`.
@@ -28,7 +28,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window?.rootViewController = navigationController
         window?.makeKeyAndVisible()
         
-        let coordinator = diContainer.makeSplashSceneFlowCoordinator(navController: navigationController)
+        let coordinator = diContainer.makeSplashSceneFlowCoordinator(navigationController: navigationController)
         coordinator.start()
     }
 

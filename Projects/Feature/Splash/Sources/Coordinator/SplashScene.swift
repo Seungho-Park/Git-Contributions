@@ -6,14 +6,13 @@
 //
 import UIKit
 import SharedUIInterface
+import FeatureSplashInterface
 
-public enum SplashScene: Scene {
-    case splash(SplashViewModel)
-    
+extension SplashScene: @retroactive Scene {
     public func instaintiate() -> UIViewController {
         switch self {
         case .splash(let viewModel):
-            return SplashViewController.create(viewModel: viewModel)
+            return SplashViewController.create(viewModel: viewModel as! DefaultSplashViewModel)
         }
     }
 }

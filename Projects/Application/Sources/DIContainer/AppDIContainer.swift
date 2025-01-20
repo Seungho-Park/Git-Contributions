@@ -16,8 +16,8 @@ final class AppDIContainer {
     lazy var apiDataTransferSerivce: CoreNetworkInterface.DataTransferService = DefaultDataTransferService(service: DefaultNetworkService())
     
     func makeSplashSceneDIContainer()-> SplashSceneDIContainer {
-        return SplashSceneDIContainer(
-            dependencies: .init(coreDataStorage: coreDataStorage, apiDataTransferService: apiDataTransferSerivce)
+        return DefaultSplashSceneDIContainer(
+            dependencies: .init(storage: coreDataStorage, apiDataTransferService: apiDataTransferSerivce)
         )
     }
 }

@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import FeatureSplash
 import SharedUIInterface
 
 final class AppCoordinator: Coordinator {
@@ -19,7 +20,7 @@ final class AppCoordinator: Coordinator {
     
     func start() {
         let diContainer = diContainer.makeSplashSceneDIContainer()
-        let coordinator = diContainer.makeSplashSceneFlowCoordinator(navController: navigationController)
+        let coordinator = diContainer.makeSplashSceneFlowCoordinator(navigationController: navigationController)
         coordinator.start()
     }
 }
