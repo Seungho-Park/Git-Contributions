@@ -16,6 +16,8 @@ public enum Module {
 public extension Module {
     @frozen enum Feature: String {
         case splash = "Splash"
+        case login = "Login"
+        case home = "Home"
     }
 }
 

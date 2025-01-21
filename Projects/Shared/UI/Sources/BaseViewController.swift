@@ -7,8 +7,10 @@
 
 import UIKit
 import SharedUIInterface
+import RxSwift
 
 open class BaseViewController<VM: ViewModel>: UIViewController, ViewModelBinable {
+    internal var disposeBag = DisposeBag()
     public static var isDebug: Bool { return true }
     
     public var viewModel: VM!

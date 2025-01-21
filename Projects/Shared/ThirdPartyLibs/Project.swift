@@ -18,8 +18,7 @@ let project: Project = .makeModule(
             .init(
                 dependencies: [
                     .SPM.RxSwift,
-                    .SPM.RxCocoa,
-                    .SPM.RxRelay
+                    .SPM.RxCocoa
                 ]
             )
         )

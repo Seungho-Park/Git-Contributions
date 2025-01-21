@@ -17,16 +17,19 @@ let project: Project = .makeModule(
             implements: .ui,
             .init(
                 dependencies: [
-                    .shared(interface: .ui),
-                    .SPM.FlexLayout,
-                    .SPM.PinLayout
+                    .shared(interface: .ui)
                 ]
             )
         ),
         .shared(
             interface: .ui,
             .init(
-                
+                dependencies: [
+                    .SPM.FlexLayout,
+                    .SPM.PinLayout,
+                    .SPM.RxSwift,
+                    .SPM.RxCocoa
+                ]
             )
         ),
         .shared(

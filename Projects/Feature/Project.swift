@@ -16,7 +16,9 @@ let project: Project = .makeModule(
             .init(
                 dependencies: [
                     .domain,
-                    .feature(implements: .splash)
+                    .feature(implements: .splash),
+                    .feature(implements: .login),
+                    .feature(implements: .home)
                 ]
             )
         )
