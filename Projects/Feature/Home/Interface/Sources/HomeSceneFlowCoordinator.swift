@@ -6,3 +6,13 @@
 //  Copyright © 2025 Seungho-Park. All rights reserved.
 //
 
+public struct HomeSceneDIContainerDependencies {
+    
+    public init() {
+        
+    }
+}
+
+public protocol HomeSceneDIContainer {
+    var dependencies: HomeSceneDIContainerDependencies { get }
+}

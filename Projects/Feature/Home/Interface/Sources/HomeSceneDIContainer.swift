@@ -6,3 +6,12 @@
 //  Copyright © 2025 Seungho-Park. All rights reserved.
 //
 
+import SharedUIInterface
+
+public protocol HomeSceneFlowCoordinatorDependencies {
+    
+}
+
+public protocol HomeSceneFlowCoordinator: Coordinator {
+    
+}
