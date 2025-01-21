@@ -6,7 +6,7 @@ on:
 
 jobs:
   build:
-    name: Generate Tuist Project
+    name: Build Tuist Project
     runs-on: macos-latest
 
     steps:
@@ -44,5 +44,5 @@ jobs:
         run: |
           mise x -- make generate
       
-      - name: Test CoreNetwork
+      - name: Unit Tests
         run : mise x -- tuist test --platform 'iOS' --device 'iPhone 15 Pro' --no-selective-testing
