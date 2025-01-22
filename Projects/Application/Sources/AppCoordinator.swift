@@ -20,7 +20,7 @@ final class AppCoordinator: Coordinator {
     
     func start() {
         let diContainer = diContainer.makeSplashSceneDIContainer()
-        let coordinator = diContainer.makeSplashSceneFlowCoordinator(navigationController: navigationController)
+        let coordinator = diContainer.makeCoordinator(navigationController: navigationController)
         coordinator.start()
     }
 }

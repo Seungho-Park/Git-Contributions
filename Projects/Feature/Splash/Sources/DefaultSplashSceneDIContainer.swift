@@ -5,12 +5,13 @@
 //  Created by 박승호 on 1/11/25.
 //
 import UIKit
+import SharedUIInterface
 import FeatureSplashInterface
 import CoreNetworkInterface
 import DomainUserInterface
 import DomainUser
 
-public struct DefaultSplashSceneDIContainer: SplashSceneDIContainer {
+public final class DefaultSplashSceneDIContainer: SplashSceneDIContainer, SplashSceneFlowCoordinatorDependencies {
     public let dependencies: SplashSceneDIContainerDependencies
     
     public init(dependencies: SplashSceneDIContainerDependencies) {
@@ -21,7 +22,7 @@ public struct DefaultSplashSceneDIContainer: SplashSceneDIContainer {
         return DefaultSplashViewModel(fetchUserListUsecase: makeFetchUserListUsecase(), actions: actions)
     }
     
-    public func makeSplashSceneFlowCoordinator(navigationController: UINavigationController) -> any SplashSceneFlowCoordinator {
+    public func makeCoordinator(navigationController: UINavigationController) -> any Coordinator {
         return DefaultSplashSceneFlowCoordinator(navigationController: navigationController, dependencies: self)
     }
 }

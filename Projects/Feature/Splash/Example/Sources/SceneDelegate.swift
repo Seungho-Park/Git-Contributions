@@ -28,7 +28,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window?.rootViewController = navigationController
         window?.makeKeyAndVisible()
         
-        let coordinator = diContainer.makeSplashSceneFlowCoordinator(navigationController: navigationController)
+        let coordinator = diContainer.makeCoordinator(navigationController: navigationController)
         coordinator.start()
     }
 

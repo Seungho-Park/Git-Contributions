@@ -6,13 +6,12 @@
 //  Copyright © 2025 Seungho-Park. All rights reserved.
 //
 
-public struct HomeSceneDIContainerDependencies {
+import SharedUIInterface
+
+public protocol HomeSceneFlowCoordinatorDependencies {
     
-    public init() {
-        
-    }
 }
 
-public protocol HomeSceneDIContainer {
-    var dependencies: HomeSceneDIContainerDependencies { get }
+public protocol HomeSceneFlowCoordinator: Coordinator {
+    
 }

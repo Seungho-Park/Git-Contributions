@@ -6,6 +6,7 @@
 //  Copyright © 2025 Seungho-Park. All rights reserved.
 //
 import UIKit
+import SharedUIInterface
 import CoreStorageInterface
 import CoreNetworkInterface
 
@@ -19,8 +20,6 @@ public struct SplashSceneDIContainerDependencies {
     }
 }
 
-public protocol SplashSceneDIContainer: SplashSceneFlowCoordinatorDependencies {
-    var dependencies: SplashSceneDIContainerDependencies { get }
+public protocol SplashSceneDIContainer: DIContainer where Dependencies == SplashSceneDIContainerDependencies {
     
-    func makeSplashSceneFlowCoordinator(navigationController: UINavigationController)-> SplashSceneFlowCoordinator
 }

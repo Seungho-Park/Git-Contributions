@@ -5,13 +5,15 @@
 //  Created by 박승호 on 1/21/25.
 //  Copyright © 2025 Seungho-Park. All rights reserved.
 //
-
 import SharedUIInterface
 
-public protocol HomeSceneFlowCoordinatorDependencies {
+public struct HomeSceneDIContainerDependencies {
     
+    public init() {
+        
+    }
 }
 
-public protocol HomeSceneFlowCoordinator: Coordinator {
+public protocol HomeSceneDIContainer: DIContainer where Dependencies == HomeSceneDIContainerDependencies {
     
 }
