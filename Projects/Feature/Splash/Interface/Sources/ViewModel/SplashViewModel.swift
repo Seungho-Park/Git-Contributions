@@ -10,16 +10,20 @@ import DomainUserInterface
 import SharedThirdPartyLibs
 
 public struct SplashViewModelActions {
+    public let showLoginScene: ()-> Void
+    public let showMainScene: ()-> Void
     
-    public init() {
-        
+    public init(showLoginScene: @escaping ()-> Void, showMainScene: @escaping ()-> Void) {
+        self.showLoginScene = showLoginScene
+        self.showMainScene = showMainScene
     }
 }
 
 public struct SplashViewModelInput {
+    public let viewDidAppear: Observable<Bool>
     
-    public init() {
-        
+    public init(viewDidAppear: Observable<Bool>) {
+        self.viewDidAppear = viewDidAppear
     }
 }
 

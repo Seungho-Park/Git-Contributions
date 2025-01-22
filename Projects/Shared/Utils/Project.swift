@@ -12,12 +12,12 @@ import ModulePlugin
 let project: Project = .makeModule(
     name: "Shared\(Module.Shared.utils.rawValue)",
     targets: [
-        .shared(interface: .utils, .init()),
+//        .shared(interface: .utils, .init()),
         .shared(
             implements: .utils,
             .init(
                 dependencies: [
-                    .shared(interface: .utils)
+//                    .shared(interface: .utils)
                 ]
             )
         ),

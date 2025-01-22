@@ -18,12 +18,20 @@ public final class DefaultSplashSceneDIContainer: SplashSceneDIContainer, Splash
         self.dependencies = dependencies
     }
     
+    public func makeCoordinator(navigationController: UINavigationController) -> some SplashSceneFlowCoordinator {
+        return DefaultSplashSceneFlowCoordinator(navigationController: navigationController, dependencies: self)
+    }
+    
     public func makeSplashViewModel(actions: SplashViewModelActions) -> any SplashViewModel {
         return DefaultSplashViewModel(fetchUserListUsecase: makeFetchUserListUsecase(), actions: actions)
     }
     
-    public func makeCoordinator(navigationController: UINavigationController) -> any Coordinator {
-        return DefaultSplashSceneFlowCoordinator(navigationController: navigationController, dependencies: self)
+    public func makeHomeSceneDIContainer() -> any DIContainer {
+        return dependencies.homeSceneDIContainer()
+    }
+    
+    public func makeLoginSceneDIContainer() -> any DIContainer {
+        return dependencies.loginSceneDIContainer()
     }
 }
 

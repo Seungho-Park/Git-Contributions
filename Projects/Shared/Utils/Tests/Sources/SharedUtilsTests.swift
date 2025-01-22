@@ -7,7 +7,7 @@
 //
 
 import XCTest
-import SharedUtilsInterface
+import SharedUtils
 
 final class SharedUtilsTests: XCTestCase {
     func test_WhenDictionaryToUrlParameters_ShouldReturnCorrectParameterString() {

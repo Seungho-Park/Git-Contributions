@@ -17,5 +17,11 @@ final public class SplashViewController<VM: SplashViewModel>: BaseViewController
     
     public override func bind() {
         super.bind()
+        
+        _ = viewModel.transform(
+            input: .init(
+                viewDidAppear: rx.viewDidAppear.asObservable()
+            )
+        )
     }
 }

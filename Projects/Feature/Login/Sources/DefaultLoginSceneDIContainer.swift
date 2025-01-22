@@ -16,7 +16,7 @@ public final class DefaultLoginSceneDIContainer: LoginSceneDIContainer, LoginSce
         self.dependencies = dependencies
     }
     
-    public func makeCoordinator(navigationController: UINavigationController) -> any Coordinator {
+    public func makeCoordinator(navigationController: UINavigationController) -> some LoginSceneFlowCoordinator {
         return DefaultLoginSceneFlowCoordinator(navigationController: navigationController, dependencies: self)
     }
 }

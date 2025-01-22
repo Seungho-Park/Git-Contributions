@@ -14,7 +14,7 @@ import CoreNetwork
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     var window: UIWindow?
-    private var diContainer = DefaultSplashSceneDIContainer(dependencies: .init(storage: DefaultCoreDataStorage.shared, apiDataTransferService: DefaultDataTransferService(service: DefaultNetworkService())))
+    private var diContainer = DefaultSplashSceneDIContainer(dependencies: .init(storage: DefaultCoreDataStorage.shared, apiDataTransferService: DefaultDataTransferService(service: DefaultNetworkService()), loginSceneDIContainer: { return MockLoginSceneDIContainer(dependencies: .init()) }, homeSceneDIContainer: { return MockHomeSceneDIContainer(dependencies: .init()) }))
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         // Use this method to optionally configure and attach the UIWindow `window` to the provided UIWindowScene `scene`.

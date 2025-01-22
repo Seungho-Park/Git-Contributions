@@ -9,9 +9,13 @@ import UIKit
 import SharedUIInterface
 
 public protocol SplashSceneFlowCoordinatorDependencies {
+    func makeLoginSceneDIContainer()-> any DIContainer
+    func makeHomeSceneDIContainer()-> any DIContainer
+    
     func makeSplashViewModel(actions: SplashViewModelActions)-> any SplashViewModel
 }
 
 public protocol SplashSceneFlowCoordinator: Coordinator {
-    
+    func showLoginScene()
+    func showMainScene()
 }

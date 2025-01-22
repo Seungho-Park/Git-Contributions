@@ -18,6 +18,26 @@ public struct DefaultSplashSceneFlowCoordinator: SplashSceneFlowCoordinator {
     }
     
     public func start() {
-        transition(scene: SplashScene.splash(dependencies.makeSplashViewModel(actions: .init())), style: .root)
+        transition(
+            scene: SplashScene.splash(
+                dependencies.makeSplashViewModel(
+                    actions: .init(
+                        showLoginScene: showLoginScene,
+                        showMainScene: showMainScene
+                    )
+                )
+            ),
+            style: .root
+        )
+    }
+    
+    public func showLoginScene() {
+        let diContainer = dependencies.makeLoginSceneDIContainer()
+        let coordinator = diContainer.makeCoordinator(navigationController: navigationController)
+        coordinator.start()
+    }
+    
+    public func showMainScene() {
+        print("Show Main")
     }
 }

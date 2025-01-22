@@ -14,9 +14,19 @@ public struct SplashSceneDIContainerDependencies {
     public let storage: CoreDataStorage
     public let apiDataTransferService: DataTransferService
     
-    public init(storage: CoreDataStorage, apiDataTransferService: DataTransferService) {
+    public let loginSceneDIContainer: ()-> any DIContainer
+    public let homeSceneDIContainer: ()-> any DIContainer
+    
+    public init(
+        storage: CoreDataStorage,
+        apiDataTransferService: DataTransferService,
+        loginSceneDIContainer: @escaping ()-> any DIContainer,
+        homeSceneDIContainer: @escaping ()-> any DIContainer
+    ) {
         self.storage = storage
         self.apiDataTransferService = apiDataTransferService
+        self.loginSceneDIContainer = loginSceneDIContainer
+        self.homeSceneDIContainer = homeSceneDIContainer
     }
 }
 

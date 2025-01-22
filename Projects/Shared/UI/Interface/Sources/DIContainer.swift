@@ -9,7 +9,9 @@ import UIKit
 
 public protocol DIContainer {
     associatedtype Dependencies
+    associatedtype CoordinatorType: Coordinator
+    
     var dependencies: Dependencies { get }
     
-    func makeCoordinator(navigationController: UINavigationController)-> Coordinator
+    func makeCoordinator(navigationController: UINavigationController)-> CoordinatorType
 }

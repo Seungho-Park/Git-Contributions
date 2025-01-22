@@ -6,7 +6,7 @@
 //  Copyright © 2025 Seungho-Park. All rights reserved.
 //
 import Foundation
-import SharedUtilsInterface
+import SharedUtils
 
 public protocol Requestable {
     var path: String { get }

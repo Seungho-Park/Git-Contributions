@@ -16,7 +16,7 @@ public final class DefaultHomeSceneDIContainer: HomeSceneDIContainer, HomeSceneF
         self.dependencies = dependencies
     }
     
-    public func makeCoordinator(navigationController: UINavigationController) -> any Coordinator {
+    public func makeCoordinator(navigationController: UINavigationController) -> some HomeSceneFlowCoordinator {
         return DefaultHomeSceneFlowCoordinator(navigationController: navigationController, dependencies: self)
     }
 }
