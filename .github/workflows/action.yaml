@@ -5,7 +5,7 @@ on:
     branches: [feature/*]
 
 jobs:
-  Domain Tests:
+  Domain-Tests:
     name: Test Domain Layer
     runs-on: macos-latest
 
@@ -38,7 +38,7 @@ jobs:
       - name: Tests Domain User
         run : mise x -- tuist test DomainUser --platform 'iOS' --device 'iPhone 15 Pro' --no-selective-testing
 
-  Core Tests:
+  Core-Tests:
     name: Test Core Layer
     runs-on: macos-latest
 
@@ -74,7 +74,7 @@ jobs:
       - name: Tests Core Storage
         run : mise x -- tuist test CoreStorage --platform 'iOS' --device 'iPhone 15 Pro' --no-selective-testing
 
-  Shared Tests:
+  Shared-Tests:
     name: Test Shared Layer
     runs-on: macos-latest
 
