@@ -50,7 +50,9 @@ public extension ProjectDescription.Target {
             entitlements: ProjectDescription.Entitlements? = nil,
             scripts: [ProjectDescription.TargetScript] = [],
             dependencies: [ProjectDescription.TargetDependency] = [],
-            settings: ProjectDescription.Settings? = nil,
+            settings: ProjectDescription.Settings? = .settings(base: ["OTHER_LDFLAGS": [
+                "$(inherited) -ObjC"
+            ]]),
             coreDataModels: [ProjectDescription.CoreDataModel] = [],
             environmentVariables: [String : ProjectDescription.EnvironmentVariable] = [:],
             launchArguments: [ProjectDescription.LaunchArgument] = [],
@@ -167,9 +169,6 @@ public extension ProjectDescription.Target {
         target.infoPlist = .example
         target.sources = .example
         target.product = .app
-        target.settings = .settings(base: ["OTHER_LDFLAGS": [
-            "$(inherited) -ObjC"
-        ]])
         return .makeTarget(target)
     }
 }
