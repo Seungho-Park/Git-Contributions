@@ -20,6 +20,6 @@ public final class DefaultLoginSceneFlowCoordinator: LoginSceneFlowCoordinator {
     }
     
     public func start() {
-        print("Start Login Scene Flow Coordinator")
+        transition(scene: LoginScene.login(dependencies.makeLoginViewModel(actions: .init())), style: .root)
     }
 }

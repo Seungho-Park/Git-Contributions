@@ -22,7 +22,11 @@ final public class SplashViewController<VM: SplashViewModel>: BaseViewController
     public override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.navigationController?.navigationBar.isHidden = true
+    }
+    
+    public override func configure() {
+        super.configure()
+        
         containerView
             .flex
             .define { flex in

@@ -16,6 +16,7 @@ let project: Project = .makeModule(
         .shared(
             implements: .ui,
             .init(
+                resources: ["Resources/**"],
                 dependencies: [
                     .shared(interface: .ui)
                 ]

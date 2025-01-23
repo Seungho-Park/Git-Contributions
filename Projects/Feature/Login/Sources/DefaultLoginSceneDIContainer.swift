@@ -19,4 +19,8 @@ public final class DefaultLoginSceneDIContainer: LoginSceneDIContainer, LoginSce
     public func makeCoordinator(navigationController: UINavigationController) -> some LoginSceneFlowCoordinator {
         return DefaultLoginSceneFlowCoordinator(navigationController: navigationController, dependencies: self)
     }
+    
+    public func makeLoginViewModel(actions: LoginViewModelActions) -> any LoginViewModel {
+        return DefaultLoginViewModel(actions: actions)
+    }
 }

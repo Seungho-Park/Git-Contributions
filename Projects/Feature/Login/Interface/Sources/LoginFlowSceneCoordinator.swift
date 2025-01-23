@@ -9,7 +9,7 @@
 import SharedUIInterface
 
 public protocol LoginSceneFlowCoordinatorDependencies {
-    
+    func makeLoginViewModel(actions: LoginViewModelActions)-> any LoginViewModel
 }
 
 public protocol LoginSceneFlowCoordinator: Coordinator {

@@ -15,7 +15,7 @@ open class BaseViewController<VM: ViewModel>: UIViewController, ViewModelBinable
     internal var disposeBag = DisposeBag()
     public let containerView = {
         let view = UIView(frame: .zero)
-        view.backgroundColor = UIColor(red: 1, green: 1, blue: 1, alpha: 1)
+        view.backgroundColor = .clear
         return view
     }()
     public static var isDebug: Bool { return true }
@@ -33,6 +33,7 @@ open class BaseViewController<VM: ViewModel>: UIViewController, ViewModelBinable
         }
         #endif
         
+        configure()
         bind()
     }
     
@@ -77,6 +78,14 @@ open class BaseViewController<VM: ViewModel>: UIViewController, ViewModelBinable
     }
     
     open func bind() {
+        #if DEBUG
+        if Self.isDebug {
+            print("\(Self.self): \(#function)")
+        }
+        #endif
+    }
+    
+    open func configure() {
         #if DEBUG
         if Self.isDebug {
             print("\(Self.self): \(#function)")

@@ -27,7 +27,10 @@ let project: Project = .makeModule(
         .application(
             .init(
                 infoPlist: .file(path: .relativeToCurrentFile("Resources/Info.plist")),
-                resources: ["Resources/LaunchScreen.storyboard"],
+                resources: [
+                    "Resources/LaunchScreen.storyboard",
+                    "Resources/Assets.xcassets"
+                ],
                 dependencies: [
                     .feature
                 ]
