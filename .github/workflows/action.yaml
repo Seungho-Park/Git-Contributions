@@ -5,20 +5,44 @@ on:
     branches: [feature/*]
 
 jobs:
-  build:
-    name: Build Tuist Project
+  Domain Tests:
+    name: Test Domain Layer
     runs-on: macos-latest
 
     steps:
-      #- name: Echo OS Version
-      #  run: sw_vers
+      # Select Xcode 15.4
+      - name: Select Xcode 15.4
+        run: sudo xcode-select -s /Applications/Xcode_15.4.app/Contents/Developer
 
-      #- name: List iOS Device
-      #  run: xcrun simctl list devices
+      # Repository Checkout.
+      - name: Checkout Repository
+        uses: actions/checkout@v4
 
-      #- name: List Xcode Installations
-      #  run: sudo ls -1 /Applications | grep "Xcode"
+      # Install Mise
+      - name: Install Mise.
+        run: |
+          curl https://mise.run | sh
+          mise install
 
+      - name: Install Tuist.
+        run: |
+          mise install tuist
+
+      - name: Check Tuist Version
+        run: mise x -- tuist version
+      
+      - name: Generate Tuist Project
+        run: |
+          mise x -- make generate
+
+      - name: Tests Domain User
+        run : mise x -- tuist test DomainUser --platform 'iOS' --device 'iPhone 15 Pro' --no-selective-testing
+
+  Core Tests:
+    name: Test Core Layer
+    runs-on: macos-latest
+
+    steps:
       # Select Xcode 15.4
       - name: Select Xcode 15.4
         run: sudo xcode-select -s /Applications/Xcode_15.4.app/Contents/Developer
@@ -44,5 +68,54 @@ jobs:
         run: |
           mise x -- make generate
       
-      - name: Unit Tests
-        run : mise x -- tuist test --platform 'iOS' --device 'iPhone 15 Pro' --no-selective-testing
+      - name: Tests Core Network
+        run : mise x -- tuist test CoreNetwork --platform 'iOS' --device 'iPhone 15 Pro' --no-selective-testing
+
+      - name: Tests Core Storage
+        run : mise x -- tuist test CoreStorage --platform 'iOS' --device 'iPhone 15 Pro' --no-selective-testing
+
+  Shared Tests:
+    name: Test Shared Layer
+    runs-on: macos-latest
+
+    steps:
+      # Select Xcode 15.4
+      - name: Select Xcode 15.4
+        run: sudo xcode-select -s /Applications/Xcode_15.4.app/Contents/Developer
+
+      # Repository Checkout.
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      # Install Mise
+      - name: Install Mise.
+        run: |
+          curl https://mise.run | sh
+          mise install
+
+      - name: Install Tuist.
+        run: |
+          mise install tuist
+
+      - name: Check Tuist Version
+        run: mise x -- tuist version
+      
+      - name: Generate Tuist Project
+        run: |
+          mise x -- make generate
+
+      - name: Tests Shared UI
+        run : mise x -- tuist test SharedUITests --platform 'iOS' --device 'iPhone 15 Pro' --no-selective-testing
+      
+      - name: Tests Shared Utils
+        run : mise x -- tuist test SharedUtils --platform 'iOS' --device 'iPhone 15 Pro' --no-selective-testing
+
+
+#- name: Echo OS Version
+#  run: sw_vers
+
+#- name: List iOS Device
+#  run: xcrun simctl list devices
+
+#- name: List Xcode Installations
+#  run: sudo ls -1 /Applications | grep "Xcode"
