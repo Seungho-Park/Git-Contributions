@@ -24,6 +24,7 @@ open class BaseViewController<VM: ViewModel>: UIViewController, ViewModelBinable
     
     open override func viewDidLoad() {
         super.viewDidLoad()
+        self.view.backgroundColor = UIColor(red: 1, green: 1, blue: 1, alpha: 1)
         self.view.addSubview(containerView)
         
         #if DEBUG
@@ -86,7 +87,7 @@ open class BaseViewController<VM: ViewModel>: UIViewController, ViewModelBinable
     open override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         
-        containerView.pin.all()
+        containerView.pin.all(self.view.pin.safeArea)
         containerView.flex.layout(mode: .fitContainer)
     }
     

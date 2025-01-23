@@ -13,7 +13,7 @@ final public class SplashViewController<VM: SplashViewModel>: BaseViewController
     private lazy var titleLabel: UILabel = {
         let label = UILabel(frame: .zero)
         label.numberOfLines = 1
-        label.font = .systemFont(ofSize: 32, weight: .bold)
+        label.font = .systemFont(ofSize: 36, weight: .bold)
         label.text = "Git Contributions"
         label.textColor = UIColor(red: 0, green: 0, blue: 0, alpha: 1)
         return label
@@ -22,6 +22,7 @@ final public class SplashViewController<VM: SplashViewModel>: BaseViewController
     public override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.navigationController?.navigationBar.isHidden = true
         containerView
             .flex
             .define { flex in
@@ -44,5 +45,12 @@ final public class SplashViewController<VM: SplashViewModel>: BaseViewController
                 viewDidAppear: rx.viewDidAppear.asObservable()
             )
         )
+    }
+    
+    public override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        
+        containerView.pin.all()
+        containerView.flex.layout()
     }
 }
