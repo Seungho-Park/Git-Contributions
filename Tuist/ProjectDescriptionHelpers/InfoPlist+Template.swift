@@ -19,6 +19,8 @@ public extension ProjectDescription.InfoPlist {
                 "CFBundleShortVersionString": "1.0",
                 "CFBundleVersion": "1",
                 "CFBundleExecutable": "$(EXECUTABLE_NAME)",
+                "CFBundlePackageType": "$(PRODUCT_BUNDLE_PACKAGE_TYPE)",
+                "UILaunchStoryboardName": "LaunchScreen",
                 "UIApplicationSceneManifest": [
                     "UIApplicationSupportsMultipleScenes": false,
                     "UISceneConfigurations": [

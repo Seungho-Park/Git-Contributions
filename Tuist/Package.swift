@@ -5,7 +5,9 @@
     import struct ProjectDescription.PackageSettings
 
     let packageSettings = PackageSettings(
-        productTypes: ["RxSwift": .staticFramework]
+        productTypes: [
+            "RxSwift": .staticFramework
+        ]
     )
 #endif
 

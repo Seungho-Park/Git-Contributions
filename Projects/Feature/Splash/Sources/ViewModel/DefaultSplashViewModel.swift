@@ -25,6 +25,7 @@ public class DefaultSplashViewModel: SplashViewModel {
                 owner.fetchUserList()
             }
             .map { $0.isEmpty }
+            .observe(on: MainScheduler.asyncInstance)
             .share()
         
         needLogin

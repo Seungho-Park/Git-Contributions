@@ -8,15 +8,23 @@
 import UIKit
 import SharedUIInterface
 import RxSwift
+import PinLayout
+import FlexLayout
 
 open class BaseViewController<VM: ViewModel>: UIViewController, ViewModelBinable {
     internal var disposeBag = DisposeBag()
+    public let containerView = {
+        let view = UIView(frame: .zero)
+        view.backgroundColor = UIColor(red: 1, green: 1, blue: 1, alpha: 1)
+        return view
+    }()
     public static var isDebug: Bool { return true }
     
     public var viewModel: VM!
     
     open override func viewDidLoad() {
         super.viewDidLoad()
+        self.view.addSubview(containerView)
         
         #if DEBUG
         if Self.isDebug {
@@ -73,7 +81,13 @@ open class BaseViewController<VM: ViewModel>: UIViewController, ViewModelBinable
             print("\(Self.self): \(#function)")
         }
         #endif
+    }
+    
+    open override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
         
+        containerView.pin.all()
+        containerView.flex.layout(mode: .fitContainer)
     }
     
     deinit {

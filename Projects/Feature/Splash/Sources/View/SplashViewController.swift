@@ -10,9 +10,30 @@ import SharedUI
 import FeatureSplashInterface
 
 final public class SplashViewController<VM: SplashViewModel>: BaseViewController<VM> {
+    private lazy var titleLabel: UILabel = {
+        let label = UILabel(frame: .zero)
+        label.numberOfLines = 1
+        label.font = .systemFont(ofSize: 32, weight: .bold)
+        label.text = "Git Contributions"
+        label.textColor = UIColor(red: 0, green: 0, blue: 0, alpha: 1)
+        return label
+    }()
+    
     public override func viewDidLoad() {
         super.viewDidLoad()
         
+        containerView
+            .flex
+            .define { flex in
+                flex
+                    .addItem()
+                    .alignItems(.center)
+                    .justifyContent(.end)
+                    .define { flex in
+                        flex.addItem(titleLabel)
+                    }
+                    .grow(1/3)
+            }
     }
     
     public override func bind() {

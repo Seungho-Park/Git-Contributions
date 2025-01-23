@@ -16,6 +16,8 @@ final class MockHomeSceneCoordinator: Coordinator {
     }
     
     func start() {
-        
+        let alertController = UIAlertController(title: "알림", message: "HomeScene입니다.", preferredStyle: .alert)
+        alertController.addAction(.init(title: "확인", style: .default))
+        (navigationController.topViewController ?? navigationController).present(alertController, animated: true)
     }
 }

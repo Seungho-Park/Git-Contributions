@@ -167,6 +167,9 @@ public extension ProjectDescription.Target {
         target.infoPlist = .example
         target.sources = .example
         target.product = .app
+        target.settings = .settings(base: ["OTHER_LDFLAGS": [
+            "$(inherited) -ObjC"
+        ]])
         return .makeTarget(target)
     }
 }
