@@ -38,6 +38,8 @@ public struct DefaultSplashSceneFlowCoordinator: SplashSceneFlowCoordinator {
     }
     
     public func showMainScene() {
-        print("Show Main")
+        print("Show Main Scene !")
+//        let tabBar = GCTabBarController.create(viewModel: DefaultGCTabBarViewModel(actions: .init()))
+//        navigationController.viewControllers = [tabBar]
     }
 }
