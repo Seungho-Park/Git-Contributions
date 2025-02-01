@@ -7,10 +7,11 @@
 //
 import UIKit
 import SharedUIInterface
+import FeatureHomeInterface
 
 public protocol SplashSceneFlowCoordinatorDependencies {
     func makeLoginSceneDIContainer()-> any DIContainer
-    func makeHomeSceneDIContainer()-> any DIContainer
+    func makeHomeSceneDIContainer()-> any HomeSceneDIContainer
     
     func makeSplashViewModel(actions: SplashViewModelActions)-> any SplashViewModel
 }

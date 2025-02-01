@@ -7,6 +7,7 @@
 //
 import UIKit
 import SharedUIInterface
+import FeatureHomeInterface
 import CoreStorageInterface
 import CoreNetworkInterface
 
@@ -21,7 +22,7 @@ public struct SplashSceneDIContainerDependencies {
         storage: CoreDataStorage,
         apiDataTransferService: DataTransferService,
         loginSceneDIContainer: @escaping ()-> any DIContainer,
-        homeSceneDIContainer: @escaping ()-> any DIContainer
+        homeSceneDIContainer: @escaping ()-> any HomeSceneDIContainer
     ) {
         self.storage = storage
         self.apiDataTransferService = apiDataTransferService

@@ -7,6 +7,7 @@
 import UIKit
 import SharedUIInterface
 import FeatureSplashInterface
+import FeatureHomeInterface
 import CoreNetworkInterface
 import DomainUserInterface
 import DomainUser
@@ -26,7 +27,7 @@ public final class DefaultSplashSceneDIContainer: SplashSceneDIContainer, Splash
         return DefaultSplashViewModel(fetchUserListUsecase: makeFetchUserListUsecase(), actions: actions)
     }
     
-    public func makeHomeSceneDIContainer() -> any DIContainer {
+    public func makeHomeSceneDIContainer() -> any HomeSceneDIContainer {
         return dependencies.homeSceneDIContainer()
     }
     

@@ -36,7 +36,7 @@ final class AppDIContainer {
         return DefaultLoginSceneDIContainer(dependencies: .init())
     }
     
-    func makeHomeSceneDIContainer()-> any DIContainer {
+    func makeHomeSceneDIContainer()-> any HomeSceneDIContainer {
         return DefaultHomeSceneDIContainer(dependencies: .init())
     }
 }
