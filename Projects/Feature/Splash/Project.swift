@@ -49,7 +49,8 @@ let project: Project = .makeModule(
             interface: .splash,
             .init(
                 dependencies: [
-                    .domain
+                    .domain,
+                    .feature(interface: .home)
                 ]
             )
         )
