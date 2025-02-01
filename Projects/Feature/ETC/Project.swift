@@ -2,56 +2,53 @@
 //  Project.swift
 //  Manifests
 //
-//  Created by 박승호 on 1/9/25.
+//  Created by 박승호 on 2/2/25.
 //
-
 import ProjectDescription
 import ProjectDescriptionHelpers
 import ModulePlugin
 
-let project: Project = .makeModule(
-    name: "Feature\(Module.Feature.splash.rawValue)",
+let project = Project.makeModule(
+    name: "Feature\(Module.Feature.etc.rawValue)",
     targets: [
         .feature(
-            example: .splash,
+            interface: .etc,
             .init(
                 dependencies: [
-                    .feature(implements: .splash)
+                    .domain
                 ]
             )
         ),
         .feature(
-            tests: .splash,
+            implements: .etc,
             .init(
                 dependencies: [
-                    .feature(implements: .splash),
-                    .feature(testing: .splash)
-                ]
-            )
-        ),
-        .feature(
-            implements: .splash,
-            .init(
-                dependencies: [
-                    .feature(interface: .splash)
-                ]
-            )
-        ),
-        .feature(
-            testing: .splash,
-            .init(
-                dependencies: [
-                    .feature(interface: .splash)
-                ]
-            )
-        ),
-        .feature(
-            interface: .splash,
-            .init(
-                dependencies: [
-                    .domain,
-                    .feature(interface: .home),
                     .feature(interface: .etc)
+                ]
+            )
+        ),
+        .feature(
+            example: .etc,
+            .init(
+                dependencies: [
+                    .feature(implements: .etc)
+                ]
+            )
+        ),
+        .feature(
+            testing: .etc,
+            .init(
+                dependencies: [
+                    .feature(interface: .etc)
+                ]
+            )
+        ),
+        .feature(
+            tests: .etc,
+            .init(
+                dependencies: [
+                    .feature(implements: .etc),
+                    .feature(testing: .etc)
                 ]
             )
         )

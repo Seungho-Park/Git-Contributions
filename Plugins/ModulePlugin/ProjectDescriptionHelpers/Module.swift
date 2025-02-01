@@ -18,6 +18,7 @@ public extension Module {
         case splash = "Splash"
         case login = "Login"
         case home = "Home"
+        case etc = "ETC"
     }
 }
 
