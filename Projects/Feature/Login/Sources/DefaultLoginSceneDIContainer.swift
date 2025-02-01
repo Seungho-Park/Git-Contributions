@@ -23,4 +23,8 @@ public final class DefaultLoginSceneDIContainer: LoginSceneDIContainer, LoginSce
     public func makeLoginViewModel(actions: LoginViewModelActions) -> any LoginViewModel {
         return DefaultLoginViewModel(actions: actions)
     }
+    
+    public func makePlatformViewModel(actions: PlatformViewModelActions) -> any PlatformViewModel {
+        return DefaultPlatformViewModel(actions: actions)
+    }
 }

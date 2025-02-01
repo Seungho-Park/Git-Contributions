@@ -10,9 +10,12 @@ import SharedUIInterface
 import RxSwift
 
 public struct LoginViewModelActions {
+    public let showSelectPlatform: ()-> Void
     
-    public init() {
-        
+    public init(
+        showSelectPlatform: @escaping ()-> Void
+    ) {
+        self.showSelectPlatform = showSelectPlatform
     }
     
 }

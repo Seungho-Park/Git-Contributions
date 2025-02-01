@@ -96,6 +96,12 @@ open class BaseViewController<VM: ViewModel>: UIViewController, ViewModelBinable
     open override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         
+        #if DEBUG
+        if Self.isDebug {
+            print("\(Self.self): \(#function)")
+        }
+        #endif
+        
         containerView.pin.all(self.view.pin.safeArea)
         containerView.flex.layout(mode: .fitContainer)
     }

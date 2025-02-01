@@ -18,9 +18,9 @@ public final class DefaultLoginViewModel: LoginViewModel {
     
     public func transform(input: LoginViewModelInput) -> LoginViewModelOutput {
         input.tapStartButton
-            .subscribe { _ in
-                print("TapStart..")
-            }.disposed(by: disposeBag)
+            .bind(onNext: actions.showSelectPlatform)
+            .disposed(by: disposeBag)
+        
         return .init()
     }
 }

@@ -20,6 +20,19 @@ public final class DefaultLoginSceneFlowCoordinator: LoginSceneFlowCoordinator {
     }
     
     public func start() {
-        transition(scene: LoginScene.login(dependencies.makeLoginViewModel(actions: .init())), style: .root)
+        transition(
+            scene: LoginScene.login(
+                dependencies.makeLoginViewModel(
+                    actions: .init(
+                        showSelectPlatform: showSelectPlatform
+                    )
+                )
+            ),
+            style: .root
+        )
+    }
+    
+    public func showSelectPlatform() {
+        transition(scene: LoginScene.platform(dependencies.makePlatformViewModel(actions: .init())), style: .modal, animated: false)
     }
 }
